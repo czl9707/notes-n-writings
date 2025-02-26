@@ -15,8 +15,22 @@ The nature of concurrency in modern software systems allow different things to h
 
 ## When it comes to pytest
 
+```python
+def test_my_system():
+    send_event_to_my_system()
+    
+    for i in range(10):
+        if verify_my_system_behavior():
+            return
+        else:
+            sleep(1)
+    raise Exception("my system did not behave as expected")
+```
+A very short test case, but should get spirit a lot of system tests. Send an event, and verify once every few seconds, and have a timeout.
+
+
 ### pytest-asyncio
-[pytest-asyncio](https://github.com/pytest-dev/pytest-asyncio) is bridging the gap of async and pytest, making async function test-able.
+[pytest-asyncio](https://github.com/pytest-dev/pytest-asyncio) is bridging the gap of async and pytest, making async function test-able. The tests
 
 One of my previous confusion is why a parametrized async test still run sequentially?
 
