@@ -41,6 +41,9 @@ def test_my_system():
             sleep(1)
     raise Exception("my system did not behave as expected")
 ```
+``` shell
+```
+
 A very short test case, but should  get spirit a lot of system tests. Send an event, and verify once every few seconds, and have a timeout. 
 
 Life is good so far. Let's parametrize this a bit to cover more use case.
@@ -57,24 +60,127 @@ def test_my_system(param):
             sleep(1)
     raise Exception("my system did not behave as expected")
 ```
+``` shell
+```
 
-My tests still passing. But it started to become a pain to develop, debug and run these tests. The tests take minutes to finish everytime.
+My tests still passing. But it started to become a pain to develop, debug and run these tests. The tests take minutes to finish everytime. As more and more tests got added, thing become worth.
 
-## Any Solutions?
+### pytest-xdist
+[pytest-xdist](https://github.com/pytest-dev/pytest-xdist) is a general way of bringing concurrency into pytest framework, by executing tests on multiple CPUs.
+
+``` shell
+python -m pytest -n auto
+
+```
+
+The `-n` cli parameter specify the number of processes to execute tests. With `-n auto`, pytest-xdist will spin same number of processes as physical CPU cores.
+
+This solution works great. As the test cases keep growing, the total number of tests become much larger than number of CPU cores. In order to maintain a short test execution time, instead of giving parameter `-n auto`, I changed to `-n ##` and kept increasing the number. 
+
+Thing going well until our fragile dev server crashed due to too many workers got spinned up. Come on! it's just some simple system tests, why spinning up dozons of processes?
+
+If we look at our simple test case, it spends most of the time in `sleep(1)`, which hung the whole processes and do nothing, and we have dozens of them!
+
+
+### async & await
+Lets use `async` then. So that we can have all stuff share the same process.
+
+```python
+@pytest.mark.parametrize("param", [...])
+async def test_my_system(param):
+    send_event_to_my_system(param)
+
+    for i in range(10):
+        if verify_my_system_behavior(param):
+            return
+        else:
+            await asyncio.sleep(1)
+    raise Exception("my system did not behave as expected")
+```
+``` shell
+```
+
+Although `async` has been around in python since 3.4, `pytest` do not support async test case out of box.
 
 ### pytest-asyncio
-[pytest-asyncio](https://github.com/pytest-dev/pytest-asyncio) is bridging the gap of async and pytest, making async function test-able. The tests
+[pytest-asyncio](https://github.com/pytest-dev/pytest-asyncio) is bridging the gap of async and pytest, making async function test-able.
 
-One of my previous confusion is why a parametrized async test still run sequentially?
+```python
+@pytest.mark.asyncio
+@pytest.mark.parametrize("param", [...])
+async def test_my_system(param):
+    send_event_to_my_system(param)
+
+    for i in range(10):
+        if verify_my_system_behavior(param):
+            return
+        else:
+            await asyncio.sleep(1)
+    raise Exception("my system did not behave as expected")
+```
+``` shell
+```
+
+Without reading documentation of `pytest-asyncio` carefully, the tests took minutes again, my async tests still run as they are synchronous tests. We got sent back to the beginning. 
+
+It turns out `pytest-asyncio` wraps all async test function as synchronous, and send them to pytest as if they are normal function.
+
+Although `pytest-asyncio` do not allow tests to be run concurrently, it do open some opportunity to bring concurrency inside the scope of single test.
+
+
+```python
+@pytest.mark.asyncio
+async def test_my_system():
+    async def test_my_system_single(param):
+        try:
+            send_event_to_my_system(param)
+        
+            for i in range(10):
+                if verify_my_system_behavior(param):
+                    return
+                else:
+                    await asyncio.sleep(1)
+            raise Exception("my system did not behave as expected")
+        except:
+            logger.error(f"test case test_my_system_single{param} fail")
+
+    tasks = [test_my_system_single(param) for param in [...]]
+    await asyncio.gather(*tasks)
+```
+**verify this please**
+
+
+We are able to put different test cases into one test and executed them in a single loop. But the downside is obvious and huge, all the error handling, dependency management are on us, and we lose the ability to view different test cases in report. We pretty much lose the benefit of using a test framword :(.
 
 ### pytest-asyncio + pytest-subtests
 
+What we did is basically creating a bunch of subtests with in one test case, and luckily we have [pytest-subtests](https://github.com/pytest-dev/pytest-subtests) to help us manage them in a more structured way.
 
-### pytest-xdist
-[pytest-xdist](https://github.com/pytest-dev/pytest-xdist) is a more general way of bringing concurrency into pytest framework.
+```python
+@pytest.mark.asyncio
+async def test_my_system(subtests):
+    async def test_my_system_single(param):
+        with subtests.test(msg=f'test_my_system[{param}]'):
+            send_event_to_my_system(param)
+        
+            for i in range(10):
+                if verify_my_system_behavior(param):
+                    return
+                else:
+                    await asyncio.sleep(1)
 
-Having some problem in grouping test cases up, but kinda hard to manage tests resources.
+    tasks = [test_my_system_single(param) for param in [...]]
+    await asyncio.gather(*tasks)
+```
+``` shell
+```
+
+This is becoming solid. Tests are running concurrently utilizing same process, and we are not losing too much of the benefits from framework. But there is still some boil template required for each parent test.
 
 ### pytest-asyncio-concurrent
-[pytest-asyncio-concurrent](https://github.com/czl9707/pytest-asyncio-concurrent) is a library I built to bridging the gap. Which might not be a perfect solution.
+[pytest-asyncio-concurrent](https://github.com/czl9707/pytest-asyncio-concurrent) is a library I built to bridging the gap, which evolved from the solution mentioned above.
+
+
+
+Which might not be a perfect solution.
 
