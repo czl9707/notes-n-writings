@@ -38,13 +38,20 @@ def test_my_system():
         if verify_my_system_behavior():
             return
         else:
-            sleep(1)
+            time.sleep(1)
     raise Exception("my system did not behave as expected")
 ```
 ``` shell
+========================= test session starts =========================
+platform linux -- Python 3.12.5, pytest-8.3.4, pluggy-1.5.0
+collected 1 item
+
+tests/my_test.py::test_my_system PASSED                         [100%]
+
+========================== 1 passed in 5.01s ==========================
 ```
 
-A very short test case, but should  get spirit a lot of system tests. Send an event, and verify once every few seconds, and have a timeout. 
+A very short test case, but should  get spirit a lot of system tests. Send an event, and verify once every few seconds, and have a timeout. The example testcase take at most 10 seconds to finish, but in real world, this can be really long.
 
 Life is good so far. Let's parametrize this a bit to cover more use case.
 
@@ -57,10 +64,21 @@ def test_my_system(param):
         if verify_my_system_behavior(param):
             return
         else:
-            sleep(1)
+            time.sleep(1)
     raise Exception("my system did not behave as expected")
 ```
 ``` shell
+========================= test session starts =========================
+platform linux -- Python 3.12.5, pytest-8.3.4, pluggy-1.5.0
+collected 5 item
+
+tests/my_test.py::test_my_system[1] PASSED                       [20%]
+tests/my_test.py::test_my_system[2] PASSED                       [40%]
+tests/my_test.py::test_my_system[3] PASSED                       [60%]
+tests/my_test.py::test_my_system[4] PASSED                       [80%]
+tests/my_test.py::test_my_system[5] PASSED                      [100%]
+
+========================== 5 passed in 25.03s ==========================
 ```
 
 My tests still passing. But it started to become a pain to develop, debug and run these tests. The tests take minutes to finish everytime. As more and more tests got added, thing become worth.
@@ -69,8 +87,20 @@ My tests still passing. But it started to become a pain to develop, debug and ru
 [pytest-xdist](https://github.com/pytest-dev/pytest-xdist) is a general way of bringing concurrency into pytest framework, by executing tests on multiple CPUs.
 
 ``` shell
-python -m pytest -n auto
+$ python -m pytest -n auto
 
+========================= test session starts =========================
+platform linux -- Python 3.12.5, pytest-8.3.4, pluggy-1.5.0
+16 workers [5 items]      
+scheduling tests via LoadScheduling
+
+[gw3] [ 20%] PASSED tests/test.py::test_my_system[4] 
+[gw2] [ 40%] PASSED tests/test.py::test_my_system[3] 
+[gw0] [ 60%] PASSED tests/test.py::test_my_system[1] 
+[gw4] [ 80%] PASSED tests/test.py::test_my_system[5] 
+[gw1] [100%] PASSED tests/test.py::test_my_system[2] 
+
+========================== 5 passed in 5.87s ==========================
 ```
 
 The `-n` cli parameter specify the number of processes to execute tests. With `-n auto`, pytest-xdist will spin same number of processes as physical CPU cores.
@@ -98,6 +128,14 @@ async def test_my_system(param):
     raise Exception("my system did not behave as expected")
 ```
 ``` shell
+.venv/lib/python3.12/site-packages/_pytest/python.py:148PytestUnhandledCoroutineWarning: async def functions are not natively supported and have been skipped.
+  You need to install a suitable plugin for your async framework, for example:
+    - anyio
+    - pytest-asyncio
+    - pytest-tornasync
+    - pytest-trio
+    - pytest-twisted
+    warnings.warn(PytestUnhandledCoroutineWarning(msg.format(nodeid)))
 ```
 
 Although `async` has been around in python since 3.4, `pytest` do not support async test case out of box.
@@ -119,11 +157,24 @@ async def test_my_system(param):
     raise Exception("my system did not behave as expected")
 ```
 ``` shell
+========================= test session starts =========================
+platform linux -- Python 3.12.5, pytest-8.3.4, pluggy-1.5.0
+plugins: asyncio-0.25.3
+asyncio: mode=Mode.STRICT, asyncio_default_fixture_loop_scope=None
+collected 5 item
+
+tests/my_test.py::test_my_system[1] PASSED                       [20%]
+tests/my_test.py::test_my_system[2] PASSED                       [40%]
+tests/my_test.py::test_my_system[3] PASSED                       [60%]
+tests/my_test.py::test_my_system[4] PASSED                       [80%]
+tests/my_test.py::test_my_system[5] PASSED                      [100%]
+
+========================== 5 passed in 25.04s ==========================
 ```
 
 Without reading documentation of `pytest-asyncio` carefully, the tests took minutes again, my async tests still run as they are synchronous tests. We got sent back to the beginning. 
 
-It turns out `pytest-asyncio` wraps all async test function as synchronous, and send them to pytest as if they are normal function.
+It turns out `pytest-asyncio` wraps all async test function as synchronous function, so that these function become consumerable for pytest as if they are normal function.
 
 Although `pytest-asyncio` do not allow tests to be run concurrently, it do open some opportunity to bring concurrency inside the scope of single test.
 
@@ -141,14 +192,12 @@ async def test_my_system():
                 else:
                     await asyncio.sleep(1)
             raise Exception("my system did not behave as expected")
-        except:
-            logger.error(f"test case test_my_system_single{param} fail")
+        except Exception as e:
+            logger.error(f"test case test_my_system_single{param} fail", exc_info=e)
 
     tasks = [test_my_system_single(param) for param in [...]]
     await asyncio.gather(*tasks)
 ```
-**verify this please**
-
 
 We are able to put different test cases into one test and executed them in a single loop. But the downside is obvious and huge, all the error handling, dependency management are on us, and we lose the ability to view different test cases in report. We pretty much lose the benefit of using a test framword :(.
 
@@ -173,14 +222,115 @@ async def test_my_system(subtests):
     await asyncio.gather(*tasks)
 ```
 ``` shell
+========================= test session starts =========================
+platform linux -- Python 3.12.5, pytest-8.3.4, pluggy-1.5.0
+plugins: asyncio-0.25.3, subtests-0.14.1
+asyncio: mode=Mode.STRICT, asyncio_default_fixture_loop_scope=None
+collected 1 item
+
+tests/test.py::test_my_system [test_my_system[1]] SUBPASS       [100%]
+tests/test.py::test_my_system [test_my_system[2]] SUBPASS       [100%]
+tests/test.py::test_my_system [test_my_system[3]] SUBPASS       [100%]
+tests/test.py::test_my_system [test_my_system[4]] SUBPASS       [100%]
+tests/test.py::test_my_system [test_my_system[5]] SUBPASS       [100%]
+tests/test.py::test_my_system PASSED                            [100%]
+
+================= 1 passed, 5 subtests passed in 5.01s ================
 ```
 
 This is becoming solid. Tests are running concurrently utilizing same process, and we are not losing too much of the benefits from framework. But there is still some boil template required for each parent test.
 
-### pytest-asyncio-concurrent
-[pytest-asyncio-concurrent](https://github.com/czl9707/pytest-asyncio-concurrent) is a library I built to bridging the gap, which evolved from the solution mentioned above.
+## pytest-asyncio-concurrent
 
+The solution above is working, but still not ideal. Subtests are not first-class citizen in pytest, and we need the boiltemplate in pretty much every parent test function. To reduce the boiltemplate and make 'subtests' have same display in pytest, I built a plugin to bridge the gap. 
 
+```python
+@pytest.mark.asyncio_concurrent(group="my_system")
+@pytest.mark.parametrize("param", [...])
+async def test_my_system(param):
+    send_event_to_my_system(param)
 
-Which might not be a perfect solution.
+    for i in range(10):
+        if verify_my_system_behavior(param):
+            return
+        else:
+            await asyncio.sleep(1)
+    raise Exception("my system did not behave as expected")
+```
+``` shell
+========================= test session starts =========================
+platform linux -- Python 3.12.5, pytest-8.3.4, pluggy-1.5.0
+plugins: asyncio-concurrent-0.3.0
+collected 5 item
 
+tests/my_test.py::test_my_system[1] PASSED                       [20%]
+tests/my_test.py::test_my_system[2] PASSED                       [40%]
+tests/my_test.py::test_my_system[3] PASSED                       [60%]
+tests/my_test.py::test_my_system[4] PASSED                       [80%]
+tests/my_test.py::test_my_system[5] PASSED                      [100%]
+
+========================== 5 passed in 5.04s ==========================
+```
+
+The usage of [pytest-asyncio-concurrent](https://github.com/czl9707/pytest-asyncio-concurrent) if fairly simple, by marking tests with `pytest.mark.asyncio_concurrent` and give the same group name, thoses tests will run together.
+And the on the opposite, if mark with different group name they will just be executed suquentially.
+
+``` python
+@pytest.mark.asyncio_concurrent()
+async def test_my_system_seperate():
+    await asyncio.sleep(2)
+    assert verify()
+
+@pytest.mark.asyncio_concurrent(group="my_group")
+async def test_my_system_grouped_1():
+    await asyncio.sleep(1)
+    assert verify()
+
+@pytest.mark.asyncio_concurrent(group="my_group")
+async def test_my_system_grouped_2():
+    await asyncio.sleep(1)
+    assert verify()
+```
+``` shell
+========================= test session starts =========================
+platform linux -- Python 3.12.5, pytest-8.3.4, pluggy-1.5.0
+plugins: asyncio-concurrent-0.3.0
+collected 3 item
+
+tests/my_test.py::test_my_system_seperate PASSED                 [33%]
+tests/my_test.py::test_my_system_grouped_2 PASSED                [67%]
+tests/my_test.py::test_my_system_grouped_1 PASSED               [100%]
+
+========================== 3 passed in 3.03s ==========================
+```
+
+As mentioned above the plugin evolve from the solution `pytest-asyncio` + `pytest-subtests`, but the boiltemplate has been moved into the scope of the framework. Thus async tests are collected and grouped during test collection, and instead of excuting test by test, one more layer `group` has been created, and async test corotines are gathered and awaited within the scope of `group`.
+
+All `pytest` user should more or less know the concept of `fixture`, and by marking the fixture with different scope, the fixture will be 'shared' or 'isolated' across test cases accordingly. Due to the current design and implementation of pytest, and the grouping strategy we have, same fixture requested by multiple tests within same group will be shared regardlessly. In order to fix this, another fixture wrapper api has been introduced to help.
+
+``` python
+@pytest_asyncio_concurrent.context_aware_fixture
+def my_function_fixture():
+    yield []
+
+@pytest.mark.parametrize("param", [1, 2, 3])
+@pytest.mark.asyncio_concurrent(group="my_group")
+async def my_test(my_function_fixture, param):
+    await asyncio.sleep(param)
+    assert len(my_function_fixture) == 0
+    my_function_fixture.append(param)
+```
+``` shell
+========================= test session starts =========================
+platform linux -- Python 3.12.5, pytest-8.3.4, pluggy-1.5.0
+plugins: asyncio-concurrent-0.3.0
+collected 3 item
+
+tests/my_test.py::my_test[1] PASSED                              [33%]
+tests/my_test.py::my_test[2] PASSED                              [67%]
+tests/my_test.py::my_test[3] PASSED                             [100%]
+
+========================== 3 passed in 3.03s ==========================
+```
+ 
+Welcome to try out [pytest-asyncio-concurrent](https://github.com/czl9707/pytest-asyncio-concurrent), and please let me know if any thoughts!
