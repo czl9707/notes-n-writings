@@ -304,33 +304,59 @@ tests/my_test.py::test_my_system_grouped_1 PASSED               [100%]
 ========================== 3 passed in 3.03s ==========================
 ```
 
-As mentioned above the plugin evolve from the solution `pytest-asyncio` + `pytest-subtests`, but the boiltemplate has been moved into the scope of the framework. Thus async tests are collected and grouped during test collection, and instead of excuting test by test, one more layer `group` has been created, and async test corotines are gathered and awaited within the scope of `group`.
+### Test Group
 
-All `pytest` user should more or less know the concept of `fixture`, and by marking the fixture with different scope, the fixture will be 'shared' or 'isolated' across test cases accordingly. Due to the current design and implementation of pytest, and the grouping strategy we have, same fixture requested by multiple tests within same group will be shared regardlessly. In order to fix this, another fixture wrapper api has been introduced to help.
+As mentioned above the plugin evolve from the solution `pytest-asyncio` + `pytest-subtests`, but the boiltemplate has been moved into the scope of the framework. Thus async tests are collected and grouped during test collection.
+
+I don't want to dive too deep into the design and implementation of pytest. So, long story short, Pytest maintains a `SetupState` to keep track of a stack of active nodes, which starts with `Session`, and end with a `Function`, each node should be a child of previous node. 
+
+In order to have multiple active `Function`, one more layer `Group` has been created. So instead of pushing `Function`s onto the stack, `Group` lives on the stack and managing async test funcitons, just like what we did in `pytest-subtests` solution.
+
+### Fixtures Lifecycle
+
+Going back to the solution `pytest-asyncio` + `pytest-subtests`, all tests executed as `subtests` are more or less sharing same set of fixtures. going one level deeper, they are sharing same set of fixtures lifecycles. Which means we have to either handle fixture lifecycle inside test function, or just let them share the same instance of fixture.
+
+Moving to the plugin `pytest-asyncio-concurrent`, We are facing the same problem. I don't want to dive too deep into the design and implementation of pytest. Pytest register each `FixtureDef` as singleton across the session. `FixtureDef` instance is essentially the metadata of the fixture and also holds the value if it is entered.
+
+The solution here is a bit hacky but straight forward. We clone the `FixtureDef` instance before a function fixture is being requested, and we maintain a cache of `FixtureDef` using key as `Function`.
+
+### Timeout
+
+It's not easy to well understand the latest state of the object system when dealing with system tests. Thus, it's not uncommon to fall into a infinite loop. A Timeout feature has been introduced at ease.
+
 
 ``` python
-@pytest_asyncio_concurrent.context_aware_fixture
-def my_function_fixture():
-    yield []
+@pytest.mark.asyncio_concurrent(group="my_group", timeout=10)
+async def test_infinite_loop():
+    while True:
+        await asyncio.sleep(2)
 
-@pytest.mark.parametrize("param", [1, 2, 3])
-@pytest.mark.asyncio_concurrent(group="my_group")
-async def my_test(my_function_fixture, param):
-    await asyncio.sleep(param)
-    assert len(my_function_fixture) == 0
-    my_function_fixture.append(param)
+@pytest.mark.asyncio_concurrent(group="my_group", timeout=10)
+async def test_system():
+    await asyncio.sleep(1)
+    assert verify()
 ```
 ``` shell
 ========================= test session starts =========================
 platform linux -- Python 3.12.5, pytest-8.3.4, pluggy-1.5.0
 plugins: asyncio-concurrent-0.3.0
-collected 3 item
+collected 2 item
 
-tests/my_test.py::my_test[1] PASSED                              [33%]
-tests/my_test.py::my_test[2] PASSED                              [67%]
-tests/my_test.py::my_test[3] PASSED                             [100%]
+tests/my_test.py::test_infinite_loop FAILED                      [50%]
+tests/my_test.py::test_system PASSED                            [100%]
 
-========================== 3 passed in 3.03s ==========================
+============================== FAILURES ===============================
+_________________________ test_infinite_loop __________________________
+
+    @pytest.mark.asyncio_concurrent(group="my_group", timeout=10)
+    async def test_infinite_loop():
+        while True:
+>           await asyncio.sleep(2)
+
+...
+
+==================== 1 failed, 1 passed in 10.04s =====================
 ```
- 
+
+
 Welcome to try out [pytest-asyncio-concurrent](https://github.com/czl9707/pytest-asyncio-concurrent), and please let me know if any thoughts!
