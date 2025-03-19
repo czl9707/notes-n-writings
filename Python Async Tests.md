@@ -4,10 +4,11 @@ System and integration tests sometimes require substantial execution time. The `
 
 ## Why run tests async?
 
-When we discuss asynchronism in the context of unit tests, the answer is fairly straightforward. Unit tests come with their test isolation principle, which means each unit test should be executed in its own controlled environment, dependencies should not be shared across different tests. Thus, the default behavior of most unit test framework are executing tests in certain order sequentially.
+When we discussing asynchronism in the context of unit tests, the rationale fairly straightforward. Unit tests follow test isolation principle, which means each unit test should be executed in its own controlled environment, with no dependencies  shared across different tests. Thus, the default behavior of most unit test framework are executing tests sequentially in a predetermined order.
 
-But things become a bit different when it comes to integration tests, especially system tests. Different from unit tests, system tests are usually testing againt an actually running system, to verify the system or a certain part of it is working as expected, while unit tests are more focused on the behavior of a certain code block inside test environment is matching our expectation. As of 2025, Most of software systems are handling concurrency in some way, systems are allowing multiple things happening in the same time, 'sharing' becomes the nature. Therefore, forcing system tests to be executed one at time is not necessary anymore. That's probably why library like Cucumber and playwright, they support concurrency out of box.
+However, the situation differs when it comes to integration tests, particularly system tests. System tests are typically against an actively running system, to verify that the functionality of the system or a component of it is working as designed. Unit tests, by contrast, are more focused on the behavior of a certain code block inside controled test environment. 
 
+As of 2025, Most of software systems handles concurrency in some form, allowing multiple operations to occur simultaneously -- 'sharing' becomes the nature. Therefore, forcing executing system tests sequetially is no longer necessary. That's probably why library like `Cucumber` and `Playwright` support concurrency out of box. From this perspective, test concurrency should mirror the concurrency model of the system being tested--sequential tesing of concurrent systems creates an unnecessary contraint.
 
 ## Concerns when Running Tests Concurrently
 
@@ -15,18 +16,17 @@ Just like making a single-thread service supporting multi-thread in most cases w
 
 ### Dependency Management
 
-Dependency management is big topic in testing in general. It's one of the key functionality testing frameworks providing. All frameworks have some way of executing some code before and after single test or group of tests. For example, [NUnit](https://nunit.org/) provide `[SetUp]`, `[TearDown]`, `[OneTimeSetUp]`, `[OneTimeTearDown]`, while similarly [Jest](https://jestjs.io/) provided `beforeEach`, `afterEach`, `beforeAll`, `afterAll`. In python these thing can be achieved using fixture systems. 
+Dependency management is a big topic in testing in general. It's also one of the key functionalities testing frameworks provide. All frameworks have some mechanisms to execute code before and after individual test or group of tests. For example, [NUnit](https://nunit.org/) provide `[SetUp]`, `[TearDown]`, `[OneTimeSetUp]`, `[OneTimeTearDown]`, while similarly [Jest](https://jestjs.io/) provided `beforeEach`, `afterEach`, `beforeAll`, `afterAll`. In python, these capabilities can be achieved using fixture. 
 
-Running tests concurrently brings a lot ambiguity towards this area. Tests run concurrently request for the same fixture, should the fixture be shared or not?
+Running tests concurrently brings considerable ambiguity towards this area. When tests run concurrently and request for the same fixture, should the fixture be shared or not?
 
 ### Concurrency Management
 
-The nature of concurrency in modern software systems allow different things to happen in the system at the same time, but does not mean that things will always have same side effect as if we are in a single tenancy environment. A very common case will be the 'preventing duplicate events'. If multiple events matching certain criteria come within a certain time period, the service will take the first one and put some locking mechanism, and drop all the followings until the lock got released. 
+Although the nature of concurrency in modern software systems allow different operations to occur simultaneously, it does not mean that same event will always have same side effect. A common scenario involves "preventing duplicate events." If multiple events matching certain criteria arrive within a specific time period, the service will only process the first one.
 
-Imagine the we have multiple test cases test different flavors of same event, with a bad concurrency management, all tests got kicked off in same period, without waiting for the first test case release its lock, all other tests will fail for sure, but due to lack of consideration.
+Consider multiple test cases examining different variations of the same event. With an inadequate concurrency management, all tests were kicked off within in a same timeframe, started experiencing some racing conditions. Part of the test suites inevitably failed--not due to acutal defects but due to insufficient planning.
 
-So we need a way to prevent some test cases being executed together, or explicitly specifying some test cases can run together.
-
+Therefore, again, testing concurrency model should mirror the concurrency model of the system being tested. To achieve so, we need some mechanism to specify exclusive or inclusive concurrency group of tests. 
 
 ## When it comes to pytest
 
@@ -51,7 +51,7 @@ tests/my_test.py::test_my_system PASSED                         [100%]
 ========================== 1 passed in 5.01s ==========================
 ```
 
-A very short test case, but it captures the spirit of many system tests. Send an event, and verify once every few seconds, and have a timeout. The example testcase take at most 10 seconds to finish, but in real world, this can be really long.
+This simple test case examplifies the essence of many system tests. Send an event, and verify the result periodically, and have a timeout. The example test case take at most 10 seconds to finish, but in real world, this can be considerably longer.
 
 Life is good so far. Let's parametrize this a bit to cover more use case.
 
@@ -81,10 +81,10 @@ tests/my_test.py::test_my_system[5] PASSED                      [100%]
 ========================== 5 passed in 25.03s ==========================
 ```
 
-My tests still passing. But it started to become a pain to develop, debug and run these tests. The tests take minutes to finish everytime. As more and more tests got added, thing become worse.
+The tests still passing. But it started to become a pain as it is time-consuming to develop, debug and run them. The tests now take minutes to complete. As more and more tests got added, the situation worsens.
 
 ### pytest-xdist
-[pytest-xdist](https://github.com/pytest-dev/pytest-xdist) is a general way of bringing concurrency into pytest framework, by executing tests on multiple CPUs.
+[pytest-xdist](https://github.com/pytest-dev/pytest-xdist) provides a general method of bringing concurrency into pytest framework by executing tests on multiple processes.
 
 ``` shell
 $ python -m pytest -n auto
@@ -103,16 +103,15 @@ scheduling tests via LoadScheduling
 ========================== 5 passed in 5.87s ==========================
 ```
 
-The `-n` cli parameter specify the number of processes to execute tests. With `-n auto`, pytest-xdist will spin same number of processes as physical CPU cores.
+The `-n` CLI parameter specify the number of processes to use for tests execution. With `-n auto`, pytest-xdist will create a number of processes equal to the number of physical CPU cores.
 
-This solution works great. As the test cases keep growing, the total number of tests become much larger than number of CPU cores. In order to maintain a short test execution time, instead of giving parameter `-n auto`, I changed to `-n ##` and kept increasing the number. 
+This solution works effectively. As the test cases kept growing, the total number of tests exceeded the number of CPU cores pretty soon. In order to achieve a shortest test execution time (Yes, I am greedy 😈), I switched to `-n ##`, and kept increasing the number. 
 
-Things were going well until our fragile dev server crashed due to too many workers got spinned up. However, most of time, our workers are simply `sleep`-ing. Why bother spinning up dozens of workers then?
-
-If we look at our simple test case, it spends most of the time in `sleep(1)`, which hung the whole processes and do nothing, and we have dozens of them!
+The number after `-n` kept increasing until our fragile dev server crashed due to too many workers processes. However, most of time, those workers are simply `sleep`-ing, and occupying resources. Why should we spawn dozens of workers in such scenario?
 
 ### async & await
-Lets use `async` then. So that we can have all stuff share the same process.
+
+Lets use `async` to allow resource sharing across different test cases within single process.
 
 ```python
 @pytest.mark.parametrize("param", [...])
@@ -137,10 +136,10 @@ async def test_my_system(param):
     warnings.warn(PytestUnhandledCoroutineWarning(msg.format(nodeid)))
 ```
 
-Although `async` has been around in python since 3.4, `pytest` do not support async test case out of box.
+Although `async` has been around in python since 3.4, `pytest` does not natively support asynchronous test case.
 
 ### pytest-asyncio
-[pytest-asyncio](https://github.com/pytest-dev/pytest-asyncio) is bridging the gap of async and pytest, making async function test-able.
+[pytest-asyncio](https://github.com/pytest-dev/pytest-asyncio) bridges the gap of `async` and `pytest`, making async function test-able.
 
 ```python
 @pytest.mark.asyncio
@@ -171,11 +170,11 @@ tests/my_test.py::test_my_system[5] PASSED                      [100%]
 ========================== 5 passed in 25.04s ==========================
 ```
 
-Without reading documentation of `pytest-asyncio` carefully, the tests took minutes again, my async tests still run as they are synchronous tests. We got sent back to the beginning. 
+Without thoroughly reviewing documentation of `pytest-asyncio`, the tests took minutes again, async tests ran as if they were synchronous tests. We found ourselves back to the beginning. 
 
-It turns out `pytest-asyncio` wraps all async test function as synchronous function, so that these function become consumerable for pytest as if they are normal function.
+It turns out `pytest-asyncio` wraps all async test functions as synchronous functions, making them consumerable for pytest as regular functions.
 
-Although `pytest-asyncio` do not allow tests to be run concurrently, it do open some opportunity to bring concurrency inside the scope of single test.
+Although `pytest-asyncio` do not allow tests to be run concurrently, it do introduce  concurrency inside the scope of single test.
 
 
 ```python
@@ -198,11 +197,11 @@ async def test_my_system():
     await asyncio.gather(*tasks)
 ```
 
-We are able to put different test cases into one test and executed them in a single loop. But the downside is obvious and huge, all the error handling, dependency management are on us, and we lose the ability to view different test cases in report. We pretty much lose the benefit of using a test framword :(.
+We can incorporate different test cases into one test and executed them in a single loop. However, the downside is obvious and huge, all the error handling, dependency management become our responsibility, and these test cases disappear from test report. We pretty much lose the benefit of using a testing framwork 😟.
 
 ### pytest-asyncio + pytest-subtests
 
-What we did is basically creating a bunch of subtests with in one test case, and luckily we have [pytest-subtests](https://github.com/pytest-dev/pytest-subtests) to help us manage them in a more structured way.
+What we did is basically creating a bunch of subtests with in one test case, and fortunately, [pytest-subtests](https://github.com/pytest-dev/pytest-subtests) helps us manage them in a more structured manner.
 
 ```python
 @pytest.mark.asyncio
@@ -237,7 +236,7 @@ tests/test.py::test_my_system PASSED                            [100%]
 ================= 1 passed, 5 subtests passed in 5.01s ================
 ```
 
-This is becoming solid. Tests are running concurrently utilizing same process, and we are not losing too much of the benefits from framework. But there is still some boil template required for each parent test.
+This approach is becoming solid. Tests are running concurrently within same process, and we not retain most of the benefits from the framework, while the cost is some boilerplate required for each parent test.
 
 ## pytest-asyncio-concurrent
 
