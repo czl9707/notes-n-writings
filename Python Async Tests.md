@@ -1,18 +1,18 @@
 # Bridging the gap between Pytest and Asyncio
 
-System and integration tests sometimes require substantial execution time. The `pytest-asyncio-concurrent` plugin was developed through exerimentation with different approaches to address efficiency challenge.
+System and integration tests sometimes require substantial execution time. The `pytest-asyncio-concurrent` plugin was developed through experimentation with different approaches to address efficiency challenge.
 
 ## Why run tests async?
 
-When we discussing asynchronism in the context of unit tests, the rationale fairly straightforward. Unit tests follow test isolation principle, which means each unit test should be executed in its own controlled environment, with no dependencies  shared across different tests. Thus, the default behavior of most unit test framework are executing tests sequentially in a predetermined order.
+When we discuss asynchronism in the context of unit tests, the rationale fairly straightforward. Unit tests follow test isolation principle, which means each unit test should be executed in its own controlled environment, with no dependencies being  shared across different tests. Thus, the default behavior of most unit test frameworks execute tests sequentially in a predetermined order.
 
 However, the situation differs when it comes to integration tests, particularly system tests. System tests are typically against an actively running system, to verify that the functionality of the system or a component of it is working as designed. Unit tests, by contrast, are more focused on the behavior of a certain code block inside controled test environment. 
 
-As of 2025, Most of software systems handles concurrency in some form, allowing multiple operations to occur simultaneously -- 'sharing' becomes the nature. Therefore, forcing executing system tests sequetially is no longer necessary. That's probably why library like `Cucumber` and `Playwright` support concurrency out of box. From this perspective, test concurrency should mirror the concurrency model of the system being tested--sequential tesing of concurrent systems creates an unnecessary contraint.
+As of 2025, Most of software systems handles concurrency in some form, allowing multiple operations to occur simultaneously -- 'sharing' becomes the nature. Therefore, forcing sequetial execution is no longer necessary. That's probably why library like `Cucumber` and `Playwright` support concurrency out of box. From this perspective, test concurrency should mirror the concurrency model of the system being tested--sequential tesing of concurrent systems creates an unnecessary contraint.
 
 ## Concerns when Running Tests Concurrently
 
-Just like making a single-thread service supporting multi-thread in most cases won't be simply having multiple threads runing the old stuff, the same principle applies to testing.
+Just like making a single-thread service support multi-thread in most cases won't be simply adding more threads without any other changes, the same principle applies to testing.
 
 ### Dependency Management
 
@@ -26,7 +26,7 @@ Although the nature of concurrency in modern software systems allow different op
 
 Consider multiple test cases examining different variations of the same event. With an inadequate concurrency management, all tests were kicked off within in a same timeframe, started experiencing some racing conditions. Part of the test suites inevitably failed--not due to acutal defects but due to insufficient planning.
 
-Therefore, again, testing concurrency model should mirror the concurrency model of the system being tested. To achieve so, we need some mechanism to specify exclusive or inclusive concurrency group of tests. 
+Therefore, again, testing concurrency model should mirror the concurrency model of the system being tested. To achieve this, we need some mechanism to specify exclusive or inclusive concurrency group of tests. 
 
 ## When it comes to pytest
 
@@ -172,7 +172,7 @@ tests/my_test.py::test_my_system[5] PASSED                      [100%]
 
 Without thoroughly reviewing documentation of `pytest-asyncio`, the tests took minutes again, async tests ran as if they were synchronous tests. We found ourselves back to the beginning. 
 
-It turns out `pytest-asyncio` wraps all async test functions as synchronous functions, making them consumerable for pytest as regular functions.
+It turns out `pytest-asyncio` wraps all async test functions as synchronous functions, making them consumable for pytest as regular functions.
 
 Although `pytest-asyncio` do not allow tests to be run concurrently, it do introduce  concurrency inside the scope of single test.
 
@@ -197,11 +197,11 @@ async def test_my_system():
     await asyncio.gather(*tasks)
 ```
 
-We can incorporate different test cases into one test and executed them in a single loop. However, the downside is obvious and huge, all the error handling, dependency management become our responsibility, and these test cases disappear from test report. We pretty much lose the benefit of using a testing framwork 😟.
+We can incorporate different test cases into one test and executed them in a single loop. However, the downside is obvious and huge, all the error handling, dependency management become our responsibility, and these test cases disappear from test report. We pretty much lose the benefit of using a testing framwork.
 
 ### pytest-asyncio + pytest-subtests
 
-What we did is basically creating a bunch of subtests with in one test case, and fortunately, [pytest-subtests](https://github.com/pytest-dev/pytest-subtests) helps us manage them in a more structured manner.
+Basically we were creating a bunch of subtests within one test case and organize them by ourselves. And fortunately, [pytest-subtests](https://github.com/pytest-dev/pytest-subtests) can help us manage them in a more structured manner.
 
 ```python
 @pytest.mark.asyncio
@@ -236,13 +236,13 @@ tests/test.py::test_my_system PASSED                            [100%]
 ================= 1 passed, 5 subtests passed in 5.01s ================
 ```
 
-This approach is becoming solid. Tests are running concurrently within same process, and we not retain most of the benefits from the framework, while the cost is some boilerplate required for each parent test.
+This approach is becoming solid. Tests run concurrently within same process, and we retain most of the benefits from the framework, while the cost is some boilerplate required for each parent test.
 
 ## pytest-asyncio-concurrent
 
-The solution above is functional, but still not ideal. Subtests are not first-class citizen in pytest, and we need the boiltemplate in pretty much every parent test function. To reduce the boiltemplate and make `subtests` have same display in pytest, I built a plugin to bridge the gap. 
+The solution described above functions effectively, but still suboptimal. Subtests are not first-class citizen in pytest, and the boilplate is required in every parent test function. To minimize the boilplate and eliminate the appearance of `subtests`, I built a plugin to bridge the gap. 
 
-[pytest-asyncio-concurrent](https://github.com/czl9707/pytest-asyncio-concurrent) is meant for allowing async tests to run concurrently while providing granular concurrency control.
+[pytest-asyncio-concurrent](https://github.com/czl9707/pytest-asyncio-concurrent) is designed to enable async tests to run concurrently while providing granular concurrency control.
 
 ```python
 @pytest.mark.asyncio_concurrent(group="my_system")
@@ -272,8 +272,7 @@ tests/my_test.py::test_my_system[5] PASSED                      [100%]
 ========================== 5 passed in 5.04s ==========================
 ```
 
-The usage of [pytest-asyncio-concurrent](https://github.com/czl9707/pytest-asyncio-concurrent) if fairly simple, by marking tests with `pytest.mark.asyncio_concurrent` and give the same group name, thoses tests will run together.
-And the on the opposite, if mark with different group name they will just be executed suquentially.
+Using of [pytest-asyncio-concurrent](https://github.com/czl9707/pytest-asyncio-concurrent) is fairly straightforward, by marking tests with `pytest.mark.asyncio_concurrent` and assigning same group name, those tests will run together.Conversely, tests marked with different group name will just go sequentially.
 
 ``` python
 @pytest.mark.asyncio_concurrent()
@@ -308,16 +307,16 @@ tests/my_test.py::test_my_system_grouped_1 PASSED               [100%]
 
 ### Test Group
 
-As mentioned above the plugin evolve from the solution `pytest-asyncio` + `pytest-subtests`, but the boiltemplate has been moved into the scope of the framework. Thus async tests are collected and grouped during test collection.
+As mentioned above the plugin evolve from the solution `pytest-asyncio` + `pytest-subtests`, but the boilplate has been incorporated into the framework. Thus async tests are collected and grouped during test collection phase, and excuted group by group in execution phase.
 
-I don't want to dive too deep into the design and implementation of pytest. So, long story short, Pytest maintains a `SetupState` to keep track of a stack of active nodes, which starts with `Session`, and end with a `Function`, each node should be a child of previous node. 
+I don't want to dive too deep into the design and implementation of pytest. So, long story short, Pytest maintains a `SetupState` to keep track of a stack of active nodes, beginning with `Session`, and ending with a `Function`, each node should be child of previous node, in another word, we can not push multiple `Function`s onto the stack directly.
 
-In order to have multiple active `Function`s, one more layer of node, `Group`, has been created. So instead of pushing `Function`s onto the stack, the `Group` lives on the stack and managing async test functions, just like what we did in `pytest-subtests` solution.
+Therefore, one more layer of node, `Group`, has been created. Instead of pushing `Function`s onto the stack, the `Group` resides on the stack and managing async test functions, just like our approach in `pytest-subtests` solution.
 
 
 ### Timeout
 
-It's not easy to well understand the latest state of the object system when dealing with system tests. Thus, it's not uncommon to fall into a infinite loop. A Timeout feature has been introduced at ease.
+It's not easy to fully understand the latest state of the system during system tests execution. As a result, falling into infinite loops is not uncommon. A Timeout feature has been introduced for convenience.
 
 
 ``` python
@@ -353,23 +352,23 @@ _________________________ test_infinite_loop __________________________
 ==================== 1 failed, 1 passed in 10.04s =====================
 ```
 
-*Note: this section is more about implementation detail, skip if you are not interested.*
+*Note: next section addresses implementation detail. Feel free to skip if you are not interested.*
 
 ### Fixtures Lifecycle
 
-Going back to the solution `pytest-asyncio` + `pytest-subtests`, all tests executed as `subtests` are more or less sharing same set of fixtures. going one level deeper, they are sharing same set of fixtures lifecycles. Which means we have to either handle fixture lifecycle inside test function, or just let them share the same instance of fixture.
+Going back to the solution `pytest-asyncio` + `pytest-subtests`, all tests executed as `subtests` are more or less sharing same set of fixtures. Which means we have to either manage fixtures lifecycle inside test function, or just literally let them share the same fixtures.
 
-Moving to the plugin `pytest-asyncio-concurrent`, We are facing the same problem. I don't want to dive too deep into the design and implementation of pytest. Pytest register each `FixtureDef` as singleton across the session. `FixtureDef` instance is essentially the metadata of the fixture and also holds the value if it is entered.
+Moving to the plugin `pytest-asyncio-concurrent`, We are facing the same problem.  Pytest register each `FixtureDef` as singleton across the session. `FixtureDef` instance contains the metadata of the fixture,  and also in charge of storing its value once it is entered, and clearing once exited.
 
-The solution here is a bit hacky but straight forward. We clone the `FixtureDef` instance before a function fixture is being requested, and we maintain a cache of `FixtureDef` using key as `Function`.
+The solution, while a bit hacky, is straightforward. We clone the `FixtureDef` instance before a function fixture is requested, and we maintain a cache of `FixtureDef` instances using `Function` as key.
 
-
-
-Welcome to try out [pytest-asyncio-concurrent](https://github.com/czl9707/pytest-asyncio-concurrent), and please let me know if any thoughts!
 
 ## Ending
 
-When it comes to system testing, the testing strategy should reflect the model of the system under testing, especially from the concurrency perspective. Instead of simply running tests concurrently:
-1. Organize tests into logical groups in a real-world usage pattern.
-1. Handle timeout to prevent fall into infinite loops.
-1. Manage tests environment isolation carefully.
+When working with system tests, the testing strategy should reflect the model of the system under testing, particularly regarding concurrency. Throughout the exploration, we've seen that effective concurrency management requires:
+
+- Organize tests into logical groups following real-world usage pattern.
+- Implement timeout to prevent infinite loops and ensure predictable execution.
+- Manage tests environment isolation carefully to maintain test integrity.
+
+I built [pytest-asyncio-concurrent](https://github.com/czl9707/pytest-asyncio-concurrent) to address these needs, after experimenting with different approaches. Welcome to try out [pytest-asyncio-concurrent](https://github.com/czl9707/pytest-asyncio-concurrent), and welcome any feedback!
