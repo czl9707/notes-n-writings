@@ -2,7 +2,7 @@
 
 System and integration tests sometimes require substantial execution time. To address efficiency challenges, the `pytest-asyncio-concurrent` plugin was developed through experimentation with different approaches.
 
-## Why run tests async?
+## Why Concurrency in Tests?
 
 When we discuss asynchronism in the context of unit tests, the rationale is fairly straightforward. Unit tests follow test isolation principle, which means each unit test should be executed in its own controlled environment, with no dependencies shared across different tests. Thus, the default behavior of most unit test frameworks execute tests sequentially in a predetermined order.
 
@@ -10,7 +10,7 @@ However, the situation differs regarding integration tests, particularly system 
 
 As of 2025, Most software systems handle concurrency in some form, allowing multiple operations to occur simultaneously -- 'sharing' becomes the nature. Therefore, forcing sequential execution is no longer necessary. That's probably why libraries like `Cucumber` and `Playwright` support concurrency out of the box. From this perspective, test concurrency should mirror the concurrency model of the system being tested--sequential testing of concurrent systems creates an unnecessary constraint.
 
-## Concerns when Running Tests Concurrently
+## Challenges When Facing Concurrency
 
 Just like making a single-thread service support multi-thread in most cases won't be simply adding more threads without any other changes, the same principle applies to testing.
 
@@ -28,7 +28,7 @@ Consider multiple test cases examining different variations of the same event. W
 
 Therefore, again, testing the concurrency model should mirror the concurrency model of the system being tested. To achieve this, we need some mechanism to specify exclusive or inclusive concurrency group of tests. 
 
-## When it comes to pytest
+## When It Comes to Pytest
 
 ```python
 def test_my_system():
