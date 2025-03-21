@@ -32,13 +32,13 @@ Therefore, again, testing the concurrency model should mirror the concurrency mo
 
 ```python
 def test_my_system():
- send_event_to_my_system()
+    send_event_to_my_system()
     
     for i in range(10):
         if verify_my_system_behavior():
             return
         else:
- time.sleep(1)
+    time.sleep(1)
     raise Exception("my system did not behave as expected")
 ```
 ``` shell
@@ -58,13 +58,13 @@ Life is good so far. Let's parametrize this a bit to cover more use cases.
 ```python
 @pytest.mark.parametrize("param", [...])
 def test_my_system(param):
- send_event_to_my_system(param)
+    send_event_to_my_system(param)
 
     for i in range(10):
         if verify_my_system_behavior(param):
             return
         else:
- time.sleep(1)
+    time.sleep(1)
     raise Exception("my system did not behave as expected")
 ```
 ``` shell
@@ -72,10 +72,10 @@ def test_my_system(param):
 platform linux -- Python 3.12.5, pytest-8.3.4, pluggy-1.5.0
 collected 5 item
 
-tests/my_test.py::test_my_system[1] PASSED [20%]
-tests/my_test.py::test_my_system[2] PASSED [40%]
-tests/my_test.py::test_my_system[3] PASSED [60%]
-tests/my_test.py::test_my_system[4] PASSED [80%]
+tests/my_test.py::test_my_system[1] PASSED  [20%]
+tests/my_test.py::test_my_system[2] PASSED  [40%]
+tests/my_test.py::test_my_system[3] PASSED  [60%]
+tests/my_test.py::test_my_system[4] PASSED  [80%]
 tests/my_test.py::test_my_system[5] PASSED [100%]
 
 ========================== 5 passed in 25.03s ==========================
@@ -116,7 +116,7 @@ Let's use `async` to allow resource sharing across different test cases within s
 ```python
 @pytest.mark.parametrize("param", [...])
 async def test_my_system(param):
- send_event_to_my_system(param)
+    send_event_to_my_system(param)
 
     for i in range(10):
         if verify_my_system_behavior(param):
@@ -145,7 +145,7 @@ Although `async` has been around in Python since 3.4, `pytest` does not natively
 @pytest.mark.asyncio
 @pytest.mark.parametrize("param", [...])
 async def test_my_system(param):
- send_event_to_my_system(param)
+    send_event_to_my_system(param)
 
     for i in range(10):
         if verify_my_system_behavior(param):
@@ -182,7 +182,7 @@ Although `pytest-asyncio` does not allow tests to be run concurrently, it do int
 async def test_my_system():
     async def test_my_system_single(param):
         try:
- send_event_to_my_system(param)
+            send_event_to_my_system(param)
         
             for i in range(10):
                 if verify_my_system_behavior(param):
@@ -191,9 +191,9 @@ async def test_my_system():
                     await asyncio.sleep(1)
             raise Exception("my system did not behave as expected")
         except Exception as e:
- logger.error(f"test case test_my_system_single{param} fail", exc_info=e)
+        logger.error(f"test case test_my_system_single{param} fail", exc_info=e)
 
- tasks = [test_my_system_single(param) for param in [...]]
+    tasks = [test_my_system_single(param) for param in [...]]
     await asyncio.gather(*tasks)
 ```
 
@@ -208,7 +208,7 @@ Basically, we were creating a bunch of subtests within one test case and organiz
 async def test_my_system(subtests):
     async def test_my_system_single(param):
         with subtests.test(msg=f'test_my_system[{param}]'):
- send_event_to_my_system(param)
+            send_event_to_my_system(param)
         
             for i in range(10):
                 if verify_my_system_behavior(param):
@@ -216,7 +216,7 @@ async def test_my_system(subtests):
                 else:
                     await asyncio.sleep(1)
 
- tasks = [test_my_system_single(param) for param in [...]]
+    tasks = [test_my_system_single(param) for param in [...]]
     await asyncio.gather(*tasks)
 ```
 ``` shell
@@ -248,7 +248,7 @@ The solution described above functions effectively, but is still suboptimal. Sub
 @pytest.mark.asyncio_concurrent(group="my_system")
 @pytest.mark.parametrize("param", [...])
 async def test_my_system(param):
- send_event_to_my_system(param)
+    send_event_to_my_system(param)
 
     for i in range(10):
         if verify_my_system_behavior(param):
