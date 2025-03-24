@@ -1,6 +1,6 @@
-# Bridging the gap between Pytest and Asyncio
+# Concurrency and Asynchronism in Pytest
 
-System and integration tests sometimes require substantial execution time. To address efficiency challenges, the `pytest-asyncio-concurrent` plugin was developed through experimentation with different approaches.
+System and integration tests sometimes require substantial execution time. The blog documented the experimentation of multiple approaches to address the efficiency challenges, and a plugin built around this.
 
 ## Why Concurrency in Tests?
 
