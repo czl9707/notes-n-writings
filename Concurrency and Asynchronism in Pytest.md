@@ -10,25 +10,9 @@ However, the situation differs regarding integration tests, particularly system 
 
 As of 2025, Most software systems handle concurrency in some form, allowing multiple operations to occur simultaneously -- 'sharing' becomes the nature. Therefore, forcing sequential execution is no longer necessary. That's probably why libraries like `Cucumber` and `Playwright` support concurrency out of the box. From this perspective, test concurrency should mirror the concurrency model of the system being tested--sequential testing of concurrent systems creates an unnecessary constraint.
 
-## Challenges When Facing Concurrency
+However, system testing introduces unique challenges. Running tests concurrently requires careful management of shared resources and dependencies. The key principle is that test concurrency should mirror the concurrency model of the system being tested. This means understanding how the system handles simultaneous operations and designing tests that can safely and accurately reflect those dynamics.
 
-Just like making a single-thread service support multi-thread in most cases won't be simply adding more threads without any other changes, the same principle applies to testing.
-
-### Dependency Management
-
-Dependency management is a big topic in testing in general. It's also one of the key functionalities testing frameworks provide. All frameworks have some mechanisms to execute code before and after individual tests or group of tests. For example, [NUnit](https://nunit.org/) provide `[SetUp]`, `[TearDown]`, `[OneTimeSetUp]`, `[OneTimeTearDown]`, while similarly [Jest](https://jestjs.io/) provided `beforeEach`, `afterEach`, `beforeAll`, `afterAll`. In Python, these capabilities can be achieved using fixtures. 
-
-Running tests concurrently brings considerable ambiguity to this area. When tests run concurrently and request for the same fixture, should the fixture be shared or not?
-
-### Concurrency Management
-
-Although the nature of concurrency in modern software systems allows different operations to occur simultaneously, it does not mean that the same event will always have the same side effect. A common scenario involves "preventing duplicate events." If multiple events matching certain criteria arrive within a specific time period, the service will only process the first one.
-
-Consider multiple test cases examining different variations of the same event. With inadequate concurrency management, all tests were kicked off within the same timeframe and started experiencing some racing conditions. Part of the test suites inevitably failed--not due to actual defects but due to insufficient planning.
-
-Therefore, again, testing the concurrency model should mirror the concurrency model of the system being tested. To achieve this, we need some mechanism to specify exclusive or inclusive concurrency group of tests. 
-
-## When It Comes to Pytest
+## System Tests in Python
 
 ```python
 def test_my_system():
