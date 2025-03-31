@@ -13,7 +13,30 @@ Taking Accordion as an example, and let's break down what make up an Accordion:
 
 And Implement a minimal version of it.
 
-``` ts
+``` tsx
+import React from "react"
+import accordionStyle from './accordion.module.css'
+import { ChevronDown } from "./icon";
+
+export default function Accordion({ title, children }: {
+    title?: string,
+    children: React.ReactNode,
+}) {
+    const [isCollapsed, setIsCollapsed] = React.useState(false);
+
+    return <div data-collapsed={isCollapsed} className={accordionStyle.AccordionRoot}>
+        <div className={accordionStyle.AccordionHeader}
+            onClick={() => setIsCollapsed(collapsed => !collapsed)}>
+            <h6>{title}</h6>
+            <ChevronDown className={accordionStyle.AccordionTrigger} />
+        </div>
+        <div className={accordionStyle.AccordionContent}>
+            <div className={accordionStyle.AccordionContentWrapper}>
+                {children}
+            </div>
+        </div>
+    </div>
+}
 ```
 
 And state included in this component is quite simple, only one controling the collapse behavior.
@@ -33,7 +56,69 @@ Considering following cases:
 
 I am a nice guy, so I am going to support all these customizing request. And the component code end up something like this.
 
-``` ts
+``` tsx
+
+import React from "react"
+import accordionStyle from './accordion.module.css'
+import { ChevronDown } from "./icon";
+
+export default function Accordion({
+    title,
+    children,
+    defaultOpen = false,
+    triggerIcon,
+    titleStyle = {},
+    contentStyle = {},
+    onCollapsed,
+    isCollapsed: isCollapsedOverride,
+    triggerOnLeft = false,
+}: {
+    title?: string,
+    children: React.ReactNode,
+    defaultOpen?: boolean,
+    triggerIcon?: React.ReactSVGElement,
+    titleStyle?: React.CSSProperties,
+    contentStyle?: React.CSSProperties,
+    onCollapsed?: (isCollapsed: boolean) => void,
+    isCollapsed?: boolean,
+    triggerOnLeft?: boolean,
+}) {
+    const [isCollapsed, setIsCollapsed] = React.useState(defaultOpen);
+
+    if (triggerIcon) {
+        const originalProps = triggerIcon.props;
+        triggerIcon = React.cloneElement<{ className: string }, SVGSVGElement>(
+            triggerIcon,
+            {
+                ...originalProps,
+                className: `${accordionStyle.AccordionTrigger} ${triggerIcon.props.className}`
+            });
+    }
+    else {
+        triggerIcon = <ChevronDown className={accordionStyle.AccordionTrigger} /> as React.ReactSVGElement
+    }
+
+    return <div data-collapsed={isCollapsedOverride != undefined ? isCollapsedOverride : isCollapsed}
+        className={accordionStyle.AccordionRoot}>
+        <div className={accordionStyle.AccordionHeader} style={titleStyle}
+            onClick={
+                isCollapsedOverride != undefined ? undefined :
+                    () => {
+                        if (onCollapsed != undefined) onCollapsed(!isCollapsed);
+                        setIsCollapsed(c => !c);
+                    }
+            }>
+            {triggerOnLeft && triggerIcon}
+            <h6>{title}</h6>
+            {!triggerOnLeft && triggerIcon}
+        </div>
+        <div className={accordionStyle.AccordionContent} style={contentStyle}>
+            <div className={accordionStyle.AccordionContentWrapper}>
+                {children}
+            </div>
+        </div>
+    </div>
+}
 ```
 
 In order to expose more and more control of the internal pieces of the component, the number of parameters keeps growing. The trigger and title pieces are passed in as a `ReactNode`, which is [not recommanded]() by React team.
@@ -45,6 +130,21 @@ The purpose initiative of having this reusable accordion component to for simpli
 The core of accordion component is using the `isCollapsed` state to connect the trigger and content container. The layout, styles, and custom hooks all comes later. Lets extract that piece only.
 
 ``` ts
+import React from "react"
+import { ChevronDown } from "./icon";
+
+export default function Accordion({ title, children }: {
+    title?: string,
+    children: React.ReactNode,
+}) {
+    const [isCollapsed, setIsCollapsed] = React.useState(false);
+
+    return <div data-collapsed={isCollapsed} >
+        {title}
+        <ChevronDown onClick={() => setIsCollapsed(collapsed => !collapsed)} />
+        <div>{children}</div>
+    </div>
+}
 ```
 
 We put everything within the same component, since they share same state. We started with the idea of "one component" for simplicity, but ended up breaking the component abstraction layer. If we look at the the bone version of the component above, it still defined some layout, even if all styles has been removed.
