@@ -16,12 +16,6 @@
     color: white;
     padding: 0 .5rem;
     margin: 1rem;
-
-    transition: background-color .2s linear;
-
-    &:hover {
-        background-color: rgb(255 255 255 / 10%);
-    }
 }
 
 .AccordionContent {
@@ -54,12 +48,16 @@
     }
 }
 
-
 .AccordionTrigger {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
     transform: none;
-    transition: transform .2s linear;
+    transition: background-color .2s linear;
+    line-height: 0;
 
-    .AccordionRoot[data-collapsed=true] & {
-        transform: rotate(180deg);
+    &:hover {
+        background-color: rgb(255 255 255 / 10%);
     }
 }

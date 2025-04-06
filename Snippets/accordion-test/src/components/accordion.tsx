@@ -17,9 +17,7 @@ export default function Accordion({ title, children }: {
             <ChevronDown className={accordionStyle.AccordionTrigger} />
         </div>
         <div className={accordionStyle.AccordionContent}>
-            <div className={accordionStyle.AccordionContentWrapper}>
-                {children}
-            </div>
+            {children}
         </div>
     </div>
 }

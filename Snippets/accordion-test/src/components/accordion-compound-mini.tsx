@@ -10,11 +10,8 @@ const AccordionContext = React.createContext<{
     trigger: () => { }
 });
 
-const AccordionRoot = ({ defaultCollapsed, children }: {
-    defaultCollapsed: boolean,
-    children: React.ReactNode,
-}) => {
-    const [isCollapsed, setIsCollapsed] = React.useState<boolean>(defaultCollapsed);
+function AccordionRoot({ children }: { children: React.ReactNode }) {
+    const [isCollapsed, setIsCollapsed] = React.useState<boolean>(true);
     const trigger = () => setIsCollapsed(c => !c);
 
     return <AccordionContext.Provider value={{
@@ -31,6 +28,13 @@ const AccordionTrigger = React.forwardRef<HTMLDivElement, React.HTMLAttributes<H
     }
 )
 
+const AccordionHeader = React.forwardRef<HTMLDivElement, React.HTMLAttributes<HTMLDivElement>>(
+    function AccordionHeader(props, ref) {
+        const { isCollapsed } = React.useContext(AccordionContext);
+        return <div {...props} ref={ref} data-collapsed={isCollapsed} />
+    }
+)
+
 const AccordionContent = React.forwardRef<HTMLDivElement, React.HTMLAttributes<HTMLDivElement>>(
     function AccordionContent(props, ref) {
         const { isCollapsed } = React.useContext(AccordionContext);
@@ -41,5 +45,6 @@ const AccordionContent = React.forwardRef<HTMLDivElement, React.HTMLAttributes<H
 export {
     AccordionRoot as Root,
     AccordionTrigger as Trigger,
+    AccordionHeader as Header,
     AccordionContent as Content,
 };
