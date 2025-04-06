@@ -14,7 +14,7 @@
     align-items: center;
     user-select: none;
     color: white;
-    padding: 0 .5rem;
+    padding: .15rem 0;
     margin: 1rem;
 }
 
@@ -29,7 +29,7 @@
         display: none;
     }
 
-    .AccordionRoot[data-collapsed=false] & {
+    &[data-collapsed=false] {
         margin: 0 1rem 1rem 1rem;
         padding: 1rem;
         max-height: 15rem;
@@ -38,7 +38,7 @@
             opacity .2s .2s linear;
     }
 
-    .AccordionRoot[data-collapsed=true] & {
+    &[data-collapsed=true] {
         margin: 0 1rem;
         padding: 0 1rem;
         max-height: 0;
@@ -56,6 +56,8 @@
     transform: none;
     transition: background-color .2s linear;
     line-height: 0;
+    border-radius: 4px;
+    padding: .15rem 0.5rem;
 
     &:hover {
         background-color: rgb(255 255 255 / 10%);

@@ -14,8 +14,9 @@
     align-items: center;
     user-select: none;
     color: white;
-    padding: 0 .5rem;
+    padding: .15rem .5rem;
     margin: 1rem;
+    border-radius: 4px;
 
     transition: background-color .2s linear;
 

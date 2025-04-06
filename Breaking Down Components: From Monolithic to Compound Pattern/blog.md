@@ -31,9 +31,7 @@ export default function Accordion({ title, children }: {
             <ChevronDown className={accordionStyle.AccordionTrigger} />
         </div>
         <div className={accordionStyle.AccordionContent}>
-            <div className={accordionStyle.AccordionContentWrapper}>
-                {children}
-            </div>
+            {children}
         </div>
     </div>
 }
@@ -57,7 +55,6 @@ Considering following cases:
 I am a nice guy, so I am going to support all these customizing request. And the component code end up something like this.
 
 ``` tsx
-
 import React from "react"
 import accordionStyle from './accordion.module.css'
 import { ChevronDown } from "./icon";
@@ -69,7 +66,7 @@ export default function Accordion({
     triggerIcon,
     titleStyle = {},
     contentStyle = {},
-    onCollapsed,
+    onTrigger,
     isCollapsed: isCollapsedOverride,
     triggerOnLeft = false,
 }: {
@@ -79,7 +76,7 @@ export default function Accordion({
     triggerIcon?: React.ReactSVGElement,
     titleStyle?: React.CSSProperties,
     contentStyle?: React.CSSProperties,
-    onCollapsed?: (isCollapsed: boolean) => void,
+    onTrigger?(isCollapsing: boolean): void,
     isCollapsed?: boolean,
     triggerOnLeft?: boolean,
 }) {
@@ -104,7 +101,7 @@ export default function Accordion({
             onClick={
                 isCollapsedOverride != undefined ? undefined :
                     () => {
-                        if (onCollapsed != undefined) onCollapsed(!isCollapsed);
+                        if (onTrigger != undefined) onTrigger(!isCollapsed);
                         setIsCollapsed(c => !c);
                     }
             }>
@@ -151,13 +148,208 @@ We put everything within the same component, since they share same state. We sta
 
 To imply as little as possible, Why not try break the component into different piece? 
 
-``` ts
+``` tsx
+import React from "react"
+
+const AccordionContext = React.createContext<{
+    isCollapsed: boolean,
+    trigger(): void,
+}>({
+    isCollapsed: false,
+    trigger: () => { }
+});
+
+function AccordionRoot({ children }: { children: React.ReactNode }) {
+    const [isCollapsed, setIsCollapsed] = React.useState<boolean>(true);
+    const trigger = () => setIsCollapsed(c => !c);
+
+    return <AccordionContext.Provider value={{
+        isCollapsed: isCollapsed, trigger: trigger
+    }}>
+        {children}
+    </AccordionContext.Provider>
+}
+
+const AccordionTrigger = React.forwardRef<HTMLDivElement, React.HTMLAttributes<HTMLDivElement>>(
+    function AccordionTrigger(props, ref) {
+        const { isCollapsed, trigger } = React.useContext(AccordionContext);
+        return <div {...props} ref={ref} onClick={trigger} data-collapsed={isCollapsed} />
+    }
+)
+
+const AccordionHeader = React.forwardRef<HTMLDivElement, React.HTMLAttributes<HTMLDivElement>>(
+    function AccordionHeader(props, ref) {
+        const { isCollapsed } = React.useContext(AccordionContext);
+        return <div {...props} ref={ref} data-collapsed={isCollapsed} />
+    }
+)
+
+const AccordionContent = React.forwardRef<HTMLDivElement, React.HTMLAttributes<HTMLDivElement>>(
+    function AccordionContent(props, ref) {
+        const { isCollapsed } = React.useContext(AccordionContext);
+        return <div {...props} ref={ref} data-collapsed={isCollapsed} />
+    }
+)
+
+export {
+    AccordionRoot as Root,
+    AccordionTrigger as Trigger,
+    AccordionHeader as Header,
+    AccordionContent as Content,
+};
 ```
 
-In order to share states across different components, `useState` won't be enough, `useContext` is introduced. And we end up with four components, the three visual component and an extra `Root` component to setup the context. Instead of using a single `Accordion` component, now consumer need to use building blocks from Accordion module to construct the bigger component.
+In order to share states across different components, `useState` won't be enough, `useContext` is introduced. And we end up with four components, the three visual component and an extra `Root` component to setup the context. 
 
-``` ts
+Styling can be added either inside or outside of the component, based on different factors. I will just add them inside the component for simplicity of usage.
+
+``` tsx
+import React from "react"
+import accordionStyle from './accordion-compound.module.css'
+
+
+const AccordionContext = React.createContext<{
+    isCollapsed: boolean,
+    trigger(): void,
+}>({
+    isCollapsed: false,
+    trigger: () => { }
+});
+
+interface AccordionRootProps {
+    defaultCollapsed?: boolean,
+    collapsed?: boolean
+    isCollapsed?: boolean
+}
+
+const AccordionRoot = React.forwardRef<HTMLDivElement, React.HTMLAttributes<HTMLDivElement> & AccordionRootProps>(
+    function AccordionRoot({ children, className, defaultCollapsed = false, isCollapsed: isCollapsedOverride, ...other }, ref) {
+        const [isCollapsed, setIsCollapsed] = React.useState<boolean>(defaultCollapsed);
+        const trigger = () => setIsCollapsed(c => !c);
+
+        return <AccordionContext.Provider value={{
+            isCollapsed: isCollapsedOverride ?? isCollapsed,
+            trigger: isCollapsedOverride == undefined ? trigger : () => { },
+        }}>
+            <div className={className ?? accordionStyle.AccordionRoot}
+                data-collapsed={isCollapsed} ref={ref} {...other}>
+                {children}
+            </div>
+        </AccordionContext.Provider>
+    }
+)
+
+const AccordionTrigger = React.forwardRef<HTMLDivElement, React.HTMLAttributes<HTMLDivElement>>(
+    function AccordionTrigger({ children, className, ...others }, ref) {
+        const { trigger } = React.useContext(AccordionContext);
+        return <div className={className ?? accordionStyle.AccordionTrigger}
+            ref={ref} onClick={trigger} {...others}>
+            {children}
+        </div>
+    }
+)
+
+const AccordionHeader = React.forwardRef<HTMLDivElement, React.HTMLAttributes<HTMLDivElement>>(
+    function AccordionHeader({ className, ...others }, ref) {
+        return <div ref={ref}
+            className={className ?? accordionStyle.AccordionHeader} {...others} />
+    }
+)
+
+const AccordionContent = React.forwardRef<HTMLDivElement, React.HTMLAttributes<HTMLDivElement>>(
+    function AccordionContent({ children, className, ...others }, ref) {
+        return <div ref={ref} className={className ?? accordionStyle.AccordionContent} {...others}>
+            {children}
+        </div>
+    }
+)
+
+export {
+    AccordionRoot as Root,
+    AccordionTrigger as Trigger,
+    AccordionHeader as Header,
+    AccordionContent as Content,
+};
 ```
 
-Ignore styling, which can be added either inside or outside this component based the scale of the project and preferance. we are free from customizing layout and passing styles and properties on each component through parameters. We are able to use this component for any use case mentioned above, with a much cleaner component codebase. 
+Instead of using a single `Accordion` component, now consumer need to use building blocks from Accordion module to construct the bigger component.
 
+```tsx
+import * as Accordion from "@/components/accordion-compound-rich";
+import { ChevronDown } from "@/components/icon";
+import pageStyle from "./page.module.css";
+
+export default function Home() {
+  return (
+      <Accordion.Root>
+        <Accordion.Header>
+          <h6>This is a Title</h6>
+          <Accordion.Trigger>
+            <ChevronDown className={pageStyle.AccordionRotateIcon} />
+          </Accordion.Trigger>
+        </Accordion.Header>
+        <Accordion.Content>
+          Lorem ipsum dolor sit amet, summo dicant mnesarchum eum an, eu mea alii facilisis. Sed brute vocent suscipit ad, in cum dicant moderatius. Audiam copiosae liberavisse id eos, natum elitr iisque eu has. Est ut partem possim alienum, nec no malis singulis. In quem minimum pro, ne vero errem indoctum pro. Iisque scripta consectetuer at vis, ei has dicta simul deleniti, sea consul postulant torquatos at.
+        </Accordion.Content>
+      </Accordion.Root>
+  );
+}
+```
+
+And we are also free from customizing layout and passing styles and properties on each component through parameters.
+
+<!-- [Preview] -->
+```tsx
+import * as Accordion from "@/components/accordion-compound-rich";
+import { ArrowInput, ArrowOutput } from "@/components/icon";
+import pageStyle from "./page.module.css";
+
+export default function Home() {
+  return (
+      <Accordion.Root>
+        <Accordion.Header>
+          <div>
+            <h6>This is a Title</h6>
+            <p style={{ opacity: .5 }}>And customized Icon</p>
+          </div>
+          <Accordion.Trigger>
+            <ArrowInput className={pageStyle.IconShowOnUncollapsed} />
+            <ArrowOutput className={pageStyle.IconShowOnCollapsed} />
+          </Accordion.Trigger>
+        </Accordion.Header>
+        <Accordion.Content>
+          Lorem ipsum dolor sit amet, summo dicant mnesarchum eum an, eu mea alii facilisis. Sed brute vocent suscipit ad, in cum dicant moderatius. Audiam copiosae liberavisse id eos, natum elitr iisque eu has. Est ut partem possim alienum, nec no malis singulis. In quem minimum pro, ne vero errem indoctum pro. Iisque scripta consectetuer at vis, ei has dicta simul deleniti, sea consul postulant torquatos at.
+        </Accordion.Content>
+      </Accordion.Root>
+  );
+}
+```
+
+<!-- [Preview] -->
+```tsx
+import * as Accordion from "@/components/accordion-compound-rich";
+import { ArrowInput, ArrowOutput } from "@/components/icon";
+import pageStyle from "./page.module.css";
+
+export default function Home() {
+  return (
+      <Accordion.Root>
+        <Accordion.Header>
+          <Accordion.Trigger style={{ flex: "1 1" }}>
+            <ChevronDown className={pageStyle.AccordionRotateIcon} />
+            <h6>Title on the Right</h6>
+          </Accordion.Trigger>
+        </Accordion.Header>
+        <Accordion.Content>
+          Lorem ipsum dolor sit amet, summo dicant mnesarchum eum an, eu mea alii facilisis. Sed brute vocent suscipit ad, in cum dicant moderatius. Audiam copiosae liberavisse id eos, natum elitr iisque eu has. Est ut partem possim alienum, nec no malis singulis. In quem minimum pro, ne vero errem indoctum pro. Iisque scripta consectetuer at vis, ei has dicta simul deleniti, sea consul postulant torquatos at.
+        </Accordion.Content>
+      </Accordion.Root>
+  );
+}
+```
+
+Have to say, it's a lot more LOC comparing to the mono-component solution, from both the component side and consumer side.
+
+## Conclusion
+
+Compound Components pattern help a lot

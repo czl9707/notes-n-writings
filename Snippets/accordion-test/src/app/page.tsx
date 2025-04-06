@@ -10,7 +10,7 @@ export default function Home() {
         Lorem ipsum dolor sit amet, summo dicant mnesarchum eum an, eu mea alii facilisis. Sed brute vocent suscipit ad, in cum dicant moderatius. Audiam copiosae liberavisse id eos, natum elitr iisque eu has. Est ut partem possim alienum, nec no malis singulis. In quem minimum pro, ne vero errem indoctum pro. Iisque scripta consectetuer at vis, ei has dicta simul deleniti, sea consul postulant torquatos at.
       </AccordionBare>
 
-      <span style={{ height: "10rem", display: "block" }} />
+      <span style={{ height: "15rem", display: "block" }} />
 
       <Accordion.Root>
         <Accordion.Header>
@@ -24,7 +24,7 @@ export default function Home() {
         </Accordion.Content>
       </Accordion.Root>
 
-      <span style={{ height: "10rem", display: "block" }} />
+      <span style={{ height: "15rem", display: "block" }} />
 
       <Accordion.Root>
         <Accordion.Header>
@@ -42,7 +42,7 @@ export default function Home() {
         </Accordion.Content>
       </Accordion.Root>
 
-      <span style={{ height: "10rem", display: "block" }} />
+      <span style={{ height: "15rem", display: "block" }} />
 
       <Accordion.Root>
         <Accordion.Header>
@@ -55,6 +55,11 @@ export default function Home() {
           Lorem ipsum dolor sit amet, summo dicant mnesarchum eum an, eu mea alii facilisis. Sed brute vocent suscipit ad, in cum dicant moderatius. Audiam copiosae liberavisse id eos, natum elitr iisque eu has. Est ut partem possim alienum, nec no malis singulis. In quem minimum pro, ne vero errem indoctum pro. Iisque scripta consectetuer at vis, ei has dicta simul deleniti, sea consul postulant torquatos at.
         </Accordion.Content>
       </Accordion.Root>
+
+      <span style={{ height: "15rem", display: "block" }} />
+      <span style={{ height: "15rem", display: "block" }} />
+      <span style={{ height: "15rem", display: "block" }} />
+
     </>
   );
 }

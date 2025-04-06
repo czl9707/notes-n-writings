@@ -35,34 +35,33 @@ const AccordionRoot = React.forwardRef<HTMLDivElement, React.HTMLAttributes<HTML
     }
 )
 
-
 const AccordionTrigger = React.forwardRef<HTMLDivElement, React.HTMLAttributes<HTMLDivElement>>(
     function AccordionTrigger({ children, className, ...others }, ref) {
-        const { trigger } = React.useContext(AccordionContext);
+        const { trigger, isCollapsed } = React.useContext(AccordionContext);
         return <div className={className ?? accordionStyle.AccordionTrigger}
-            ref={ref} onClick={trigger} {...others}>
+            ref={ref} onClick={trigger} {...others} data-collapsed={isCollapsed}>
             {children}
         </div>
     }
 )
-
 
 const AccordionHeader = React.forwardRef<HTMLDivElement, React.HTMLAttributes<HTMLDivElement>>(
     function AccordionHeader({ className, ...others }, ref) {
-        return <div ref={ref}
-            className={[accordionStyle.AccordionHeader, className].join(" ")} {...others} />
+        const { isCollapsed } = React.useContext(AccordionContext);
+        return <div ref={ref} data-collapsed={isCollapsed}
+            className={className ?? accordionStyle.AccordionHeader} {...others} />
     }
 )
 
-
 const AccordionContent = React.forwardRef<HTMLDivElement, React.HTMLAttributes<HTMLDivElement>>(
     function AccordionContent({ children, className, ...others }, ref) {
-        return <div ref={ref} className={className ?? accordionStyle.AccordionContent} {...others}>
+        const { isCollapsed } = React.useContext(AccordionContext);
+        return <div ref={ref} data-collapsed={isCollapsed}
+            className={className ?? accordionStyle.AccordionContent} {...others}>
             {children}
         </div>
     }
 )
-
 
 export {
     AccordionRoot as Root,
