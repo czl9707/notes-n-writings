@@ -51,6 +51,7 @@ export default function Home() {
             <h6>Title on the Right</h6>
           </Accordion.Trigger>
         </Accordion.Header>
+        <h6 style={{ opacity: .5, margin: "1rem", textAlign: "end" }}>Something in the middle</h6>
         <Accordion.Content>
           Lorem ipsum dolor sit amet, summo dicant mnesarchum eum an, eu mea alii facilisis. Sed brute vocent suscipit ad, in cum dicant moderatius. Audiam copiosae liberavisse id eos, natum elitr iisque eu has. Est ut partem possim alienum, nec no malis singulis. In quem minimum pro, ne vero errem indoctum pro. Iisque scripta consectetuer at vis, ei has dicta simul deleniti, sea consul postulant torquatos at.
         </Accordion.Content>

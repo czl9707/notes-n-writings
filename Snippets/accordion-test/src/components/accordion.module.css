@@ -13,7 +13,6 @@
     justify-content: space-between;
     align-items: center;
     user-select: none;
-    color: white;
     padding: .15rem .5rem;
     margin: 1rem;
     border-radius: 4px;
@@ -28,7 +27,6 @@
 .AccordionContent {
     overflow-y: scroll;
     box-sizing: border-box;
-    color: white;
     background-color: rgb(255 255 255 / 10%);
     border-radius: 4px;
 

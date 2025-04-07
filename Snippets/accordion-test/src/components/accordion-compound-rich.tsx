@@ -14,18 +14,25 @@ const AccordionContext = React.createContext<{
 
 interface AccordionRootProps {
     defaultCollapsed?: boolean,
-    collapsed?: boolean
-    isCollapsed?: boolean
+    isCollapsed?: boolean,   // the Accordion will become a controlled if this is provided.
+    onCollapsed?(): void,
+    onUncollapsed?(): void,
 }
 
 const AccordionRoot = React.forwardRef<HTMLDivElement, React.HTMLAttributes<HTMLDivElement> & AccordionRootProps>(
-    function AccordionRoot({ children, className, defaultCollapsed = false, isCollapsed: isCollapsedOverride, ...other }, ref) {
+    function AccordionRoot({
+        children, className, defaultCollapsed = false, isCollapsed: isCollapsedOverride, onCollapsed, onUncollapsed, ...other
+    }, ref) {
         const [isCollapsed, setIsCollapsed] = React.useState<boolean>(defaultCollapsed);
-        const trigger = () => setIsCollapsed(c => !c);
+        const onTrigger = () => {
+            if (isCollapsed && onUncollapsed) onUncollapsed();
+            else if (!isCollapsed && onCollapsed) onCollapsed();
+            setIsCollapsed(c => !c)
+        };
 
         return <AccordionContext.Provider value={{
             isCollapsed: isCollapsedOverride ?? isCollapsed,
-            trigger: isCollapsedOverride == undefined ? trigger : () => { },
+            trigger: isCollapsedOverride == undefined ? onTrigger : () => { },
         }}>
             <div className={className ?? accordionStyle.AccordionRoot}
                 data-collapsed={isCollapsed} ref={ref} {...other}>
