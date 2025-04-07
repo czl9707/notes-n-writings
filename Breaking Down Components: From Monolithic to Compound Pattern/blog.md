@@ -1,15 +1,17 @@
 # Breaking Down Components: From Monolithic to Compound Pattern
 
-React give us the capability of managing states within component, and it is almost always good to ensure states being capsulated within components. However, in reality, it is more than often that one functionality would require multiple pieces to accomplish.
+React give us the powerful capability to manage states within component, and encapsulating state is generally considered a best practice. However, in real-world applications, it is more than often that UI features require multiple interconnected pieces to function properly.
 
-We usually put everything related inside a single component, and lift all share states into it, and call it "a component". Instead, compound component pattern seperate the concerns, by breaking it into multiple pieces, and let them communicate in the background to accomplish certain behavior. A lot of famous component library leverage compound component pattern, such as [Radix Primitive](https://www.radix-ui.com/primitives) and [Shadcn/ui](https://ui.shadcn.com/).
+The traditional approach is to build a monolithic component that contains everything related to a feature, lifting shared state to the top level. The Compound Component is a more elegant solution of handling states when dealing with large components. The pattern seperates the concerns by breaking component into multiple pieces, who communicate in the background to accomplish certain behavior. Many famous component library leverage Compound Component pattern, such as [Radix Primitive](https://www.radix-ui.com/primitives) and [Shadcn/ui](https://ui.shadcn.com/).
 
-## Build your own Accordion
+## The Monolithic Approach: Build your own Accordion
 
-Taking Accordion as an example, and let's break down what make up an Accordion:
-- A Button to control the collapse behavior.
-- A Box to display the title, visible all the time.
-- A Box contain the collapsable content.
+Let's start with a common UI component—an accordion—and examine how it's typically implemented. An accordion consists of:
+- A button to control the collapse behavior
+- A header to display the title (always visible)
+- A content area that can be expanded or collapsed
+
+Here's a minimal monolithic implementation:
 
 ``` tsx
 import React from "react"
@@ -34,19 +36,19 @@ export default function Accordion({ title, children }: {
     </div>
 }
 ```
-A minimal version of accordion. The state included in this component is quite straight forward, only the `isCollapsed` to control the collapse behavior.
+The state is quite straightforward, just a single `isCollapsed` to control the expand/collapse behavior.
 
-### Customize it
+## The Challenge of Customization
 
 One biggest advantage of component is its reusability. However, the reusablity is useless if missing flexibility. Thus, in order to push the component to its full potential, let's customize it!
 
 Considering following cases:
-- Control the default openness.
-- Use another icon for accordion button.
-- Apply custom style to title.
-- Apply custom style to content
-- Invoke a custom hook on collapse.
-- Make it a controlled component by passing in the collapse state.
+- Control the default expand/collapse behavior.
+- Change the chevron icon.
+- Apply custom styles to the title.
+- Apply custom styles to the content.
+- Execute a callback on collapse/expand.
+- Make it a controlled component by explicitly passing state.
 - Don't ask me why, I want the button on the left.
 
 ``` tsx
@@ -113,15 +115,20 @@ export default function Accordion({
 }
 ```
 
-When implementing the component in a monolithic pattern, exposing more arguments is a very common way to support more features. Since the component capsulates child pieces, it also expose control of them through argument drilling, which easily leads to a huge amount of arguments.
+When implementing the component in a monolithic pattern, exposing more arguments is a very common way to support more features. WHile this approach works, it introduces significant complexity indeed:
+- **Parameter Explosion**: The component has an increasing number of properties.
+- **Documentation Burden**: Using the component requires a thorough read of its documentation.
+- **Rigidity**: Many layout and styles remain impossible due to the structure of the UI component.
+- **Abstraction Barrier Break**: Developers have to understand its internal structure in some case, and will resort to inspecting the source code or using browser dev tools to figure out how to customize it properly.
+
 
 Now, using the component would require a thorough read of its documentation. And some level of understanding of its internal structure would be a must, if want to heavily customize its internal pieces. I believe a lot of developers have either checked the source code, or used browser developer tools to inspect the structure of certain component at some moment. 
 
-### Break it down!
+## The Compound Pattern Solution: Break it down!
 
-Logically, the core of accordion component is using the `isCollapsed` state to connect the trigger and content container. The layout, styles, and custom hooks all comes later. The monolithic implementation implies a lot more than that.  
+The core functionality of accordion component is simple: using the `isCollapsed` state to connect the trigger and content container. The layout, styles, and custom hooks all comes later, while the monolithic implementation implies a lot more than that.  
 
-Putting pieces within same component is not the only way of sharing states. Context API allows states sharing across different components by wrapping them inside a `context.Provider` component, which would rescue us from this situation.
+Putting pieces within same component is not the only solution of sharing states. Context API allows states sharing across different components by wrapping them inside a `context.Provider` component. This would help us to break our monolithic accordion into discrete, composable pieces.
 
 ``` tsx
 import React from "react"
@@ -174,9 +181,9 @@ export {
 };
 ```
 
-We end up with four components, the three visual component and an `Root` component which internally wrap children using `context.Provider` component. 
+We end up with four components, the three visual component `Trigger`, `Header`,`Content` as mentioned previously, and an `Root` component which internally wrap children using `context.Provider` component. 
 
-Adding styles inside or outside of the component will be another dicussion. For this blog, I will just add them inside the component for simplicity of usage.
+Adding styles inside or outside of the component will be another dicussion. For this blog, Let's enhance these with some default styles and additional functionality. 
 
 ``` tsx
 import React from "react"
@@ -254,9 +261,13 @@ export {
 };
 ```
 
-Now the `Root` component support a `isCollapsed` property to turn the component into a controlled version, and two optional hooks `onCollapsed` and `onUncollapsed`. 
+Now the `Root` component accept properties related the `isCollapsed` state, such as a `isCollapsed` property to turn the component into a controlled version, and two optional callbacks `onCollapsed` and `onUncollapsed`.
 
-For usage, instead of using a single `Accordion` component, now consumer need to use building blocks from Accordion module to construct the bigger component.
+All other pieces, `Trigger`, `Header`, `Content` accept all sets of `React.HTMLAttributes<HTMLDivElement>`.
+
+## Using Compound Components
+
+For usage, instead of using a single `Accordion` component, consumers use building blocks to construct the UI instead of configuring a single component.
 
 ```tsx
 import * as Accordion from "@/components/accordion-compound-rich";
@@ -280,7 +291,7 @@ export default function Home() {
 }
 ```
 
-And we are also free from customizing layout and passing styles and properties on each component through properties.
+The power of compound component pattern becomes apparent when customization comes into play. And we apply all sets of properties to them just like treating native html element.
 
 ```tsx
 import * as Accordion from "@/components/accordion-compound-rich";
@@ -333,16 +344,21 @@ export default function Home() {
 ```
 <!-- Insert [Preview] -->
 
-By breaking down the mono-component into small pieces, and using compound component pattern, we provided more flexibility on the consumer side to customize each piece of the component, while still maintain the functionality. 
+## Pros and Cons
 
-However, it does increase the lines of code, both in component and in consumer side, slightly increasing the learning curve. The current implementation also introduces more challenges:
-- User might use components in a wrong order.
-- introducing redundent `div` layers in some cases.
+By breaking down the mono-component into small pieces, we seperate the concerns, each piece has a focused and simple interface, and only in charge of one thing. It provides more flexibility on the consumer side to customize each piece of the component, while still maintain the functionality. 
 
-We can solve these problem by:
-- Enforcing components order by taking advantage of `useContext` hook.
-- Add a `asChild` parameter, which allow component to become more transparent.
+However it does bring some challenges, and some potential solution:
+- **Initial learning curve**: However it's still more friendly when comparing to giant monolithic component.
+- **Increased Lines of Code**: Breaking down component increase consumer efforts for sure. For bigger compound component, some composition utitility will be helpful for common patterns.
+- **Messy Structure**: User might place components in an unsupported hierachy. This can be solved by leveraging `useContext` hook to enforce the hierachy.
+- **Extra DOM Elements**: May introduce redundant wrapper elements in some cases. The `asChild` property would allow the layer to become omre transparent.
 
-## Conclusion
 
-Compound Components pattern reduces the complexity of parameters and internal logic of components, by exposing the inner piece of a component. It allows users to compose different pieces together to have them work together, and provicdes cleaner interface on each component, but do slightly increase the learning curve when using it.
+## Wrap up
+
+The compound component pattern represents a significant shift in how we build and consume UI components in React. While monolithic components are simpler to implement initially, they quickly become unwieldy when addressing real-world customization needs.
+
+Compound components offer a more scalable and flexible alternative by breaking complex UI into logical, composable pieces.
+
+As your component library matures, transitioning from monolithic components to compound patterns might be a good choice. This approach may require slightly more code and introduce a small learning curve, but the gains in flexibility and maintainability are well worth the investment.
