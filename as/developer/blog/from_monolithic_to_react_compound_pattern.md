@@ -5,7 +5,6 @@ cover_url: https://zane-portfolio.s3.us-east-1.amazonaws.com/CompoundPatternCove
 tags:
   - react
   - pattern
-template: "[[All Blogs]]"
 ---
 React give us the powerful capability to manage states within component, and encapsulating state is generally considered a best practice. However, in real-world applications, it is more than often that UI features require multiple interconnected pieces to function properly.
 

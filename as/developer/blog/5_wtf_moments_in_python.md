@@ -3,7 +3,6 @@ title: 5 WTF Moments in Python
 description: This isn't another Python beginner guide or critique of Python's performance issues. Instead, the blog walks through five surprising behaviors in Python that have bitten me in the past, knowing these might save you hours of debugging.
 link: 5_wtf_moments_in_python
 cover_url: https://zane-portfolio.s3.us-east-1.amazonaws.com/PythonNightmareCover.png
-template: "[[All Blogs]]"
 ---
 ## 1. It Is Not the Function I Called!
 

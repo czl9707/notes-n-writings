@@ -5,7 +5,6 @@ tags:
   - pattern
 title: "Code like an Onion: The Decorator Pattern"
 description: An introduction to the Decorator Design Pattern, which helps manage cross-cutting concerns by wrapping your core functionality like an onion🧅.
-template: "[[All Blogs]]"
 ---
 
 When cutting an onion, the knife slices through layer after layer, and finally reaches its core. The **Decorator Pattern** provides us a way of writing code just like cutting through an onion, not in the way of tearing 😢.

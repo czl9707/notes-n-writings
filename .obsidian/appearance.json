@@ -1,4 +1,7 @@
 {
   "theme": "obsidian",
-  "accentColor": "#48604b"
+  "accentColor": "#48604b",
+  "enabledCssSnippets": [
+    "card"
+  ]
 }

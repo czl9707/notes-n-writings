@@ -1,0 +1,42 @@
+.card-container>span {
+	display: flex;
+	flex-direction: column;
+	gap: 0;
+	border-radius: .5rem;
+	border: gray solid .53px;
+	margin: 0;
+	padding: 0;
+	overflow: hidden;
+
+	transition: all .2s linear;
+
+	img {
+		width: 100%;
+		aspect-ratio: 2/1;
+		object-fit: cover;
+	}
+	span, p {
+		margin: 0;
+		padding: 0;
+	}
+	a {
+		margin: .5rem 1rem;
+	}
+	
+	&:hover {
+		box-shadow: gray .2rem .2rem .2rem;
+	}
+}
+
+
+.dataview-container {
+	display: grid;
+	gap: .5rem;
+	padding-bottom: 1rem;
+
+	@media(min-width: 800px) {
+		grid-template-columns: repeat(2, minmax(0, 1fr));
+	}
+	
+	grid-column-template: repeat(1, minmax(0, 1fr)
+}
