@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "All Blogs.md",
+                "file": "Blog Dashboard.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "All Blogs"
+              "title": "Blog Dashboard"
             }
           }
         ]
@@ -168,11 +168,11 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "d8d9d849e730bc06",
+  "active": "e7bae6e6897408bc",
   "lastOpenFiles": [
     "as/developer/note/AI for Everyone.md",
     "as/developer/note",
-    "All Blogs.md",
+    "Blog Dashboard.md",
     "Untitled",
     "as/developer/blog/5_wtf_moments_in_python.md",
     "as/developer/blog/decorator_design_pattern.md",
