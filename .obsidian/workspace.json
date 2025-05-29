@@ -4,21 +4,35 @@
     "type": "split",
     "children": [
       {
-        "id": "128ec1c83262fdd2",
+        "id": "d05b7b32f5cb8722",
         "type": "tabs",
         "children": [
           {
-            "id": "d8d9d849e730bc06",
+            "id": "07f218bb1269ab71",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Blog Dashboard.md",
+                "file": "as/developer/drafts/choose_css_solution.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Blog Dashboard"
+              "title": "choose_css_solution"
+            }
+          },
+          {
+            "id": "02eddaef798f0cb6",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "as/developer/blog/5_wtf_moments_in_python.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "5_wtf_moments_in_python"
             }
           }
         ]
@@ -168,18 +182,25 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "e7bae6e6897408bc",
+  "active": "07f218bb1269ab71",
   "lastOpenFiles": [
-    "as/developer/note/AI for Everyone.md",
-    "as/developer/note",
-    "Blog Dashboard.md",
-    "Untitled",
     "as/developer/blog/5_wtf_moments_in_python.md",
+    "as/developer/drafts/choose_css_solution.md",
+    "as/developer/drafts/deeper_look_at_https.md",
+    "as/developer/drafts/a_love_letter_to_markdown.md",
+    "as/developer/drafts/().md",
+    "as/developer/drafts/This Pattern Saved me from Inheritance Hell.md",
+    "as/developer/blog/cross_component_styling_with_react_compound_pattern.md",
+    "as/developer/blog/from_monolithic_to_react_compound_pattern.md",
+    "as/developer/drafts/async_await_under_the_hood.md",
+    "as/developer/drafts/incremental_static_regeneration.md",
+    "as/developer/note/AI for Everyone.md",
+    "as/developer/drafts",
+    "Blog Dashboard.md",
+    "as/developer/blog/solutions_to_bring_asynchronism_into_pytest.md",
+    "as/developer/note",
     "as/developer/blog/decorator_design_pattern.md",
     "Templates/Blog Template.md",
-    "as/developer/blog/solutions_to_bring_asynchronism_into_pytest.md",
-    "as/developer/blog/from_monolithic_to_react_compound_pattern.md",
-    "as/developer/blog/cross_component_styling_with_react_compound_pattern.md",
     "Untitled.canvas",
     "Templates",
     "2025-05-07.md",

@@ -1,4 +1,5 @@
 {
   "trashOption": "none",
-  "newFileLocation": "current"
+  "newFileLocation": "current",
+  "showLineNumber": true
 }
