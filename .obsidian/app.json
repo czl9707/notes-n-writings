@@ -1,5 +1,7 @@
 {
   "trashOption": "none",
   "newFileLocation": "current",
-  "showLineNumber": true
+  "showLineNumber": true,
+  "alwaysUpdateLinks": true,
+  "useMarkdownLinks": true
 }

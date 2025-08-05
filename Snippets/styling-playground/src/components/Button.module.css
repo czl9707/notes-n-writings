@@ -1,6 +1,0 @@
-.Button {
-	background-color: transparent;
-	&:hover {
-		background-color: gray;
-	}
-}
