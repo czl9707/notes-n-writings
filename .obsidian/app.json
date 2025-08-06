@@ -1,7 +1,9 @@
 {
-  "trashOption": "none",
+  "trashOption": "system",
   "newFileLocation": "current",
   "showLineNumber": true,
   "alwaysUpdateLinks": true,
-  "useMarkdownLinks": true
+  "useMarkdownLinks": true,
+  "newLinkFormat": "absolute",
+  "showUnsupportedFiles": false
 }

@@ -21,7 +21,7 @@ Example:
 - Using Lung CT image to tell the disease the lung might have.
 
 ## Model Performance
-- [Variance & Bias](variance_n_bias.md)
+- [Variance & Bias](Notes/Technology/variance_n_bias)
 
 ## Activation Function
 
@@ -55,11 +55,14 @@ Example:
 
 # Models
 
-- [Decision Tree](Decision%20Tree.md)
-- [Regression Model](regression_model.md)
-- [Clustering](clustering.md)
-- [Transformer](transformer.md)
+- [Regression Model](Notes/Technology/regression_model)
+- [Decision Tree](Notes/Technology/decision_tree)
+- [Clustering](Notes/Technology/clustering)
+- [Transformer](Notes/Technology/transformer)
+- [Anomaly Detection](Notes/Technology/anomaly_detection)
+# Techniques
 
+- [Training Optimization](Notes/Technology/training_optimization)
 
 # Libraries
 

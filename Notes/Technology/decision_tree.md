@@ -1,6 +1,7 @@
 ---
 tags:
   - machine_learning
+title: Decision Tree
 ---
 ## Basic Concept
 

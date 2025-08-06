@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Notes/Technology/Decision Tree.md",
+                "file": "Notes/Technology/anomaly_detection.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Decision Tree"
+              "title": "anomaly_detection"
             }
           }
         ]
@@ -94,7 +94,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Notes/Technology/Decision Tree.md",
+                "file": "Notes/Technology/anomaly_detection.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -104,7 +104,7 @@
                 "unlinkedCollapsed": false
               },
               "icon": "links-coming-in",
-              "title": "Backlinks for Decision Tree"
+              "title": "Backlinks for anomaly_detection"
             }
           },
           {
@@ -142,17 +142,16 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Notes/Technology/Decision Tree.md",
+                "file": "Notes/Technology/anomaly_detection.md",
                 "followCursor": true,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "Outline of Decision Tree"
+              "title": "Outline of anomaly_detection"
             }
           }
-        ],
-        "currentTab": 3
+        ]
       }
     ],
     "direction": "horizontal",
@@ -168,15 +167,16 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "b97d374f8e55802e",
+  "active": "4ea9f672e20a812e",
   "lastOpenFiles": [
-    "Notes/Technology/clustering.md",
-    "Notes/Technology/Decision Tree.md",
-    "Blogs/Finished/from_monolithic_to_react_compound_pattern.md",
     "Notes/Technology/machine_learning_basic.md",
-    "Notes/Technology/transformer.md",
     "Notes/Technology/regression_model.md",
+    "Notes/Technology/clustering.md",
     "Notes/Technology/training_optimization.md",
+    "Notes/Technology/anomaly_detection.md",
+    "Notes/Technology/decision_tree.md",
+    "Blogs/Finished/from_monolithic_to_react_compound_pattern.md",
+    "Notes/Technology/transformer.md",
     "Notes/Technology/variance_n_bias.md",
     "Templates/Blog Template.md",
     "Notes/Technology/input_data_techniques.md",
@@ -198,7 +198,6 @@
     "as/developer/drafts/incremental_static_regeneration.md",
     "Blogs/Drafts/deeper_look_at_https.md",
     "Blogs/Drafts/async_await_under_the_hood.md",
-    "Blogs/Drafts/ts_as_a_programming_language.md",
     "Blogs/Drafts",
     "Notes",
     "Untitled.canvas",

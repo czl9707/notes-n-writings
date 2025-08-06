@@ -10,6 +10,11 @@ title: Training Optimization
 	- **Mean Normalization**: Derive the scaling factor using mean of real feature value.
 	- **Z-Score Normalization**: Derive the scale factor using standard deviation of real feature value.
 
+## Adam
+
+**Adam** stands for "Adaptive Moment Estimation". One behavior of gradient descent in general is that parameters moves more constant in some direction than the other. And **Adam** will accelerate gradient descent in the constant direction, but slow down in the jiggling direction.
+
+The intuition about Adam is that, 
 
 - **Adam**
 - **MNIST Adam**
