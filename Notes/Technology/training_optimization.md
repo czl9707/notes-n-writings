@@ -10,12 +10,40 @@ title: Training Optimization
 	- **Mean Normalization**: Derive the scaling factor using mean of real feature value.
 	- **Z-Score Normalization**: Derive the scale factor using standard deviation of real feature value.
 
+## Gradient Descent with Momentum
+
+One behavior of gradient descent in general is that parameters moves more constant in some direction than the other. And **Gradient Descent with Momentum** keep track of the "velocity" of weights moving, and using the latest gradient to update "velocity", and use the "velocity" to update weights. Thus it will accelerate gradient descent in the constant direction, but slow down in the jiggling direction.
+
+Give basic Gradient Descent 
+$$\theta = \theta - \alpha \cdot \nabla L(\theta)$$
+Gradient Descent with momentum will be 
+$$v_t = \gamma \cdot v_{t-1} + \alpha \cdot \nabla L(\theta) $$$$ \theta = \theta - v_t  $$
+
+## RMSProp
+
+**RMSProp** stands for "Root Mean Square Propagation". It adjust the learning rate for each parameter based on the recent magnitude of its gradients. And reaching a similar effect as 
+**Gradient Descent with Momentum**.
+$$ s_t = \beta \cdot s_{t-1} + (1-\beta)(\nabla L(\theta))^2 $$
+$$ \theta = \theta - \frac{\alpha}{\sqrt{s_t + \epsilon}} \cdot \nabla L(\theta) $$
+
 ## Adam
 
-**Adam** stands for "Adaptive Moment Estimation". One behavior of gradient descent in general is that parameters moves more constant in some direction than the other. And **Adam** will accelerate gradient descent in the constant direction, but slow down in the jiggling direction.
+In short, **Adam** stands for "Adaptive Moment Estimation", and is a combination of **RMSProp** and **Gradient Descent with Momentum**.
 
-The intuition about Adam is that, 
+## Mini Batch
 
-- **Adam**
-- **MNIST Adam**
+Traditionally, model weights every time all samples have been fed to the model during training, which would lead to a smooth converging, but the training is relatively, especially when training set is more than millions. **Mini Batch**, instead, update weights every batch of samples got fed. The model weights might jiggle around for some steps, but would eventually converge. 
 
+The chosen batch size should be neither too small in order to take advantage of GPU computation, nor too big to get model weights moving faster. $2^n$ is usually chosen as batch size.
+
+## Learning Rate Decay
+
+Especially when doing Mini Batch training, model might have a hard time to converge. learning rate decay is an optimization in this scenario. By reducing rate gradually during training, parameters move faster initially, and slower as training goes. 
+$$ \alpha = \frac{k}{\sqrt{epoch}} \cdot \alpha_0$$
+
+## Batch Normalization
+
+As the neural network goes deeper, gradient vanish or explosion happens more than often. One observation is that in any given hidden layer, the distribution of hidden features is skewed. And similar to [Feature Scaling](#Feature Scaling) as a method of input normalization, we apply the same thing to hidden layers.
+
+To compute mean $\mu$ and variance $\sigma^2$ for batch normalization: $$ \mu_B = \frac{1}{m} \sum^m_{i=1}x_i, \ \ \sigma^2_B = \frac{1}{m} \sum^m_{i=1}(x_i - \mu_B)^2 $$
+Obviously both of them depends on input value x, which is no such thing during inference. The typical solution on this is using running **average** of mean and variance (accumulated during training).

@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Notes/Technology/anomaly_detection.md",
+                "file": "Notes/Technology/training_optimization.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "anomaly_detection"
+              "title": "training_optimization"
             }
           }
         ]
@@ -94,7 +94,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Notes/Technology/anomaly_detection.md",
+                "file": "Notes/Technology/training_optimization.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -104,7 +104,7 @@
                 "unlinkedCollapsed": false
               },
               "icon": "links-coming-in",
-              "title": "Backlinks for anomaly_detection"
+              "title": "Backlinks for training_optimization"
             }
           },
           {
@@ -169,15 +169,15 @@
   },
   "active": "4ea9f672e20a812e",
   "lastOpenFiles": [
+    "Notes/Technology/variance_n_bias.md",
+    "Notes/Technology/transformer.md",
+    "Notes/Technology/anomaly_detection.md",
+    "Notes/Technology/decision_tree.md",
+    "Notes/Technology/training_optimization.md",
     "Notes/Technology/machine_learning_basic.md",
     "Notes/Technology/regression_model.md",
     "Notes/Technology/clustering.md",
-    "Notes/Technology/training_optimization.md",
-    "Notes/Technology/anomaly_detection.md",
-    "Notes/Technology/decision_tree.md",
     "Blogs/Finished/from_monolithic_to_react_compound_pattern.md",
-    "Notes/Technology/transformer.md",
-    "Notes/Technology/variance_n_bias.md",
     "Templates/Blog Template.md",
     "Notes/Technology/input_data_techniques.md",
     "Blogs/Finished/cross_component_styling_with_react_compound_pattern.md",
