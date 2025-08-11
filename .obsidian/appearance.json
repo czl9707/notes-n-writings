@@ -3,5 +3,6 @@
   "accentColor": "#e2e49b",
   "enabledCssSnippets": [
     "card"
-  ]
+  ],
+  "cssTheme": ""
 }

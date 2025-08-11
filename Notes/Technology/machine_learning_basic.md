@@ -60,6 +60,9 @@ Example:
 - [Clustering](Notes/Technology/clustering)
 - [Transformer](Notes/Technology/transformer)
 - [Anomaly Detection](Notes/Technology/anomaly_detection)
+- [Convolutional Neural Network](Notes/Technology/convolutional_neural_network)
+- [Recurrent Neural Network](Notes/Technology/recurrent_neural_network)
+
 # Techniques
 
 - [Training Optimization](Notes/Technology/training_optimization)

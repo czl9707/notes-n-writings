@@ -6,7 +6,7 @@ cover_url: https://zane-portfolio.s3.us-east-1.amazonaws.com/PythonNightmareCove
 ---
 ## 1. It Is Not the Function I Called!
 
-I encountered this issue when implementing the [Decorator Pattern](decorator_design_pattern.md) in python. 
+I encountered this issue when implementing the [Decorator Pattern](decorator_design_pattern) in python. 
 
 ```python
 callbacks = [
