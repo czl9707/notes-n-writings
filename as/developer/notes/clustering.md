@@ -1,11 +1,14 @@
 ---
-tags:
-  - machine_learning
+tags: [machine_learning]
 title: Clustering
+created_date: 2025-08-03
+last_modified_date: 2025-08-14
 ---
+
 ## K-Means
 
 K-Means is an algorithm cluster given sample data into k groups, and all sample will end up in some cluster. The algorithm initialize k center node randomly. For each iteration:
+
 - For each sample, we find the nearest center node.
 - For each group, we calculate the center node again using all samples.
 - Repeat until group member converge.

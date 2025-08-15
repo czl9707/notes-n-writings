@@ -1,7 +1,8 @@
 ---
-tags:
-  - machine_learning
+tags: [machine_learning]
 title: Variance & Bias
+created_date: 2025-08-03
+last_modified_date: 2025-08-14
 ---
 
 ## Definition
@@ -22,10 +23,14 @@ title: Variance & Bias
 ## Regularization
 
 A standard Loss function for typical neural network looks like this:
+
 $$J(\vec{w}, b) = \frac{1}{2m} \sum_{i=1}^{m}(f_{\vec{w},b}(\vec{x}^{(i)}) - {y}^{(i)})^2$$
+
 And the version with regularization applied on top looks like.
+
 $$J(\vec{w}, b) = \frac{1}{2m} \sum_{i=1}^{m}(f_{\vec{w},b}(\vec{x}^{(i)}) - {y}^{(i)})^2 + \frac{\lambda}{2m} \sum_{j=1}^{n} w_j^2$$
-The intuition about regularization is reducing the gradient of each parameter over loss function by a constant value. Which preventing the model putting too much weights on all parameter to reduce unnecessary complexity of the function the model represent. 
+
+The intuition about regularization is reducing the gradient of each parameter over loss function by a constant value. Which preventing the model putting too much weights on all parameter to reduce unnecessary complexity of the function the model represent.
 
 ## Dropout Regularization
 

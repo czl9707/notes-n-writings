@@ -1,12 +1,15 @@
 ---
 title: 5 WTF Moments in Python
 description: This isn't another Python beginner guide or critique of Python's performance issues. Instead, the blog walks through five surprising behaviors in Python that have bitten me in the past, knowing these might save you hours of debugging.
-link: 5_wtf_moments_in_python
 cover_url: https://zane-portfolio.s3.us-east-1.amazonaws.com/PythonNightmareCover.png
+tags: [python]
+created_date: 2025-07-05
+last_modified_date: 2025-08-14
 ---
+
 ## 1. It Is Not the Function I Called!
 
-I encountered this issue when implementing the [Decorator Pattern](decorator_design_pattern) in python. 
+I encountered this issue when implementing the [Decorator Pattern](as/developer/blog/decorator_design_pattern.md) in python.
 
 ```python
 callbacks = [
@@ -79,7 +82,7 @@ No.2
 No.2
 ```
 
-## 2. Mutable Default Function Parameters Can Bite you
+## 2. Mutable Default Function Parameters Can Bite You
 
 If you ever used default parameter in compiled languages like C#, the compiler forced the default value to be a compile time value. Although Python is an interpreted language, it still binds the default value at the function definition time, which means the default value got created only once. If the value is mutable and gets modified, subsequent calls will use the modified value.
 
@@ -130,13 +133,13 @@ obj = MyClass()
 obj.the_method is obj.the_method  # False
 ```
 
-To understand this behavior, let's examine what happens under the hood when we use `obj.the_method`. 
+To understand this behavior, let's examine what happens under the hood when we use `obj.the_method`.
 
-Instead of solving the puzzle directly, try answer another question, what is `self` meant for in the method parameter? We are taught that `self` representsthe object the method is bound to, which is why `self` doesn't appear in the method signature when we call methods on objects. Who  fill the `self` parameter with the object? Magic, and it happened when the method is accessed or called.
+Instead of solving the puzzle directly, try answer another question, what is `self` meant for in the method parameter? We are taught that `self` representsthe object the method is bound to, which is why `self` doesn't appear in the method signature when we call methods on objects. Who fill the `self` parameter with the object? Magic, and it happened when the method is accessed or called.
 
 This binding happens every time we access `obj.the_method`, creating a new method object from the function definition and the bound object every time. This explains why `obj.the_method is obj.the_method` evaluates to `False`.
 
-While we won't dive deeper in this post, it's worth learning about this comprehensively. Python object attributes use something called [Discriptor](https://docs.python.org/3/howto/descriptor.html#pure-python-equivalents) to control access behavior, which is where the magic happens. Then [Python official doc](https://docs.python.org/3/howto/descriptor.html#pure-python-equivalents) is the best place to learn more. 
+While we won't dive deeper in this post, it's worth learning about this comprehensively. Python object attributes use something called [Discriptor](https://docs.python.org/3/howto/descriptor.html#pure-python-equivalents) to control access behavior, which is where the magic happens. Then [Python official doc](https://docs.python.org/3/howto/descriptor.html#pure-python-equivalents) is the best place to learn more.
 
 ## 5. True Is an Integer
 

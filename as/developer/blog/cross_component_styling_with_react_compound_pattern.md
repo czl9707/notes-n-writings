@@ -1,12 +1,13 @@
 ---
 title: "Single Source of Truth: Cross-Component Styling with React Compound Pattern"
 description: Cross-component styling is more than often in real world application. The blog explores a context-aware styling solutions in React applications, leveraging the Compound Pattern.
-tags:
-  - react
-  - pattern
+tags: [pattern, react]
 cover_url: https://zane-portfolio.s3.us-east-1.amazonaws.com/CrossComponentStylingCover.png
+created_date: 2025-07-05
+last_modified_date: 2025-08-14
 ---
-When building UI components, Its pretty common that we wanna trigger effects on component based on events on parent component, such as hovering. While applying style to components is straightforward, cross-component styling can become messy without proper control. The Blog explore an elegant solution using [Compound Pattern](from_monolithic_to_react_compound_pattern) to tackle the contextual styling challenge.
+
+When* building UI components, Its pretty common that we wanna trigger effects on component based on events on parent component, such as hovering. While applying style to components is straightforward, cross-component styling can become messy without proper control. The Blog explore an elegant solution using [Compound Pattern](as/developer/blog/from_monolithic_to_react_compound_pattern.md) to tackle the contextual styling challenge.
 
 ## Styling is Simple
 
@@ -53,7 +54,7 @@ The solution have several drawbacks:
 
 As developers, we hate duplicate things. Thus, I would be happy to extract this out to have it in a util file. However, naming it as a util is inappropriate, since it only serves `Button` component.
 
-[Compound Pattern](from_monolithic_to_react_compound_pattern) excels at solving these type of issue by breaking component into multiple pieces that communicate in the background to accomplish certain behavior. Unlike normal implementations leverage context API to share states, browser's CSS cascade do the heavy lifting for us 😛.
+[Compound Pattern](as/developer/blog/from_monolithic_to_react_compound_pattern.md) excels at solving these type of issue by breaking component into multiple pieces that communicate in the background to accomplish certain behavior. Unlike normal implementations leverage context API to share states, browser's CSS cascade do the heavy lifting for us 😛.
 
 ## The Compound Pattern Solution
 
@@ -153,6 +154,6 @@ By doing so, we achieved:
 
 ## Ending
 
-We pushed the [Compound Pattern](from_monolithic_to_react_compound_pattern) to a bit further in this blog, which put forward an elegant solution for context-dependent styling in React. By providing explicit opt-in mechanisms for style behaviors, we maintain component independence while enabling rich interactions between components.
+We pushed the [Compound Pattern](as/developer/blog/from_monolithic_to_react_compound_pattern.md) to a bit further in this blog, which put forward an elegant solution for context-dependent styling in React. By providing explicit opt-in mechanisms for style behaviors, we maintain component independence while enabling rich interactions between components.
 
 This pattern works particularly well for design systems where you need consistent, composable behaviors across many components without tight coupling.

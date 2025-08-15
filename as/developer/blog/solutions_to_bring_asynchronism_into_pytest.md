@@ -2,12 +2,11 @@
 title: "Conquering Slow Tests: 4 Solutions to Bring Concurrency into Pytest"
 description: System and integration tests sometimes require substantial execution time. The blog shares my journey of exploring multiple approaches to address the efficiency challenges, culminating in developing a custom pytest plugin.
 cover_url: https://zane-portfolio.s3.us-east-1.amazonaws.com/PytestConcurrencyCover.png
-tags:
-  - python
-  - asyncio
-  - testing
+tags: [asyncio, python, testing]
+created_date: 2025-07-05
+last_modified_date: 2025-08-14
 ---
-**TL;DR:** To conquer the concurrency problem in pytest, multiple solutions has been explored. Starting with `pytest-xdist`, then a combination of  `pytest-asyncio` with `pytest-subtests`, and finally built my own plugin, `pytest-asyncio-concurrent`, to overcome limitations.
+**TL;DR:** To conquer the concurrency problem in pytest, multiple solutions has been explored. Starting with `pytest-xdist`, then a combination of `pytest-asyncio` with `pytest-subtests`, and finally built my own plugin, `pytest-asyncio-concurrent`, to overcome limitations.
 
 ## Problem Statement: Slow Sequential Tests
 
@@ -66,7 +65,7 @@ tests/my_test.py::test_my_system[5] PASSED [100%]
 
 The tests still passing. However, it started to become a pain as it is time-consuming to develop, debug, and run them. The tests now take minutes to complete. As more and more tests were added, the situation worsened.
 
-## Solution 1: pytest-xdist
+## Solution 1: Pytest-xdist
 
 [pytest-xdist](https://github.com/pytest-dev/pytest-xdist) provides a general method of bringing concurrency into pytest framework by executing tests on multiple processes.
 
@@ -93,7 +92,7 @@ This solution works effectively. As the test cases kept growing, the total numbe
 
 The number after `-n` kept increasing until our fragile dev server crashed due to too many worker processes. However, most of the time, those workers are simply `sleep`-ing, and occupying resources. Why should we spawn dozens of workers in such a scenario?
 
-## Solution 2: pytest-asyncio
+## Solution 2: Pytest-asyncio
 
 Let's use `async` to allow resource sharing across different test cases within single process. Although `async` has been around in Python since 3.4, `pytest` does not natively support asynchronous test cases.
 
@@ -157,7 +156,7 @@ async def test_my_system():
 
 We can incorporate different test cases into one test and execute them in a single loop. However, the downside is obvious and huge, all the error handling and dependency management become our responsibility, and these test cases disappear from test report. We pretty much lose the benefit of using a testing framework.
 
-## Solution 3: pytest-asyncio + pytest-subtests
+## Solution 3: Pytest-asyncio + Pytest-subtests
 
 Basically, we were creating a bunch of subtests within one test case and organize them by ourselves. And fortunately, [pytest-subtests](https://github.com/pytest-dev/pytest-subtests) can help us manage them in a more structured manner.
 
@@ -199,7 +198,7 @@ tests/test.py::test_my_system PASSED [100%]
 
 This approach is becoming solid. Tests run concurrently within the same process, and we retain most of the benefits from the framework, while the cost is some boilerplate required for each parent test.
 
-## Solution 4: pytest-asyncio-concurrent
+## Solution 4: Pytest-asyncio-concurrent
 
 The solution described above functions effectively, but is still suboptimal. Subtests are not first-class citizens in pytest, and the boilerplate is required in every parent test function. To minimize the boilerplate and eliminate the appearance of `subtests`, I built a plugin to bridge the gap.
 
@@ -337,7 +336,7 @@ When working with system tests, the testing strategy should reflect the model of
 - Try `pytest-xdist` first if:
     - Tests are CPU-bound.
     - Tests are not `async`.
-- Use `pytest-asyncio` + `pytest-subtests`  if :
+- Use `pytest-asyncio` + `pytest-subtests` if :
     - Tests are IO-bound.
     - Tests are `async`.
     - CI server have very limited resources especially.

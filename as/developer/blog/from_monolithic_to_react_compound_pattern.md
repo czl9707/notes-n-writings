@@ -2,10 +2,11 @@
 title: "Breaking Down React Components: From Monolithic to Compound Pattern"
 description: Struggling with monolithic React components? Break it into small pieces and embrace the compound pattern to achieve intuitive composition and unlimited customization.
 cover_url: https://zane-portfolio.s3.us-east-1.amazonaws.com/CompoundPatternCover.png
-tags:
-  - react
-  - pattern
+tags: [pattern, react]
+created_date: 2025-07-05
+last_modified_date: 2025-08-14
 ---
+
 React give us the powerful capability to manage states within component, and encapsulating state is generally considered a best practice. However, in real-world applications, it is more than often that UI features require multiple interconnected pieces to function properly.
 
 The traditional approach is to build a monolithic component that contains everything related to a feature, lifting shared state to the top level. The **Compound Component pattern** is a more elegant solution of handling states in complex components. The pattern seperates the concerns by breaking component into multiple pieces that communicate in the background to accomplish certain behavior. Many popular component library, such as [Radix Primitive](https://www.radix-ui.com/primitives) and [Shadcn/ui](https://ui.shadcn.com/), leverage Compound Component pattern extensively.
@@ -21,6 +22,7 @@ Let's start with a common UI component, an accordion, and examine how it's typic
 Here's a minimal monolithic implementation:
 
 :::multi-codeblocks
+
 ```tsx filename=accordion.tsx
 import React from "react"
 import accordionStyle from './accordion.module.css'
@@ -44,6 +46,7 @@ export default function Accordion({ title, children }: {
     </div>
 }
 ```
+
 ```css filename=accordion.module.css
 .AccordionRoot {
     display: flex;
@@ -109,6 +112,7 @@ export default function Accordion({ title, children }: {
     }
 }
 ```
+
 :::
 
 ![Raw Accordion](https://zane-portfolio.s3.us-east-1.amazonaws.com/AccordionRawPreview.gif)
@@ -200,7 +204,7 @@ When implementing the component in a monolithic pattern, exposing more arguments
 - **Rigidity**: Many layout and styles remain impossible due to the structure of the UI component.
 - **Abstraction Leakage**: Developers have to understand its internal structure in some case, and will resort to inspecting the source code or using browser dev tools to figure out how to customize it properly.
 
-## The Compound Pattern Solution: Break it down!
+## The Compound Pattern Solution: Break it Down!
 
 The core functionality of accordion component is simple: using the `isCollapsed` state to connect the trigger and content container. The layout, styles, and custom hooks all comes later, while the monolithic implementation implies a lot more than that.
 
@@ -262,6 +266,7 @@ We end up with four components, the three visual component `Trigger`, `Header`,`
 Adding styles inside or outside of the component will be another dicussion. For this blog, let's enhance these with some default styles and additional functionality.
 
 :::multi-codeblocks
+
 ```tsx filename=accordion.tsx
 import React from "react"
 import accordionStyle from './accordion.module.css'
@@ -336,6 +341,7 @@ export {
     AccordionContent as Content,
 };
 ```
+
 ```css filename=accordion.module.css
 .AccordionRoot {
     display: flex;
@@ -401,6 +407,7 @@ export {
     }
 }
 ```
+
 :::
 
 Now the `Root` component accept properties related the `isCollapsed` state, such as a `isCollapsed` property to turn the component into a controlled version, and two optional callbacks `onCollapsed` and `onUncollapsed`.
@@ -412,6 +419,7 @@ All other pieces, `Trigger`, `Header`, `Content` accept all sets of `React.HTMLA
 For usage, instead of using a single `Accordion` component with numerous porps, consumers compose UI from building blocks.
 
 :::multi-codeblocks
+
 ```tsx filename=page.tsx
 import * as Accordion from "@/components/accordion-compound-rich";
 import { ChevronDown } from "@/components/icon";
@@ -433,6 +441,7 @@ export default function Home() {
   );
 }
 ```
+
 ```css filename=page.module.css
 .AccordionRotateIcon {
     transition: transform .2s linear;
@@ -442,11 +451,13 @@ export default function Home() {
     }
 }
 ```
+
 :::
 
 The power of compound component pattern becomes apparent when customization comes into play. And we apply all sets of properties to them just like treating native html element.
 
-:::multi-codeblocks 
+:::multi-codeblocks
+
 ```tsx filename=page.tsx
 import * as Accordion from "@/components/accordion-compound-rich";
 import { ArrowInput, ArrowOutput } from "@/components/icon";
@@ -472,6 +483,7 @@ export default function Home() {
   );
 }
 ```
+
 ```css filename=page.module.css
 .IconShowOnCollapsed {
     [data-collapsed=false]>& {
@@ -485,11 +497,13 @@ export default function Home() {
     }
 }
 ```
+
 :::
 
 ![Accordion Variant](https://zane-portfolio.s3.us-east-1.amazonaws.com/AccordionVariant1Preview.gif)
 
 :::multi-codeblocks
+
 ```tsx filename=page.tsx
 import * as Accordion from "@/components/accordion-compound-rich";
 import { ArrowInput, ArrowOutput } from "@/components/icon";
@@ -515,6 +529,7 @@ export default function Home() {
   );
 }
 ```
+
 ```css filename=page.module.css
 .AccordionRotateIcon {
     transition: transform .2s linear;
@@ -524,6 +539,7 @@ export default function Home() {
     }
 }
 ```
+
 :::
 
 ![Accordion Variant](https://zane-portfolio.s3.us-east-1.amazonaws.com/AccordionVariant2Preview.gif)

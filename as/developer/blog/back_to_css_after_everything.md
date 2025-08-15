@@ -2,9 +2,9 @@
 title: "The CSS Odyssey: Why I Turned back to CSS After Trying Everything Else"
 description: "A developer's CSS journey: from vanilla to CSS-in-JS to Tailwind and back to CSS, with hard-earned lessons along the way."
 cover_url: https://zane-portfolio.s3.us-east-1.amazonaws.com/CSSSolutionChoiceCover.png
-tags:
-  - react
-  - styling
+tags: [react, styling]
+created_date: 2025-05-14
+last_modified_date: 2025-08-14
 ---
 **TL;DR:** This is a story of my journey through CSS solutions. Which led to my personal opinion that simpler tools often work better than complex abstractions. CSS-in-JS, zero-runtime CSS-in-JS, and Tailwind all taught me valuable lessons, but they all added build complexity that eventually became more trouble than benefit. And I eventually returned back to CSS Modules for a better maintainability and simplicity.
 
@@ -65,6 +65,7 @@ The _magic_ happened during transpilation. CSS content gets extracted to static 
 This sounded promising—the webpack plugin would handle everything. After using it for a while, the main drawback was the debugging experience. The tool became essentially a black box. Error messages were cryptic and interfered with other tooling. This became worse in Next.js context (Yeah, another black box).
 
 > **Important lesson learned:** Don't make things that should be static dynamic. Don't sacrifice runtime performance for developer experience, especially when the build complexity trade-off isn't worth it.
+
 ### The Eventual Leave
 
 The breaking point came when integrating with the [unifiedjs](https://unifiedjs.com/) ecosystem. After 8 hours of removing code piece by piece to isolate a build error—with completely non-descriptive error messages—I gave up.
@@ -84,11 +85,13 @@ It's great! I learned a lot by studying how they structure CSS code. One excelle
 However, migrating from CSS-in-JS to Tailwind brought quite a learning curve. It took time to memorize class naming conventions—`p-1` means `padding: 4px`, pseudo-class effects like `&:hover .class` become `group-hover:<...>`.
 
 Initially I thought Tailwind was simple—just a huge predefined stylesheet. Actually, it's more complex then I expected. It utilizes [PostCSS](https://github.com/csstools/postcss-plugins) to perform tree shaking and collect arbitrary classes during build time. Extra learning was required beyond basic usage. For example:
+
 - Config theme tokens in `tailwind.config.js` and use them correctly.
-- Tailwind doesn't handle style conflicts by itself. To solve this, There is another NPM package to install `tw-merge`. 
+- Tailwind doesn't handle style conflicts by itself. To solve this, There is another NPM package to install `tw-merge`.
 - Dynamic styling is not native. They all have to be whitelisted in `safelist` inside `tailwind.config.js`, or just fall back to CSS variables.
 
 > **What Tailwind taught me:** Systematic design thinking and utility-first patterns. The constraint-based approach forced better design decisions and taught me about consistent spacing systems and color schemes.
+
 ### The Backfire of Tailwind
 
 The real issue was readability. Tailwind made applying styles extremely easy—too easy. I found myself writing class strings like below and it keeps growing.
@@ -97,11 +100,11 @@ The real issue was readability. Tailwind made applying styles extremely easy—t
 "group-hover:text-foreground text-foreground/75 transition-colors duration-500 col-span-1 min-w-[33%] text-right lg:text-right"
 ```
 
-These strings kept growing, containing layout, colors, hover states, responsive breakpoints—everything mashed together without structure or hierarchy, not even indentation. Reading this is like parsing a dense command line with multiple flags and options all crammed together. 
+These strings kept growing, containing layout, colors, hover states, responsive breakpoints—everything mashed together without structure or hierarchy, not even indentation. Reading this is like parsing a dense command line with multiple flags and options all crammed together.
 
-It felt like inline styles with extra steps—and arguably less readable than inline styles because of the abbreviated syntax. 
+It felt like inline styles with extra steps—and arguably less readable than inline styles because of the abbreviated syntax.
 
-At meantime, I found my self duplicating some set of class name very often. Tailwind docs suggested creating my own utility classes, using `@apply`. 
+At meantime, I found my self duplicating some set of class name very often. Tailwind docs suggested creating my own utility classes, using `@apply`.
 
 ``` css
 .my-typography {
@@ -122,6 +125,7 @@ CSS Modules come with challenges, and I can't find optimal solutions for everyth
 **Style conflicts** is one. Although CSS class definitions are placed in reverse import order, problems still occur in Next.js when some pieces only appear in page but not layout CSS bundles. Following [BEM (Block Element Modifier)](https://getbem.com/) and "Composition over Extension" patterns to separate concerns helps avoid styling collisions significantly.
 
 **Media query has limitations**. `@media(min-width: var(--breakpoint-lg))` won't work. [PostCSS](https://github.com/csstools/postcss-plugins) plugins support custom media query `@custom-media --small-viewport (max-width: 30rem);`, then `@media (--small-viewport)`. Still duplications, but at least I can have breakpoints all defined in one file.
+
 ## Ending
 
 This round trip helped me form my tool selection principle: **minimize build process interference**. Every abstraction promises to solve problems but adds its own complexity.

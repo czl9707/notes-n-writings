@@ -1,11 +1,14 @@
 ---
-tags:
-  - machine_learning
+tags: [machine_learning]
 title: Anomaly Detection
+created_date: 2025-04-08
+last_modified_date: 2025-08-14
 ---
+
 ## Gaussian Distribution
 
-Find appropriate mean $\mu$  and variance $\sigma^2$ to put all training sample into a gaussian distribution. 
+Find appropriate mean $\mu$ and variance $\sigma^2$ to put all training sample into a gaussian distribution.
 
 For any data for evaluate, calculate the abnormal probably based on gaussian distribution.
+
 $$ p(x) = \frac{1}{\sqrt{2\pi}\sigma} e^{\frac{-(x - \mu)^2}{2 \sigma^2}}$$

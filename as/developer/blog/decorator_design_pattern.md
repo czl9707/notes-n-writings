@@ -1,10 +1,10 @@
 ---
 cover_url: https://zane-portfolio.s3.us-east-1.amazonaws.com/DecoratorPatternCover.png
-tags:
-  - python
-  - pattern
+tags: [pattern, python]
 title: "Code like an Onion: The Decorator Pattern"
-description: An introduction to the Decorator Design Pattern, which helps manage cross-cutting concerns by wrapping your core functionality like an onion🧅.
+description: An introduction to the Decorator Design Pattern, which helps manage cross-cutting concerns by wrapping your core functionality like an onion🧅. 
+created_date: 2025-07-05
+last_modified_date: 2025-08-14
 ---
 
 When cutting an onion, the knife slices through layer after layer, and finally reaches its core. The **Decorator Pattern** provides us a way of writing code just like cutting through an onion, not in the way of tearing 😢.
@@ -233,7 +233,7 @@ This flexibility in configuration is a key benefit of the Decorator Pattern. Whi
 
 ## Ending
 
-The Decorator Pattern, much like the layers of an onion, allows us to wrap objects with additional behaviors without modifying their core functionality. This approach maintains single responsibility, enhances flexibility, and enables runtime configuration of object behavior. 
+The Decorator Pattern, much like the layers of an onion, allows us to wrap objects with additional behaviors without modifying their core functionality. This approach maintains single responsibility, enhances flexibility, and enables runtime configuration of object behavior.
 
 You're likely already using the **Decorator Pattern** in modern application frameworks and may or may not realize it. Middleware pipelines in [Express.js](https://expressjs.com/en/guide/using-middleware.html) or [.Net Core](https://learn.microsoft.com/en-us/aspnet/core/fundamentals/middleware/?view=aspnetcore-9.0) are perfect examples, each middleware decorates the request-handling pipeline with additional functionality.
 
