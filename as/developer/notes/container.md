@@ -2,7 +2,7 @@
 title: Container
 tags: [container]
 created_date: 2025-08-14
-last_modified_date: 2025-08-14
+last_modified_date: 2025-08-16
 ---
 
 ## What is Container
@@ -21,6 +21,16 @@ Implemented using CGroup (Control Group).
 
 ## Docker & Container
 
-Container is a technology exist way ahead, Docker did not invent container, but bring standards to container. `Dockerfile` defines the image. `docker-compose.yaml` or `compose.yaml` together with `docker compose` CLI to use composable workflow to control docker in scale.
+Container is a technology exist way ahead, Docker did not invent container, but bring standards to container. `Dockerfile` defines the image.
 
-Skipping their syntax and usage for now...
+Skipping the syntax and usage for now...
+
+## Composable Workflow
+
+### [Docker Compose](https://docs.docker.com/compose/)
+
+`docker-compose.yaml` or `compose.yaml` together with `docker compose` CLI can be used to run define and run multi-container applications. Container images, network mesh, filesystem volumes, environment variable, and other aspects, all can be defined within the `.yaml` file.
+
+### [Container Lab](https://containerlab.dev/)
+
+Different from `docker-compose`, container lab is not meant for running application, but for network experiments. It allows setting up low level network devises inside container CGroup, and bridging across different containers and etc.

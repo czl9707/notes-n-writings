@@ -4,5 +4,4 @@ description: TS is just a type hint, that was my thought until I saw [TypeScript
 cover_url: 
 tags:
   - typescript
-  - playground
 ---
