@@ -8,7 +8,7 @@
         "type": "tabs",
         "children": [
           {
-            "id": "20f4269fe2c21e8c",
+            "id": "10cfaae69b7e0c5f",
             "type": "leaf",
             "state": {
               "type": "markdown",
@@ -19,6 +19,20 @@
               },
               "icon": "lucide-file",
               "title": "network_security"
+            }
+          },
+          {
+            "id": "ef1b486d7c3a2636",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "as/developer/notes/linux_network.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "linux_network"
             }
           },
           {
@@ -34,22 +48,9 @@
               "icon": "lucide-file",
               "title": "computer_network_basic"
             }
-          },
-          {
-            "id": "a297bd5f5c457cf6",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "as/developer/notes/cryptography_basic.md",
-                "mode": "source",
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "cryptography_basic"
-            }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -102,8 +103,7 @@
               "title": "Bookmarks"
             }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "horizontal",
@@ -114,12 +114,12 @@
     "type": "split",
     "children": [
       {
-        "id": "f0228a8d5c90bedc",
+        "id": "ea95758216c928c6",
         "type": "tabs",
-        "dimension": 29.26356589147287,
+        "dimension": 24.92725509214355,
         "children": [
           {
-            "id": "54583a76a50670f2",
+            "id": "19c2402e7d3f5bbe",
             "type": "leaf",
             "state": {
               "type": "graph",
@@ -133,7 +133,7 @@
       {
         "id": "3b11ac264c38b93e",
         "type": "tabs",
-        "dimension": 29.26356589147287,
+        "dimension": 19.398642095053344,
         "children": [
           {
             "id": "b97d374f8e55802e",
@@ -141,13 +141,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "as/developer/notes/network_security.md",
+                "file": "as/developer/notes/linux_network.md",
                 "followCursor": true,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "Outline of network_security"
+              "title": "Outline of linux_network"
             }
           }
         ]
@@ -155,7 +155,7 @@
       {
         "id": "aa84fd0bab7bf43d",
         "type": "tabs",
-        "dimension": 41.47286821705426,
+        "dimension": 55.674102812803106,
         "children": [
           {
             "id": "96dab28f31f2848d",
@@ -178,12 +178,12 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Notes/Technology/recurrent_neural_network.md",
+                "file": "as/developer/notes/linux_network.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               },
               "icon": "links-going-out",
-              "title": "Outgoing links from recurrent_neural_network"
+              "title": "Outgoing links from linux_network"
             }
           },
           {
@@ -192,7 +192,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "as/developer/notes/network_security.md",
+                "file": "as/developer/notes/linux_network.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -202,37 +202,38 @@
                 "unlinkedCollapsed": false
               },
               "icon": "links-coming-in",
-              "title": "Backlinks for network_security"
+              "title": "Backlinks for linux_network"
             }
           }
-        ]
+        ],
+        "currentTab": 2
       }
     ],
     "direction": "horizontal",
-    "width": 300
+    "width": 341.5
   },
   "left-ribbon": {
     "hiddenItems": {
-      "switcher:Open quick switcher": false,
       "graph:Open graph view": false,
+      "switcher:Open quick switcher": false,
       "canvas:Create new canvas": false,
       "daily-notes:Open today's daily note": false,
       "templates:Insert template": false,
       "command-palette:Open command palette": false
     }
   },
-  "active": "20f4269fe2c21e8c",
+  "active": "ef1b486d7c3a2636",
   "lastOpenFiles": [
-    "as/developer/notes/computer_network_basic.md",
     "as/developer/notes/network_security.md",
+    "as/developer/notes/linux_network.md",
+    "as/developer/notes/computer_network_basic.md",
+    "as/developer/notes/load_balancer.md",
     "as/developer/notes/cryptography_basic.md",
     "as/developer/blog/cross_component_styling_with_react_compound_pattern.md",
     "as/developer/blog/back_to_css_after_everything.md",
     "as/developer/blog/drafts/ts_as_a_programming_language.md",
     "as/developer/notes/network_protocols.md",
-    "as/developer/notes/linux_network_basic.md",
     "as/developer/notes/machine_learning_basic.md",
-    "as/developer/notes/Untitled.md",
     "Templates/Note Template.md",
     "Templates/Blog Template.md",
     "Dashboard.md",

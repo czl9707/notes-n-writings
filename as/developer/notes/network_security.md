@@ -2,7 +2,7 @@
 title: Network Security
 tags: [network]
 created_date: 2025-08-17
-last_modified_date: 2025-08-17
+last_modified_date: 2025-08-18
 ---
 
 ## Message Integrity
@@ -59,6 +59,10 @@ A protocol (ISAKMP/IKE) is used to set up the parameters and keys used, or calle
 	- Set up SA for traffic exchange, in case different parameters are desired.
 	- Set up what traffic is allowed through the tunnel IP src/dest, protocol, port src/dest.
 - **Encrypted Traffic**
+
+#### Why IPsec While We Already Have HTTPS/TLS?
+
+[TLS](#TLS) is in [Transport Layer](computer_network_basic.md#Layers%20of%20Computer%20Network), while IPsec provides a lower level security, which is in [Link Layer](computer_network_basic.md#Layers%20of%20Computer%20Network).
 
 ### Man in the Middle
 

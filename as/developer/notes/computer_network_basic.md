@@ -29,10 +29,14 @@ Other than separating network into granular layers, putting them into "planes" i
 
 Packet is the smallest unit when communicate using network. Since network is built in a layered architecture, packet is also having similar structure. Protocols in each layer define their own headers and ways of representing data, so the packet will header following headers, with payload living in the middle of it. Header usually contains information about the source and destination, size of the payload, some security information about the packet.
 
+## Software Defined Network
+
+Historically, computer network was highly coupled to physical device. While more and more components and functionality of network are covered by [Linux](as/developer/notes/linux_network.md), the industry moves to Software defined networking, where pieces are decoupled with each other, and can move much faster.
+
 ## Tools & Libs
 
 - [Container Lab](https://containerlab.dev/) for setting up [container](as/developer/notes/container.md) environment for network experiment.
 - [Scapy](https://scapy.net/) Python library for inspecting packets.
 - `ping`
 - `tshark` CLI version of `wireshark`
-- `iproute2` & `net-tools` both of them are a collection of networking utilities for [Linux](as/developer/notes/linux_network_basic).
+- `iproute2` & `net-tools` both of them are a collection of networking utilities for [Linux](as/developer/notes/linux_network.md).
