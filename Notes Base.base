@@ -1,0 +1,17 @@
+filters:
+  and:
+    - file.inFolder("as/developer/notes")
+views:
+  - type: table
+    name: Table
+    order:
+      - title
+      - tags
+      - created_date
+      - last_modified_date
+    sort:
+      - property: created_date
+        direction: DESC
+    columnSize:
+      note.title: 468
+      note.tags: 178

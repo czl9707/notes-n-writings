@@ -1,8 +1,8 @@
 ---
-tags: [network]
+tags: [linux, network]
 title: Linux Network Basic
 created_date: 2025-08-16
-last_modified_date: 2025-08-18
+last_modified_date: 2025-08-20
 ---
 
 Historically, computer network was highly coupled to physical device. However, as of 2025, Linux and its ecosystem are able to provide every aspect of the network. Within the whole packet processing pipeline of Linux, there are several places it provides hook point for various NAT, filtering.
@@ -20,6 +20,10 @@ Related tools to inspect or modify the network devices:
 
 `eth` is the basic network devise in Linux. It can represent the actual network port on NIC (Network Interface Card), and can also represent a virtual equivalent.
 
+### VETH
+
+`veth` (virtual ethernet) pair have the same behavior as a network cable with two ends. Whatever packet goes into one end instantly comes out the other. `veth` always got created in interconnected pairs
+
 ### Bridge
 
 `bridge` is a software switch inside the Linux kernel. As its name, it can connect different interfaces, both physical and virtual. Without the help of bridge, interfaces, such as `eth` created using `ip link add`, wouldn't be able to talk to each other.
@@ -30,11 +34,13 @@ Related tools to inspect or modify the network devices:
 
 ### GRE Tunnel
 
-`gre` (Generic Routing Encapsulation) wraps a point to point network communication into a network interface. One way to understand this is that, it is a alias of sending packets from device A to device B, with a interface C exposed as a shotcut.
+`gre` (Generic Routing Encapsulation) wraps a point to point network communication into a network interface. One way to understand this is that, it is a alias of sending packets from device A to device B, with a interface C exposed as a shortcut.
 
-## Software-defined Networking
+## Network Namespace
 
-Using a distributed manner to control routing usually create a black box topology, and sometime will create some network bottleneck, since it's impossible for a single router to have full picture of the entire topology. **Software-defined Networking** takes advantage of Linux's capability to perform routing, and uses a centralized control plane to manage network in a more efficient way (in some situation).
+Namespace is meant for isolation. Each namespace gets its own set of tables, routing tables, ARP tables and etc. When processes got started, they inherit the same namespace from their parent.
+
+`ip netns add | attach | del | set` can be used for namespace operations.
 
 ## Tools & Libs
 
@@ -149,3 +155,16 @@ When service responding, two options available, via the LB, or bypassing the LB.
 	- Given multiple queues, determine which packet to transmit next.
 
 #### Using `tc` to Perform QoS
+
+Several key constructs in `tc`:
+
+- `qdisc` (Queuing Discipline)
+	- Every network interface by default have an ingress and egress `qdisc`.
+	- `qdisc`s can be classless and classful, classless means the `qdisc` work by itself, while classful means it should have children
+	- Several classless `qdisc` types: `pfifo_fast`, `TBF` (Token Bucket Filter), `SFQ` (Stochastic Fairness Queueing), `RED` (Random Early Detection)
+	- And classful `qdisc` types: `HTB` (Hierarchical Token Bucket), `PRIO` (Prioritized), `MQ` (Multi-Queue).
+	- `tc qdisc add | delete | replace | ...  dev <dev_name> ( parent <id> | root ) [ handle <id> ] <qdisc_type type_specific parameters>  `
+- `class` - the construct that contains inner `qdisc`s for classful `qdisc`.
+	- `tc class add | change | replace | delete | show | ... dev <dev_name> parent <id> [ classid <id> ] qdisc <qdisc_type type_specific parameters>`
+- `filter` - the construct that classifies traffic into `class`es
+	- `tc filter add | change | replace | delete | show | ... dev <dev_name> ( parent <id> | root ) [ handle <id> ] protocol <protocol> prio <priority>`

@@ -2,7 +2,7 @@
 title: Container
 tags: [container]
 created_date: 2025-08-14
-last_modified_date: 2025-08-16
+last_modified_date: 2025-08-20
 ---
 
 ## What is Container
@@ -17,13 +17,20 @@ Container is a black magic, creating an isolated environment. It is:
 - A Network Stack
 - A Process Group - One main process, with possible subprocesses.
 
-Implemented using CGroup (Control Group).
+Implemented using namespaces and CGroup.
 
-## Docker & Container
+- namespaces enforce the resources a process sees.
+- CGroup (Control Group) groups processes and allocates resources (CPU and Memory) that the kernel enforce.
 
-Container is a technology exist way ahead, Docker did not invent container, but bring standards to container. `Dockerfile` defines the image.
+Aspects of container:
 
-Skipping the syntax and usage for now...
+- [Container Network](as/developer/notes/container_network.md)
+- Container Volume
+- Container Processes
+
+## Docker
+
+Container is a technology exist way ahead, Docker did not invent container, but bring standards to container. `Dockerfile` defines the image. `docker compose` define the composable workflow.
 
 ## Composable Workflow
 
@@ -33,4 +40,4 @@ Skipping the syntax and usage for now...
 
 ### [Container Lab](https://containerlab.dev/)
 
-Different from `docker-compose`, container lab is not meant for running application, but for network experiments. It allows setting up low level network devises inside container CGroup, and bridging across different containers and etc.
+Different from `docker-compose`, container lab is not meant for running application, but for network experiments. It allows setting up low level network devises inside container, and bridging across different containers and etc.

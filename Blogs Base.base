@@ -1,0 +1,22 @@
+filters:
+  and:
+    - file.inFolder("as/developer/blog")
+    - '!file.inFolder("as/developer/blog/drafts")'
+properties:
+  file.name:
+    displayName: file name
+views:
+  - type: cards
+    name: Dashboard
+    order:
+      - title
+      - created_date
+      - last_modified_date
+      - tags
+    sort:
+      - property: file.name
+        direction: ASC
+    image: note.cover_url
+    imageFit: ""
+    imageAspectRatio: 0.6
+    cardSize: 280

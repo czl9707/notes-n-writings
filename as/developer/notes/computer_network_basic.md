@@ -2,7 +2,7 @@
 tags: [network]
 title: Computer Network Basic
 created_date: 2025-08-13
-last_modified_date: 2025-08-17
+last_modified_date: 2025-08-20
 ---
 
 Computer Network is built in a layered architecture. And due to the fundamental idea of computer network, granting computers the ability to communicate with each other, each layer of network is designed and built in a distributed way.
@@ -31,7 +31,9 @@ Packet is the smallest unit when communicate using network. Since network is bui
 
 ## Software Defined Network
 
-Historically, computer network was highly coupled to physical device. While more and more components and functionality of network are covered by [Linux](as/developer/notes/linux_network.md), the industry moves to Software defined networking, where pieces are decoupled with each other, and can move much faster.
+Historically, computer network was highly coupled to physical device. Using a distributed manner to control routing usually create a black box topology, and sometime will create some network bottleneck, since it's impossible for a single router to have full picture of the entire topology.
+
+While more and more components and functionality of network are covered by [Linux](as/developer/notes/linux_network.md), the industry moves to Software defined networking, where pieces are decoupled with each other, with a centralized control plane to manage network in a more efficient way (in some situation)..
 
 ## Tools & Libs
 

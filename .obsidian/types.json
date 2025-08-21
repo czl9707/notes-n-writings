@@ -2,7 +2,7 @@
   "types": {
     "aliases": "aliases",
     "cssclasses": "multitext",
-    "tags": "tags",
+    "tags": "text",
     "course": "multitext",
     "last_modified_date": "date",
     "created_date": "date"

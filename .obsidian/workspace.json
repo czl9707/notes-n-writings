@@ -4,53 +4,25 @@
     "type": "split",
     "children": [
       {
-        "id": "17b2c5f3144825c1",
+        "id": "53e685ce03b37e08",
         "type": "tabs",
         "children": [
           {
-            "id": "10cfaae69b7e0c5f",
+            "id": "bc3973cd6e10c34f",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "as/developer/notes/network_security.md",
+                "file": "as/developer/notes/container_network.md",
                 "mode": "source",
-                "source": false
+                "source": false,
+                "backlinks": false
               },
               "icon": "lucide-file",
-              "title": "network_security"
-            }
-          },
-          {
-            "id": "ef1b486d7c3a2636",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "as/developer/notes/linux_network.md",
-                "mode": "source",
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "linux_network"
-            }
-          },
-          {
-            "id": "715fc740d1f9c982",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "as/developer/notes/computer_network_basic.md",
-                "mode": "source",
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "computer_network_basic"
+              "title": "container_network"
             }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "vertical"
@@ -82,7 +54,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "tag:#network",
+                "query": "tag:container",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -116,14 +88,16 @@
       {
         "id": "ea95758216c928c6",
         "type": "tabs",
-        "dimension": 24.92725509214355,
+        "dimension": 24.9031007751938,
         "children": [
           {
             "id": "19c2402e7d3f5bbe",
             "type": "leaf",
+            "pinned": true,
             "state": {
               "type": "graph",
               "state": {},
+              "pinned": true,
               "icon": "lucide-git-fork",
               "title": "Graph view"
             }
@@ -133,7 +107,7 @@
       {
         "id": "3b11ac264c38b93e",
         "type": "tabs",
-        "dimension": 19.398642095053344,
+        "dimension": 40.116279069767444,
         "children": [
           {
             "id": "b97d374f8e55802e",
@@ -141,22 +115,68 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "as/developer/notes/linux_network.md",
+                "file": "as/developer/notes/container_network.md",
                 "followCursor": true,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "Outline of linux_network"
+              "title": "Outline of container_network"
+            }
+          },
+          {
+            "id": "6bb947b25afc34dd",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "file": "as/developer/notes/container_network.md",
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": false
+              },
+              "icon": "links-coming-in",
+              "title": "Backlinks for container_network"
+            }
+          },
+          {
+            "id": "24dca2cff71718a4",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "file": "as/developer/notes/container_network.md",
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-going-out",
+              "title": "Outgoing links from container_network"
             }
           }
-        ]
+        ],
+        "currentTab": 1
       },
       {
         "id": "aa84fd0bab7bf43d",
         "type": "tabs",
-        "dimension": 55.674102812803106,
+        "dimension": 34.980620155038764,
         "children": [
+          {
+            "id": "7016e16da098823b",
+            "type": "leaf",
+            "state": {
+              "type": "footnotes",
+              "state": {
+                "file": "as/developer/notes/container_network.md"
+              },
+              "icon": "lucide-file-signature",
+              "title": "Footnotes"
+            }
+          },
           {
             "id": "96dab28f31f2848d",
             "type": "leaf",
@@ -173,36 +193,17 @@
             }
           },
           {
-            "id": "24dca2cff71718a4",
+            "id": "620616f49230990a",
             "type": "leaf",
             "state": {
-              "type": "outgoing-link",
+              "type": "all-properties",
               "state": {
-                "file": "as/developer/notes/linux_network.md",
-                "linksCollapsed": false,
-                "unlinkedCollapsed": true
-              },
-              "icon": "links-going-out",
-              "title": "Outgoing links from linux_network"
-            }
-          },
-          {
-            "id": "6bb947b25afc34dd",
-            "type": "leaf",
-            "state": {
-              "type": "backlink",
-              "state": {
-                "file": "as/developer/notes/linux_network.md",
-                "collapseAll": false,
-                "extraContext": false,
-                "sortOrder": "alphabetical",
+                "sortOrder": "frequency",
                 "showSearch": false,
-                "searchQuery": "",
-                "backlinkCollapsed": false,
-                "unlinkedCollapsed": false
+                "searchQuery": ""
               },
-              "icon": "links-coming-in",
-              "title": "Backlinks for linux_network"
+              "icon": "lucide-archive",
+              "title": "All properties"
             }
           }
         ],
@@ -210,7 +211,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 341.5
+    "width": 397.5
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -219,47 +220,49 @@
       "canvas:Create new canvas": false,
       "daily-notes:Open today's daily note": false,
       "templates:Insert template": false,
-      "command-palette:Open command palette": false
+      "bases:Create new base": false,
+      "command-palette:Open command palette": false,
+      "publish:Publish changes...": false
     }
   },
-  "active": "ef1b486d7c3a2636",
+  "active": "bc3973cd6e10c34f",
   "lastOpenFiles": [
+    "as/developer/notes/transformer.md",
+    "as/developer/notes/variance_n_bias.md",
+    "as/developer/notes/training_optimization.md",
+    "as/developer/notes/regression_model.md",
+    "as/developer/notes/recurrent_neural_network.md",
     "as/developer/notes/network_security.md",
-    "as/developer/notes/linux_network.md",
-    "as/developer/notes/computer_network_basic.md",
-    "as/developer/notes/load_balancer.md",
-    "as/developer/notes/cryptography_basic.md",
-    "as/developer/blog/cross_component_styling_with_react_compound_pattern.md",
-    "as/developer/blog/back_to_css_after_everything.md",
-    "as/developer/blog/drafts/ts_as_a_programming_language.md",
     "as/developer/notes/network_protocols.md",
     "as/developer/notes/machine_learning_basic.md",
-    "Templates/Note Template.md",
-    "Templates/Blog Template.md",
-    "Dashboard.md",
-    "as/developer/notes/container.md",
+    "as/developer/notes/linux_network.md",
     "as/developer/notes/decision_tree.md",
-    "as/developer/notes/variance_n_bias.md",
-    "as/developer/blog/5_wtf_moments_in_python.md",
-    "as/developer/notes/anomaly_detection.md",
-    "as/developer/notes/transformer.md",
-    "as/developer/notes/regression_model.md",
-    "as/developer/notes/training_optimization.md",
-    "as/developer/notes/recurrent_neural_network.md",
+    "as/developer/notes/cryptography_basic.md",
     "as/developer/notes/convolutional_neural_network.md",
+    "as/developer/notes/container_network.md",
+    "as/developer/notes/container.md",
+    "as/developer/notes/computer_network_basic.md",
     "as/developer/notes/clustering.md",
+    "as/developer/notes/anomaly_detection.md",
     "as/developer/blog/solutions_to_bring_asynchronism_into_pytest.md",
+    "as/developer/blog/5_wtf_moments_in_python.md",
+    "Notes Base.base",
+    "Blogs Base.base",
+    "as/developer/notes/linux_namespace.md",
+    "2025-08-19.md",
     "as/developer/blog/from_monolithic_to_react_compound_pattern.md",
+    "as/developer/blog/decorator_design_pattern.md",
+    "as/developer/blog/cross_component_styling_with_react_compound_pattern.md",
+    "as/developer/blog/back_to_css_after_everything.md",
+    "as/developer/notes/Untitled.base",
+    "as/developer/notes/Untitled 1.base",
+    "2025-08-18.md",
+    "Untitled.canvas",
+    "Bases/Untitled 1.base",
+    "Bases",
     "as/developer/blog",
     "as/developer",
     "Notes/Technology/Machine Learning & AI",
-    "as/developer/notes/tech",
-    "as",
-    "as/developer/blog/drafts",
-    "as/developer/notes",
-    "Untitled.canvas",
-    "Templates",
-    "as/Finished",
-    "Blogs/as/developer"
+    "as/developer/notes/tech"
   ]
 }
