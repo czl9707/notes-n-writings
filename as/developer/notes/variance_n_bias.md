@@ -1,8 +1,9 @@
 ---
-tags: [machine_learning]
+tags:
+  - machine-learning
 title: Variance & Bias
 created_date: 2025-08-03
-last_modified_date: 2025-08-14
+last_modified_date: 2025-08-25
 ---
 
 ## Definition

@@ -1,11 +1,13 @@
 filters:
   and:
     - file.inFolder("as/developer/notes")
+formulas:
+  Note: link(file.basename, title)
 views:
   - type: table
     name: Table
     order:
-      - title
+      - formula.Note
       - tags
       - created_date
       - last_modified_date
@@ -13,5 +15,6 @@ views:
       - property: created_date
         direction: DESC
     columnSize:
-      note.title: 468
-      note.tags: 178
+      formula.Note: 499
+      note.tags: 283
+      note.last_modified_date: 158

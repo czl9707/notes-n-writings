@@ -62,11 +62,11 @@ A protocol (ISAKMP/IKE) is used to set up the parameters and keys used, or calle
 
 #### Why IPsec While We Already Have HTTPS/TLS?
 
-[TLS](#TLS) is in [Transport Layer](computer_network_basic.md#Layers%20of%20Computer%20Network), while IPsec provides a lower level security, which is in [Link Layer](computer_network_basic.md#Layers%20of%20Computer%20Network).
+[TLS](#TLS) is in [Transport Layer](as/developer/notes/computer_network_basic.md#Layers%20of%20Computer%20Network), while IPsec provides a lower level security, which is in [Link Layer](as/developer/notes/computer_network_basic.md#Layers%20of%20Computer%20Network).
 
 ### Man in the Middle
 
-Attacker can inject fake paths in [Layer 3](computer_network_basic.md#Layers%20of%20Computer%20Network), traffic might get routed to the malicious router, and attacker can deny service, change messages, inspect traffic and etc.
+Attacker can inject fake paths in [Layer 3](as/developer/notes/computer_network_basic.md#Layers%20of%20Computer%20Network), traffic might get routed to the malicious router, and attacker can deny service, change messages, inspect traffic and etc.
 
 ### RPKI
 
@@ -75,4 +75,4 @@ Attacker can inject fake paths in [Layer 3](computer_network_basic.md#Layers%20o
 - IP owners create public/private key pair and digital certificate, and send to RIRs for identity verification.
 - RIRs store a entry in Resource Ownership Authorization in a DB.
 - A Validator runs in an AS deploying RPKI downloads ROAs and verifies the signatures.
-- By validating IP prefix and signature, router can prevent malicious router get added in [Layer 3](computer_network_basic.md#Layers%20of%20Computer%20Network) routing behavior.
+- By validating IP prefix and signature, router can prevent malicious router get added in [Layer 3](as/developer/notes/computer_network_basic.md#Layers%20of%20Computer%20Network) routing behavior.

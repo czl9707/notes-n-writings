@@ -2,7 +2,7 @@
 title: Container Network
 tags: [container, linux, network]
 created_date: 2025-08-19
-last_modified_date: 2025-08-20
+last_modified_date: 2025-08-22
 ---
 
 By default, processes running in root space cannot access processes running within container. By using port forwarding or different type of network drivers, we can have granular control over container network.
@@ -45,6 +45,8 @@ ip link set dev vethB up
 
 ip link set vethA netns myContainerNS
 ```
+
+Actually the network namespace cannot be found using `ip netns` if the container is created using `docker` command line. A symlink need to be created to get this working.
 
 ### Port Forwarding
 

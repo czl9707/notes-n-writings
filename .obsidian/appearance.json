@@ -1,6 +1,6 @@
 {
-  "theme": "obsidian",
-  "accentColor": "#febd4d",
+  "theme": "system",
+  "accentColor": "#ffff00",
   "enabledCssSnippets": [
     "card"
   ],

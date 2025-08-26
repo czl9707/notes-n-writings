@@ -2,10 +2,10 @@
 tags: [linux, network]
 title: Linux Network Basic
 created_date: 2025-08-16
-last_modified_date: 2025-08-20
+last_modified_date: 2025-08-24
 ---
 
-Historically, computer network was highly coupled to physical device. However, as of 2025, Linux and its ecosystem are able to provide every aspect of the network. Within the whole packet processing pipeline of Linux, there are several places it provides hook point for various NAT, filtering.
+Historically, computer network was highly coupled to physical device. However, as of 2025, Linux and its ecosystem are able to provide every aspect of the network. Within the whole packet processing pipeline of Linux, there are several places it provides hook point for various NAT(Network Address Translation), filtering.
 
 ## Network Devices
 
@@ -41,6 +41,10 @@ Related tools to inspect or modify the network devices:
 Namespace is meant for isolation. Each namespace gets its own set of tables, routing tables, ARP tables and etc. When processes got started, they inherit the same namespace from their parent.
 
 `ip netns add | attach | del | set` can be used for namespace operations.
+
+Network namespace is a struct in Linux kernel, and the kernel expose the struct at `/proc/<pid>/ns/net`, where `pid` is the process bound to the namespace, or more accurately, the file is a reference to the network namespace the current process binding to.
+
+While `ip netns` rely on `/var/run/netns/<nsname>` instead of `/proc/<pid>/ns/net`. One reason is namespace will be recycled if no process binding to it, which is exactly what happened when it got created by `ip netns` in the first place, a handle file `/var/run/netns/<nsname>` is necessary to keep it alive.
 
 ## Tools & Libs
 
@@ -90,7 +94,7 @@ While the industry moving towards the idea of [Software Defined Network](as/deve
 
 ## Linux as Gateway
 
-The gateway is something that sits at the edge of a network and provides some functionality beyond routing and forwarding, Including filtering, address translation, load balancing, rate limiting and etc.
+The gateway is something that sits at the edge of a network and provides some functionality beyond routing and forwarding, Including filtering, NAT (network address translation), load balancing, rate limiting and etc.
 
 ### Filtering & Address Translation
 
@@ -119,7 +123,7 @@ There are four available tables:
 
 A load balancer serves as the point of entry for a service, and directs traffic to one of N servers that can handle the request.
 
-Load balancing can happen on both [Layer 4](computer_network_basic.md#Layers%20of%20Computer%20Network) and [Layer 7](computer_network_basic.md#Layers%20of%20Computer%20Network), which is usually corresponding to TCP/UDP and HTTP layer. While Layer 4 load balancing has a better performance, Layer 7 load balancing has access to application specific information such as HTTP headers, which grants more flexibility.
+Load balancing can happen on both [Layer 4](as/developer/notes/computer_network_basic.md#Layers%20of%20Computer%20Network) and [Layer 7](as/developer/notes/computer_network_basic.md#Layers%20of%20Computer%20Network), which is usually corresponding to TCP/UDP and HTTP layer. While Layer 4 load balancing has a better performance, Layer 7 load balancing has access to application specific information such as HTTP headers, which grants more flexibility.
 
 Two major consideration while performing load balancing, **Server Set** and **Flow Affinity**. Which server should the packet go to in the first place, and following packets should go to the same server. Some popular routing algorithm:
 

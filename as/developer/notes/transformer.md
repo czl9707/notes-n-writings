@@ -1,8 +1,8 @@
 ---
-tags: [machine_learning]
+tags: [machine-learning]
 title: Transformer
 created_date: 2025-08-02
-last_modified_date: 2025-08-14
+last_modified_date: 2025-08-25
 ---
 
 ## Concepts

@@ -2,7 +2,7 @@
 tags: [network]
 title: Computer Network Basic
 created_date: 2025-08-13
-last_modified_date: 2025-08-20
+last_modified_date: 2025-08-24
 ---
 
 Computer Network is built in a layered architecture. And due to the fundamental idea of computer network, granting computers the ability to communicate with each other, each layer of network is designed and built in a distributed way.
@@ -33,7 +33,9 @@ Packet is the smallest unit when communicate using network. Since network is bui
 
 Historically, computer network was highly coupled to physical device. Using a distributed manner to control routing usually create a black box topology, and sometime will create some network bottleneck, since it's impossible for a single router to have full picture of the entire topology.
 
-While more and more components and functionality of network are covered by [Linux](as/developer/notes/linux_network.md), the industry moves to Software defined networking, where pieces are decoupled with each other, with a centralized control plane to manage network in a more efficient way (in some situation)..
+While more and more components and functionality of network are covered by [Linux](as/developer/notes/linux_network.md), the industry moves to Software defined networking, where pieces are decoupled with each other, with a centralized control plane to manage network in a more efficient way (in some situation).
+
+While the industry move towards cloud computing, the [cloud](as/developer/notes/cloud_basic.md) is meant for Software Defined Infrastructure, and so as [cloud network](as/developer/notes/cloud_network_service.md). And in terms of [network infrastructure in cloud environment](as/developer/notes/cloud_network_infrastructure.md), it highly depends on this idea to avoid the black box behavior of traditional network devices, and decouple different pieces.
 
 ## Tools & Libs
 
