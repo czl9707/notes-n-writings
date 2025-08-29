@@ -1,7 +1,7 @@
 ---
 title: This Pattern Saved me from Inheritance Hell
 description: 
-cover_url: 
+cover-url: 
 tags:
 ---
 

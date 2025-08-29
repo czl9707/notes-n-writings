@@ -10,14 +10,14 @@ views:
     name: Dashboard
     order:
       - title
-      - created_date
-      - last_modified_date
+      - created-date
+      - last-modified-date
       - tags
       - featured
     sort:
       - property: file.name
         direction: ASC
-    image: note.cover_url
+    image: note.cover-url
     imageFit: ""
     imageAspectRatio: 0.6
     cardSize: 280

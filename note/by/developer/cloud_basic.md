@@ -1,8 +1,8 @@
 ---
 title: Cloud Basic
 tags: [cloud]
-created_date: 2025-08-22
-last_modified_date: 2025-08-24
+created-date: 2025-08-22
+last-modified-date: 2025-08-24
 ---
 
 ## Why Cloud?

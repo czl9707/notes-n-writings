@@ -1,6 +1,6 @@
 ---
 title: A Love Letter to Markdown
 description: 
-cover_url: 
+cover-url: 
 tags:
 ---

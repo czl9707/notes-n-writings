@@ -1,8 +1,8 @@
 ---
 tags: [linux, network]
 title: Linux Network Basic
-created_date: 2025-08-16
-last_modified_date: 2025-08-24
+created-date: 2025-08-16
+last-modified-date: 2025-08-24
 ---
 
 Historically, computer network was highly coupled to physical device. However, as of 2025, Linux and its ecosystem are able to provide every aspect of the network. Within the whole packet processing pipeline of Linux, there are several places it provides hook point for various NAT(Network Address Translation), filtering.

@@ -1,8 +1,8 @@
 ---
 title: Network Protocols
 tags: [network]
-created_date: 2025-08-16
-last_modified_date: 2025-08-17
+created-date: 2025-08-16
+last-modified-date: 2025-08-17
 ---
 
 ## IP

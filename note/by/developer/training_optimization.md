@@ -2,8 +2,8 @@
 tags:
   - machine-learning
 title: Training Optimization
-created_date: 2025-08-03
-last_modified_date: 2025-08-25
+created-date: 2025-08-03
+last-modified-date: 2025-08-25
 ---
 
 ## Feature Scaling

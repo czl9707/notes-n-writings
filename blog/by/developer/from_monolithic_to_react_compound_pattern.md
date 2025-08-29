@@ -1,11 +1,11 @@
 ---
 title: "Breaking Down React Components: From Monolithic to Compound Pattern"
 description: Struggling with monolithic React components? Break it into small pieces and embrace the compound pattern to achieve intuitive composition and unlimited customization.
-cover_url: https://zane-portfolio.s3.us-east-1.amazonaws.com/CompoundPatternCover.png
+cover-url: https://zane-portfolio.s3.us-east-1.amazonaws.com/CompoundPatternCover.png
 tags: [frontend, pattern, react]
 featured: false
-created_date: 2025-04-07
-last_modified_date: 2025-08-27
+created-date: 2025-04-07
+last-modified-date: 2025-08-27
 ---
 
 React give us the powerful capability to manage states within component, and encapsulating state is generally considered a best practice. However, in real-world applications, it is more than often that UI features require multiple interconnected pieces to function properly.

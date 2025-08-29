@@ -1,8 +1,8 @@
 ---
 title: Network Security
 tags: [network]
-created_date: 2025-08-17
-last_modified_date: 2025-08-18
+created-date: 2025-08-17
+last-modified-date: 2025-08-18
 ---
 
 ## Message Integrity

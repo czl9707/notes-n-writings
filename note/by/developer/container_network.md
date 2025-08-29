@@ -1,8 +1,8 @@
 ---
 title: Container Network
 tags: [container, linux, network]
-created_date: 2025-08-19
-last_modified_date: 2025-08-22
+created-date: 2025-08-19
+last-modified-date: 2025-08-22
 ---
 
 By default, processes running in root space cannot access processes running within container. By using port forwarding or different type of network drivers, we can have granular control over container network.

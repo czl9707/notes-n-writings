@@ -60,10 +60,10 @@
     "yaml-timestamp": {
       "enabled": true,
       "date-created": true,
-      "date-created-key": "created_date",
+      "date-created-key": "created-date",
       "date-created-source-of-truth": "frontmatter",
       "date-modified": true,
-      "date-modified-key": "last_modified_date",
+      "date-modified-key": "last-modified-date",
       "date-modified-source-of-truth": "user or Linter edits",
       "format": "YYYY-MM-DD",
       "convert-to-utc": false,
