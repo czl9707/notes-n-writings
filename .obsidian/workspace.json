@@ -10,19 +10,45 @@
           {
             "id": "8c14c25655991b02",
             "type": "leaf",
+            "pinned": true,
             "state": {
-              "type": "markdown",
+              "type": "bases",
               "state": {
-                "file": "as/developer/notes/consistent_hashing.md",
-                "mode": "source",
-                "source": false,
-                "backlinks": false
+                "file": "Blogs Base.base",
+                "viewName": "Dashboard"
               },
-              "icon": "lucide-file",
-              "title": "consistent_hashing"
+              "pinned": true,
+              "icon": "lucide-layout-grid",
+              "title": "Blogs Base"
+            }
+          },
+          {
+            "id": "0db25e305f16909e",
+            "type": "leaf",
+            "pinned": true,
+            "state": {
+              "type": "bases",
+              "state": {
+                "file": "Notes Base.base",
+                "viewName": "Table"
+              },
+              "pinned": true,
+              "icon": "lucide-table",
+              "title": "Notes Base"
+            }
+          },
+          {
+            "id": "48d0e13c33a7c743",
+            "type": "leaf",
+            "state": {
+              "type": "graph",
+              "state": {},
+              "icon": "lucide-git-fork",
+              "title": "Graph view"
             }
           }
-        ]
+        ],
+        "currentTab": 2
       }
     ],
     "direction": "vertical"
@@ -130,7 +156,6 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "as/developer/notes/consistent_hashing.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -140,7 +165,7 @@
                 "unlinkedCollapsed": false
               },
               "icon": "links-coming-in",
-              "title": "Backlinks for consistent_hashing"
+              "title": "Backlinks"
             }
           },
           {
@@ -224,44 +249,43 @@
       "workspaces:Manage workspace layouts": false
     }
   },
-  "active": "8c14c25655991b02",
+  "active": "48d0e13c33a7c743",
   "lastOpenFiles": [
-    "as/developer/notes/content_delivery_network.md",
-    "as/developer/notes/variance_n_bias.md",
-    "as/developer/notes/transformer.md",
-    "as/developer/notes/training_optimization.md",
-    "as/developer/notes/regression_model.md",
-    "as/developer/notes/recurrent_neural_network.md",
-    "as/developer/notes/machine_learning_basic.md",
-    "as/developer/notes/decision_tree.md",
-    "as/developer/notes/convolutional_neural_network.md",
-    "as/developer/notes/clustering.md",
-    "as/developer/notes/anomaly_detection.md",
-    "as/developer/notes/consistent_hashing.md",
-    "as/developer/notes/cloud_network_service.md",
-    "as/developer/notes/cloud_basic.md",
-    "as/developer/notes/computer_network_basic.md",
-    "as/developer/notes/cloud_network_infrastructure.md",
-    "Blogs Base.base",
     "Notes Base.base",
-    "as/developer/notes/Untitled.md",
-    "as/developer/notes/linux_network.md",
-    "as/developer/notes/network_protocols.md",
-    "as/developer/notes/kubernetes.md",
-    "as/developer/notes/network_in_cloud.md",
-    "as/developer/notes/container_network.md",
-    "as/developer/notes/container.md",
-    "as/developer/notes/linux_namespace.md",
-    "as/developer/notes/kubernete.md",
-    "as/developer/notes/network_security.md",
+    "Blogs Base.base",
+    "blog/by/developer/solutions_to_bring_asynchronism_into_pytest.md",
+    "note/by/Untitled.md",
+    "blog/by/developer",
+    "note/by/developer",
+    "note/by/developer/variance_n_bias.md",
+    "Untitled.md",
+    "note/by",
+    "blog/by",
+    "blog",
+    "note/by/developer/drafts/graphql_server.md",
+    "note/by/developer/drafts/graphql_client.md",
+    "note/by/developer/drafts/huggingface_basic.md",
+    "note/by/developer/linux_network.md",
+    "note/by/developer/cloud_network_infrastructure.md",
+    "note/by/developer/convolutional_neural_network.md",
+    "note/by/developer/recurrent_neural_network.md",
+    "note/by/developer/network_protocols.md",
+    "note/by/developer/cloud_network_service.md",
+    "note/by/developer/network_security.md",
+    "note/by/developer/cloud_basic.md",
+    "note/by/developer/training_optimization.md",
+    "note/by/developer/machine_learning_basic.md",
+    "note/by/developer/computer_network_basic.md",
+    "note/by/developer/container_network.md",
+    "note/by/developer/kubernetes.md",
+    "note/by/developer/content_delivery_network.md",
+    "note/by/developer/consistent_hashing.md",
+    "note/by/developer/clustering.md",
+    "note/by/developer/decision_tree.md",
+    "note/by/developer/container.md",
+    "note/by/developer/drafts",
+    "note",
     "as/developer/notes/Untitled.base",
-    "as/developer/notes/Untitled 1.base",
-    "Untitled.canvas",
-    "Bases/Untitled 1.base",
-    "Bases",
-    "as/developer/blog",
-    "as/developer",
-    "Notes/Technology/Machine Learning & AI",
-    "as/developer/notes/tech"
+    "Untitled.canvas"
   ]
 }

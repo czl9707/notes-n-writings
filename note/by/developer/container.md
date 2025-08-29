@@ -24,7 +24,7 @@ Implemented using [namespace](as/developer/notes/linux_namespace.md)s and [CGrou
 
 Aspects of container:
 
-- [Container Network](as/developer/notes/container_network.md)
+- [Container Network](note/by/developer/container_network.md)
 - Container Volume
 - Container Processes
 

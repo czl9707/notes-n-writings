@@ -18,7 +18,7 @@ The cloud providers start with a quite traditional hierarchical network fabric i
 
 ## Flat Addressing and LSA
 
-Different from the network infrastructure in public Internet, which is required to be highly dynamic and autonomous, network infrastructure in cloud can be built in a more controlled way. The layer topology is redundant, we only need the illusion of a huge [Layer 2](as/developer/notes/computer_network_basic.md#Layers%20of%20Computer%20Network) switch for all network traffic.
+Different from the network infrastructure in public Internet, which is required to be highly dynamic and autonomous, network infrastructure in cloud can be built in a more controlled way. The layer topology is redundant, we only need the illusion of a huge [Layer 2](note/by/developer/computer_network_basic.md#Layers%20of%20Computer%20Network) switch for all network traffic.
 
 **VL2**[^1] utilized flat addressing and **LSA**(Location Specific Address) to achieve this. Instead of relying on subnetting and layers of router to resolve the location, a directory service is included to resolve location directly. The hierarchical switch structure is got replaced with a layer of Top-of-Rack (ToR) switches.
 
@@ -55,7 +55,7 @@ After trying different CPU data plane solutions, such as rules caching, Azure de
 **SWAN(Software-Driven Wide Area Network)**[^4] is mainly focused on increasing the efficiency of inter-datacenter communication. Several observation on the inter-datacenter traffic:
 
 - The traffic is lack of coordination. Some so-called background traffic is not necessary to happen at specific moment, happening in a time range is good enough, example cases includes database backup. These type of background traffic is causing congestion pretty often without coordination ahead.
-- Inter-domain protocols such as [BGP](as/developer/notes/network_protocols.md#BGP), MLPS, makes decision based on greedy local optimum, which create congestions because it doesn't globally optimize utilization, especially during cases like software upgrade and machine turnaround.
+- Inter-domain protocols such as [BGP](note/by/developer/network_protocols.md#BGP), MLPS, makes decision based on greedy local optimum, which create congestions because it doesn't globally optimize utilization, especially during cases like software upgrade and machine turnaround.
 
 **SWAN** leverage **Software-Defined Networking (SDN)** to control inter-datacenter traffic in centralized manner. A logically centralized controller is developed to:
 
@@ -78,7 +78,7 @@ Packets can find their way using user optimal path, instead BPG optimal, in anot
 
 In a high throughput environment, load balancer will has multiple replications, even across different region. Traditional load balancer maintain connection state in its local memory, which will lost for sure after any LB health change, which leads to experience error or packet loss for active connections.
 
-The key innovation of Maglev is its using [consistent hashing algorithm](as/developer/notes/consistent_hashing.md) to select service from service pool. By doing so LB is freed from state managing. Any LB can route packets belong to same connection to the same host. Thus, single load balancer health doesn't hurt the overall consistency and reliability.
+The key innovation of Maglev is its using [consistent hashing algorithm](note/by/developer/consistent_hashing.md) to select service from service pool. By doing so LB is freed from state managing. Any LB can route packets belong to same connection to the same host. Thus, single load balancer health doesn't hurt the overall consistency and reliability.
 
 ---
 

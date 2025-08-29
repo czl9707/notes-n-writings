@@ -106,7 +106,7 @@ last_modified_date: 2025-08-17
 
 ## HTTPS
 
-- Essentially HTTP over [TLS](as/developer/notes/network_security.md#TLS).
+- Essentially HTTP over [TLS](note/by/developer/network_security.md#TLS).
 
 ## gRPC
 

@@ -48,7 +48,7 @@ While `ip netns` rely on `/var/run/netns/<nsname>` instead of `/proc/<pid>/ns/ne
 
 ## Tools & Libs
 
-- [Container Lab](https://containerlab.dev/) for setting up [container](as/developer/notes/container.md) environment for network experiment.
+- [Container Lab](https://containerlab.dev/) for setting up [container](note/by/developer/container.md) environment for network experiment.
 - [Scapy](https://scapy.net/) Python library for inspecting packets.
 - `ping`
 - `tshark` CLI version of `wireshark`
@@ -81,7 +81,7 @@ Socket is the fundamental component for network programming in TCP/UDP. It abstr
 
 ## Linux as Router
 
-While the industry moving towards the idea of [Software Defined Network](as/developer/notes/computer_network_basic.md#Software%20Defined%20Network), a lot of routers running in cloud environment are replaced with Linux server.
+While the industry moving towards the idea of [Software Defined Network](note/by/developer/computer_network_basic.md#Software%20Defined%20Network), a lot of routers running in cloud environment are replaced with Linux server.
 
 ### How To? By Using `iproute2`
 
@@ -123,7 +123,7 @@ There are four available tables:
 
 A load balancer serves as the point of entry for a service, and directs traffic to one of N servers that can handle the request.
 
-Load balancing can happen on both [Layer 4](as/developer/notes/computer_network_basic.md#Layers%20of%20Computer%20Network) and [Layer 7](as/developer/notes/computer_network_basic.md#Layers%20of%20Computer%20Network), which is usually corresponding to TCP/UDP and HTTP layer. While Layer 4 load balancing has a better performance, Layer 7 load balancing has access to application specific information such as HTTP headers, which grants more flexibility.
+Load balancing can happen on both [Layer 4](note/by/developer/computer_network_basic.md#Layers%20of%20Computer%20Network) and [Layer 7](note/by/developer/computer_network_basic.md#Layers%20of%20Computer%20Network), which is usually corresponding to TCP/UDP and HTTP layer. While Layer 4 load balancing has a better performance, Layer 7 load balancing has access to application specific information such as HTTP headers, which grants more flexibility.
 
 Two major consideration while performing load balancing, **Server Set** and **Flow Affinity**. Which server should the packet go to in the first place, and following packets should go to the same server. Some popular routing algorithm:
 

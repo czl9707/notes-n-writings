@@ -17,8 +17,8 @@ docker network create [-d driver] <network_name>
 
 When creating network, type of driver can be specified. This will define the network relationship among the containers inside the network and the outside world.
 
-- `bridge`: The default network driver. Containers are connected to a [bridge](as/developer/notes/linux_network.md#Bridge) device. They by default do not have access to the outside world, but are able to talk to each other using container IP and container name.
-	- A [DNS](as/developer/notes/network_protocols.md#DNS) server is built-in and connected to the bridge, so that the container name can be resolved into the defined container name.
+- `bridge`: The default network driver. Containers are connected to a [bridge](note/by/developer/linux_network.md#Bridge) device. They by default do not have access to the outside world, but are able to talk to each other using container IP and container name.
+	- A [DNS](note/by/developer/network_protocols.md#DNS) server is built-in and connected to the bridge, so that the container name can be resolved into the defined container name.
 - `none`: Just do nothing, containers are completely isolated.
 - `host`: Containers within the network will share the same network as hosts, which means container can be accessed on `localhost:port`.
 - `IPvlan`: Provides the configurability of the IPv4 or IPv6 addresses.
@@ -32,7 +32,7 @@ Sometime we see something like `--dns=0.0.0.0`, this explicitly disable DNS look
 
 ## Container
 
-By default each container come with its own network [namespace](as/developer/notes/linux_namespace.md), for each network it dwells inside, a [veth](as/developer/notes/linux_network.md#VETH) device got created, one side attached to the network, one side is located inside the container namespace.
+By default each container come with its own network [namespace](as/developer/notes/linux_namespace.md), for each network it dwells inside, a [veth](note/by/developer/linux_network.md#VETH) device got created, one side attached to the network, one side is located inside the container namespace.
 
 Minimal Example to mimic a container network:
 

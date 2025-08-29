@@ -16,13 +16,13 @@ The existence of VPC solves problems and provides some benefits.
 - Clients won't like their resources being accessible for other clients.
 - Clients would like to choose IP address at their freedom, not choosing from the ones left by other clients.
 
-**VPC** is always bound to one [region](as/developer/notes/cloud_basic.md#Concepts), and is technically the first cloud infrastructure everyone would have, since everything else should be tied to a VPC when created, otherwise they won't have any network connection in place. Cloud provider usually create one VPC when a root account is being created.
+**VPC** is always bound to one [region](note/by/developer/cloud_basic.md#Concepts), and is technically the first cloud infrastructure everyone would have, since everything else should be tied to a VPC when created, otherwise they won't have any network connection in place. Cloud provider usually create one VPC when a root account is being created.
 
 Resources within same VPC would talk to each other using private IP addresses. While it is possible to assign public IP address to some resources and set up correct [Firewall Rules](#Firewall%20Rules) to expose it.
 
 ## Subnet
 
-Subnet is a range of IP living inside a [VPC](#VPC). Each subnet live in the same [region](as/developer/notes/cloud_basic.md#Concepts) as its parent VPC for sure, and only lives in one [availability zone](as/developer/notes/cloud_basic.md#Concepts).
+Subnet is a range of IP living inside a [VPC](#VPC). Each subnet live in the same [region](note/by/developer/cloud_basic.md#Concepts) as its parent VPC for sure, and only lives in one [availability zone](note/by/developer/cloud_basic.md#Concepts).
 
 Resources within same subnet is not always able to talk to each other. [Firewall Rules](#Firewall%20Rules) will be applied on top of resources, specifying which traffic to allow or deny.
 
@@ -52,23 +52,23 @@ Peering Connection sets up a private connection between two VPCs. One peering co
 
 ## Load Balancing
 
-Same to the [Load Balancing](as/developer/notes/linux_network.md#Load%20Balancing) premise world, cloud provides layer 4 and layer 7 two types of load balancing.
+Same to the [Load Balancing](note/by/developer/linux_network.md#Load%20Balancing) premise world, cloud provides layer 4 and layer 7 two types of load balancing.
 
 Different from the traditional world, load balancing can be divided into Global and Local two types:
 
-- **Global Load Balancing**: service pool can located in different [region](as/developer/notes/cloud_basic.md#Concepts)s.
+- **Global Load Balancing**: service pool can located in different [region](note/by/developer/cloud_basic.md#Concepts)s.
 	- For ingress traffic, it will be routed to the closest instance within the service pool.
 	- For egress traffic, cloud provider can choose to handle the traffic to internet closest to source server, or destination device (based on how much you pay cloud providers...).
-- **Local Load Balancing**: service pool are all located in same [region](as/developer/notes/cloud_basic.md#Concepts).
+- **Local Load Balancing**: service pool are all located in same [region](note/by/developer/cloud_basic.md#Concepts).
 
 Innovations around load balancing:
 
-- [Google Maglev](as/developer/notes/cloud_network_infrastructure.md#Google%20Maglev)
+- [Google Maglev](note/by/developer/cloud_network_infrastructure.md#Google%20Maglev)
 
 ## Edge Deploy
 
 Edge deploy refers to deploying the software closer to the user, not necessarily always related to cloud environment, but in most cases yes.
 
-One example of exception is in [Machine Learning](as/developer/notes/machine_learning_basic.md) domain, model is sometime edge deployed to physical devices. For models for self-driving cars, network latency is fatal. So have the model executed on the vehicle is a much better choice.
+One example of exception is in [Machine Learning](note/by/developer/machine_learning_basic.md) domain, model is sometime edge deployed to physical devices. For models for self-driving cars, network latency is fatal. So have the model executed on the vehicle is a much better choice.
 
-But in most cases, web application edge deploy refers to utilizing [Content Delivery Network](as/developer/notes/content_delivery_network.md) to serve resources to save request time. 
+But in most cases, web application edge deploy refers to utilizing [Content Delivery Network](note/by/developer/content_delivery_network.md) to serve resources to save request time. 

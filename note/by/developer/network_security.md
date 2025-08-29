@@ -16,7 +16,7 @@ Given sender and receiver share a secret key, senders use the key to perform has
 
 ### Digital Signatures
 
-Digital Signature is a smart application of [Asymmetric Encryption](as/developer/notes/cryptography_basic.md#Symmetric%20&%20Asymmetric%20Encryption). To prove the message is sent by some authority, the authority distribute a public key, and using the private they have to sign (encrypt) the message, and only that public key can verify (decrypt). If the decryption is successful, then it proves that the message sender hold the private key pairing to the public key.
+Digital Signature is a smart application of [Asymmetric Encryption](note/by/developer/cryptography_basic.md#Symmetric%20&%20Asymmetric%20Encryption). To prove the message is sent by some authority, the authority distribute a public key, and using the private they have to sign (encrypt) the message, and only that public key can verify (decrypt). If the decryption is successful, then it proves that the message sender hold the private key pairing to the public key.
 
 ### Digital Certificate
 
@@ -36,7 +36,7 @@ The message sent should not be read by others. Eavesdropping is un-acceptable in
 
 ### TLS
 
-Taking advantage of both [Symmetric & Asymmetric Encryption](as/developer/notes/cryptography_basic.md#Symmetric%20&%20Asymmetric%20Encryption) to encrypt the message end to end, TLS is built on top of TCP three way handshake:
+Taking advantage of both [Symmetric & Asymmetric Encryption](note/by/developer/cryptography_basic.md#Symmetric%20&%20Asymmetric%20Encryption) to encrypt the message end to end, TLS is built on top of TCP three way handshake:
 
 - Client Hello, telling server of what ciphers and algorithms it support and prefer.
 - Server Hello, picking parameters.
@@ -62,11 +62,11 @@ A protocol (ISAKMP/IKE) is used to set up the parameters and keys used, or calle
 
 #### Why IPsec While We Already Have HTTPS/TLS?
 
-[TLS](#TLS) is in [Transport Layer](as/developer/notes/computer_network_basic.md#Layers%20of%20Computer%20Network), while IPsec provides a lower level security, which is in [Link Layer](as/developer/notes/computer_network_basic.md#Layers%20of%20Computer%20Network).
+[TLS](#TLS) is in [Transport Layer](note/by/developer/computer_network_basic.md#Layers%20of%20Computer%20Network), while IPsec provides a lower level security, which is in [Link Layer](note/by/developer/computer_network_basic.md#Layers%20of%20Computer%20Network).
 
 ### Man in the Middle
 
-Attacker can inject fake paths in [Layer 3](as/developer/notes/computer_network_basic.md#Layers%20of%20Computer%20Network), traffic might get routed to the malicious router, and attacker can deny service, change messages, inspect traffic and etc.
+Attacker can inject fake paths in [Layer 3](note/by/developer/computer_network_basic.md#Layers%20of%20Computer%20Network), traffic might get routed to the malicious router, and attacker can deny service, change messages, inspect traffic and etc.
 
 ### RPKI
 
@@ -75,4 +75,4 @@ Attacker can inject fake paths in [Layer 3](as/developer/notes/computer_network_
 - IP owners create public/private key pair and digital certificate, and send to RIRs for identity verification.
 - RIRs store a entry in Resource Ownership Authorization in a DB.
 - A Validator runs in an AS deploying RPKI downloads ROAs and verifies the signatures.
-- By validating IP prefix and signature, router can prevent malicious router get added in [Layer 3](as/developer/notes/computer_network_basic.md#Layers%20of%20Computer%20Network) routing behavior.
+- By validating IP prefix and signature, router can prevent malicious router get added in [Layer 3](note/by/developer/computer_network_basic.md#Layers%20of%20Computer%20Network) routing behavior.

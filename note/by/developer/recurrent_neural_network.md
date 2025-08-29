@@ -35,7 +35,7 @@ Language is not a not a uni-directional sequence, words appearing after can have
 
 ### Word Embeddings
 
-Word Embeddings is different from "[Embeddings](as/developer/notes/transformer.md#Embeddings)" in context of transformer. Word embeddings is a vector representation of words, in another word, is a dictionary where each word mapped to a vector. A good word embeddings capture semantic meanings for words, so that we can perform common analogy task like "finding the word that is to 'woman', what 'king' is to 'man'".
+Word Embeddings is different from "[Embeddings](note/by/developer/transformer.md#Embeddings)" in context of transformer. Word embeddings is a vector representation of words, in another word, is a dictionary where each word mapped to a vector. A good word embeddings capture semantic meanings for words, so that we can perform common analogy task like "finding the word that is to 'woman', what 'king' is to 'man'".
 
 #### How Word Embeddings Are Learnt?
 
@@ -53,7 +53,7 @@ During [Sequence Generation](#Sequence%20Generation), It is not always reliable 
 
 ### Attention Model
 
-(This attention model is not the [Self-Attention Mechanism in Transformer](as/developer/notes/transformer.md#Self%20Attention%20Mechanism))
+(This attention model is not the [Self-Attention Mechanism in Transformer](note/by/developer/transformer.md#Self%20Attention%20Mechanism))
 
 Performance of the RNN model without any attention mechanism degrades pretty drastically when corpus become longer. It's just due to the model do not have enough "memory" to keep everything inside the activation value and memory cell.
 
@@ -67,7 +67,7 @@ The $e^{<t, t'>}$ is derived using couple of neural network layers from $s^{<t-1
 
 The draw back is obviously the computation cost for both training and inference, which is quadratic to the length of the sequence.
 
-Attention Model goes strong in context of [Transformer](as/developer/notes/transformer.md), and will likely more sense there.
+Attention Model goes strong in context of [Transformer](note/by/developer/transformer.md), and will likely more sense there.
 
 ## Language Tasks
 
@@ -77,7 +77,7 @@ There are many types of classification an RNN model can perform. such as Sentime
 
 ### Sequence Generation
 
-There are many types of sequence generation as well, including Translation, Summarization, Question Answering, Audio Transcription and etc. (We are not considering NLP in context of [Transformer](as/developer/notes/transformer.md) yet) When performing sequence generation tasks, the model usually takes the output of each input and maps it to one or more token(s). In many applications, the model must be uni-directional, so that job generation can start before the full input sequence is available.
+There are many types of sequence generation as well, including Translation, Summarization, Question Answering, Audio Transcription and etc. (We are not considering NLP in context of [Transformer](note/by/developer/transformer.md) yet) When performing sequence generation tasks, the model usually takes the output of each input and maps it to one or more token(s). In many applications, the model must be uni-directional, so that job generation can start before the full input sequence is available.
 
 ## Case Study
 

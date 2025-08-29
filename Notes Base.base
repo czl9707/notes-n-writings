@@ -1,6 +1,7 @@
 filters:
   and:
-    - file.inFolder("as/developer/notes")
+    - file.inFolder("note/by/developer")
+    - '!file.inFolder("note/by/developer/drafts")'
 formulas:
   Note: link(file.basename, title)
 views:

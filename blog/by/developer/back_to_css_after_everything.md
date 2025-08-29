@@ -4,11 +4,13 @@ description: "A developer's CSS journey: from vanilla to CSS-in-JS to Tailwind a
 cover_url: https://zane-portfolio.s3.us-east-1.amazonaws.com/CSSSolutionChoiceCover.png
 tags:
   - css
-  - react
   - frontend
-created_date: 2025-05-14
-last_modified_date: 2025-08-19
+  - react
+featured: true
+created_date: 2025-06-01
+last_modified_date: 2025-08-27
 ---
+
 **TL;DR:** This is a story of my journey through CSS solutions. Which led to my personal opinion that simpler tools often work better than complex abstractions. CSS-in-JS, zero-runtime CSS-in-JS, and Tailwind all taught me valuable lessons, but they all added build complexity that eventually became more trouble than benefit. And I eventually returned back to CSS Modules for a better maintainability and simplicity.
 
 ## Start with Vanilla CSS

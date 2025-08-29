@@ -27,7 +27,7 @@ Example:
 
 ## Model Performance
 
-- [Variance & Bias](as/developer/notes/variance_n_bias.md)
+- [Variance & Bias](note/by/developer/variance_n_bias.md)
 
 ## Activation Function
 
@@ -61,17 +61,17 @@ Example:
 
 # Models
 
-- [Regression Model](as/developer/notes/regression_model.md)
-- [Decision Tree](as/developer/notes/decision_tree.md)
-- [Clustering](as/developer/notes/clustering.md)
-- [Transformer](as/developer/notes/transformer.md)
-- [Anomaly Detection](as/developer/notes/anomaly_detection.md)
-- [Convolutional Neural Network](as/developer/notes/convolutional_neural_network.md)
-- [Recurrent Neural Network](as/developer/notes/recurrent_neural_network.md)
+- [Regression Model](note/by/developer/regression_model.md)
+- [Decision Tree](note/by/developer/decision_tree.md)
+- [Clustering](note/by/developer/clustering.md)
+- [Transformer](note/by/developer/transformer.md)
+- [Anomaly Detection](note/by/developer/anomaly_detection.md)
+- [Convolutional Neural Network](note/by/developer/convolutional_neural_network.md)
+- [Recurrent Neural Network](note/by/developer/recurrent_neural_network.md)
 
 # Techniques
 
-- [Training Optimization](as/developer/notes/training_optimization.md)
+- [Training Optimization](note/by/developer/training_optimization.md)
 
 # Libraries
 

@@ -36,8 +36,8 @@ Not all content is cacheable, a lot application data is highly dynamic, changing
 
 ## DNS Based Load Balancing
 
-One domain can be mapped multiple IP addresses on DNS, CDN can perform load balancing at this level. This can be treated as an alternative to normal [Load Balancer](cloud_network_service.md#Load%20Balancing).
+One domain can be mapped multiple IP addresses on DNS, CDN can perform load balancing at this level. This can be treated as an alternative to normal [Load Balancer](note/by/developer/cloud_network_service.md#Load%20Balancing).
 
 ## Edge Function
 
-Apart from caching, CDN can serve a some functionality closer to user as well. The `middleware` functionality a lot frontend framework provides is actually leveraging this, which is commonly used for request rejection, redirection, request overwrite and etc. These operations are light weight and not really have o happen on the source server.
+Apart from caching, CDN can serve a some functionality closer to user as well. The `middleware` functionality a lot frontend framework provides is actually leveraging this, which is commonly used for request rejection, redirection, request overwrite and etc. These operations are light weight and not really have to happen on the source server.

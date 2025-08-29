@@ -33,13 +33,13 @@ Fragmented public infrastructure usually provided by different providers, and th
 
 Therefore a lot more innovation and "non-standard" technology went into the cloud infrastructure to provide a better cost efficiency from a cloud provider aspect. At mean time, it also mean a better performance from the users' perspective.
 
-- [Cloud Network Fabric](as/developer/notes/cloud_network_infrastructure.md)
+- [Cloud Network Fabric](note/by/developer/cloud_network_infrastructure.md)
 
 ### Infrastructure in Globe
 
 Just as the title, cloud providers can help developer and application reach global scale pretty easily.
 
-And some technology by default require a distributed infrastructure across the globe, and super hard to manage and build on a small team. Such as [CDN](as/developer/notes/content_delivery_network.md).
+And some technology by default require a distributed infrastructure across the globe, and super hard to manage and build on a small team. Such as [CDN](note/by/developer/content_delivery_network.md).
 
 ## Concepts
 
@@ -51,7 +51,7 @@ And some technology by default require a distributed infrastructure across the g
 
 - Service Runtime
 - Data Store
-- [Network](as/developer/notes/cloud_network_service.md)
+- [Network](note/by/developer/cloud_network_service.md)
 - DevOps
 
 ## Infrastructure as Code

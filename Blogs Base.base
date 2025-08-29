@@ -1,7 +1,7 @@
 filters:
   and:
-    - file.inFolder("as/developer/blog")
-    - '!file.inFolder("as/developer/blog/drafts")'
+    - file.inFolder("blog/by/developer")
+    - '!file.inFolder("blog/by/developer/drafts")'
 properties:
   file.name:
     displayName: file name
@@ -13,6 +13,7 @@ views:
       - created_date
       - last_modified_date
       - tags
+      - featured
     sort:
       - property: file.name
         direction: ASC

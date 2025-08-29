@@ -1,6 +1,6 @@
 {
   "collapse-filter": false,
-  "search": "path:-drafts path:-Templates/ path:as/  ",
+  "search": "path:-drafts path:-Templates/ file:-.base",
   "showTags": false,
   "showAttachments": false,
   "hideUnresolved": false,
@@ -17,6 +17,6 @@
   "repelStrength": 20,
   "linkStrength": 1,
   "linkDistance": 99,
-  "scale": 0.25883865621818863,
+  "scale": 0.16348370567220458,
   "close": true
 }

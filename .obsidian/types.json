@@ -2,9 +2,10 @@
   "types": {
     "aliases": "aliases",
     "cssclasses": "multitext",
-    "tags": "text",
+    "tags": "tags",
     "course": "multitext",
     "last_modified_date": "date",
-    "created_date": "date"
+    "created_date": "date",
+    "featured": "checkbox"
   }
 }
