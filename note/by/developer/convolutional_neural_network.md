@@ -2,8 +2,8 @@
 tags:
   - machine-learning
 title: Convolutional Neural Network
-created-date: 2025-08-07
-last-modified-date: 2025-08-25
+created-date: 2025-08-07T00:00:00-04:00
+last-modified-date: 2025-08-25T00:00:00-04:00
 ---
 
 ## Concepts

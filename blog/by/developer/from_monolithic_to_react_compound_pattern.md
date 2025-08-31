@@ -4,8 +4,8 @@ description: Struggling with monolithic React components? Break it into small pi
 cover-url: https://zane-portfolio.s3.us-east-1.amazonaws.com/CompoundPatternCover.png
 tags: [frontend, pattern, react]
 featured: false
-created-date: 2025-04-07
-last-modified-date: 2025-08-27
+created-date: 2025-04-07T00:00:00-04:00
+last-modified-date: 2025-08-27T00:00:00-04:00
 ---
 
 React give us the powerful capability to manage states within component, and encapsulating state is generally considered a best practice. However, in real-world applications, it is more than often that UI features require multiple interconnected pieces to function properly.

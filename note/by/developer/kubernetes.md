@@ -1,8 +1,8 @@
 ---
 title: Kubernetes
 tags: [container, kubernetes]
-created-date: 2025-08-21
-last-modified-date: 2025-08-21
+created-date: 2025-08-21T00:00:00-04:00
+last-modified-date: 2025-08-21T00:00:00-04:00
 ---
 
 Kubernetes (K8s) is an [container](note/by/developer/container.md)-orchestration system. Which provides deployment management to container applications in scale, managing deployment strategy, system resources usage, responsive scaling, and ingress / egress management, failure handling and etc.

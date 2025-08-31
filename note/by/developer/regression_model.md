@@ -2,8 +2,8 @@
 tags:
   - machine-learning
 title: Regression Model
-created-date: 2025-08-03
-last-modified-date: 2025-08-25
+created-date: 2025-08-03T00:00:00-04:00
+last-modified-date: 2025-08-25T00:00:00-04:00
 ---
 - **Linear Regression**
 	$$ f(x_1, x_2, ..., x_n) = b + {\sum^{n}_{i=1} w_i x_i}$$

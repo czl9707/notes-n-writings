@@ -1,8 +1,8 @@
 ---
 title: Consistent Hashing
 tags: [algorithm, system-design]
-created-date: 2025-08-25
-last-modified-date: 2025-08-25
+created-date: 2025-08-25T00:00:00-04:00
+last-modified-date: 2025-08-25T00:00:00-04:00
 ---
 
 Consistent hashing is an algorithm that distributes keys across nodes in a distributed system in a way that minimizes data redistribution when nodes are added or removed.

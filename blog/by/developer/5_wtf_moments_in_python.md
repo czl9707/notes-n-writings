@@ -5,8 +5,8 @@ cover-url: https://zane-portfolio.s3.us-east-1.amazonaws.com/PythonNightmareCove
 tags:
   - python
 featured: true
-created-date: 2025-05-04
-last-modified-date: 2025-08-27
+created-date: 2025-05-04T00:00:00-04:00
+last-modified-date: 2025-08-27T00:00:00-04:00
 ---
 
 ## 1. It Is Not the Function I Called!

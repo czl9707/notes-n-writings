@@ -1,8 +1,8 @@
 ---
 tags: [network]
 title: Computer Network Basic
-created-date: 2025-08-13
-last-modified-date: 2025-08-24
+created-date: 2025-08-13T00:00:00-04:00
+last-modified-date: 2025-08-24T00:00:00-04:00
 ---
 
 Computer Network is built in a layered architecture. And due to the fundamental idea of computer network, granting computers the ability to communicate with each other, each layer of network is designed and built in a distributed way.
