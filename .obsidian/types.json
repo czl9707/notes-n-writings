@@ -4,7 +4,7 @@
     "cssclasses": "multitext",
     "tags": "tags",
     "course": "multitext",
-    "last-modified-date": "date",
+    "last-updated-date": "date",
     "created-date": "date",
     "featured": "checkbox"
   }

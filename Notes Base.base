@@ -11,11 +11,11 @@ views:
       - formula.Note
       - tags
       - created-date
-      - last-modified-date
+      - last-updated-date
     sort:
       - property: created-date
         direction: DESC
     columnSize:
       formula.Note: 499
       note.tags: 283
-      note.last-modified-date: 158
+      note.last-updated-date: 158

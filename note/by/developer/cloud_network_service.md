@@ -2,7 +2,7 @@
 title: Cloud Network Service
 tags: [cloud, network]
 created-date: 2025-08-22T00:00:00-04:00
-last-modified-date: 2025-08-25T00:00:00-04:00
+last-updated-date: 2025-08-25T00:00:00-04:00
 ---
 
 Different cloud providers might have different fancy names for their services, but these basic network feature share the same idea.

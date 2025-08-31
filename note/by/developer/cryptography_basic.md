@@ -2,7 +2,7 @@
 title: Cryptography Basic
 tags: [cryptography]
 created-date: 2025-08-17T00:00:00-04:00
-last-modified-date: 2025-08-17T00:00:00-04:00
+last-updated-date: 2025-08-17T00:00:00-04:00
 ---
 
 ## Symmetric & Asymmetric Encryption
