@@ -73,13 +73,13 @@ mutation (
 GQL_CreateBlog = """
 mutation (
     $id: String!, 
-    $role: ZaneBlogUpdate_role_MutationInput!, 
+    $role: ZaneBlog_role_MutationInput!, 
     $title: String!, 
     $description: String!, 
     $content: String!, 
     $tags: [String!]!, 
-    $createdDate: DateTime!, 
-    $lastUpdatedDate: DateTime!, 
+    $createdDate: String!, 
+    $lastUpdatedDate: String!, 
     $featured: Boolean!, 
     $cover: String!,
     $hasLinkTo: [ZaneBlog_HasLinkToRelationshipInput]
@@ -105,12 +105,12 @@ mutation (
 GQL_updateNote = """
 mutation (
     $id: String!, 
-    $role: ZaneBlogUpdate_role_MutationInput!, 
+    $role: ZaneNoteUpdate_role_MutationInput!, 
     $title: String!, 
     $content: String!, 
     $tags: [String!]!, 
-    $createdDate: DateTime!, 
-    $lastUpdatedDate: DateTime!, 
+    $createdDate: String!, 
+    $lastUpdatedDate: String!, 
     $hasLinkTo: [ZaneNoteUpdate_HasLinkToRelationshipInput]
 ) {    
     updateZaneNote(
@@ -131,12 +131,12 @@ mutation (
 GQL_CreateNote = """
 mutation (
     $id: String!, 
-    $role: ZaneBlogUpdate_role_MutationInput!, 
+    $role: ZaneNote_role_MutationInput!, 
     $title: String!, 
     $content: String!, 
     $tags: [String!]!, 
-    $createdDate: DateTime!, 
-    $lastUpdatedDate: DateTime!, 
+    $createdDate: String!, 
+    $lastUpdatedDate: String!, 
     $hasLinkTo: [ZaneNote_HasLinkToRelationshipInput]
 ) {
     createZaneNote(
