@@ -36,19 +36,9 @@
               "icon": "lucide-table",
               "title": "Notes Base"
             }
-          },
-          {
-            "id": "48d0e13c33a7c743",
-            "type": "leaf",
-            "state": {
-              "type": "graph",
-              "state": {},
-              "icon": "lucide-git-fork",
-              "title": "Graph view"
-            }
           }
         ],
-        "currentTab": 2
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -156,6 +146,7 @@
             "state": {
               "type": "backlink",
               "state": {
+                "file": "Notes Base.base",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -165,7 +156,7 @@
                 "unlinkedCollapsed": false
               },
               "icon": "links-coming-in",
-              "title": "Backlinks"
+              "title": "Backlinks for Notes Base"
             }
           },
           {
@@ -249,16 +240,26 @@
       "workspaces:Manage workspace layouts": false
     }
   },
-  "active": "48d0e13c33a7c743",
+  "active": "0db25e305f16909e",
   "lastOpenFiles": [
-    "Notes Base.base",
+    "blog/by/developer/from_monolithic_to_react_compound_pattern.md",
+    "blog/by/developer/decorator_design_pattern.md",
+    "blog/by/developer/cross_component_styling_with_react_compound_pattern.md",
+    "blog/by/developer/back_to_css_after_everything.md",
+    "blog/by/developer/5_wtf_moments_in_python.md",
+    "note/by/developer/drafts/python_inheritance.md",
+    "note/by/developer/drafts/python_descriptor.md",
+    "note/by/developer/drafts/pyobject.md",
+    "note/by/christian/drafts/law_not_meant_for_law.md",
+    "note/by/christian/drafts",
+    "note/by/christian",
     "Blogs Base.base",
+    "Notes Base.base",
     "blog/by/developer/solutions_to_bring_asynchronism_into_pytest.md",
     "note/by/Untitled.md",
     "blog/by/developer",
     "note/by/developer",
     "note/by/developer/variance_n_bias.md",
-    "Untitled.md",
     "note/by",
     "blog/by",
     "blog",
@@ -276,16 +277,7 @@
     "note/by/developer/training_optimization.md",
     "note/by/developer/machine_learning_basic.md",
     "note/by/developer/computer_network_basic.md",
-    "note/by/developer/container_network.md",
-    "note/by/developer/kubernetes.md",
-    "note/by/developer/content_delivery_network.md",
-    "note/by/developer/consistent_hashing.md",
-    "note/by/developer/clustering.md",
-    "note/by/developer/decision_tree.md",
-    "note/by/developer/container.md",
     "note/by/developer/drafts",
-    "note",
-    "as/developer/notes/Untitled.base",
     "Untitled.canvas"
   ]
 }
