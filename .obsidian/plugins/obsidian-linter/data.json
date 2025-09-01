@@ -106,7 +106,7 @@
       "enabled": false
     },
     "move-footnotes-to-the-bottom": {
-      "enabled": true
+      "enabled": false
     },
     "re-index-footnotes": {
       "enabled": true

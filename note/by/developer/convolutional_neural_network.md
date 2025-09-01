@@ -1,9 +1,8 @@
 ---
-tags:
-  - machine-learning
+tags: [machine-learning]
 title: Convolutional Neural Network
 created-date: 2025-08-07T00:00:00-04:00
-last-modified-date: 2025-08-25T00:00:00-04:00
+last-modified-date: 2025-08-31T20:55:46-04:00
 ---
 
 ## Concepts
@@ -12,7 +11,9 @@ last-modified-date: 2025-08-25T00:00:00-04:00
 
 For a single channel convolution layer, the layer will container filter of size $f \times f$. Other than size $f$ as a hyperparameter, two other are required, padding $p$ and stride $s$.
 
-Given input of size $x \times y$, we pad the $p$ cell to each side to make the input of size $(x + 2p) \times (y + 2p)$. From the padded input, start from left top corner, we pick a square of size $f \times f$ and apply dot product with the parameter and get an scalar output. For every square moving right or down $stride$ cell, we do the same thing, getting an output of size: $$\lfloor \frac{x + 2p - f}{s} + 1 \rfloor \ \times \lfloor \frac{y + 2p - f}{s} + 1 \rfloor$$
+Given input of size $x \times y$, we pad the $p$ cell to each side to make the input of size $(x + 2p) \times (y + 2p)$. From the padded input, start from left top corner, we pick a square of size $f \times f$ and apply dot product with the parameter and get an scalar output. For every square moving right or down $stride$ cell, we do the same thing, getting an output of size:
+
+$$\lfloor \frac{x + 2p - f}{s} + 1 \rfloor \ \times \lfloor \frac{y + 2p - f}{s} + 1 \rfloor$$
 
 Taking channel into consideration, if input have $d_{in}$ channel. Then the parameter become of size $f \times f \times d_{in}$, by adding up $d_{in}$ channel, we get an output same as above. Then if we are going to output $d_{out}$ channel, the parameter becomes size of $f \times f \times d_{in} \times d_{out}$.
 
@@ -38,7 +39,9 @@ Convolution Layer with different size $n$ value focus on different aspect, in ge
 
 **Object Detection** take convolutional neural networks to the next stage. Other than trying to classify image into categories, the model also identify the position of the object inside the image by outputting a bounding box $(x_1, y_1), (x_2, y_2)$ along with the class probabilities.
 
-To consider the model has a correct prediction, we cannot expect the bounding box predicted and labeled are completely the same. **IoU(Intersection Over Union)** is usually calculated to indicate the correctness. $$IoU = \frac{S_{intersection}}{S_{union}}$$
+To consider the model has a correct prediction, we cannot expect the bounding box predicted and labeled are completely the same. **IoU(Intersection Over Union)** is usually calculated to indicate the correctness.
+
+$$IoU = \frac{S_{intersection}}{S_{union}}$$
 
 Historically it is more than often to chunk the image into small pieces (with different size and overlapping with each other) and run the model on each piece separately to have a better prediction accuracy. Therefore, It is also fairly common to have one model predict the position of multiple object. One challenge is whether and which box(es) to pick or ignore when multiple prediction are valid. For boxes overlapping with each other, **IoU** is used again to define two bounding boxes are describing the same object.
 

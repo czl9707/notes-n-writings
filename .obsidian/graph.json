@@ -6,8 +6,23 @@
   "hideUnresolved": false,
   "showOrphans": true,
   "collapse-color-groups": true,
-  "colorGroups": [],
-  "collapse-display": false,
+  "colorGroups": [
+    {
+      "query": "path:by/developer",
+      "color": {
+        "a": 1,
+        "rgb": 6343634
+      }
+    },
+    {
+      "query": "path:by/christian",
+      "color": {
+        "a": 1,
+        "rgb": 12797510
+      }
+    }
+  ],
+  "collapse-display": true,
   "showArrow": false,
   "textFadeMultiplier": 0,
   "nodeSizeMultiplier": 0.993229166666667,
@@ -17,6 +32,6 @@
   "repelStrength": 20,
   "linkStrength": 1,
   "linkDistance": 99,
-  "scale": 0.059326171874999806,
+  "scale": 0.08317427835927453,
   "close": true
 }

@@ -1,9 +1,8 @@
 ---
-tags:
-  - machine-learning
+tags: [machine-learning]
 title: Decision Tree
 created-date: 2025-08-03T00:00:00-04:00
-last-modified-date: 2025-08-25T00:00:00-04:00
+last-modified-date: 2025-08-31T20:56:42-04:00
 ---
 
 ## Basic Concept
@@ -13,7 +12,9 @@ Decision tree is very different from normal machine learning model. It construct
 During Training:
 
 - For each node, iterate on available feature and try split the dataset into two.
-	- For each feature, calculate the purity and information gain, using (p is the correctness for current node): $$H(p) = - p \log_2(p) - (1 - p) \log_2(1 - p)$$$$ Gain = H(p^{root}) - (w^{left} \cdot H(p^{left}) + w^{right} \cdot H(p^{right}) )$$
+	- For each feature, calculate the purity and information gain, using (p is the correctness for current node):
+	  $$H(p) = - p \log_2(p) - (1 - p) \log_2(1 - p)$$
+	  $$ Gain = H(p^{root}) - (w^{left} \cdot H(p^{left}) + w^{right} \cdot H(p^{right}) )$$
 	- Select the feature has greatest positive information gain.
 - Stop Slitting when:
 	- Maximum depth reached.

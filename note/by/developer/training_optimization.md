@@ -1,9 +1,8 @@
 ---
-tags:
-  - machine-learning
+tags: [machine-learning]
 title: Training Optimization
 created-date: 2025-08-03T00:00:00-04:00
-last-modified-date: 2025-08-25T00:00:00-04:00
+last-modified-date: 2025-08-31T20:57:32-04:00
 ---
 
 ## Feature Scaling
@@ -52,12 +51,16 @@ $$ \alpha = \frac{k}{\sqrt{epoch}} \cdot \alpha_0$$
 
 As the neural network goes deeper, gradient vanish or explosion happens more than often. One observation is that in any given hidden layer, the distribution of hidden features is skewed. And similar to [Feature Scaling](#Feature%20Scaling) as a method of input normalization, we apply the same thing to hidden layers.
 
-To compute mean $\mu$ and variance $\sigma^2$ for batch normalization: $$ \mu_B = \frac{1}{m} \sum^m_{i=1}x_i, \ \ \sigma^2_B = \frac{1}{m} \sum^m_{i=1}(x_i - \mu_B)^2 $$
+To compute mean $\mu$ and variance $\sigma^2$ for batch normalization:
+
+$$ \mu_B = \frac{1}{m} \sum^m_{i=1}x_i, \ \ \sigma^2_B = \frac{1}{m} \sum^m_{i=1}(x_i - \mu_B)^2 $$
 
 Obviously both of them depends on input value x, which is no such thing during inference. The typical solution on this is using running **average** of mean and variance (accumulated during training).
 
 ## Residual Layer
 
-As the neural network goes deeper, the raw features or early hidden layers have way little impact on the eventual output. **Residual Layer** is a fairly simple solution for this problem. Data instead of flowing forward layer by layer, it will skip one or more layers and aggregated with deeper layers (AKA. skip connections). So for the residual layer, we will have $$y = F(x) + x$$
+As the neural network goes deeper, the raw features or early hidden layers have way little impact on the eventual output. **Residual Layer** is a fairly simple solution for this problem. Data instead of flowing forward layer by layer, it will skip one or more layers and aggregated with deeper layers (AKA. skip connections). So for the residual layer, we will have
+
+$$y = F(x) + x$$
 
 Where $F$ is the "normal" behavior of the layer, and we apply the original input on top that.

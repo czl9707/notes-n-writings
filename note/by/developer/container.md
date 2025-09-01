@@ -2,7 +2,7 @@
 title: Container
 tags: [container]
 created-date: 2025-08-14T00:00:00-04:00
-last-modified-date: 2025-08-21T00:00:00-04:00
+last-modified-date: 2025-08-31T14:38:23-04:00
 ---
 
 ## What is Container
@@ -17,7 +17,7 @@ Container is a black magic, creating an isolated environment. It is:
 - A Network Stack
 - A Process Group - One main process, with possible subprocesses.
 
-Implemented using [namespace](as/developer/notes/linux_namespace.md)s and [CGroup](as/developer/notes/linux_control_group.md).
+Implemented using [namespace](note/by/developer/linux_namespace.md)s and [CGroup](note/by/developer/linux_control_group.md).
 
 - namespaces enforce the resources a process sees.
 - CGroup (Control Group) groups processes and allocates resources (CPU and Memory) that the kernel enforce.

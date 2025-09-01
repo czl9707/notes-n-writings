@@ -1,9 +1,8 @@
 ---
-tags:
-  - machine-learning
+tags: [machine-learning]
 title: Recurrent Neural Network
 created-date: 2025-08-10T00:00:00-04:00
-last-modified-date: 2025-08-25T00:00:00-04:00
+last-modified-date: 2025-08-31T20:57:04-04:00
 ---
 
 ## Concepts
@@ -22,11 +21,17 @@ $$c^{<t>} = \Gamma_u \star \tilde{c}^{<t>} + (1 - \Gamma_u) \star {c}^{<t-1>}$$
 ### Long Short Term Memory (LSTM)
 
 **LSTM** share the same motivation as [GRU](#Gated%20Recurrent%20Unit%20(GRU)), but output the memory cell out along with activation, and use memory from previous step to calculate the memory and activation for next step.
+
 $$\tilde{c}^{<t>} = tanh(w_c[c^{<t-1>}, x^{<t>}] + b_c)$$
+
 $$\Gamma_u = \sigma(w_u[c^{<t-1>}, x^{<t>}] + b_u)$$
+
 $$\Gamma_f = \sigma(w_f[c^{<t-1>}, x^{<t>}] + b_f)$$
+
 $$\Gamma_o = \sigma(w_o[c^{<t-1>}, x^{<t>}] + b_o)$$
+
 $$c^{<t>} = \Gamma_u \star \tilde{c}^{<t>} + (1 - \Gamma_f) \star {c}^{<t-1>}$$
+
 $$a^{,t>} = \Gamma_o \star tanh(c^{<t>})$$
 
 ### Bi-Directional RNN

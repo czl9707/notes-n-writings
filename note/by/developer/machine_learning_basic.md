@@ -1,9 +1,8 @@
 ---
-tags:
-  - machine-learning
+tags: [machine-learning]
 title: Machine Learning Basic
 created-date: 2025-08-02T00:00:00-04:00
-last-modified-date: 2025-08-25T00:00:00-04:00
+last-modified-date: 2025-08-31T21:02:56-04:00
 ---
 
 # Concepts
@@ -57,7 +56,8 @@ Example:
 - **Backward Propagation** - Referring to data passed in input-to-output direction. Backward Propagation is the process of computing gradients of the loss with respect to each model parameter, and using the gradient to update model weights.
 	- By applying the **chain rule of calculus**, we can only focus the derivatives for each layer given their input and output, and derive the loss-layer gradient of each parameter, without worrying too much about the complexity of the entire model.
 	- And we delegate the derivatives of the complex function to multiple small functions, layer by layer.
-	- **Chain Rule of Calculus**, For any $y=f(g(x))$, we have: $$ \frac{dy}{dx} = \frac{dy}{dg} \cdot \frac{dg}{dx} ​$$
+	- **Chain Rule of Calculus**, For any $y=f(g(x))$, we have:
+	  $$ \frac{dy}{dx} = \frac{dy}{dg} \cdot \frac{dg}{dx} ​$$
 
 # Models
 

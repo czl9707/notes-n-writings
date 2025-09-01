@@ -70,7 +70,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "tag:machine_learning",
+                "query": "",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -131,13 +131,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "as/developer/notes/content_delivery_network.md",
+                "file": "Notes Base.base",
                 "followCursor": true,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "Outline of content_delivery_network"
+              "title": "Outline of Notes Base"
             }
           },
           {
@@ -179,14 +179,13 @@
             "state": {
               "type": "footnotes",
               "state": {
-                "file": "as/developer/notes/content_delivery_network.md"
+                "file": "Notes Base.base"
               },
               "icon": "lucide-file-signature",
               "title": "Footnotes"
             }
           }
-        ],
-        "currentTab": 1
+        ]
       },
       {
         "id": "aa84fd0bab7bf43d",
@@ -242,42 +241,42 @@
   },
   "active": "0db25e305f16909e",
   "lastOpenFiles": [
+    "note/by/developer/machine_learning_basic.md",
+    "note/by/developer/linux_network.md",
+    "note/by/developer/kubernetes.md",
+    "note/by/developer/decision_tree.md",
+    "note/by/developer/cryptography_basic.md",
+    "note/by/developer/convolutional_neural_network.md",
+    "note/by/developer/content_delivery_network.md",
+    "note/by/developer/container_network.md",
+    "note/by/developer/container.md",
+    "note/by/developer/consistent_hashing.md",
+    "note/by/developer/computer_network_basic.md",
+    "note/by/developer/clustering.md",
+    "note/by/developer/cloud_network_service.md",
+    "note/by/developer/cloud_network_infrastructure.md",
+    "note/by/developer/anomaly_detection.md",
+    "note/by/developer/cloud_basic.md",
+    "Notes Base.base",
+    "note/by/developer/recurrent_neural_network.md",
+    "note/by/developer/regression_model.md",
+    "note/by/developer/training_optimization.md",
+    "note/by/developer/variance_n_bias.md",
+    "note/by/christian/the_law_is_not_meant_for_itself.md",
+    "2025-08-31.md",
+    "Blogs Base.base",
+    "as/developer/notes/linux_namespace.md",
+    "as/developer/notes",
+    "as/developer",
+    "as",
+    "as/developer/notes/linux_control_group.md",
     "blog/by/developer/from_monolithic_to_react_compound_pattern.md",
     "blog/by/developer/decorator_design_pattern.md",
-    "blog/by/developer/cross_component_styling_with_react_compound_pattern.md",
-    "blog/by/developer/back_to_css_after_everything.md",
-    "blog/by/developer/5_wtf_moments_in_python.md",
-    "note/by/developer/drafts/python_inheritance.md",
-    "note/by/developer/drafts/python_descriptor.md",
-    "note/by/developer/drafts/pyobject.md",
-    "note/by/christian/drafts/law_not_meant_for_law.md",
     "note/by/christian/drafts",
     "note/by/christian",
-    "Blogs Base.base",
-    "Notes Base.base",
-    "blog/by/developer/solutions_to_bring_asynchronism_into_pytest.md",
-    "note/by/Untitled.md",
     "blog/by/developer",
     "note/by/developer",
-    "note/by/developer/variance_n_bias.md",
     "note/by",
-    "blog/by",
-    "blog",
-    "note/by/developer/drafts/graphql_server.md",
-    "note/by/developer/drafts/graphql_client.md",
-    "note/by/developer/drafts/huggingface_basic.md",
-    "note/by/developer/linux_network.md",
-    "note/by/developer/cloud_network_infrastructure.md",
-    "note/by/developer/convolutional_neural_network.md",
-    "note/by/developer/recurrent_neural_network.md",
-    "note/by/developer/network_protocols.md",
-    "note/by/developer/cloud_network_service.md",
-    "note/by/developer/network_security.md",
-    "note/by/developer/cloud_basic.md",
-    "note/by/developer/training_optimization.md",
-    "note/by/developer/machine_learning_basic.md",
-    "note/by/developer/computer_network_basic.md",
-    "note/by/developer/drafts",
     "Untitled.canvas"
   ]
 }

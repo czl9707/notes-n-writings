@@ -1,9 +1,8 @@
 ---
-tags:
-  - machine-learning
+tags: [machine-learning]
 title: Clustering
 created-date: 2025-08-03T00:00:00-04:00
-last-modified-date: 2025-08-25T00:00:00-04:00
+last-modified-date: 2025-08-31T20:55:46-04:00
 ---
 
 ## K-Means
@@ -31,4 +30,5 @@ The **silhouette score** is a metric used to evaluate the quality of a clusterin
 
 - $a(i)$ : average distance to all other points in the same cluster.
 - $b(i)$ : lowest average distance to points in any other cluster.
-- silhouette score: $$s(i) = \frac{b(i) - a(i)}{\max(b(i), a(i))}$$
+- silhouette score:
+  $$s(i) = \frac{b(i) - a(i)}{\max(b(i), a(i))}$$

@@ -2,7 +2,7 @@
 title: Container Network
 tags: [container, linux, network]
 created-date: 2025-08-19T00:00:00-04:00
-last-modified-date: 2025-08-22T00:00:00-04:00
+last-modified-date: 2025-08-31T14:39:16-04:00
 ---
 
 By default, processes running in root space cannot access processes running within container. By using port forwarding or different type of network drivers, we can have granular control over container network.
@@ -32,7 +32,7 @@ Sometime we see something like `--dns=0.0.0.0`, this explicitly disable DNS look
 
 ## Container
 
-By default each container come with its own network [namespace](as/developer/notes/linux_namespace.md), for each network it dwells inside, a [veth](note/by/developer/linux_network.md#VETH) device got created, one side attached to the network, one side is located inside the container namespace.
+By default each container come with its own network [namespace](note/by/developer/linux_namespace.md), for each network it dwells inside, a [veth](note/by/developer/linux_network.md#VETH) device got created, one side attached to the network, one side is located inside the container namespace.
 
 Minimal Example to mimic a container network:
 

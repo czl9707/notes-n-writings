@@ -2,7 +2,7 @@
 title: Cloud Network Infrastructure
 tags: [cloud, network]
 created-date: 2025-08-22T00:00:00-04:00
-last-modified-date: 2025-08-25T00:00:00-04:00
+last-modified-date: 2025-08-31T21:38:50-04:00
 ---
 
 ## Problem and Challenge
@@ -83,8 +83,13 @@ The key innovation of Maglev is its using [consistent hashing algorithm](note/by
 ---
 
 [^1]: [VL2: A Scalable and Flexible Data Center Network](https://www.microsoft.com/en-us/research/publication/vl2-a-scalable-and-flexible-data-center-network/)
+
 [^2]: [Andromeda: Performance, Isolation, and Velocity at Scale in Cloud Network Virtualization](https://research.google/pubs/andromeda-performance-isolation-and-velocity-at-scale-in-cloud-network-virtualization/)
+
 [^3]: [Azure SmartNIC](https://www.microsoft.com/en-us/research/project/azure-smartnic/)
+
 [^4]: [SWAN: Software-Driven Wide Area Network](https://www.microsoft.com/en-us/research/blog/born-in-the-research-lab-a-decade-ago-swan-continues-to-accelerate-networking-in-the-microsoft-cloud/)
+
 [^5]: [Taking the Edge off with Espresso: Scale, Reliability and Programmability for Global Internet Peering](https://research.google/pubs/taking-the-edge-off-with-espresso-scale-reliability-and-programmability-for-global-internet-peering/)
+
 [^6]: [Maglev: A Fast and Reliable Software Network Load Balancer](https://research.google/pubs/maglev-a-fast-and-reliable-software-network-load-balancer/)
