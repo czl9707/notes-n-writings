@@ -63,7 +63,7 @@
       "date-created-key": "created-date",
       "date-created-source-of-truth": "frontmatter",
       "date-modified": true,
-      "date-modified-key": "last-modified-date",
+      "date-modified-key": "last-updated-date",
       "date-modified-source-of-truth": "user or Linter edits",
       "format": "",
       "convert-to-utc": false,

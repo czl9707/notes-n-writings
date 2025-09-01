@@ -3,7 +3,7 @@ tags:
   - machine-learning
 title: Anomaly Detection
 created-date: 2025-08-08T00:00:00-04:00
-last-modified-date: 2025-08-25T00:00:00-04:00
+last-updated-date: 2025-08-25T00:00:00-04:00
 ---
 
 ## Gaussian Distribution

@@ -5,7 +5,7 @@ cover-url: https://zane-portfolio.s3.us-east-1.amazonaws.com/PytestConcurrencyCo
 tags: [asyncio, python, testing]
 featured: true
 created-date: 2025-02-27T00:00:00-04:00
-last-modified-date: 2025-08-27T00:00:00-04:00
+last-updated-date: 2025-08-27T00:00:00-04:00
 ---
 
 **TL;DR:** To conquer the concurrency problem in pytest, multiple solutions has been explored. Starting with `pytest-xdist`, then a combination of `pytest-asyncio` with `pytest-subtests`, and finally built my own plugin, `pytest-asyncio-concurrent`, to overcome limitations.

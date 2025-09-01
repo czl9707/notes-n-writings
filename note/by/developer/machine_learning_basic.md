@@ -2,7 +2,7 @@
 tags: [machine-learning]
 title: Machine Learning Basic
 created-date: 2025-08-02T00:00:00-04:00
-last-modified-date: 2025-08-31T21:02:56-04:00
+last-updated-date: 2025-08-25T00:00:00-04:00
 ---
 
 # Concepts

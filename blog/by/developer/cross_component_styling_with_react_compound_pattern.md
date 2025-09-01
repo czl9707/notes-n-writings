@@ -5,7 +5,7 @@ tags: [frontend, pattern, react]
 featured: false
 cover-url: https://zane-portfolio.s3.us-east-1.amazonaws.com/CrossComponentStylingCover.png
 created-date: 2025-04-23T00:00:00-04:00
-last-modified-date: 2025-08-27T00:00:00-04:00
+last-updated-date: 2025-08-27T00:00:00-04:00
 ---
 
 When* building UI components, Its pretty common that we wanna trigger effects on component based on events on parent component, such as hovering. While applying style to components is straightforward, cross-component styling can become messy without proper control. The Blog explore an elegant solution using [Compound Pattern](blog/by/developer/from_monolithic_to_react_compound_pattern.md) to tackle the contextual styling challenge.

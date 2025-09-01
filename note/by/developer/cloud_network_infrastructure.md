@@ -2,7 +2,7 @@
 title: Cloud Network Infrastructure
 tags: [cloud, network]
 created-date: 2025-08-22T00:00:00-04:00
-last-modified-date: 2025-08-31T21:38:50-04:00
+last-updated-date: 2025-08-25T00:00:00-04:00
 ---
 
 ## Problem and Challenge

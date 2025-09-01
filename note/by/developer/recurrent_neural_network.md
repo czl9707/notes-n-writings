@@ -2,7 +2,7 @@
 tags: [machine-learning]
 title: Recurrent Neural Network
 created-date: 2025-08-10T00:00:00-04:00
-last-modified-date: 2025-08-31T20:57:04-04:00
+last-updated-date: 2025-08-25T00:00:00-04:00
 ---
 
 ## Concepts

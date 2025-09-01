@@ -11,7 +11,7 @@ views:
     order:
       - title
       - created-date
-      - last-modified-date
+      - last-updated-date
       - tags
       - featured
     sort:
