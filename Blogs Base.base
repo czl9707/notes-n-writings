@@ -1,13 +1,17 @@
 filters:
   and:
     - file.inFolder("blog/by/developer")
-    - '!file.inFolder("blog/by/developer/drafts")'
+formulas:
+  Title: link(file, title)
 properties:
   file.name:
     displayName: file name
 views:
   - type: cards
-    name: Dashboard
+    name: Published
+    filters:
+      and:
+        - '!file.path.contains("drafts")'
     order:
       - title
       - created-date
@@ -21,3 +25,10 @@ views:
     imageFit: ""
     imageAspectRatio: 0.6
     cardSize: 280
+  - type: table
+    name: Drafts
+    filters:
+      and:
+        - file.path.contains("drafts")
+    order:
+      - formula.Title

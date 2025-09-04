@@ -2,20 +2,20 @@
 tags: [machine-learning]
 title: Machine Learning Basic
 created-date: 2025-08-02T00:00:00-04:00
-last-updated-date: 2025-08-25T00:00:00-04:00
+last-updated-date: 2025-09-01T22:36:55-04:00
 ---
 
-# Concepts
+## Concepts
 
-## Supervised Learning & Unsupervised Learning
+### Supervised Learning & Unsupervised Learning
 
 The key difference between Supervised Learning and Unsupervised Learning is that Supervised Learning is provided with both data and label, while Unsupervised Learning is only provided with data. Supervised learning model is trying to figure out the rule from input to output, while Unsupervised is trying to find some characteristics from the given data.
 
-## Gradient Descent
+### Gradient Descent
 
 Based on the model evaluation result, we calculate the gradient of the loss function at current parameters. And modify the each parameter by `learning_rate * gradient`
 
-## Regression & Classification Problem
+### Regression & Classification Problem
 
 Regression tries to derive a value from the given input, while classification is literally put input into bucket(s).
 
@@ -24,11 +24,11 @@ Example:
 - Using location and size of a house to predict its price -> Regression.
 - Using Lung CT image to tell the disease the lung might have.
 
-## Model Performance
+### Model Performance
 
 - [Variance & Bias](note/by/developer/variance_n_bias.md)
 
-## Activation Function
+### Activation Function
 
 - Why we need Activation Function?
 	- Without Activation function, each single layer of Neural Network degrade to a linear regression, while the entire model degrade to polynomial regression.
@@ -44,13 +44,13 @@ Example:
 	- **Softmax**: $A(z_i) = \frac{e^{z_i}}{\sum^{K}_{j=1} e^{z_j}}$
 		- Multi-class Classification
 
-## Data Set
+### Data Set
 
 - **Training Set**: The subset of data used to train the model.
 - **Cross Validation Set / Validation Set** - The subset of data used for evaluating the model during training, but not participate in backward propagation.
 - **Test Set** - The subset of data won't be exposed to the model until training finish. Used to measure the performance of the model.
 
-## Forward Propagation & Backward Propagation
+### Forward Propagation & Backward Propagation
 
 - **Forward Propagation** - Referring to data passed in input-to-output direction. Forward Propagation is almost just another name
 - **Backward Propagation** - Referring to data passed in input-to-output direction. Backward Propagation is the process of computing gradients of the loss with respect to each model parameter, and using the gradient to update model weights.
@@ -59,7 +59,7 @@ Example:
 	- **Chain Rule of Calculus**, For any $y=f(g(x))$, we have:
 	  $$ \frac{dy}{dx} = \frac{dy}{dg} \cdot \frac{dg}{dx} ​$$
 
-# Models
+## Models
 
 - [Regression Model](note/by/developer/regression_model.md)
 - [Decision Tree](note/by/developer/decision_tree.md)
@@ -69,11 +69,11 @@ Example:
 - [Convolutional Neural Network](note/by/developer/convolutional_neural_network.md)
 - [Recurrent Neural Network](note/by/developer/recurrent_neural_network.md)
 
-# Techniques
+## Techniques
 
 - [Training Optimization](note/by/developer/training_optimization.md)
 
-# Libraries
+## Libraries
 
 - [Scikit-Learning](https://scikit-learn.org) for traditional Machine Learning Tasks.
 - [Pytorch](https://pytorch.org/) or [TensorFlow](https://www.tensorflow.org/) For Neural Network Model.

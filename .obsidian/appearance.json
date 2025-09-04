@@ -1,8 +1,9 @@
 {
   "theme": "system",
-  "accentColor": "#4ac9e3",
+  "accentColor": "#16b88d",
   "enabledCssSnippets": [
     "card"
   ],
-  "cssTheme": "Minimal"
+  "cssTheme": "",
+  "baseFontSize": 16
 }

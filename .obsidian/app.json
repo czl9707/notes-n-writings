@@ -6,5 +6,6 @@
   "useMarkdownLinks": true,
   "newLinkFormat": "absolute",
   "showUnsupportedFiles": true,
-  "foldHeading": true
+  "foldHeading": true,
+  "promptDelete": false
 }

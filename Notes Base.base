@@ -1,21 +1,29 @@
 filters:
   and:
     - file.inFolder("note/by/developer")
-    - '!file.inFolder("note/by/developer/drafts")'
 formulas:
   Note: link(file.basename, title)
+  Title: link(file.basename, title)
 views:
   - type: table
     name: Table
+    filters:
+      and:
+        - '!file.path.contains("drafts")'
     order:
       - formula.Note
       - tags
       - created-date
       - last-updated-date
-    sort:
-      - property: created-date
-        direction: DESC
+    sort: []
     columnSize:
       formula.Note: 499
       note.tags: 283
       note.last-updated-date: 158
+  - type: table
+    name: Drafts
+    filters:
+      and:
+        - file.path.contains("drafts")
+    order:
+      - formula.Title

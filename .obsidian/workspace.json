@@ -15,7 +15,7 @@
               "type": "bases",
               "state": {
                 "file": "Blogs Base.base",
-                "viewName": "Dashboard"
+                "viewName": "Published"
               },
               "pinned": true,
               "icon": "lucide-layout-grid",
@@ -30,15 +30,43 @@
               "type": "bases",
               "state": {
                 "file": "Notes Base.base",
-                "viewName": "Table"
+                "viewName": "Drafts"
               },
               "pinned": true,
               "icon": "lucide-table",
               "title": "Notes Base"
             }
+          },
+          {
+            "id": "995d608f4d61c1b4",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "note/by/developer/transformer.md",
+                "mode": "source",
+                "source": false,
+                "backlinks": false
+              },
+              "icon": "lucide-file",
+              "title": "transformer"
+            }
+          },
+          {
+            "id": "713dca6b5cc6187b",
+            "type": "leaf",
+            "state": {
+              "type": "bases",
+              "state": {
+                "file": "Blogs Base.base",
+                "viewName": "Drafts"
+              },
+              "icon": "lucide-table",
+              "title": "Blogs Base"
+            }
           }
         ],
-        "currentTab": 1
+        "currentTab": 3
       }
     ],
     "direction": "vertical"
@@ -70,7 +98,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "",
+                "query": "tag:machine-learning",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -104,7 +132,7 @@
       {
         "id": "ea95758216c928c6",
         "type": "tabs",
-        "dimension": 24.9031007751938,
+        "dimension": 26.937984496124027,
         "children": [
           {
             "id": "19c2402e7d3f5bbe",
@@ -117,13 +145,27 @@
               "icon": "lucide-git-fork",
               "title": "Graph view"
             }
+          },
+          {
+            "id": "6f89e50f20549377",
+            "type": "leaf",
+            "state": {
+              "type": "all-properties",
+              "state": {
+                "sortOrder": "frequency",
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-archive",
+              "title": "All properties"
+            }
           }
         ]
       },
       {
         "id": "3b11ac264c38b93e",
         "type": "tabs",
-        "dimension": 40.116279069767444,
+        "dimension": 73.06201550387597,
         "children": [
           {
             "id": "b97d374f8e55802e",
@@ -131,13 +173,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Notes Base.base",
+                "file": "Blogs Base.base",
                 "followCursor": true,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "Outline of Notes Base"
+              "title": "Outline of Blogs Base"
             }
           },
           {
@@ -179,19 +221,12 @@
             "state": {
               "type": "footnotes",
               "state": {
-                "file": "Notes Base.base"
+                "file": "Blogs Base.base"
               },
               "icon": "lucide-file-signature",
               "title": "Footnotes"
             }
-          }
-        ]
-      },
-      {
-        "id": "aa84fd0bab7bf43d",
-        "type": "tabs",
-        "dimension": 34.980620155038764,
-        "children": [
+          },
           {
             "id": "96dab28f31f2848d",
             "type": "leaf",
@@ -205,20 +240,6 @@
               },
               "icon": "lucide-tags",
               "title": "Tags"
-            }
-          },
-          {
-            "id": "620616f49230990a",
-            "type": "leaf",
-            "state": {
-              "type": "all-properties",
-              "state": {
-                "sortOrder": "frequency",
-                "showSearch": false,
-                "searchQuery": ""
-              },
-              "icon": "lucide-archive",
-              "title": "All properties"
             }
           }
         ]
@@ -239,43 +260,43 @@
       "workspaces:Manage workspace layouts": false
     }
   },
-  "active": "0db25e305f16909e",
+  "active": "713dca6b5cc6187b",
   "lastOpenFiles": [
-    "note/by/christian/the_law_is_not_meant_for_itself.md",
-    "note/by/christian/drafts/law_not_meant_for_law.md",
+    "note/by/developer/transformer.md",
     "Notes Base.base",
+    "Blogs Base.base",
+    "note/by/developer/transfer_learning.md",
+    "note/by/developer/natural_language_processing.md",
+    "note/by/developer/huggingface_basic.md",
+    "note/by/developer/drafts/huggingface_basic.md",
+    "note/by/developer/drafts/natural_language_processing.md",
+    "note/by/developer/drafts/Untitled.md",
+    "blog/by/human_being/drafts",
+    "blog/by/human_being",
+    "note/by/human_being/drafts",
+    "note/by/human_being",
+    "note/by/developer/machine_learning_basic.md",
+    "note/by/developer/cloud_network_infrastructure.md",
+    "note/by/developer/cloud_network_service.md",
+    "blog/by/developer/5_wtf_moments_in_python.md",
+    "note/by/developer/anomaly_detection.md",
+    "blog/by/developer/back_to_css_after_everything.md",
+    "note/by/developer/cloud_basic.md",
+    "note/by/developer/clustering.md",
+    "note/by/developer/computer_network_basic.md",
+    "note/by/developer/consistent_hashing.md",
+    "note/by/developer/container.md",
+    "note/by/developer/container_network.md",
+    "note/by/developer/content_delivery_network.md",
+    "note/by/developer/convolutional_neural_network.md",
+    "blog/by/developer/cross_component_styling_with_react_compound_pattern.md",
+    "note/by/developer/cryptography_basic.md",
+    "note/by/developer/decision_tree.md",
+    "blog/by/developer/decorator_design_pattern.md",
     "note/by/christian/drafts",
     "note/by/developer/cloud_network_infrastructure.md~",
-    "note/by/developer/machine_learning_basic.md",
-    "note/by/developer/linux_network.md",
-    "note/by/developer/kubernetes.md",
-    "note/by/developer/decision_tree.md",
-    "note/by/developer/cryptography_basic.md",
-    "note/by/developer/convolutional_neural_network.md",
-    "note/by/developer/content_delivery_network.md",
-    "note/by/developer/container_network.md",
-    "note/by/developer/container.md",
-    "note/by/developer/consistent_hashing.md",
-    "note/by/developer/computer_network_basic.md",
-    "note/by/developer/clustering.md",
-    "note/by/developer/cloud_network_service.md",
-    "note/by/developer/cloud_network_infrastructure.md",
-    "note/by/developer/anomaly_detection.md",
-    "note/by/developer/cloud_basic.md",
-    "note/by/developer/recurrent_neural_network.md",
-    "note/by/developer/regression_model.md",
-    "note/by/developer/training_optimization.md",
-    "note/by/developer/variance_n_bias.md",
-    "2025-08-31.md",
-    "Blogs Base.base",
-    "as/developer/notes/linux_namespace.md",
     "as/developer/notes",
     "as/developer",
-    "as",
-    "as/developer/notes/linux_control_group.md",
-    "note/by/christian",
-    "blog/by/developer",
-    "note/by/developer",
     "Untitled.canvas"
   ]
 }
