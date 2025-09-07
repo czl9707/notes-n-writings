@@ -2,10 +2,10 @@
 tags: [machine-learning]
 title: Transformer
 created-date: 2025-08-02T00:00:00-04:00
-last-updated-date: 2025-09-07T16:55:19-04:00
+last-updated-date: 2025-09-07T19:17:59-04:00
 ---
 
-**Transformer** was introduced as a machine learning architecture back in 2017[^1], with the primary focus on [Translation Task](natural_language_processing.md#Language%20Tasks). And the architecture turned out to perform really well even in the space out of translation tasks.
+**Transformer** was introduced as a machine learning architecture back in 2017[^1], with the primary focus on [Translation Task](note/by/developer/natural_language_processing.md#Language%20Tasks). And the architecture turned out to perform really well even in the space out of translation tasks.
 
 ## Architecture
 
@@ -22,7 +22,7 @@ However, currently the wording "[Encoder](#Encoder) " and "[Decoder](#Decoder)" 
 
 ### Decoder
 
-[GPT](note/by/developer/gpt.md)-like models are **decoder** only model, also called **auto-regressive model**. It feels a bit unintuitive when knowing this for the first time, since encoder is about understanding while decoder is about generating. This still holds true, but the fact is that GPT performs [text generation tasks](natural_language_processing.md#Language%20Tasks) instead of [question answering tasks](natural_language_processing.md#Language%20Tasks). It is actually extending the prompts.
+[GPT](note/by/developer/gpt.md)-like models are **decoder** only model, also called **auto-regressive model**. It feels a bit unintuitive when knowing this for the first time, since encoder is about understanding while decoder is about generating. This still holds true, but the fact is that GPT performs [text generation tasks](note/by/developer/natural_language_processing.md#Language%20Tasks) instead of [question answering tasks](note/by/developer/natural_language_processing.md#Language%20Tasks). It is actually extending the prompts.
 
 And during text generation, the model actually does not rely on the context as the way it does during translation. Each individual output token is not directly related to any specific token(s), but the entire context instead.
 
