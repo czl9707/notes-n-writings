@@ -43,30 +43,17 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "note/by/developer/transformer.md",
+                "file": "blog/by/developer/from_monolithic_to_react_compound_pattern.md",
                 "mode": "source",
                 "source": false,
                 "backlinks": false
               },
               "icon": "lucide-file",
-              "title": "transformer"
-            }
-          },
-          {
-            "id": "713dca6b5cc6187b",
-            "type": "leaf",
-            "state": {
-              "type": "bases",
-              "state": {
-                "file": "Blogs Base.base",
-                "viewName": "Drafts"
-              },
-              "icon": "lucide-table",
-              "title": "Blogs Base"
+              "title": "from_monolithic_to_react_compound_pattern"
             }
           }
         ],
-        "currentTab": 3
+        "currentTab": 2
       }
     ],
     "direction": "vertical"
@@ -173,13 +160,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Blogs Base.base",
+                "file": "blog/by/developer/from_monolithic_to_react_compound_pattern.md",
                 "followCursor": true,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "Outline of Blogs Base"
+              "title": "Outline of from_monolithic_to_react_compound_pattern"
             }
           },
           {
@@ -260,17 +247,20 @@
       "workspaces:Manage workspace layouts": false
     }
   },
-  "active": "713dca6b5cc6187b",
+  "active": "995d608f4d61c1b4",
   "lastOpenFiles": [
+    "blog/by/developer/cross_component_styling_with_react_compound_pattern.md",
     "note/by/developer/transformer.md",
-    "Notes Base.base",
+    "note/by/developer/drafts/redirect_and_rewrite.md",
+    "note/by/developer/drafts/graphql_client.md",
+    "note/by/developer/drafts/unix_cli_tools.md",
     "Blogs Base.base",
+    "Notes Base.base",
     "note/by/developer/transfer_learning.md",
     "note/by/developer/natural_language_processing.md",
     "note/by/developer/huggingface_basic.md",
     "note/by/developer/drafts/huggingface_basic.md",
     "note/by/developer/drafts/natural_language_processing.md",
-    "note/by/developer/drafts/Untitled.md",
     "blog/by/human_being/drafts",
     "blog/by/human_being",
     "note/by/human_being/drafts",
@@ -289,10 +279,8 @@
     "note/by/developer/container_network.md",
     "note/by/developer/content_delivery_network.md",
     "note/by/developer/convolutional_neural_network.md",
-    "blog/by/developer/cross_component_styling_with_react_compound_pattern.md",
     "note/by/developer/cryptography_basic.md",
     "note/by/developer/decision_tree.md",
-    "blog/by/developer/decorator_design_pattern.md",
     "note/by/christian/drafts",
     "note/by/developer/cloud_network_infrastructure.md~",
     "as/developer/notes",

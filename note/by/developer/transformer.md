@@ -2,14 +2,17 @@
 tags: [machine-learning]
 title: Transformer
 created-date: 2025-08-02T00:00:00-04:00
-last-updated-date: 2025-09-03T18:08:40-04:00
+last-updated-date: 2025-09-07T16:55:19-04:00
 ---
 
 **Transformer** was introduced as a machine learning architecture back in 2017[^1], with the primary focus on [Translation Task](natural_language_processing.md#Language%20Tasks). And the architecture turned out to perform really well even in the space out of translation tasks.
 
 ## Architecture
 
-The initial Transformer model architecture consis of two parts, [Encoder](#Encoder) and [Decoder](#Decoder). Encoder focused more on understanding the input prompt, while decoder turned the understanding from encoder into output tokens.
+The initial Transformer model architecture consist of two parts, [Encoder](#Encoder) and [Decoder](#Decoder).
+
+- **Encoder** takes raw input (likely text), and turn them into a vector representation.
+- **Decoder** takes the output of encoder along with its own input, to generate output tokens.
 
 However, currently the wording "[Encoder](#Encoder) " and "[Decoder](#Decoder)" can also be used to classify transformer models. Some models will only have encoder, and some will only have decoder, while some others will have both.
 

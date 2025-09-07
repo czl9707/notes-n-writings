@@ -5,7 +5,7 @@ cover-url: https://zane-portfolio.s3.us-east-1.amazonaws.com/CompoundPatternCove
 tags: [frontend, pattern, react]
 featured: false
 created-date: 2025-04-07T00:00:00-04:00
-last-updated-date: 2025-08-27T00:00:00-04:00
+last-updated-date: 2025-09-07T17:21:26-04:00
 ---
 
 React give us the powerful capability to manage states within component, and encapsulating state is generally considered a best practice. However, in real-world applications, it is more than often that UI features require multiple interconnected pieces to function properly.
@@ -21,8 +21,6 @@ Let's start with a common UI component, an accordion, and examine how it's typic
 - A content area that can be expanded or collapsed
 
 Here's a minimal monolithic implementation:
-
-:::multi-codeblocks
 
 ```tsx filename=accordion.tsx
 import React from "react"
@@ -47,74 +45,6 @@ export default function Accordion({ title, children }: {
     </div>
 }
 ```
-
-```css filename=accordion.module.css
-.AccordionRoot {
-    display: flex;
-    flex-direction: column;
-    align-items: stretch;
-    border-radius: 4px;
-    border: rgb(255 255 255 / 20%) 1px solid;
-    overflow: hidden;
-}
-
-.AccordionHeader {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-    user-select: none;
-    padding: .15rem .5rem;
-    margin: 1rem;
-    border-radius: 4px;
-
-    transition: background-color .2s linear;
-
-    &:hover {
-        background-color: rgb(255 255 255 / 10%);
-    }
-}
-
-.AccordionContent {
-    overflow-y: scroll;
-    box-sizing: border-box;
-    background-color: rgb(255 255 255 / 10%);
-    border-radius: 4px;
-
-    &::-webkit-scrollbar {
-        display: none;
-    }
-
-    .AccordionRoot[data-collapsed=false] & {
-        margin: 0 1rem 1rem 1rem;
-        padding: 1rem;
-        max-height: 15rem;
-        opacity: 1;
-        transition: all .2s linear,
-            opacity .2s .2s linear;
-    }
-
-    .AccordionRoot[data-collapsed=true] & {
-        margin: 0 1rem;
-        padding: 0 1rem;
-        max-height: 0;
-        opacity: 0;
-        transition: all .2s .2s linear,
-            opacity .2s linear;
-    }
-}
-
-.AccordionTrigger {
-    transform: none;
-    transition: transform .2s linear;
-
-    .AccordionRoot[data-collapsed=true] & {
-        transform: rotate(180deg);
-    }
-}
-```
-
-:::
 
 ![Raw Accordion](https://zane-portfolio.s3.us-east-1.amazonaws.com/AccordionRawPreview.gif)
 
@@ -266,8 +196,6 @@ We end up with four components, the three visual component `Trigger`, `Header`,`
 
 Adding styles inside or outside of the component will be another dicussion. For this blog, let's enhance these with some default styles and additional functionality.
 
-:::multi-codeblocks
-
 ```tsx filename=accordion.tsx
 import React from "react"
 import accordionStyle from './accordion.module.css'
@@ -343,74 +271,6 @@ export {
 };
 ```
 
-```css filename=accordion.module.css
-.AccordionRoot {
-    display: flex;
-    flex-direction: column;
-    align-items: stretch;
-    border-radius: 4px;
-    border: rgb(255 255 255 / 20%) 1px solid;
-    overflow: hidden;
-}
-
-.AccordionHeader {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-    user-select: none;
-    padding: .15rem 0;
-    margin: 1rem;
-}
-
-.AccordionContent {
-    overflow-y: scroll;
-    box-sizing: border-box;
-    background-color: rgb(255 255 255 / 10%);
-    border-radius: 4px;
-
-    &::-webkit-scrollbar {
-        display: none;
-    }
-
-    &[data-collapsed=false] {
-        margin: 0 1rem 1rem 1rem;
-        padding: 1rem;
-        max-height: 15rem;
-        opacity: 1;
-        transition: all .2s linear,
-            opacity .2s .2s linear;
-    }
-
-    &[data-collapsed=true] {
-        margin: 0 1rem;
-        padding: 0 1rem;
-        max-height: 0;
-        opacity: 0;
-        transition: all .2s .2s linear,
-            opacity .2s linear;
-    }
-}
-
-.AccordionTrigger {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-    transform: none;
-    transition: background-color .2s linear;
-    line-height: 0;
-    border-radius: 4px;
-    padding: .15rem 0.5rem;
-
-    &:hover {
-        background-color: rgb(255 255 255 / 10%);
-    }
-}
-```
-
-:::
-
 Now the `Root` component accept properties related the `isCollapsed` state, such as a `isCollapsed` property to turn the component into a controlled version, and two optional callbacks `onCollapsed` and `onUncollapsed`.
 
 All other pieces, `Trigger`, `Header`, `Content` accept all sets of `React.HTMLAttributes<HTMLDivElement>`.
@@ -418,8 +278,6 @@ All other pieces, `Trigger`, `Header`, `Content` accept all sets of `React.HTMLA
 ## Using Compound Components
 
 For usage, instead of using a single `Accordion` component with numerous porps, consumers compose UI from building blocks.
-
-:::multi-codeblocks
 
 ```tsx filename=page.tsx
 import * as Accordion from "@/components/accordion-compound-rich";
@@ -443,21 +301,7 @@ export default function Home() {
 }
 ```
 
-```css filename=page.module.css
-.AccordionRotateIcon {
-    transition: transform .2s linear;
-
-    [data-collapsed=true]>& {
-        transform: rotate(180deg);
-    }
-}
-```
-
-:::
-
 The power of compound component pattern becomes apparent when customization comes into play. And we apply all sets of properties to them just like treating native html element.
-
-:::multi-codeblocks
 
 ```tsx filename=page.tsx
 import * as Accordion from "@/components/accordion-compound-rich";
@@ -484,27 +328,9 @@ export default function Home() {
   );
 }
 ```
-
-```css filename=page.module.css
-.IconShowOnCollapsed {
-    [data-collapsed=false]>& {
-        display: none;
-    }
-}
-
-.IconShowOnUncollapsed {
-    [data-collapsed=true]>& {
-        display: none;
-    }
-}
-```
-
-:::
 
 ![Accordion Variant](https://zane-portfolio.s3.us-east-1.amazonaws.com/AccordionVariant1Preview.gif)
 
-:::multi-codeblocks
-
 ```tsx filename=page.tsx
 import * as Accordion from "@/components/accordion-compound-rich";
 import { ArrowInput, ArrowOutput } from "@/components/icon";
@@ -530,18 +356,6 @@ export default function Home() {
   );
 }
 ```
-
-```css filename=page.module.css
-.AccordionRotateIcon {
-    transition: transform .2s linear;
-
-    [data-collapsed=true]>& {
-        transform: rotate(180deg);
-    }
-}
-```
-
-:::
 
 ![Accordion Variant](https://zane-portfolio.s3.us-east-1.amazonaws.com/AccordionVariant2Preview.gif)
 
