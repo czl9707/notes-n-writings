@@ -2,10 +2,13 @@
 title: "Conquering Slow Tests: 4 Solutions to Bring Concurrency into Pytest"
 description: System and integration tests sometimes require substantial execution time. The blog shares my journey of exploring multiple approaches to address the efficiency challenges, culminating in developing a custom pytest plugin.
 cover-url: https://zane-portfolio.s3.us-east-1.amazonaws.com/PytestConcurrencyCover.png
-tags: [asyncio, python, testing]
+tags:
+  - async
+  - python
+  - testing
 featured: true
-created-date: 2025-02-27T00:00:00-04:00
-last-updated-date: 2025-08-27T00:00:00-04:00
+created-date: 2025-02-26T23:00:00-05:00
+last-updated-date: 2025-09-08T17:40:06-04:00
 ---
 
 **TL;DR:** To conquer the concurrency problem in pytest, multiple solutions has been explored. Starting with `pytest-xdist`, then a combination of `pytest-asyncio` with `pytest-subtests`, and finally built my own plugin, `pytest-asyncio-concurrent`, to overcome limitations.

@@ -30,7 +30,7 @@
               "type": "bases",
               "state": {
                 "file": "Notes Base.base",
-                "viewName": "Drafts"
+                "viewName": "Table"
               },
               "pinned": true,
               "icon": "lucide-table",
@@ -38,18 +38,18 @@
             }
           },
           {
-            "id": "995d608f4d61c1b4",
+            "id": "4faa01fa05833f64",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "note/by/developer/transformer.md",
+                "file": "note/by/developer/fundamental_model.md",
                 "mode": "source",
-                "source": true,
+                "source": false,
                 "backlinks": false
               },
               "icon": "lucide-file",
-              "title": "transformer"
+              "title": "fundamental_model"
             }
           }
         ],
@@ -106,12 +106,11 @@
               "title": "Bookmarks"
             }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "horizontal",
-    "width": 300
+    "width": 314.5
   },
   "right": {
     "id": "389f338d0b40b842",
@@ -120,101 +119,8 @@
       {
         "id": "ea95758216c928c6",
         "type": "tabs",
-        "dimension": 26.937984496124027,
+        "dimension": 42.44274809160305,
         "children": [
-          {
-            "id": "19c2402e7d3f5bbe",
-            "type": "leaf",
-            "pinned": true,
-            "state": {
-              "type": "graph",
-              "state": {},
-              "pinned": true,
-              "icon": "lucide-git-fork",
-              "title": "Graph view"
-            }
-          },
-          {
-            "id": "6f89e50f20549377",
-            "type": "leaf",
-            "state": {
-              "type": "all-properties",
-              "state": {
-                "sortOrder": "frequency",
-                "showSearch": false,
-                "searchQuery": ""
-              },
-              "icon": "lucide-archive",
-              "title": "All properties"
-            }
-          }
-        ]
-      },
-      {
-        "id": "3b11ac264c38b93e",
-        "type": "tabs",
-        "dimension": 73.06201550387597,
-        "children": [
-          {
-            "id": "b97d374f8e55802e",
-            "type": "leaf",
-            "state": {
-              "type": "outline",
-              "state": {
-                "file": "note/by/developer/transformer.md",
-                "followCursor": true,
-                "showSearch": false,
-                "searchQuery": ""
-              },
-              "icon": "lucide-list",
-              "title": "Outline of transformer"
-            }
-          },
-          {
-            "id": "6bb947b25afc34dd",
-            "type": "leaf",
-            "state": {
-              "type": "backlink",
-              "state": {
-                "file": "Notes Base.base",
-                "collapseAll": false,
-                "extraContext": false,
-                "sortOrder": "alphabetical",
-                "showSearch": false,
-                "searchQuery": "",
-                "backlinkCollapsed": false,
-                "unlinkedCollapsed": false
-              },
-              "icon": "links-coming-in",
-              "title": "Backlinks for Notes Base"
-            }
-          },
-          {
-            "id": "24dca2cff71718a4",
-            "type": "leaf",
-            "state": {
-              "type": "outgoing-link",
-              "state": {
-                "file": "as/developer/notes/content_delivery_network.md",
-                "linksCollapsed": false,
-                "unlinkedCollapsed": true
-              },
-              "icon": "links-going-out",
-              "title": "Outgoing links from content_delivery_network"
-            }
-          },
-          {
-            "id": "7016e16da098823b",
-            "type": "leaf",
-            "state": {
-              "type": "footnotes",
-              "state": {
-                "file": "Blogs Base.base"
-              },
-              "icon": "lucide-file-signature",
-              "title": "Footnotes"
-            }
-          },
           {
             "id": "96dab28f31f2848d",
             "type": "leaf",
@@ -229,12 +135,105 @@
               "icon": "lucide-tags",
               "title": "Tags"
             }
+          },
+          {
+            "id": "0b3f0465fd353ab6",
+            "type": "leaf",
+            "state": {
+              "type": "all-properties",
+              "state": {
+                "sortOrder": "frequency",
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-archive",
+              "title": "All properties"
+            }
+          },
+          {
+            "id": "cb48634d2f43bb5a",
+            "type": "leaf",
+            "state": {
+              "type": "graph",
+              "state": {},
+              "icon": "lucide-git-fork",
+              "title": "Graph view"
+            }
           }
-        ]
+        ],
+        "currentTab": 2
+      },
+      {
+        "id": "3b11ac264c38b93e",
+        "type": "tabs",
+        "dimension": 57.55725190839696,
+        "children": [
+          {
+            "id": "b97d374f8e55802e",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "file": "note/by/developer/machine_learning_basic.md",
+                "followCursor": true,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-list",
+              "title": "Outline of machine_learning_basic"
+            }
+          },
+          {
+            "id": "6bb947b25afc34dd",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "file": "note/by/developer/fundamental_model.md",
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": false
+              },
+              "icon": "links-coming-in",
+              "title": "Backlinks for fundamental_model"
+            }
+          },
+          {
+            "id": "24dca2cff71718a4",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "file": "note/by/developer/bart.md",
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-going-out",
+              "title": "Outgoing links from bart"
+            }
+          },
+          {
+            "id": "7016e16da098823b",
+            "type": "leaf",
+            "state": {
+              "type": "footnotes",
+              "state": {
+                "file": "note/by/developer/bart.md"
+              },
+              "icon": "lucide-file-signature",
+              "title": "Footnotes"
+            }
+          }
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "horizontal",
-    "width": 397.5
+    "width": 369.5
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -248,44 +247,44 @@
       "workspaces:Manage workspace layouts": false
     }
   },
-  "active": "40c78d77509be3ba",
+  "active": "4faa01fa05833f64",
   "lastOpenFiles": [
-    "note/by/developer/natural_language_processing.md",
-    "note/by/developer/transformer.md",
-    "blog/by/developer/from_monolithic_to_react_compound_pattern.md",
-    "blog/by/developer/cross_component_styling_with_react_compound_pattern.md",
-    "note/by/developer/drafts/redirect_and_rewrite.md",
-    "note/by/developer/drafts/graphql_client.md",
-    "note/by/developer/drafts/unix_cli_tools.md",
-    "Blogs Base.base",
-    "Notes Base.base",
-    "note/by/developer/transfer_learning.md",
-    "note/by/developer/huggingface_basic.md",
-    "note/by/developer/drafts/huggingface_basic.md",
-    "note/by/developer/drafts/natural_language_processing.md",
-    "blog/by/human_being/drafts",
-    "blog/by/human_being",
-    "note/by/human_being/drafts",
-    "note/by/human_being",
-    "note/by/developer/machine_learning_basic.md",
-    "note/by/developer/cloud_network_infrastructure.md",
-    "note/by/developer/cloud_network_service.md",
-    "blog/by/developer/5_wtf_moments_in_python.md",
-    "note/by/developer/anomaly_detection.md",
-    "blog/by/developer/back_to_css_after_everything.md",
-    "note/by/developer/cloud_basic.md",
-    "note/by/developer/clustering.md",
-    "note/by/developer/computer_network_basic.md",
-    "note/by/developer/consistent_hashing.md",
-    "note/by/developer/container.md",
-    "note/by/developer/container_network.md",
     "note/by/developer/content_delivery_network.md",
+    "note/by/developer/machine_learning_basic.md",
+    "note/by/developer/frontend_routing.md",
+    "note/by/developer/drafts/frontend_rendering.md",
+    "note/by/developer/drafts/oauth2.md",
+    "Notes Base.base",
+    "note/by/developer/fundamental_model.md",
+    "note/by/developer/tokenization.md",
+    "note/by/developer/drafts/text_encoding.md",
+    "Blogs Base.base",
+    "note/by/developer/drafts/self_attention_mechanism.md",
+    "note/by/developer/drafts/graphql_client.md",
+    "note/by/developer/drafts/linux_namespace.md",
+    "note/by/developer/drafts/linux_control_group.md",
+    "note/by/developer/drafts/unix_cli_tools.md",
+    "note/by/developer/drafts/graphql_server.md",
+    "note/by/developer/drafts/pyobject.md",
+    "note/by/developer/drafts/python_descriptor.md",
+    "note/by/developer/drafts/python_inheritance.md",
+    "note/by/developer/gpt.md",
+    "note/by/developer/huggingface_basic.md",
+    "note/by/developer/transformer.md",
+    "note/by/developer/bart.md",
+    "Note/by/developer/bert.md",
+    "note/by/developer/transfer_learning.md",
+    "note/by/developer/natural_language_processing.md",
     "note/by/developer/convolutional_neural_network.md",
-    "note/by/developer/cryptography_basic.md",
-    "note/by/christian/drafts",
-    "note/by/developer/cloud_network_infrastructure.md~",
-    "as/developer/notes",
-    "as/developer",
+    "note/by/developer/bert.md",
+    "Note/by/human_being/drafts",
+    "Note/by/developer/drafts",
+    "Note/by/christian/drafts",
+    "Note/by/human_being",
+    "Note/by/developer",
+    "Note/by/christian",
+    "Note/by",
+    "blog/by/human_being/drafts",
     "Untitled.canvas"
   ]
 }

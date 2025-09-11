@@ -1,8 +1,9 @@
 ---
 title: The Law is Not Meant for Itself
-tags: []
+tags:
+  - law
 created-date: 2025-08-30T00:00:00-04:00
-last-updated-date: 2025-09-02T23:36:11-04:00
+last-updated-date: 2025-09-10T08:31:15-04:00
 ---
 
 There is a fair amount of criticism towards the Legalism of scribes and Pharisees, even within the Bible itself. This easily lead us to think that obeying the Law is more commendable in Old Testament era comparing to New Testament era.

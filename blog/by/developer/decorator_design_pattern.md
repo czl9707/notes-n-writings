@@ -2,10 +2,12 @@
 cover-url: https://zane-portfolio.s3.us-east-1.amazonaws.com/DecoratorPatternCover.png
 title: "Code like an Onion: The Decorator Pattern"
 description: An introduction to the Decorator Design Pattern, which helps manage cross-cutting concerns by wrapping your core functionality like an onion🧅.
-tags: [pattern, python]
+tags:
+  - design-pattern
+  - python
 featured: false
 created-date: 2025-07-05T00:00:00-04:00
-last-updated-date: 2025-08-27T00:00:00-04:00
+last-updated-date: 2025-09-08T17:40:48-04:00
 ---
 
 When cutting an onion, the knife slices through layer after layer, and finally reaches its core. The **Decorator Pattern** provides us a way of writing code just like cutting through an onion, not in the way of tearing 😢.

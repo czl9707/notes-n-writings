@@ -2,7 +2,7 @@
 tags: [machine-learning]
 title: Convolutional Neural Network
 created-date: 2025-08-07T00:00:00-04:00
-last-updated-date: 2025-08-25T00:00:00-04:00
+last-updated-date: 2025-09-08T22:29:53-04:00
 ---
 
 ## Concepts
@@ -55,7 +55,7 @@ Image Style detection is a by-product of a CNN image model. When looking at the 
 
 ### Face Recognition
 
-**Face Recognition** is a **One Shot Learning** Task, meaning the production input won't be part of training set, the model only have one chance to see it. So the task essentially is finding the degree of similarity between two image in terms of identity, somewhere similar to [Semantic Similarity](note/by/developer/transformer.md#Semantic%20Similarity) in language tasks.
+**Face Recognition** is a **One Shot Learning** Task, meaning the production input won't be part of training set, the model only have one chance to see it. So the task essentially is finding the degree of similarity between two image in terms of identity, somewhere similar to [semantic similarity](note/by/developer/natural_language_processing.md#Language%20Tasks) in language tasks.
 
 The model input an image and output an image embeddings represent the identity. By applying some similarity metric (Cosine Similarity, Euclidean Distance) on two embeddings to find the level of similarity of two image.
 

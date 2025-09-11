@@ -3,7 +3,6 @@
     "aliases": "aliases",
     "cssclasses": "multitext",
     "tags": "tags",
-    "course": "multitext",
     "last-updated-date": "date",
     "created-date": "date",
     "featured": "checkbox"

@@ -1,8 +1,8 @@
 ---
 tags: [machine-learning]
-title: Regression Model
+title: Fundamental Model
 created-date: 2025-08-03T00:00:00-04:00
-last-updated-date: 2025-08-25T00:00:00-04:00
+last-updated-date: 2025-09-09T22:52:50-04:00
 ---
 
 - **Linear Regression**

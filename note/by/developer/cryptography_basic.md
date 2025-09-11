@@ -1,8 +1,9 @@
 ---
 title: Cryptography Basic
-tags: [cryptography]
+tags:
+  - security
 created-date: 2025-08-17T00:00:00-04:00
-last-updated-date: 2025-08-17T00:00:00-04:00
+last-updated-date: 2025-09-10T17:57:53-04:00
 ---
 
 ## Symmetric & Asymmetric Encryption

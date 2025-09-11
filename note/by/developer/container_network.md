@@ -32,7 +32,7 @@ Sometime we see something like `--dns=0.0.0.0`, this explicitly disable DNS look
 
 ## Container
 
-By default each container come with its own network [namespace](note/by/developer/linux_namespace.md), for each network it dwells inside, a [veth](note/by/developer/linux_network.md#VETH) device got created, one side attached to the network, one side is located inside the container namespace.
+By default each container come with its own network [namespace](note/by/developer/drafts/linux_namespace.md), for each network it dwells inside, a [veth](note/by/developer/linux_network.md#VETH) device got created, one side attached to the network, one side is located inside the container namespace.
 
 Minimal Example to mimic a container network:
 

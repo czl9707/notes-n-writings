@@ -2,7 +2,7 @@
 tags: [machine-learning]
 title: Machine Learning Basic
 created-date: 2025-08-02T00:00:00-04:00
-last-updated-date: 2025-09-01T22:36:55-04:00
+last-updated-date: 2025-09-09T22:52:41-04:00
 ---
 
 ## Concepts
@@ -61,7 +61,7 @@ Example:
 
 ## Models
 
-- [Regression Model](note/by/developer/regression_model.md)
+- [Fundamental Model](note/by/developer/fundamental_model.md)
 - [Decision Tree](note/by/developer/decision_tree.md)
 - [Clustering](note/by/developer/clustering.md)
 - [Transformer](note/by/developer/transformer.md)

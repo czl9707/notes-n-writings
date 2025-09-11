@@ -2,7 +2,7 @@
 tags: [machine-learning]
 title: Recurrent Neural Network
 created-date: 2025-08-10T00:00:00-04:00
-last-updated-date: 2025-08-25T00:00:00-04:00
+last-updated-date: 2025-09-09T07:00:28-04:00
 ---
 
 ## Concepts
@@ -14,8 +14,11 @@ The **Back Propagation** for **RNN**, is very much focus on task the model focus
 ### Gated Recurrent Unit (GRU)
 
 **GRU** is invented to solve the problem that the information of given token has little influence on the tokens couple of tokens away. **GRU** provides a way to have feature for current token got passed to later tokens.
+
 $$\tilde{c}^{<t>} = a^{<t>} = tanh(w_c[c^{<t-1>}, x^{<t>}] + b_c)$$
+
 $$\Gamma_u = \sigma(w_u[c^{<t-1>}, x^{<t>}] + b_u)$$
+
 $$c^{<t>} = \Gamma_u \star \tilde{c}^{<t>} + (1 - \Gamma_u) \star {c}^{<t-1>}$$
 
 ### Long Short Term Memory (LSTM)
@@ -38,6 +41,11 @@ $$a^{,t>} = \Gamma_o \star tanh(c^{<t>})$$
 
 Language is not a not a uni-directional sequence, words appearing after can have impact on the words appearing before. Thus, having token has its information passed into "future" is not enough, it ideally also should have it passed to the "past". Bi-Directional RNN is just as its, having two sets of parameter associated, one towards the future and one towards the past.
 
+The usage of bi-directional connection is very depends on the [tasks](note/by/developer/natural_language_processing.md#Language%20Tasks) it performs on.
+
+- For tasks like classification, since the entire sequence is available at once, the model can be a bi-directional RNN to leverage both past and future context for accuracy.
+- While for sequence generation tasks, In many applications, the model must be uni-directional, so that job generation can start before the full input sequence is available. Video transcription, real time translation would be good example. The future tokens would either inaccessible or too massive to have all of them in one shot.
+
 ### Word Embeddings
 
 Word Embeddings is different from "[Embeddings](note/by/developer/transformer.md#Embeddings)" in context of transformer. Word embeddings is a vector representation of words, in another word, is a dictionary where each word mapped to a vector. A good word embeddings capture semantic meanings for words, so that we can perform common analogy task like "finding the word that is to 'woman', what 'king' is to 'man'".
@@ -54,35 +62,23 @@ Word Embeddings is different from "[Embeddings](note/by/developer/transformer.md
 
 ### Beam Search
 
-During [Sequence Generation](#Sequence%20Generation), It is not always reliable to pick the word with highest probability all the time. Some better generation results might have not score well for its first few token. **Beam Search** is a technique for searching better generation result. It requires a hyperparameter $b$, for each iteration, it starts with the $b$ prefixes from generated from the previous iteration to generate $b$ token using each ($b^2$ in total), and only keep the top $b$. Repeat until the end, and pick the best result from them.
+During [Sequence Generation](note/by/developer/natural_language_processing.md#Language%20Tasks), It is not always reliable to pick the word with highest probability all the time. Some better generation results might have not score well for its first few token. **Beam Search** is a technique for searching better generation result. It requires a hyperparameter $b$, for each iteration, it starts with the $b$ prefixes from generated from the previous iteration to generate $b$ token using each ($b^2$ in total), and only keep the top $b$. Repeat until the end, and pick the best result from them.
 
-### Attention Model
+### Attention Layer
 
-(This attention model is not the [Self-Attention Mechanism in Transformer](note/by/developer/transformer.md#Self%20Attention%20Mechanism))
+This attention layer is well-known because of [Transformer](note/by/developer/transformer.md), where attention layer plays a key role. But it was invented before the existence of Transformer in machine translation domain, which is a sequence to sequence language task.
 
 Performance of the RNN model without any attention mechanism degrades pretty drastically when corpus become longer. It's just due to the model do not have enough "memory" to keep everything inside the activation value and memory cell.
 
-Attention model starts in machine translation domain, which is a sequence to sequence language task.
+A word by itself has a meaning, but that meaning is deeply affected by the context, which can be any other word (or words) before or after the word. The Attention layer attempt to derive the relationship among words to in keep help token pay attention to each other.
 
-Attention model starts with a normal bi-directional RNN model, taking sequence $x^{t}$ and outputting activation $\overleftarrow{{a}^{t}}$ and $\overrightarrow{{a}^{t}}$, and using $s^{<t-1>}$ together with corresponding activation value to generate $s^{<t>}$. The attention value $\alpha^{<t, t'>}$ represents the amount of attention $y^{<t>}$ should pay to $a^{<t'>}$.
+Attention layer lives on top of a normal bi-directional RNN model, taking sequence $x^{t}$ and outputting activation $\overleftarrow{{a}^{t}}$ and $\overrightarrow{{a}^{t}}$, and using $s^{<t-1>}$ together with corresponding activation value to generate $s^{<t>}$. The attention value $\alpha^{<t, t'>}$ represents the amount of attention $y^{<t>}$ should pay to $a^{<t'>}$.
 
 $$\alpha^{<t, t'>} = \frac{exp(e^{<t, t'>})}{\sum^{T_x}_{t'=1} exp(e^{<t, t'>})}$$
 
 The $e^{<t, t'>}$ is derived using couple of neural network layers from $s^{<t-1>}$ and $a^{<t'>}$.
 
 The draw back is obviously the computation cost for both training and inference, which is quadratic to the length of the sequence.
-
-Attention Model goes strong in context of [Transformer](note/by/developer/transformer.md), and will likely more sense there.
-
-## Language Tasks
-
-### Classification
-
-There are many types of classification an RNN model can perform. such as Sentiment Classification, Topic Classification, Language Classification, and Spam Detection, to name a few. For all type of classification tasks, the model output -- taken from all tokens or from a designated token -- is passed extra layers to produce class probabilities. Since the entire sequence is available at once, the model can be a bi-directional RNN to leverage both past and future context for accuracy.
-
-### Sequence Generation
-
-There are many types of sequence generation as well, including Translation, Summarization, Question Answering, Audio Transcription and etc. (We are not considering NLP in context of [Transformer](note/by/developer/transformer.md) yet) When performing sequence generation tasks, the model usually takes the output of each input and maps it to one or more token(s). In many applications, the model must be uni-directional, so that job generation can start before the full input sequence is available.
 
 ## Case Study
 
