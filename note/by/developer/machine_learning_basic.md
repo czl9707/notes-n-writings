@@ -2,7 +2,7 @@
 tags: [machine-learning]
 title: Machine Learning Basic
 created-date: 2025-08-02T00:00:00-04:00
-last-updated-date: 2025-09-09T22:52:41-04:00
+last-updated-date: 2025-09-17T20:46:22-04:00
 ---
 
 ## Concepts
@@ -24,7 +24,7 @@ Example:
 - Using location and size of a house to predict its price -> Regression.
 - Using Lung CT image to tell the disease the lung might have.
 
-### Model Performance
+### General Model Performance Metrics
 
 - [Variance & Bias](note/by/developer/variance_n_bias.md)
 
@@ -61,8 +61,11 @@ Example:
 
 ## Models
 
-- [Fundamental Model](note/by/developer/fundamental_model.md)
+- [Regression Model](note/by/developer/regression_model.md)
+- [Classification Model](note/by/developer/classifcation_model.md)
+- [Deep Learning](note/by/developer/deep_learning.md)
 - [Decision Tree](note/by/developer/decision_tree.md)
+- [Support Vector Machine](note/by/developer/support_vector_machine.md)
 - [Clustering](note/by/developer/clustering.md)
 - [Transformer](note/by/developer/transformer.md)
 - [Anomaly Detection](note/by/developer/anomaly_detection.md)

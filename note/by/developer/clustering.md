@@ -2,7 +2,7 @@
 tags: [machine-learning]
 title: Clustering
 created-date: 2025-08-03T00:00:00-04:00
-last-updated-date: 2025-08-25T00:00:00-04:00
+last-updated-date: 2025-09-22T23:14:03-04:00
 ---
 
 ## K-Means
@@ -14,7 +14,7 @@ K-Means is an algorithm cluster given sample data into k groups, and all sample 
 - Repeat until group member converge.
 - If a group loss all member, we drop it, may or may not re-initialize it randomly.
 
-K-Means performs poorly when feature dimension goes high, or k goes high. And K-Means also makes the assumption that the cluster is round shaped, which leads to problem in many case.
+K-Means' performance decrease drastically when feature dimension goes high, or k goes high, [PCA](note/by/developer/principle_component_analysis.md) and other dimension reduction methods are common remediations. And K-Means also makes the assumption that the cluster is round shaped, which leads to problem in many case.
 
 ## DBSCAN
 
@@ -23,6 +23,14 @@ K-Means performs poorly when feature dimension goes high, or k goes high. And K-
 ## Agglomerative
 
 Agglomerative Hierarchical Clustering starts with putting each sample into its own cluster. And repeatedly merge closest cluster until reaching desired number of cluster. The merging history shows the hierarchy (called a **dendrogram**).
+
+There are multiple different way of measuring distance between clusters:
+
+- Complete: The farthest distance between individual members.
+- Single: The closest distance between individual members.
+- Centroid: Distance between the centroid of each clusters.
+- Average: The average distance between individual members.
+- Ward: Distance between special points, which minimize the cluster variance.
 
 ## Measure: Silhouette Score
 

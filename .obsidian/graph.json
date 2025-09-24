@@ -18,7 +18,7 @@
       "query": "path:by/developer",
       "color": {
         "a": 1,
-        "rgb": 6343634
+        "rgb": 5031117
       }
     },
     {
@@ -39,6 +39,6 @@
   "repelStrength": 20,
   "linkStrength": 1,
   "linkDistance": 99,
-  "scale": 0.32133638605034354,
+  "scale": 0.05932617187499539,
   "close": true
 }

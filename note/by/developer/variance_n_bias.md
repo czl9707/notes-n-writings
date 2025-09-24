@@ -2,13 +2,15 @@
 tags: [machine-learning]
 title: Variance & Bias
 created-date: 2025-08-03T00:00:00-04:00
-last-updated-date: 2025-08-25T00:00:00-04:00
+last-updated-date: 2025-09-13T11:23:18-04:00
 ---
 
 ## Definition
 
 - **Bias** refers to the correctness of the model when evaluating training set. High bias typically means the model is not complex enough to derive the input-output relationship.
 - **Variance** refers to the correctness of the model when evaluating test set. High Variance doesn't mean much when Bias is high as well, but means the model is overfitting training set when Bias is low.
+
+![Variance And Bias](Media/VarianceAndBias.svg)
 
 ## Against Bias
 

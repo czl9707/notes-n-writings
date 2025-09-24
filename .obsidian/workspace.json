@@ -4,56 +4,25 @@
     "type": "split",
     "children": [
       {
-        "id": "8d95361d27dfb476",
+        "id": "871248251f8cae29",
         "type": "tabs",
         "children": [
           {
-            "id": "8c14c25655991b02",
-            "type": "leaf",
-            "pinned": true,
-            "state": {
-              "type": "bases",
-              "state": {
-                "file": "Blogs Base.base",
-                "viewName": "Published"
-              },
-              "pinned": true,
-              "icon": "lucide-layout-grid",
-              "title": "Blogs Base"
-            }
-          },
-          {
-            "id": "0db25e305f16909e",
-            "type": "leaf",
-            "pinned": true,
-            "state": {
-              "type": "bases",
-              "state": {
-                "file": "Notes Base.base",
-                "viewName": "Table"
-              },
-              "pinned": true,
-              "icon": "lucide-table",
-              "title": "Notes Base"
-            }
-          },
-          {
-            "id": "4faa01fa05833f64",
+            "id": "aefd368eee87e491",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "note/by/developer/fundamental_model.md",
+                "file": "note/by/developer/machine_learning_basic.md",
                 "mode": "source",
                 "source": false,
                 "backlinks": false
               },
               "icon": "lucide-file",
-              "title": "fundamental_model"
+              "title": "machine_learning_basic"
             }
           }
-        ],
-        "currentTab": 2
+        ]
       }
     ],
     "direction": "vertical"
@@ -85,7 +54,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "",
+                "query": "tag:spiritual_life",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -106,11 +75,12 @@
               "title": "Bookmarks"
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "horizontal",
-    "width": 314.5
+    "width": 259.5
   },
   "right": {
     "id": "389f338d0b40b842",
@@ -153,11 +123,28 @@
           {
             "id": "cb48634d2f43bb5a",
             "type": "leaf",
+            "pinned": true,
             "state": {
               "type": "graph",
               "state": {},
+              "pinned": true,
               "icon": "lucide-git-fork",
               "title": "Graph view"
+            }
+          },
+          {
+            "id": "d25f372adb4b7c7b",
+            "type": "leaf",
+            "pinned": true,
+            "state": {
+              "type": "bases",
+              "state": {
+                "file": "Bases/Related.base",
+                "viewName": "Related"
+              },
+              "pinned": true,
+              "icon": "lucide-table",
+              "title": "Related"
             }
           }
         ],
@@ -189,7 +176,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "note/by/developer/fundamental_model.md",
+                "file": "note/by/developer/principle_component_analysis.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -199,7 +186,7 @@
                 "unlinkedCollapsed": false
               },
               "icon": "links-coming-in",
-              "title": "Backlinks for fundamental_model"
+              "title": "Backlinks for principle_component_analysis"
             }
           },
           {
@@ -208,12 +195,12 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "note/by/developer/bart.md",
+                "file": "note/by/developer/principle_component_analysis.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               },
               "icon": "links-going-out",
-              "title": "Outgoing links from bart"
+              "title": "Outgoing links from principle_component_analysis"
             }
           },
           {
@@ -222,18 +209,29 @@
             "state": {
               "type": "footnotes",
               "state": {
-                "file": "note/by/developer/bart.md"
+                "file": "note/by/developer/machine_learning_basic.md"
               },
               "icon": "lucide-file-signature",
               "title": "Footnotes"
             }
+          },
+          {
+            "id": "79f8cafb061b0c6e",
+            "type": "leaf",
+            "state": {
+              "type": "file-properties",
+              "state": {
+                "file": "note/by/developer/principle_component_analysis.md"
+              },
+              "icon": "lucide-info",
+              "title": "File properties for principle_component_analysis"
+            }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "horizontal",
-    "width": 369.5
+    "width": 339.5
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -247,44 +245,52 @@
       "workspaces:Manage workspace layouts": false
     }
   },
-  "active": "4faa01fa05833f64",
+  "active": "aefd368eee87e491",
   "lastOpenFiles": [
-    "note/by/developer/content_delivery_network.md",
+    "note/by/christian/drafts/my_cat_unrevealed_my_spiritual_life.md",
+    "note/by/christian/the_water_jar_left_on_ground.md",
+    "blog/by/christian/drafts",
+    "Untitled 1",
+    "note/by/christian/the_law_is_not_meant_for_itself.md",
+    "Untitled",
+    "blog/by/christian",
     "note/by/developer/machine_learning_basic.md",
-    "note/by/developer/frontend_routing.md",
-    "note/by/developer/drafts/frontend_rendering.md",
-    "note/by/developer/drafts/oauth2.md",
-    "Notes Base.base",
-    "note/by/developer/fundamental_model.md",
-    "note/by/developer/tokenization.md",
-    "note/by/developer/drafts/text_encoding.md",
-    "Blogs Base.base",
-    "note/by/developer/drafts/self_attention_mechanism.md",
-    "note/by/developer/drafts/graphql_client.md",
-    "note/by/developer/drafts/linux_namespace.md",
-    "note/by/developer/drafts/linux_control_group.md",
-    "note/by/developer/drafts/unix_cli_tools.md",
-    "note/by/developer/drafts/graphql_server.md",
-    "note/by/developer/drafts/pyobject.md",
-    "note/by/developer/drafts/python_descriptor.md",
-    "note/by/developer/drafts/python_inheritance.md",
-    "note/by/developer/gpt.md",
-    "note/by/developer/huggingface_basic.md",
-    "note/by/developer/transformer.md",
-    "note/by/developer/bart.md",
-    "Note/by/developer/bert.md",
-    "note/by/developer/transfer_learning.md",
-    "note/by/developer/natural_language_processing.md",
-    "note/by/developer/convolutional_neural_network.md",
-    "note/by/developer/bert.md",
+    "note/by/developer/clustering.md",
+    "note/by/developer/principle_component_analysis.md",
+    "Bases/Related.base",
+    "note/by/developer/support_vector_machine.md",
+    "note/by/developer/classifcation_model.md",
+    "note/by/developer/decision_tree.md",
+    "blog/by/developer/drafts/deeper_look_at_https.md",
+    "note/by/christian/the_water_jar_left_on_the_ground.md",
+    "blog/by/developer/drafts/this_pattern_saved_me_from_inheritance_hell.md",
+    "note/by/developer/deep_learning.md",
+    "note/by/developer/confusion_matrix.md",
+    "note/by/developer/regression_model.md",
+    "note/by/developer/variance_n_bias.md",
+    "Media/VarianceAndBias.svg",
+    "Media/AccordionRaw.gif",
+    "Media/AccordionVariant1.gif",
+    "Media/AccordionVariant2.gif",
+    "Cloud Network Service.md",
+    "Bases/Notes.base",
+    "Bases/Blogs.base",
+    "blog/by/developer/from_monolithic_to_react_compound_pattern.md",
+    "blog/by/developer/5_wtf_moments_in_python.md",
+    "Templates/Blog Template.md",
+    "Templates/Note Template.md",
+    "blog/by/developer/drafts/ts_as_a_programming_language.md",
+    "blog/by/developer/solutions_to_bring_asynchronism_into_pytest.md",
+    "blog/by/developer/cross_component_styling_with_react_compound_pattern.md",
+    "blog/by/developer/back_to_css_after_everything.md",
+    "Media/DecoratorPatternCover.svg",
+    "Media/CrossComponentStylingCover.svg",
+    "Media/PytestConcurrencyCover.svg",
+    "Media/CompoundPatternCover.svg",
+    "Media/CSSSolutionChoiceCover.svg",
+    "Media",
+    "Bases",
     "Note/by/human_being/drafts",
-    "Note/by/developer/drafts",
-    "Note/by/christian/drafts",
-    "Note/by/human_being",
-    "Note/by/developer",
-    "Note/by/christian",
-    "Note/by",
-    "blog/by/human_being/drafts",
     "Untitled.canvas"
   ]
 }

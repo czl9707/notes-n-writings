@@ -1,14 +1,11 @@
 ---
 title: "Breaking Down React Components: From Monolithic to Compound Pattern"
 description: Struggling with monolithic React components? Break it into small pieces and embrace the compound pattern to achieve intuitive composition and unlimited customization.
-cover-url: https://zane-portfolio.s3.us-east-1.amazonaws.com/CompoundPatternCover.png
-tags:
-  - frontend
-  - design-pattern
-  - react
+cover: Media/CompoundPatternCover.svg
+tags: [design-pattern, frontend, react]
 featured: false
 created-date: 2025-04-07T00:00:00-04:00
-last-updated-date: 2025-09-08T17:40:54-04:00
+last-updated-date: 2025-09-12T16:56:23-04:00
 ---
 
 React give us the powerful capability to manage states within component, and encapsulating state is generally considered a best practice. However, in real-world applications, it is more than often that UI features require multiple interconnected pieces to function properly.
@@ -49,7 +46,7 @@ export default function Accordion({ title, children }: {
 }
 ```
 
-![Raw Accordion](https://zane-portfolio.s3.us-east-1.amazonaws.com/AccordionRawPreview.gif)
+![Raw Accordion](Media/AccordionRaw.gif)
 
 The state management is quite straightforward, just a single `isCollapsed` to control the expand/collapse behavior.
 
@@ -332,7 +329,7 @@ export default function Home() {
 }
 ```
 
-![Accordion Variant](https://zane-portfolio.s3.us-east-1.amazonaws.com/AccordionVariant1Preview.gif)
+![Accordion Variant](Media/AccordionVariant1.gif)
 
 ```tsx filename=page.tsx
 import * as Accordion from "@/components/accordion-compound-rich";
@@ -360,7 +357,7 @@ export default function Home() {
 }
 ```
 
-![Accordion Variant](https://zane-portfolio.s3.us-east-1.amazonaws.com/AccordionVariant2Preview.gif)
+![Accordion Variant](Media/AccordionVariant2.gif)
 
 ## Benefits and Challenges of Compound Component
 
