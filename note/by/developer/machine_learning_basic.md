@@ -2,7 +2,7 @@
 tags: [machine-learning]
 title: Machine Learning Basic
 created-date: 2025-08-02T00:00:00-04:00
-last-updated-date: 2025-09-17T20:46:22-04:00
+last-updated-date: 2025-09-27T12:53:01-04:00
 ---
 
 ## Concepts
@@ -59,18 +59,22 @@ Example:
 	- **Chain Rule of Calculus**, For any $y=f(g(x))$, we have:
 	  $$ \frac{dy}{dx} = \frac{dy}{dg} \cdot \frac{dg}{dx} ​$$
 
-## Models
+## Supervised Learning
 
 - [Regression Model](note/by/developer/regression_model.md)
 - [Classification Model](note/by/developer/classifcation_model.md)
 - [Deep Learning](note/by/developer/deep_learning.md)
-- [Decision Tree](note/by/developer/decision_tree.md)
 - [Support Vector Machine](note/by/developer/support_vector_machine.md)
-- [Clustering](note/by/developer/clustering.md)
 - [Transformer](note/by/developer/transformer.md)
-- [Anomaly Detection](note/by/developer/anomaly_detection.md)
 - [Convolutional Neural Network](note/by/developer/convolutional_neural_network.md)
 - [Recurrent Neural Network](note/by/developer/recurrent_neural_network.md)
+
+## Unsupervised Learning
+
+- [Decision Tree](note/by/developer/decision_tree.md)
+- [Clustering](note/by/developer/clustering.md)
+- [Anomaly Detection](note/by/developer/anomaly_detection.md)
+- [Recommender System](note/by/developer/recommender_system.md)
 
 ## Techniques
 

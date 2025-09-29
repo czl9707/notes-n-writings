@@ -2,7 +2,7 @@
 tags: [machine-learning]
 title: Transformer
 created-date: 2025-08-02T00:00:00-04:00
-last-updated-date: 2025-09-08T18:12:36-04:00
+last-updated-date: 2025-09-28T09:49:26-04:00
 ---
 
 **Transformer** was introduced as a machine learning architecture back in 2017[^1], with the primary focus on [Translation Task](note/by/developer/natural_language_processing.md#Language%20Tasks). And the architecture turned out to perform really well even in the space out of translation tasks.
@@ -16,7 +16,7 @@ The initial Transformer model architecture consist of two parts, [Encoder](#Enco
 - **Encoder** takes all raw input tokens at once, and turn them into a vector representation.
 - **Decoder** takes the output of encoder to generate output tokens. The decoder output one token in each passing through, and the token will be added to the input sequence along with output of Encoder, to predict the next output token.
 
-![Transformer](https://huggingface.co/datasets/huggingface-course/documentation-images/resolve/main/en/chapter1/transformers-dark.svg)
+![Transformer](Media/TransformerArchitecture.svg)
 
 To speed up training, the decoder is fed with the entire target sequence, shifted by one position, with a mask on top of it. So the training is not recurrent as in inference, but parallelized across all token positions. Meaning at each token position, the decoder use encoder output along with its own output calculated using previous target token sequence, to predict the next token.
 

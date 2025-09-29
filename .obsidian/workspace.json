@@ -13,13 +13,28 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "note/by/developer/machine_learning_basic.md",
+                "file": "note/by/developer/clustering.md",
                 "mode": "source",
                 "source": false,
                 "backlinks": false
               },
               "icon": "lucide-file",
-              "title": "machine_learning_basic"
+              "title": "clustering"
+            }
+          },
+          {
+            "id": "53721eb4e0b7f269",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "note/by/developer/gpt.md",
+                "mode": "source",
+                "source": false,
+                "backlinks": false
+              },
+              "icon": "lucide-file",
+              "title": "gpt"
             }
           }
         ]
@@ -54,7 +69,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "tag:spiritual_life",
+                "query": "agglo",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -161,13 +176,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "note/by/developer/machine_learning_basic.md",
+                "file": "note/by/developer/transformer.md",
                 "followCursor": true,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "Outline of machine_learning_basic"
+              "title": "Outline of transformer"
             }
           },
           {
@@ -231,7 +246,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 339.5
+    "width": 276.5,
+    "collapsed": true
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -247,17 +263,32 @@
   },
   "active": "aefd368eee87e491",
   "lastOpenFiles": [
+    "note/by/developer/transformer.md",
+    "note/by/developer/huggingface_basic.md",
+    "Media/TransformerArchitecture.svg",
+    "note/by/developer/gpt.md",
+    "note/by/developer/tokenization.md",
+    "note/by/developer/variance_n_bias.md",
+    "note/by/developer/recommender_system.md",
+    "note/by/developer/machine_learning_basic.md",
+    "note/by/developer/principle_component_analysis.md",
+    "note/by/christian/drafts/my_cat_unrevealed_my_spiritual_life (Conflicted copy Pixel 9 202509250832).md",
     "note/by/christian/drafts/my_cat_unrevealed_my_spiritual_life.md",
+    "Bases/Notes.base",
+    "note/by/developer/drafts/pytorch_basic.md",
+    "note/by/developer/drafts/huggingface_basic.md",
+    "note/by/developer/drafts/retrieval_augmented_generation.md",
+    "Bases/Blogs.base",
+    "Bases/Related.base",
+    "note/by/christian/the_law_is_not_meant_for_itself.md",
     "note/by/christian/the_water_jar_left_on_ground.md",
+    "note/by/developer/cloud_network_infrastructure.md",
+    "note/by/developer/anomaly_detection.md",
     "blog/by/christian/drafts",
     "Untitled 1",
-    "note/by/christian/the_law_is_not_meant_for_itself.md",
     "Untitled",
     "blog/by/christian",
-    "note/by/developer/machine_learning_basic.md",
     "note/by/developer/clustering.md",
-    "note/by/developer/principle_component_analysis.md",
-    "Bases/Related.base",
     "note/by/developer/support_vector_machine.md",
     "note/by/developer/classifcation_model.md",
     "note/by/developer/decision_tree.md",
@@ -266,23 +297,10 @@
     "blog/by/developer/drafts/this_pattern_saved_me_from_inheritance_hell.md",
     "note/by/developer/deep_learning.md",
     "note/by/developer/confusion_matrix.md",
-    "note/by/developer/regression_model.md",
-    "note/by/developer/variance_n_bias.md",
     "Media/VarianceAndBias.svg",
     "Media/AccordionRaw.gif",
     "Media/AccordionVariant1.gif",
     "Media/AccordionVariant2.gif",
-    "Cloud Network Service.md",
-    "Bases/Notes.base",
-    "Bases/Blogs.base",
-    "blog/by/developer/from_monolithic_to_react_compound_pattern.md",
-    "blog/by/developer/5_wtf_moments_in_python.md",
-    "Templates/Blog Template.md",
-    "Templates/Note Template.md",
-    "blog/by/developer/drafts/ts_as_a_programming_language.md",
-    "blog/by/developer/solutions_to_bring_asynchronism_into_pytest.md",
-    "blog/by/developer/cross_component_styling_with_react_compound_pattern.md",
-    "blog/by/developer/back_to_css_after_everything.md",
     "Media/DecoratorPatternCover.svg",
     "Media/CrossComponentStylingCover.svg",
     "Media/PytestConcurrencyCover.svg",
