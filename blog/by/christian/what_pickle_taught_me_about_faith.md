@@ -1,8 +1,9 @@
 ---
 created-date: 2025-08-31T21:53:04-04:00
-last-updated-date: 2025-10-12T18:30:04-04:00
-title: My Cat Unrevealed My Spiritual Status
-tags: [faith]
+last-updated-date: 2025-10-12T18:51:14-04:00
+title: What My Cat Taught Me About Faith？
+tags:
+  - faith
 description: A reflection drawing parallels between the our relationship our my cat and our relationship with God.
 cover: Media/Covers/MyCatRevealedMyFaithCover.svg
 featured: false
