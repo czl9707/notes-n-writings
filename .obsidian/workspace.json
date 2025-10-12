@@ -4,37 +4,37 @@
     "type": "split",
     "children": [
       {
-        "id": "871248251f8cae29",
+        "id": "5253d57f34df8e96",
         "type": "tabs",
         "children": [
           {
-            "id": "aefd368eee87e491",
+            "id": "75d85405823410a8",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "note/by/developer/clustering.md",
+                "file": "Home.md",
                 "mode": "source",
                 "source": false,
                 "backlinks": false
               },
               "icon": "lucide-file",
-              "title": "clustering"
+              "title": "Home"
             }
           },
           {
-            "id": "53721eb4e0b7f269",
+            "id": "a765d66407a154ed",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "note/by/developer/gpt.md",
+                "file": "blog/by/developer/5_wtf_moments_in_python.md",
                 "mode": "source",
                 "source": false,
                 "backlinks": false
               },
               "icon": "lucide-file",
-              "title": "gpt"
+              "title": "5_wtf_moments_in_python"
             }
           }
         ]
@@ -69,7 +69,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "agglo",
+                "query": "residu",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -90,12 +90,11 @@
               "title": "Bookmarks"
             }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "horizontal",
-    "width": 259.5
+    "width": 313.5
   },
   "right": {
     "id": "389f338d0b40b842",
@@ -136,6 +135,19 @@
             }
           },
           {
+            "id": "8d91d620d8570ceb",
+            "type": "leaf",
+            "state": {
+              "type": "bases",
+              "state": {
+                "file": "Related.base",
+                "viewName": "Related"
+              },
+              "icon": "lucide-table",
+              "title": "Related"
+            }
+          },
+          {
             "id": "cb48634d2f43bb5a",
             "type": "leaf",
             "pinned": true,
@@ -145,21 +157,6 @@
               "pinned": true,
               "icon": "lucide-git-fork",
               "title": "Graph view"
-            }
-          },
-          {
-            "id": "d25f372adb4b7c7b",
-            "type": "leaf",
-            "pinned": true,
-            "state": {
-              "type": "bases",
-              "state": {
-                "file": "Bases/Related.base",
-                "viewName": "Related"
-              },
-              "pinned": true,
-              "icon": "lucide-table",
-              "title": "Related"
             }
           }
         ],
@@ -176,13 +173,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "note/by/developer/transformer.md",
+                "file": "note/by/developer/pytorch_basic.md",
                 "followCursor": true,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "Outline of transformer"
+              "title": "Outline of pytorch_basic"
             }
           },
           {
@@ -191,7 +188,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "note/by/developer/principle_component_analysis.md",
+                "file": "blog/by/christian/my_cat_unrevealed_my_spiritual_life.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -201,7 +198,7 @@
                 "unlinkedCollapsed": false
               },
               "icon": "links-coming-in",
-              "title": "Backlinks for principle_component_analysis"
+              "title": "Backlinks for my_cat_unrevealed_my_spiritual_life"
             }
           },
           {
@@ -210,12 +207,12 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "note/by/developer/principle_component_analysis.md",
+                "file": "note/by/developer/pytorch_basic.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               },
               "icon": "links-going-out",
-              "title": "Outgoing links from principle_component_analysis"
+              "title": "Outgoing links from pytorch_basic"
             }
           },
           {
@@ -224,7 +221,7 @@
             "state": {
               "type": "footnotes",
               "state": {
-                "file": "note/by/developer/machine_learning_basic.md"
+                "file": "blog/by/christian/my_cat_unrevealed_my_spiritual_life.md"
               },
               "icon": "lucide-file-signature",
               "title": "Footnotes"
@@ -236,18 +233,18 @@
             "state": {
               "type": "file-properties",
               "state": {
-                "file": "note/by/developer/principle_component_analysis.md"
+                "file": "Home.md"
               },
               "icon": "lucide-info",
-              "title": "File properties for principle_component_analysis"
+              "title": "File properties for Home"
             }
           }
-        ]
+        ],
+        "currentTab": 4
       }
     ],
     "direction": "horizontal",
-    "width": 276.5,
-    "collapsed": true
+    "width": 269.5
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -261,54 +258,53 @@
       "workspaces:Manage workspace layouts": false
     }
   },
-  "active": "aefd368eee87e491",
+  "active": "e7bae6e6897408bc",
   "lastOpenFiles": [
-    "note/by/developer/transformer.md",
-    "note/by/developer/huggingface_basic.md",
-    "Media/TransformerArchitecture.svg",
-    "note/by/developer/gpt.md",
-    "note/by/developer/tokenization.md",
-    "note/by/developer/variance_n_bias.md",
-    "note/by/developer/recommender_system.md",
-    "note/by/developer/machine_learning_basic.md",
-    "note/by/developer/principle_component_analysis.md",
-    "note/by/christian/drafts/my_cat_unrevealed_my_spiritual_life (Conflicted copy Pixel 9 202509250832).md",
-    "note/by/christian/drafts/my_cat_unrevealed_my_spiritual_life.md",
-    "Bases/Notes.base",
-    "note/by/developer/drafts/pytorch_basic.md",
-    "note/by/developer/drafts/huggingface_basic.md",
-    "note/by/developer/drafts/retrieval_augmented_generation.md",
     "Bases/Blogs.base",
-    "Bases/Related.base",
-    "note/by/christian/the_law_is_not_meant_for_itself.md",
+    "blog/by/developer/5_wtf_moments_in_python.md",
+    "Home.md",
+    "Related.base",
+    "Templates/Note Template.md",
+    "note/by/developer/drafts/Inverse_of_control.md",
+    "Bases/Notes.base",
+    "blog/by/developer/back_to_css_after_everything.md",
+    "blog/by/developer/cross_component_styling_with_react_compound_pattern.md",
+    "blog/by/developer/decorator_design_pattern.md",
+    "blog/by/developer/from_monolithic_to_react_compound_pattern.md",
+    "blog/by/developer/solutions_to_bring_asynchronism_into_pytest.md",
+    "blog/by/christian/my_cat_unrevealed_my_faith.md",
+    "Templates/Blog Template.md",
+    "Media/Covers/MyCatRevealedMyFaithCover.svg",
     "note/by/christian/the_water_jar_left_on_ground.md",
-    "note/by/developer/cloud_network_infrastructure.md",
-    "note/by/developer/anomaly_detection.md",
-    "blog/by/christian/drafts",
-    "Untitled 1",
-    "Untitled",
-    "blog/by/christian",
-    "note/by/developer/clustering.md",
-    "note/by/developer/support_vector_machine.md",
-    "note/by/developer/classifcation_model.md",
-    "note/by/developer/decision_tree.md",
-    "blog/by/developer/drafts/deeper_look_at_https.md",
-    "note/by/christian/the_water_jar_left_on_the_ground.md",
-    "blog/by/developer/drafts/this_pattern_saved_me_from_inheritance_hell.md",
-    "note/by/developer/deep_learning.md",
-    "note/by/developer/confusion_matrix.md",
+    "note/by/christian/the_law_is_not_meant_for_itself.md",
+    "Media/DecoratorPattern/InheritanceTreeComplexity.svg",
+    "Media/DecoratorPattern",
+    "Media/TransformerArchitecture.svg",
     "Media/VarianceAndBias.svg",
-    "Media/AccordionRaw.gif",
-    "Media/AccordionVariant1.gif",
-    "Media/AccordionVariant2.gif",
-    "Media/DecoratorPatternCover.svg",
-    "Media/CrossComponentStylingCover.svg",
-    "Media/PytestConcurrencyCover.svg",
-    "Media/CompoundPatternCover.svg",
-    "Media/CSSSolutionChoiceCover.svg",
+    "Media/ReactCompoundPattern/AccordionVariant2.gif",
+    "Media/ReactCompoundPattern/AccordionVariant1.gif",
+    "Media/ReactCompoundPattern/AccordionRaw.gif",
+    "blog/by/developer/drafts/a_love_letter_to_markdown.md",
+    "blog/by/developer/drafts/async_await_under_the_hood.md",
+    "blog/by/developer/drafts/deeper_look_at_https.md",
+    "Media/Covers/CompoundPatternCover.svg",
+    "Media/Covers/PythonNightmareCover.svg",
+    "Media/Covers/PytestConcurrencyCover.svg",
+    "Media/Covers",
+    "Media/ReactCompoundPattern",
+    "note/by/developer/pytorch_basic.md",
+    "note/by/developer/drafts/frontend_rendering.md",
+    "note/by/developer/drafts/dependency_injection.md",
+    "note/by/developer/convolutional_neural_network.md",
+    "note/by/developer/classifcation_model.md",
+    "note/by/human_being/ethical_frameworks.md",
+    "note/by/developer/training_optimization.md",
+    "2025-10-02.md",
+    "note/by/developer/gpt.md",
+    "note/by/christian/drafts",
+    "Untitled 1",
+    "note/by/christian",
     "Media",
-    "Bases",
-    "Note/by/human_being/drafts",
     "Untitled.canvas"
   ]
 }

@@ -2,7 +2,7 @@
 tags: [machine-learning]
 title: Convolutional Neural Network
 created-date: 2025-08-07T00:00:00-04:00
-last-updated-date: 2025-09-08T22:29:53-04:00
+last-updated-date: 2025-10-04T10:46:12-04:00
 ---
 
 ## Concepts
@@ -85,3 +85,5 @@ It logically chunks the image into $n$ small segment, but still requires passing
 - The Contracting Path repeats blocks of `Convolution → ReLU → Convolution → ReLU → MaxPooling`, each block half the feature size, and double the channel number.
 - The Expanding Path repeats blocks of `Convolution → ReLU → Convolution → ReLU → Transpose Convolution`, each block double the feature size, and half the channel number.
 - The feature size of the nth Contracting Path layer would be the same as the last nth Expanding Path, we add a skip connection between them.
+
+%% TODO add a image... %%

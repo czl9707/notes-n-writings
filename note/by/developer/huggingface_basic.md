@@ -34,7 +34,7 @@ Model class shares a lot from [Tokenizer](#Tokenizer) from the API aspects. It a
 
 The model API provides something can help Inference Head as well. Taking `BertModel` as an example, there are multiple predefined variance for different types of tasks, such as `BertForSequenceClassification`, `BertForMaskedLM` and etc. These predefined model architecture is built with best practices and also sharable by default.
 
-When using `transformer[torch]`, the model can be treated as a [Module](note/by/developer/drafts/pytorch_basic.md#Module)
+When using `transformer[torch]`, the model can be treated as a [Module](note/by/developer/pytorch_basic.md#Module)
 
 ## Trainer
 
@@ -42,4 +42,4 @@ Hand crafting training loops has a lot of boilerplates. Logging, validation, che
 
 ## Datasets
 
-In context of [pytorch](note/by/developer/drafts/pytorch_basic.md), Datasets is a wrapper of [DataLoader](note/by/developer/drafts/pytorch_basic.md#DataLoader), with some utilities provided. Such as train test split, batch processing, and other datasets operations.
+In context of [pytorch](note/by/developer/pytorch_basic.md), Datasets is a wrapper of [DataLoader](note/by/developer/pytorch_basic.md#DataLoader), with some utilities provided. Such as train test split, batch processing, and other datasets operations.

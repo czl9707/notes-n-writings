@@ -1,7 +1,7 @@
 filters:
   and:
-    - file.path != this.file.path
     - file.ext == "md"
+    - file.fullname != this.file.fullname
 formulas:
   LinksOverlap: formula.Related.length
   Related: list(this.file.links).filter(list(file.links).containsAny(value)).unique()
@@ -24,21 +24,12 @@ views:
     name: Related
     filters:
       or:
-        - formula.LinksOverlap > 2
-        - file.hasLink(this)
+        - formula.LinksOverlap >= 2
         - this.file.hasLink(file)
+        - file.hasLink(this.file)
     order:
       - formula.Name
       - formula.Related
     sort:
-      - property: formula.Related
-        direction: DESC
-      - property: formula.LinksOverlap
-        direction: DESC
-      - property: formula.TagsOverlap
-        direction: DESC
-      - property: formula.BacklinksCount
-        direction: DESC
-    limit: 20
-    columnSize:
-      formula.Name: 233
+      - property: file.name
+        direction: ASC

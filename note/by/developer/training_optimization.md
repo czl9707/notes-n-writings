@@ -2,7 +2,7 @@
 tags: [machine-learning]
 title: Training Optimization
 created-date: 2025-08-03T00:00:00-04:00
-last-updated-date: 2025-08-25T00:00:00-04:00
+last-updated-date: 2025-09-29T21:36:21-04:00
 ---
 
 ## Feature Scaling
@@ -26,8 +26,7 @@ $$v_t = \gamma \cdot v_{t-1} + \alpha \cdot \nabla L(\theta) $$$$ \theta = \thet
 
 ## RMSProp
 
-**RMSProp** stands for "Root Mean Square Propagation". It adjust the learning rate for each parameter based on the recent magnitude of its gradients. And reaching a similar effect as
-**Gradient Descent with Momentum**.
+**RMSProp** stands for "Root Mean Square Propagation". It adjust the learning rate for each parameter based on the recent magnitude of its gradients. And reaching a similar effect as [Gradient Descent with Momentum](#Gradient%20Descent%20with%20Momentum).
 $$ s_t = \beta \cdot s_{t-1} + (1-\beta)(\nabla L(\theta))^2 $$
 $$ \theta = \theta - \frac{\alpha}{\sqrt{s_t + \epsilon}} \cdot \nabla L(\theta) $$
 

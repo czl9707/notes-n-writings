@@ -277,7 +277,13 @@
   "displayLintOnFileChangeNotice": false,
   "settingsConvertedToConfigKeyValues": true,
   "foldersToIgnore": [],
-  "filesToIgnore": [],
+  "filesToIgnore": [
+    {
+      "match": "^Home\\.md$",
+      "flags": "",
+      "label": ""
+    }
+  ],
   "linterLocale": "en",
   "logLevel": "ERROR",
   "lintCommands": [],
