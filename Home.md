@@ -4,7 +4,7 @@
 filters:
   and:
     - file.inFolder("note/by/developer")
-	- file.path.contains("drafts")
+    - file.path.contains("drafts")
 formulas:
   Note: link(file.basename, title)
   Title: link(file.basename, title)
@@ -13,8 +13,9 @@ views:
     name: Drafts
     order:
       - formula.Title
-    limit: 5
+    limit: 10
     cardSize: 300
+
 ```
 
 ## Blog Drafts

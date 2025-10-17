@@ -13,13 +13,13 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "blog/by/christian/what_pickle_taught_me_about_faith.md",
+                "file": "note/by/developer/drafts/frontend_rendering.md",
                 "mode": "source",
                 "source": false,
                 "backlinks": false
               },
               "icon": "lucide-file",
-              "title": "what_pickle_taught_me_about_faith"
+              "title": "frontend_rendering"
             }
           }
         ]
@@ -54,7 +54,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "residu",
+                "query": "descriptor",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -218,10 +218,10 @@
             "state": {
               "type": "file-properties",
               "state": {
-                "file": "blog/by/christian/what_pickle_taught_me_about_faith.md"
+                "file": "Home.md"
               },
               "icon": "lucide-info",
-              "title": "File properties for what_pickle_taught_me_about_faith"
+              "title": "File properties for Home"
             }
           }
         ],
@@ -229,7 +229,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 404.5
+    "width": 365.5,
+    "collapsed": true
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -245,8 +246,16 @@
   },
   "active": "a765d66407a154ed",
   "lastOpenFiles": [
+    "note/by/developer/python_inheritance.md",
+    "note/by/developer/drafts/python_meta_programming.md",
+    "note/by/developer/python_property_access.md",
     "blog/by/developer/5_wtf_moments_in_python.md",
+    "note/by/developer/python_dot_operation.md",
+    "note/by/developer/drafts/python_attribute_access.md",
+    "note/by/christian/drafts/my_cat_unrevealed_my_spiritual_life.md",
     "Home.md",
+    "note/by/developer/drafts/dependency_injection.md",
+    "blog/by/christian/what_pickle_taught_me_about_faith.md",
     "Bases/Blogs.base",
     "Related.base",
     "Templates/Note Template.md",
@@ -257,7 +266,6 @@
     "blog/by/developer/decorator_design_pattern.md",
     "blog/by/developer/from_monolithic_to_react_compound_pattern.md",
     "blog/by/developer/solutions_to_bring_asynchronism_into_pytest.md",
-    "blog/by/christian/what_pickle_taught_me_about_faith.md",
     "Templates/Blog Template.md",
     "Media/Covers/MyCatRevealedMyFaithCover.svg",
     "note/by/christian/the_water_jar_left_on_ground.md",
@@ -279,13 +287,7 @@
     "Media/ReactCompoundPattern",
     "note/by/developer/pytorch_basic.md",
     "note/by/developer/drafts/frontend_rendering.md",
-    "note/by/developer/drafts/dependency_injection.md",
     "note/by/developer/convolutional_neural_network.md",
-    "note/by/developer/classifcation_model.md",
-    "note/by/human_being/ethical_frameworks.md",
-    "note/by/developer/training_optimization.md",
-    "2025-10-02.md",
-    "note/by/developer/gpt.md",
     "note/by/christian/drafts",
     "Untitled 1",
     "note/by/christian",

@@ -5,7 +5,7 @@ cover: Media/Covers/PythonNightmareCover.svg
 tags: [python]
 featured: true
 created-date: 2025-05-04T00:00:00-04:00
-last-updated-date: 2025-10-12T18:30:33-04:00
+last-updated-date: 2025-10-15T19:56:06-04:00
 ---
 
 ## 1. It Is Not the Function I Called!
@@ -140,7 +140,7 @@ Instead of solving the puzzle directly, try answer another question, what is `se
 
 This binding happens every time we access `obj.the_method`, creating a new method object from the function definition and the bound object every time. This explains why `obj.the_method is obj.the_method` evaluates to `False`.
 
-While we won't dive deeper in this post, it's worth learning about this comprehensively. Python object attributes use something called [Discriptor](https://docs.python.org/3/howto/descriptor.html#pure-python-equivalents) to control access behavior, which is where the magic happens. Then [Python official doc](https://docs.python.org/3/howto/descriptor.html#pure-python-equivalents) is the best place to learn more.
+While we won't dive deeper in this post, it's worth learning about this comprehensively. Python object attributes use something called [Descriptor](note/by/developer/python_property_access.md#Descriptor) to control access behavior, which is where the magic happens. Then [Python official doc](https://docs.python.org/3/howto/descriptor.html#pure-python-equivalents) is the best place to learn more.
 
 ## 5. True Is an Integer
 
