@@ -10,7 +10,7 @@ last-updated-date: 2025-09-08T22:05:03-04:00
 There will be multiple reasons and cases that we would prefer transfer learning other than training from scratch,
 
 - Training data is limited for the specific task.
-- Saving a lot of time and computing resources, especially the source model is a large model like [BERT](Note/by/developer/bert.md) or [GPT](note/by/developer/gpt.md).
+- Saving a lot of time and computing resources, especially the source model is a large model like [BERT](Note/by/developer/bert.md) or [GPT](note/by/developer/generative_pre_trained_transformer.md).
 - Saving efforts for architecture design. However the end model will be restricted to that more or less.
 
 ## Inference Head

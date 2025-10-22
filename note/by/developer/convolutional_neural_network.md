@@ -1,8 +1,9 @@
 ---
-tags: [machine-learning]
-title: Convolutional Neural Network
+tags:
+  - machine-learning
+title: Convolutional Neural Network (CNN)
 created-date: 2025-08-07T00:00:00-04:00
-last-updated-date: 2025-10-04T10:46:12-04:00
+last-updated-date: 2025-10-21T23:06:38-04:00
 ---
 
 ## Concepts

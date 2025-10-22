@@ -2,10 +2,13 @@
 title: "The CSS Odyssey: Why I Turned back to CSS After Trying Everything Else"
 description: "A developer's CSS journey: from vanilla to CSS-in-JS to Tailwind and back to CSS, with hard-earned lessons along the way."
 cover: Media/Covers/CSSSolutionChoiceCover.svg
-tags: [css, frontend, react]
+tags:
+  - css
+  - react
+  - web-dev
 featured: true
 created-date: 2025-06-01T00:00:00-04:00
-last-updated-date: 2025-10-12T18:29:31-04:00
+last-updated-date: 2025-10-19T15:02:08-04:00
 ---
 
 **TL;DR:** This is a story of my journey through CSS solutions. Which led to my personal opinion that simpler tools often work better than complex abstractions. CSS-in-JS, zero-runtime CSS-in-JS, and Tailwind all taught me valuable lessons, but they all added build complexity that eventually became more trouble than benefit. And I eventually returned back to CSS Modules for a better maintainability and simplicity.

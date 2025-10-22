@@ -1,8 +1,10 @@
 ---
-title: "CDN: Content Delivery Network"
-tags: [cloud, network]
+title: Content Delivery Network (CDN)
+tags:
+  - cloud
+  - network
 created-date: 2025-08-24T00:00:00-04:00
-last-updated-date: 2025-09-10T21:01:01-04:00
+last-updated-date: 2025-10-21T23:06:19-04:00
 ---
 
 **Content Delivery Network (CDN)** is a geographically distributed network of servers that store cached copies of website content closer to users.

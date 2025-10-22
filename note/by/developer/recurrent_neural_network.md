@@ -1,8 +1,9 @@
 ---
-tags: [machine-learning]
-title: Recurrent Neural Network
+tags:
+  - machine-learning
+title: Recurrent Neural Network (RNN)
 created-date: 2025-08-10T00:00:00-04:00
-last-updated-date: 2025-09-09T07:00:28-04:00
+last-updated-date: 2025-10-21T23:05:55-04:00
 ---
 
 ## Concepts

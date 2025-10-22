@@ -1,18 +1,19 @@
 ---
 title: Frontend Routing
-tags:
-  - frontend
+tags: [frontend, web-dev]
 created-date: 2025-09-07T11:51:58-04:00
-last-updated-date: 2025-09-10T18:39:49-04:00
+last-updated-date: 2025-10-19T15:02:17-04:00
 ---
-## Redirection 
+
+## Redirection
 
 Server can send a [HTTP](note/by/developer/network_protocols.md#HTTP) 302 response to redirect the client browser to visit another site. This is extremely useful when:
-- The content got moved to another url, and to prevent the original one become invalid, server can redirect user to new spot 
+
+- The content got moved to another url, and to prevent the original one become invalid, server can redirect user to new spot
 - Two step authentication, such as [OAuth2](note/by/developer/drafts/oauth2.md).
 - Error Handling or directing user to authenticate them self.
 
-### Static Redirection 
+### Static Redirection
 
 Redirection can also happened without a web server. By setting a [meta refresh](https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/meta#setting_a_page_redirect) in html head, browser can redirect by itself without the requirement of a 302 response code.
 
@@ -26,7 +27,8 @@ Rewrite happens outside of browser. It literally means alternating HTTP request 
 
 ## Server Routing
 
-Server pretty much means a routing behavior having remote server involved. However, there are multiple ways the server can serve the website. 
+Server pretty much means a routing behavior having remote server involved. However, there are multiple ways the server can serve the website.
+
 - Statically serving filesystem based contents.
 - Webserver dynamic render contents for different routes.
 

@@ -2,7 +2,7 @@
 title: Python Property Acess
 tags: [python]
 created-date: 2025-08-30T00:00:00-04:00
-last-updated-date: 2025-10-15T20:21:26-04:00
+last-updated-date: 2025-10-22T19:54:13-04:00
 ---
 
 When doing something like `obj.attr`, there are a lot of things happened behind the scene. There are multiple way one attribute can be accessed, through [Descriptor](#Descriptor), `__dict__` look up, `__getattr__()` access and etc.
@@ -40,10 +40,30 @@ class DummyDescriptor:
         self.private_name = '_' + name
 
     def __get__(self, obj, objtype=None):
-        return obj.__dict__[self.private_name]
+	    if obj is not None:
+	        return obj.__dict__[self.private_name]
+	    return "Descriptor in Class"
 
     def __set__(self, obj, value):
         obj.__dict__[self.private_name] = value
+```
+
+### Accessing from Instance and Class
+
+``` python
+class DummyClass:
+	a = DummyDescriptor()
+	
+dummy = DummyClass()
+dummy.a = "something"
+
+dummy.a # 'something'
+getattr(dummy, "a") # 'something'
+dummy.__dict__["a"] # KeyError
+dummy.__dict__["_a"] # 'something'
+
+DummyClass.a # 'Descriptor in Class'
+DummyClass.__dict__["a"] # <__main__.DummyDescriptor object at 0x########>
 ```
 
 ## Dynamic Attribute Access Methods

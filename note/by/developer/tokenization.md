@@ -13,7 +13,7 @@ And I was surprised that tokenization is actually a product of some kind of trai
 
 ## Byte Pair Encoding
 
-**Byte Pair Encoding (BPE)** was introduced in 2015[^1], and is used by model like [GPT-2](note/by/developer/gpt.md#GPT-2), **RoBERTa**, **FlauBERT** and etc.
+**Byte Pair Encoding (BPE)** was introduced in 2015[^1], and is used by model like [GPT-2](note/by/developer/generative_pre_trained_transformer.md#GPT-2), **RoBERTa**, **FlauBERT** and etc.
 
 BPE starts with some kind of pre-tokenization, can be as simple as splitting by space, or any advanced ones. Then unique words are collected and counted. And each word is being treated as a sequence of character initially
 
@@ -32,7 +32,7 @@ And for a work `"bat"`, the word token above will split it into `["ba", "<unk>"]
 
 ### Bytes Level BPE
 
-**BPE** will end up with a really large token collection when dealing [Unicode](note/by/developer/drafts/text_encoding.md#Unicode), which will treat every emoji 😀 as a unique token. [GPT](note/by/developer/gpt.md) treat Unicode character in byte scale. If one Unicode is 3 bytes, it will be treated as 3 tokens initially.
+**BPE** will end up with a really large token collection when dealing [Unicode](note/by/developer/character_encoding.md#Unicode), which will treat every emoji 😀 as a unique token. [GPT](note/by/developer/generative_pre_trained_transformer.md) treat Unicode character in byte scale. If one Unicode is 3 bytes, it will be treated as 3 tokens initially.
 
 ## WordPiece
 

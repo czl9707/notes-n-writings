@@ -30,7 +30,7 @@ However, currently the wording "[Encoder](#Encoder) " and "[Decoder](#Decoder)" 
 
 ### Decoder
 
-[GPT](note/by/developer/gpt.md)-like models are **decoder** only model, also called **auto-regressive model**. It feels a bit unintuitive when knowing this for the first time, since encoder is about understanding while decoder is about generating. This still holds true, but the fact is that GPT performs [text generation tasks](note/by/developer/natural_language_processing.md#Language%20Tasks) instead of [question answering tasks](note/by/developer/natural_language_processing.md#Language%20Tasks). It is actually extending the prompts.
+[GPT](note/by/developer/generative_pre_trained_transformer.md)-like models are **decoder** only model, also called **auto-regressive model**. It feels a bit unintuitive when knowing this for the first time, since encoder is about understanding while decoder is about generating. This still holds true, but the fact is that GPT performs [text generation tasks](note/by/developer/natural_language_processing.md#Language%20Tasks) instead of [question answering tasks](note/by/developer/natural_language_processing.md#Language%20Tasks). It is actually extending the prompts.
 
 And during text generation, the model actually does not rely on the context as the way it does during translation. Each individual output token is not directly related to any specific token(s), but the entire context instead.
 
