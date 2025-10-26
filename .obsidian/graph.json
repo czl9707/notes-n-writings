@@ -1,6 +1,6 @@
 {
   "collapse-filter": false,
-  "search": "path:-Media/ path:-Templates/ file:-.base",
+  "search": "path:-Media/ path:-Templates/ file:-.base file:-Home",
   "showTags": false,
   "showAttachments": false,
   "hideUnresolved": true,
@@ -39,6 +39,6 @@
   "repelStrength": 20,
   "linkStrength": 1,
   "linkDistance": 99,
-  "scale": 0.11110417253509508,
+  "scale": 0.04031830088964821,
   "close": true
 }

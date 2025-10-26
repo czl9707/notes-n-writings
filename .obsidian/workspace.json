@@ -13,13 +13,13 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "note/by/developer/python_property_access.md",
+                "file": "note/by/developer/Inverse_of_control.md",
                 "mode": "source",
                 "source": false,
                 "backlinks": false
               },
               "icon": "lucide-file",
-              "title": "python_property_access"
+              "title": "Inverse_of_control"
             }
           }
         ]
@@ -158,12 +158,13 @@
             "state": {
               "type": "outline",
               "state": {
+                "file": "note/by/developer/Inverse_of_control.md",
                 "followCursor": true,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "Outline"
+              "title": "Outline of Inverse_of_control"
             }
           },
           {
@@ -241,8 +242,9 @@
       "workspaces:Manage workspace layouts": false
     }
   },
-  "active": "cb48634d2f43bb5a",
+  "active": "e7bae6e6897408bc",
   "lastOpenFiles": [
+    "note/by/developer/python_import_system.md",
     "note/by/developer/python_property_access.md",
     "note/by/developer/natural_language_processing.md",
     "note/by/developer/generative_pre_trained_transformer.md",
@@ -253,7 +255,6 @@
     "note/by/developer/drafts/python_meta_programming.md",
     "note/by/developer/principle_component_analysis.md",
     "Home.md",
-    "note/by/developer/drafts/python_import_mechanism.md",
     "note/by/developer/drafts/cross_site_request_forgery.md",
     "note/by/developer/drafts/cross_origin_resource_sharing.md",
     "note/by/developer/network_protocols.md",

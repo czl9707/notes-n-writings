@@ -2,7 +2,7 @@
 title: Python Property Acess
 tags: [python]
 created-date: 2025-08-30T00:00:00-04:00
-last-updated-date: 2025-10-22T19:54:13-04:00
+last-updated-date: 2025-10-22T22:24:21-04:00
 ---
 
 When doing something like `obj.attr`, there are a lot of things happened behind the scene. There are multiple way one attribute can be accessed, through [Descriptor](#Descriptor), `__dict__` look up, `__getattr__()` access and etc.
