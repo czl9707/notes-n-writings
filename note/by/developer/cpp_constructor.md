@@ -2,7 +2,7 @@
 title: C++ Constructor
 tags: [cpp]
 created-date: 2025-10-31T00:08:48-04:00
-last-updated-date: 2025-11-02T22:15:10-05:00
+last-updated-date: 2025-11-08T09:20:37-05:00
 ---
 
 C++ has a surprising number of types of constructor. Understanding the majority of them is necessary to nail the memory control aspect of the language.
@@ -27,7 +27,7 @@ private:
 	int a, b, c;
 public:
 	MyClass(): a(1), b(2), c(3) {}
-}
+};
 ```
 
 To understand this better, `a(1)` somehow like preforming `int a(1)` before executing the constructor logic.
@@ -44,32 +44,32 @@ class MyClass
 public:
 	MyClass() = default; // Explicit declaring default constructor.
 	MyClass(MyClass& myClass) = delete; // Delete copy constructor.
-}
+};
 ```
 
 ## Copy Constructor
 
-Copy constructor is the constructor take one parameter, which is `T`, `T&`, `const T&`. Copy Constructor is called when an object is constructed from [Left Value](note/by/developer/drafts/cpp_lvalue_rvalue.md#Left%20Value%20&%20Right%20Value) of another object with same type, value is [copied](note/by/developer/drafts/cpp_lvalue_rvalue.md#Copy) and duplicated.
+Copy constructor is the constructor take one parameter, which is `T`, `T&`, `const T&`. Copy Constructor is called when an object is constructed from [Left Value](note/by/developer/cpp_lvalue_rvalue.md#Left%20Value%20&%20Right%20Value) of another object with same type, value is [copied](note/by/developer/cpp_lvalue_rvalue.md#Copy) and duplicated.
 
 When no copy constructor is defined by user, the compiler will implicit define one marked as `inline public`.
 
 - The generation is disabled if the class any of following defined by user:
 	- destructor
-	- [copy assignment operator](note/by/developer/drafts/cpp_lvalue_rvalue.md#Copy%20Assignment)
+	- [copy assignment operator](note/by/developer/cpp_lvalue_rvalue.md#Copy%20Assignment)
 - The generation is disabled if any member misses a copy constructor.
 - Inside the constructor, each field's copy constructor is called.
 
 ## Move Constructor
 
-Move constructor is the constructor take one parameter, which is `T&&`, `const T&&`. Move constructor is called when an object is constructed from [Right Value](note/by/developer/drafts/cpp_lvalue_rvalue.md#Left%20Value%20&%20Right%20Value) of another object with same type. The value is [moved](note/by/developer/drafts/cpp_lvalue_rvalue.md#Move) over without duplicating.
+Move constructor is the constructor take one parameter, which is `T&&`, `const T&&`. Move constructor is called when an object is constructed from [Right Value](note/by/developer/cpp_lvalue_rvalue.md#Left%20Value%20&%20Right%20Value) of another object with same type. The value is [moved](note/by/developer/cpp_lvalue_rvalue.md#Move) over without duplicating.
 
 When no constructor is defined by user, the compiler will implicit define one marked as `inline public`.
 
 - The generation is disabled if the class any of following defined by user:
 	- destructor
-	- [copy assignment operator](note/by/developer/drafts/cpp_lvalue_rvalue.md#Copy%20Assignment)
+	- [copy assignment operator](note/by/developer/cpp_lvalue_rvalue.md#Copy%20Assignment)
 	- [copy constructor](#Copy%20Constructor)
-	- [move assignment operator](note/by/developer/drafts/cpp_lvalue_rvalue.md#Move%20Assignment)
+	- [move assignment operator](note/by/developer/cpp_lvalue_rvalue.md#Move%20Assignment)
 - The generation is disabled if any member misses a move constructor.
 - Inside the constructor, each field's move constructor is called.
 
@@ -83,7 +83,7 @@ class MyClass
 public:
 	MyClass(int i){} // Allow conversion from i;
 	explicit MyClass(std::string s){} // Do not allow implicit conversion. Only allow explicit static cast.
-}
+};
 
 int main()
 {
@@ -104,12 +104,12 @@ class MyClass: public ParentClass
 public:
 	MyClass(int a, int b) : ParentClass() {}
 	MyClass(int a) : MyClass(a, 1) {}
-}
+};
 ```
 
 ## List Initialization Constructor
 
-List Initialization has two form **Direct List Initialization** and **Copy List Initialization**, they reference to initializing the object in place or having a "[copy](note/by/developer/drafts/cpp_lvalue_rvalue.md#Copy)" involved. But the difference is boiled down to that if the underneath constructor is marked as `explicit`, then it does support Copy List Initialization.
+List Initialization has two form **Direct List Initialization** and **Copy List Initialization**, they reference to initializing the object in place or having a "[copy](note/by/developer/cpp_lvalue_rvalue.md#Copy)" involved. But the difference is boiled down to that if the underneath constructor is marked as `explicit`, then it does support Copy List Initialization.
 
 ``` c++
 MyClass mc1{arg1, arg2}; // Direct Initialization
@@ -127,13 +127,13 @@ When calling constructor in List Initialization fashion, the compiler will consi
 	- no base class that isn’t an aggregate
 
 ``` c++
-struct MyStruct{ int a; std::string b; }
+struct MyStruct{ int a; std::string b; };
 class MyClass {
 	MyClass(std::string a, int b) {}
-}
+};
 class MyClass2 {
 	MyClass2(std::initializer_list<int> list) {}
-}
+};
 
 int main()
 {
