@@ -5,10 +5,10 @@ cover: Media/Covers/DecoratorPatternCover.svg
 tags: [design-pattern, python]
 featured: false
 created-date: 2025-07-05T00:00:00-04:00
-last-updated-date: 2025-10-12T18:30:13-04:00
+last-updated-date: 2025-11-10T20:13:42-05:00
 ---
 
-When cutting an onion, the knife slices through layer after layer, and finally reaches its core. The **Decorator Pattern** provides us a way of writing code just like cutting through an onion, not in the way of tearing 😢.
+When cutting an onion, the knife slices through layer after layer, and finally reaches its core. The [Decorator Pattern](note/by/developer/object_oriented_design_patterns.md#Decorator%20Pattern) provides us a way of writing code just like cutting through an onion, not in the way of tearing 😢.
 
 ## The Problem: Inheritance Not Always the Solution.
 
