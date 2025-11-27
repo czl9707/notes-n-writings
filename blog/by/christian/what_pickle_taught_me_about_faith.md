@@ -1,6 +1,6 @@
 ---
-created-date: 2025-08-31T21:53:04-04:00
-last-updated-date: 2025-10-12T19:06:34-04:00
+created-date: 2025-08-31T20:53:04-05:00
+last-updated-date: 2025-11-19T18:01:39-06:00
 title: What My Cat Taught Me About Faith？
 tags: [faith]
 description: A reflection drawing parallels between the our relationship our my cat and our relationship with God.
@@ -18,7 +18,7 @@ Similarly, what makes Christian different from the others? This question puzzled
 
 Sadly, after realizing this, my prayers shifted too far in the other direction. I started avoiding praying for specific things, but only for "spiritual development". This drifted too far away from my life of reality, and disconnected these two pieces. All prayers and scriptures stop at the surface, and seldomly reached deeper. From my aspect, this is even worse than only praying for daily needs, which makes it too easy to disconnect from God. It might sounds fine to pray only for spiritual matters. But if Pickle never meowed for her food in front of us, how could her grow close to us.
 
-This leads me back to the standard answer to most many questions in Christianity -- balance. It may sounds like a cliche, but unfortunately, I had to learn this in a hard way.
+This leads me back to the standard answer to most questions in Christianity -- balance. It may sounds like a cliche, but unfortunately, I had to learn this in a hard way.
 
 > Then Moses said to him, “If your Presence does not go with us, do not send us up from here. How will anyone know that you are pleased with me and with your people unless you go with us? What else will distinguish me and your people from all the other people on the face of the earth?”
 > -- Exodus 33:15-16 NIV
