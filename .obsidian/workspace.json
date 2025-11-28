@@ -13,13 +13,13 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "note/by/developer/cpp_constructor.md",
+                "file": "Fleeting/2025-11-18 water & do nothing.md",
                 "mode": "source",
                 "source": false,
                 "backlinks": false
               },
               "icon": "lucide-file",
-              "title": "cpp_constructor"
+              "title": "2025-11-18 water & do nothing"
             }
           }
         ]
@@ -75,8 +75,7 @@
               "title": "Bookmarks"
             }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "horizontal",
@@ -146,13 +145,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "note/by/developer/cpp_constructor.md",
+                "file": "Fleeting/2025-11-18 water & do nothing.md",
                 "followCursor": true,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "Outline of cpp_constructor"
+              "title": "Outline of 2025-11-18 water & do nothing"
             }
           },
           {
@@ -240,10 +239,10 @@
       "workspaces:Manage workspace layouts": false
     }
   },
-  "active": "cd3d9ecf656475fb",
+  "active": "e7bae6e6897408bc",
   "lastOpenFiles": [
-    "note/by/developer/cpp_lvalue_rvalue.md",
     "note/by/developer/cpp_constructor.md",
+    "note/by/developer/cpp_lvalue_rvalue.md",
     "note/by/developer/object_oriented_design_patterns.md",
     "note/by/developer/Inverse_of_control.md",
     "blog/by/developer/cross_component_styling_with_react_compound_pattern.md",
@@ -252,7 +251,7 @@
     "note/by/christian/the_water_jar_left_on_ground.md",
     "note/by/christian/the_law_is_not_meant_for_itself.md",
     "Media/Covers/FearOfDoingNothingCover.svg",
-    "blog/by/human_being/fear_of_doing_nothing.md",
+    "blog/by/human-being/fear_of_doing_nothing.md",
     "Home.md",
     "blog/by/developer/5_wtf_moments_in_python.md",
     "Media/Covers/MyCatRevealedMyFaithCover.svg",
