@@ -2,7 +2,7 @@
 title: C++ Constructor
 tags: [cpp]
 created-date: 2025-10-31T00:08:48-04:00
-last-updated-date: 2025-11-08T09:20:37-05:00
+last-updated-date: 2025-11-28T13:07:09-05:00
 ---
 
 C++ has a surprising number of types of constructor. Understanding the majority of them is necessary to nail the memory control aspect of the language.
@@ -20,7 +20,7 @@ When no default constructor is defined by user, the compiler will implicit defin
 
 Some member of the class is `const`, but still need some initialization logic. **Member Initialization** gives a way to assign them value before the constructor logic kicks in.
 
-``` c++
+``` cpp
 class MyClass
 {
 private:
@@ -38,7 +38,7 @@ Deleted constructor is meant for stop compiler from implicitly generating a spec
 
 Defaulted Constructor is meant for make compiler's implicit constructor generation become a bit more explicit. Or it can force compiler to generate the constructor when the generation condition is not met.
 
-```c++
+```cpp
 class MyClass
 {
 public:
@@ -77,7 +77,7 @@ When no constructor is defined by user, the compiler will implicit define one ma
 
 Any constructor with one argument defined is a converting constructor. If the constructor is marked as `explicit` it won't support [Implicit Type Conversion](note/by/developer/drafts/cpp_type_convertion.md#Implicit%20Type%20Conversion).
 
-``` c++
+``` cpp
 class MyClass
 {
 public:
@@ -98,7 +98,7 @@ int main()
 
 Delegating Constructor allow one constructor calling another constructor.
 
-``` c++
+``` cpp
 class MyClass: public ParentClass
 {
 public:
@@ -111,7 +111,7 @@ public:
 
 List Initialization has two form **Direct List Initialization** and **Copy List Initialization**, they reference to initializing the object in place or having a "[copy](note/by/developer/cpp_lvalue_rvalue.md#Copy)" involved. But the difference is boiled down to that if the underneath constructor is marked as `explicit`, then it does support Copy List Initialization.
 
-``` c++
+``` cpp
 MyClass mc1{arg1, arg2}; // Direct Initialization
 MyClass mc2 = {arg1, arg2}; // Copy Initialization
 ```
@@ -126,7 +126,7 @@ When calling constructor in List Initialization fashion, the compiler will consi
 	- no virtual base classes or virtual functions
 	- no base class that isn’t an aggregate
 
-``` c++
+``` cpp
 struct MyStruct{ int a; std::string b; };
 class MyClass {
 	MyClass(std::string a, int b) {}

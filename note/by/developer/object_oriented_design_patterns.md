@@ -2,7 +2,7 @@
 title: Object Oriented Design Patterns
 tags: [design-pattern]
 created-date: 2025-11-10T19:55:51-05:00
-last-updated-date: 2025-11-28T12:57:29-05:00
+last-updated-date: 2025-11-28T13:08:48-05:00
 ---
 
 Note: Design pattern is building block of building applications. The key is identifying common problems, and using standard method to solve them.
@@ -17,7 +17,7 @@ Focusing on interactions and responsibilities of interacting object and classes.
 
 Strategy pattern let developer define a family classes of implementation, and delegate the method behavior to them, to avoid messy method invocation through out inheritance chain.
 
-``` c#
+``` csharp
 abstract class Duck
 {
 	public abstract void MakeNoise();
@@ -40,7 +40,7 @@ class BombDuck: Duck {
 }
 ```
 
-``` c#
+``` csharp
 abstract class Duck
 {
 	protected abstract INoiseBehavior noiseBehavior { get; }
@@ -81,7 +81,7 @@ And the entire [reactiveX](https://reactivex.io/) library is built around **Obse
 
 There are two components in state changing in general, event and current state. The traditional way of implement this includes looking up both of them in every time. While **State** pattern treat state as an interface having actions to each event.
 
-``` C#
+``` csharp
 interface IState {
 	void Event1Hanlder(StateHolder holder);
 	void Event2Hanlder(StateHolder holder);
@@ -109,7 +109,7 @@ class State2: IState {
 
 **Template Method** defines the skeleton of an algorithm in the superclass but lets subclasses override specific steps of the algorithm without changing its structure.
 
-```c# 
+```csharp
 public abstract class Template
 {
 	public Execute()
@@ -152,7 +152,7 @@ The `Command` object can contain more than just command parameters. Some impleme
 
 **Visitor** lets you separate algorithms from the objects on which they operate. Therefore instead of having:
 
-``` c#
+``` csharp
 foreach (var node in tree)
 {
 	if (node.type == "A") PerformA();
@@ -163,7 +163,7 @@ foreach (var node in tree)
 
 Each operation can be isolated out together their the "accept" condition.
 
-```c#
+```csharp
 interface INodeVisitor {
 	bool Accept(Node node);
 	void Perform(Node node);
@@ -205,7 +205,7 @@ Creational Patterns focus on instantiating objects in structured and controlled 
 
 **Factory method** solves the problem of creating product objects without specifying their concrete classes. Factory method provides an interface for creating objects but allows subclasses to alter the type of an object that will be created.
 
-``` c#
+``` csharp
 abstract class Department {
     public abstract Employee createEmployee(int id);
 }
@@ -257,7 +257,7 @@ Prototype pattern is not that relevant in C++, because of well defined [Copy Ope
 
 Dotnet heavily utilize builder pattern for constructing several core classes.
 
-``` c#
+``` csharp
 IConfiguration configuration = new ConfigurationBuilder()
     .SetBasePath(Directory.GetCurrentDirectory())
     .AddJsonFile("appsettings.json", optional: true, reloadOnChange: true)
@@ -276,7 +276,7 @@ Focusing on composition of classes or objects into larger or more complex struct
 
 Decorator Pattern lets you attach new behaviors to objects by placing these objects inside special wrapper objects that contain the behaviors. It also help delegate the overlapped part of derived classes out to another class, and also give the flexibility to compose the behavior at runtime, while maintaining the interface unchanged.
 
-``` c# 
+``` csharp
 public interface IBurger
 {
 	int getPrice();
@@ -330,7 +330,7 @@ Adapter pattern is similar to [Facade](#Facade), from the aspect of wrapping beh
 
 **Composite** pattern allows for composing a list or tree of objects with same interface into an individual one. So that both leaf and composite objects can share same interface. The leaf take the responsibility of business logic, and the composite is in charge of dealing with aggregation on top of children objects.
 
-``` c#
+``` csharp
 interface IFileSystemNode { void show(); }
 
 class File: IFileSystemNode

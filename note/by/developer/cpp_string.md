@@ -2,7 +2,7 @@
 title: String in C++
 tags: [cpp]
 created-date: 2025-10-28T00:00:00-04:00
-last-updated-date: 2025-11-02T22:21:20-05:00
+last-updated-date: 2025-11-28T13:07:32-05:00
 ---
 
 ## Dynamic Memory Allocation
@@ -19,7 +19,7 @@ In **C**, string is managed in a non-trivial way. String is a `char[]` with a `\
 
 To support the interoperability with c string, `std::string` also follow the convention.
 
-```c++
+```cpp
 int main() {
     const char* cstr = "hello";
     std::string s(cstr);

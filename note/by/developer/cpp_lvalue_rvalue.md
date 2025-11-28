@@ -2,7 +2,7 @@
 title: Left Value & Right Value
 tags: [cpp]
 created-date: 2025-11-02T17:02:42-05:00
-last-updated-date: 2025-11-08T16:27:46-05:00
+last-updated-date: 2025-11-28T13:10:51-05:00
 ---
 
 ## Left Value & Right Value
@@ -13,7 +13,7 @@ Right Value or `rvalue` refers to a temporary value that cannot reference using 
 
 Right value can be bound as `const` left value, but not left value. To convert left value to right value, `std::move` has to be called.
 
-``` c++
+``` cpp
 struct Dummy {};
 class MyClass
 {
@@ -53,7 +53,7 @@ Copy operation happens when creating data from left value to left value.Few exam
 
 A user defined Copy Constructor can customize constructing new object through copying.
 
-```c++
+```cpp
 class MyClass
 {
 public:
@@ -68,7 +68,7 @@ public:
 
 A user defined Copy Assignment Operator can customize assigning object through copying.
 
-```c++
+```cpp
 class MyClass
 {
 public:
@@ -91,7 +91,7 @@ Move operation happens when creating data from right value to left value. Few ex
 
 Similar to [Copy Constructor](#Copy%20Constructor).
 
-```c++
+```cpp
 class MyClass
 {
 public:
@@ -105,7 +105,7 @@ public:
 
 Similar [Copy Assignment](#Copy%20Assignment).
 
-```c++
+```cpp
 class MyClass
 {
 public:
