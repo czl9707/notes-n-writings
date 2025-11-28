@@ -11,15 +11,12 @@
             "id": "cd3d9ecf656475fb",
             "type": "leaf",
             "state": {
-              "type": "markdown",
+              "type": "image",
               "state": {
-                "file": "blog/by/human_being/drafts/fear_of_doing_nothing.md",
-                "mode": "source",
-                "source": false,
-                "backlinks": false
+                "file": "Media/Covers/FearOfDoingNothingCover.svg"
               },
-              "icon": "lucide-file",
-              "title": "fear_of_doing_nothing"
+              "icon": "lucide-image",
+              "title": "FearOfDoingNothingCover"
             }
           }
         ]
@@ -145,12 +142,13 @@
             "state": {
               "type": "outline",
               "state": {
+                "file": "Media/Covers/FearOfDoingNothingCover.svg",
                 "followCursor": true,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "Outline"
+              "title": "Outline of FearOfDoingNothingCover"
             }
           },
           {
@@ -238,9 +236,15 @@
       "workspaces:Manage workspace layouts": false
     }
   },
-  "active": "cb48634d2f43bb5a",
+  "active": "cd3d9ecf656475fb",
   "lastOpenFiles": [
-    "blog/by/human_being/drafts/fear_of_doing_nothing.md",
+    "blog/by/human_being/fear_of_doing_nothing.md",
+    "Media/Covers/FearOfDoingNothingCover.svg",
+    "Media/Covers/FearOfDoingNothingCover.svg",
+    "Home.md",
+    "blog/by/developer/5_wtf_moments_in_python.md",
+    "Media/Covers/MyCatRevealedMyFaithCover.svg",
+    "Media/Covers/CompoundPatternCover.svg",
     "blog/by/christian/drafts/what_i_can_do_with_my_pride.md",
     "note/by/developer/drafts/oauth2.md",
     "Fleeting/2025-11-18 water & do nothing.md",
@@ -251,7 +255,6 @@
     "Related.base",
     "blog/by/developer/decorator_design_pattern.md",
     "note/by/developer/character_encoding.md",
-    "blog/by/developer/5_wtf_moments_in_python.md",
     "note/by/developer/cpp_lvalue_rvalue.md",
     "note/by/developer/cpp_constructor.md",
     "note/by/developer/cpp_string.md",
@@ -266,11 +269,8 @@
     "note/by/developer/drafts/cpp_smart_pointer.md",
     "note/by/developer/python_import_system.md",
     "note/by/developer/python_property_access.md",
-    "note/by/developer/natural_language_processing.md",
-    "note/by/developer/generative_pre_trained_transformer.md",
     "Bases/Blogs.base",
     "Bases/Notes.base",
-    "Media/Covers/MyCatRevealedMyFaithCover.svg",
     "Media/DecoratorPattern/InheritanceTreeComplexity.svg",
     "Media/DecoratorPattern",
     "Media/TransformerArchitecture.svg",
@@ -278,9 +278,6 @@
     "Media/ReactCompoundPattern/AccordionVariant2.gif",
     "Media/ReactCompoundPattern/AccordionVariant1.gif",
     "Media/ReactCompoundPattern/AccordionRaw.gif",
-    "Media/Covers/CompoundPatternCover.svg",
-    "Media/Covers/PythonNightmareCover.svg",
-    "Media/Covers/PytestConcurrencyCover.svg",
     "Media/Covers",
     "Media/ReactCompoundPattern",
     "note/by/christian/drafts",

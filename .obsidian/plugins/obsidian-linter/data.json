@@ -279,7 +279,18 @@
   "foldersToIgnore": [
     "Templates"
   ],
-  "filesToIgnore": [],
+  "filesToIgnore": [
+    {
+      "label": "Home",
+      "match": "Home.md",
+      "flags": "i"
+    },
+    {
+      "label": "Home",
+      "match": "Related.base",
+      "flags": "i"
+    }
+  ],
   "linterLocale": "en",
   "logLevel": "ERROR",
   "lintCommands": [],
