@@ -1,8 +1,8 @@
 ---
 title: Object Oriented Design Patterns
 tags: [design-pattern]
-created-date: 2025-11-10T18:55:51-06:00
-last-updated-date: 2025-11-17T21:29:38-06:00
+created-date: 2025-11-10T19:55:51-05:00
+last-updated-date: 2025-11-28T12:57:29-05:00
 ---
 
 Note: Design pattern is building block of building applications. The key is identifying common problems, and using standard method to solve them.
@@ -163,7 +163,7 @@ foreach (var node in tree)
 
 Each operation can be isolated out together their the "accept" condition.
 
-```C#
+```c#
 interface INodeVisitor {
 	bool Accept(Node node);
 	void Perform(Node node);

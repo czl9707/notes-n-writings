@@ -11,12 +11,15 @@
             "id": "cd3d9ecf656475fb",
             "type": "leaf",
             "state": {
-              "type": "image",
+              "type": "markdown",
               "state": {
-                "file": "Media/Covers/FearOfDoingNothingCover.svg"
+                "file": "blog/by/christian/what_pickle_taught_me_about_faith.md",
+                "mode": "source",
+                "source": false,
+                "backlinks": false
               },
-              "icon": "lucide-image",
-              "title": "FearOfDoingNothingCover"
+              "icon": "lucide-file",
+              "title": "what_pickle_taught_me_about_faith"
             }
           }
         ]
@@ -51,7 +54,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "",
+                "query": "```C",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -142,13 +145,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Media/Covers/FearOfDoingNothingCover.svg",
+                "file": "blog/by/christian/what_pickle_taught_me_about_faith.md",
                 "followCursor": true,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "Outline of FearOfDoingNothingCover"
+              "title": "Outline of what_pickle_taught_me_about_faith"
             }
           },
           {
@@ -238,9 +241,11 @@
   },
   "active": "cd3d9ecf656475fb",
   "lastOpenFiles": [
+    "note/by/christian/the_water_jar_left_on_ground.md",
+    "note/by/christian/the_law_is_not_meant_for_itself.md",
+    "note/by/developer/object_oriented_design_patterns.md",
+    "Media/Covers/FearOfDoingNothingCover.svg",
     "blog/by/human_being/fear_of_doing_nothing.md",
-    "Media/Covers/FearOfDoingNothingCover.svg",
-    "Media/Covers/FearOfDoingNothingCover.svg",
     "Home.md",
     "blog/by/developer/5_wtf_moments_in_python.md",
     "Media/Covers/MyCatRevealedMyFaithCover.svg",
@@ -248,7 +253,6 @@
     "blog/by/christian/drafts/what_i_can_do_with_my_pride.md",
     "note/by/developer/drafts/oauth2.md",
     "Fleeting/2025-11-18 water & do nothing.md",
-    "note/by/developer/object_oriented_design_patterns.md",
     "Fleeting",
     "Fleeting/2025-11-18.md",
     "Untitled.md",
@@ -268,7 +272,6 @@
     "note/by/developer/drafts/cpp_compilation_basic.md",
     "note/by/developer/drafts/cpp_smart_pointer.md",
     "note/by/developer/python_import_system.md",
-    "note/by/developer/python_property_access.md",
     "Bases/Blogs.base",
     "Bases/Notes.base",
     "Media/DecoratorPattern/InheritanceTreeComplexity.svg",
