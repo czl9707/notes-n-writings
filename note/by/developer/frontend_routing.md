@@ -10,7 +10,7 @@ last-updated-date: 2025-10-19T15:02:17-04:00
 Server can send a [HTTP](note/by/developer/network_protocols.md#HTTP) 302 response to redirect the client browser to visit another site. This is extremely useful when:
 
 - The content got moved to another url, and to prevent the original one become invalid, server can redirect user to new spot
-- Two step authentication, such as [OAuth2](note/by/developer/drafts/oauth2.md).
+- Two step authentication, such as [OAuth2](note/by/developer/oauth2.md).
 - Error Handling or directing user to authenticate them self.
 
 ### Static Redirection

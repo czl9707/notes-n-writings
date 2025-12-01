@@ -13,13 +13,13 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Fleeting/2025-11-18 water & do nothing.md",
+                "file": "note/by/developer/oauth2.md",
                 "mode": "source",
                 "source": false,
                 "backlinks": false
               },
               "icon": "lucide-file",
-              "title": "2025-11-18 water & do nothing"
+              "title": "oauth2"
             }
           }
         ]
@@ -54,7 +54,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "\"``` c\"",
+                "query": "",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -145,13 +145,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Fleeting/2025-11-18 water & do nothing.md",
+                "file": "note/by/developer/oauth2.md",
                 "followCursor": true,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "Outline of 2025-11-18 water & do nothing"
+              "title": "Outline of oauth2"
             }
           },
           {
@@ -241,6 +241,13 @@
   },
   "active": "e7bae6e6897408bc",
   "lastOpenFiles": [
+    "note/by/developer/oauth2.md",
+    "Media/OAuth2.svg",
+    "Media/OAuth2.svg",
+    "note/by/developer/variance_n_bias.md",
+    "Home.md",
+    "Related.base",
+    "Fleeting/2025-11-18 water & do nothing.md",
     "note/by/developer/cpp_constructor.md",
     "note/by/developer/cpp_lvalue_rvalue.md",
     "note/by/developer/object_oriented_design_patterns.md",
@@ -252,17 +259,13 @@
     "note/by/christian/the_law_is_not_meant_for_itself.md",
     "Media/Covers/FearOfDoingNothingCover.svg",
     "blog/by/human-being/fear_of_doing_nothing.md",
-    "Home.md",
     "blog/by/developer/5_wtf_moments_in_python.md",
     "Media/Covers/MyCatRevealedMyFaithCover.svg",
     "Media/Covers/CompoundPatternCover.svg",
     "blog/by/christian/drafts/what_i_can_do_with_my_pride.md",
-    "note/by/developer/drafts/oauth2.md",
-    "Fleeting/2025-11-18 water & do nothing.md",
     "Fleeting",
     "Fleeting/2025-11-18.md",
     "Untitled.md",
-    "Related.base",
     "blog/by/developer/decorator_design_pattern.md",
     "note/by/developer/character_encoding.md",
     "note/by/developer/cross_origin_resource_sharing.md",
@@ -270,8 +273,6 @@
     "note/by/developer/drafts/python_meta_programming.md",
     "note/by/developer/drafts/self_attention_mechanism.md",
     "note/by/developer/drafts/retrieval_augmented_generation.md",
-    "note/by/developer/drafts/cpp_type_convertion.md",
-    "note/by/developer/drafts/cpp_compilation_basic.md",
     "Bases/Blogs.base",
     "Bases/Notes.base",
     "Media/DecoratorPattern/InheritanceTreeComplexity.svg",
@@ -280,7 +281,6 @@
     "Media/VarianceAndBias.svg",
     "Media/ReactCompoundPattern/AccordionVariant2.gif",
     "Media/ReactCompoundPattern/AccordionVariant1.gif",
-    "Media/ReactCompoundPattern/AccordionRaw.gif",
     "Media/Covers",
     "Media/ReactCompoundPattern",
     "note/by/christian/drafts",
