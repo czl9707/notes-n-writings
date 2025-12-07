@@ -13,13 +13,13 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "note/by/developer/oauth2.md",
+                "file": "note/by/developer/email_domain_infrastructure.md",
                 "mode": "source",
                 "source": false,
                 "backlinks": false
               },
               "icon": "lucide-file",
-              "title": "oauth2"
+              "title": "email_domain_infrastructure"
             }
           }
         ]
@@ -54,7 +54,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "",
+                "query": "dns",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -145,13 +145,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "note/by/developer/oauth2.md",
+                "file": "note/by/developer/email_domain_infrastructure.md",
                 "followCursor": true,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "Outline of oauth2"
+              "title": "Outline of email_domain_infrastructure"
             }
           },
           {
@@ -225,7 +225,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 365.5
+    "width": 483.5
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -239,14 +239,17 @@
       "workspaces:Manage workspace layouts": false
     }
   },
-  "active": "e7bae6e6897408bc",
+  "active": "cd3d9ecf656475fb",
   "lastOpenFiles": [
+    "note/by/developer/cryptography_basic.md",
+    "note/by/developer/email_domain_infrastructure.md",
+    "Related.base",
+    "Home.md",
     "note/by/developer/oauth2.md",
+    "Untitled.md",
     "Media/OAuth2.svg",
     "Media/OAuth2.svg",
     "note/by/developer/variance_n_bias.md",
-    "Home.md",
-    "Related.base",
     "Fleeting/2025-11-18 water & do nothing.md",
     "note/by/developer/cpp_constructor.md",
     "note/by/developer/cpp_lvalue_rvalue.md",
@@ -265,14 +268,12 @@
     "blog/by/christian/drafts/what_i_can_do_with_my_pride.md",
     "Fleeting",
     "Fleeting/2025-11-18.md",
-    "Untitled.md",
     "blog/by/developer/decorator_design_pattern.md",
     "note/by/developer/character_encoding.md",
     "note/by/developer/cross_origin_resource_sharing.md",
     "note/by/developer/cross_site_request_forgery.md",
     "note/by/developer/drafts/python_meta_programming.md",
     "note/by/developer/drafts/self_attention_mechanism.md",
-    "note/by/developer/drafts/retrieval_augmented_generation.md",
     "Bases/Blogs.base",
     "Bases/Notes.base",
     "Media/DecoratorPattern/InheritanceTreeComplexity.svg",
