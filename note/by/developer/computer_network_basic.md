@@ -2,7 +2,7 @@
 tags: [network]
 title: Computer Network Basic
 created-date: 2025-08-13T00:00:00-04:00
-last-updated-date: 2025-08-24T00:00:00-04:00
+last-updated-date: 2025-12-08T18:04:07-05:00
 ---
 
 Computer Network is built in a layered architecture. And due to the fundamental idea of computer network, granting computers the ability to communicate with each other, each layer of network is designed and built in a distributed way.
@@ -15,7 +15,7 @@ Computer Network is built in a layered architecture. And due to the fundamental 
 4. **Transport**: Error Recovery & End-to-end delivery. Typically refer to our best friends [TCP](note/by/developer/network_protocols.md#TCP) and UDP.
 5. **Session**: Session Management
 6. **Presentation**: Formatting, Encryption, Compression. TLS, SSL, JPEG and etc...
-7. **Application**: Application specific protocols, [HTTP](note/by/developer/network_protocols.md#HTTP), SMTP, FTP, [DNS](note/by/developer/network_protocols.md#DNS), [DHCP](note/by/developer/network_protocols.md#DHCP) and etc.
+7. **Application**: Application specific protocols, [HTTP](note/by/developer/network_protocols.md#HTTP), SMTP, FTP, [DNS](note/by/developer/domain_name_server.md), [DHCP](note/by/developer/network_protocols.md#DHCP) and etc.
 
 ## Planes of Computer Network
 

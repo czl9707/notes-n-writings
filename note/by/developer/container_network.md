@@ -2,7 +2,7 @@
 title: Container Network
 tags: [container, linux, network]
 created-date: 2025-08-19T00:00:00-04:00
-last-updated-date: 2025-08-22T00:00:00-04:00
+last-updated-date: 2025-12-08T18:02:20-05:00
 ---
 
 By default, processes running in root space cannot access processes running within container. By using port forwarding or different type of network drivers, we can have granular control over container network.
@@ -18,7 +18,7 @@ docker network create [-d driver] <network_name>
 When creating network, type of driver can be specified. This will define the network relationship among the containers inside the network and the outside world.
 
 - `bridge`: The default network driver. Containers are connected to a [bridge](note/by/developer/linux_network.md#Bridge) device. They by default do not have access to the outside world, but are able to talk to each other using container IP and container name.
-	- A [DNS](note/by/developer/network_protocols.md#DNS) server is built-in and connected to the bridge, so that the container name can be resolved into the defined container name.
+	- A [DNS](note/by/developer/domain_name_server.md) server is built-in and connected to the bridge, so that the container name can be resolved into the defined container name.
 - `none`: Just do nothing, containers are completely isolated.
 - `host`: Containers within the network will share the same network as hosts, which means container can be accessed on `localhost:port`.
 - `IPvlan`: Provides the configurability of the IPv4 or IPv6 addresses.

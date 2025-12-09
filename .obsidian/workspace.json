@@ -13,13 +13,13 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "note/by/developer/email_domain_infrastructure.md",
+                "file": "note/by/developer/domain_name_server.md",
                 "mode": "source",
                 "source": false,
                 "backlinks": false
               },
               "icon": "lucide-file",
-              "title": "email_domain_infrastructure"
+              "title": "domain_name_server"
             }
           }
         ]
@@ -54,7 +54,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "dns",
+                "query": "",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -75,7 +75,8 @@
               "title": "Bookmarks"
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "horizontal",
@@ -88,7 +89,7 @@
       {
         "id": "ea95758216c928c6",
         "type": "tabs",
-        "dimension": 42.44274809160305,
+        "dimension": 38.08139534883721,
         "children": [
           {
             "id": "96dab28f31f2848d",
@@ -137,7 +138,7 @@
       {
         "id": "3b11ac264c38b93e",
         "type": "tabs",
-        "dimension": 57.55725190839696,
+        "dimension": 61.91860465116279,
         "children": [
           {
             "id": "b97d374f8e55802e",
@@ -145,13 +146,12 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "note/by/developer/email_domain_infrastructure.md",
                 "followCursor": true,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "Outline of email_domain_infrastructure"
+              "title": "Outline"
             }
           },
           {
@@ -178,12 +178,11 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "note/by/developer/pytorch_basic.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               },
               "icon": "links-going-out",
-              "title": "Outgoing links from pytorch_basic"
+              "title": "Outgoing links"
             }
           },
           {
@@ -225,7 +224,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 483.5
+    "width": 405.5
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -239,10 +238,20 @@
       "workspaces:Manage workspace layouts": false
     }
   },
-  "active": "cd3d9ecf656475fb",
+  "active": "cb48634d2f43bb5a",
   "lastOpenFiles": [
-    "note/by/developer/cryptography_basic.md",
+    "note/by/developer/domain_name_server.md",
     "note/by/developer/email_domain_infrastructure.md",
+    "blog/by/developer/decorator_design_pattern.md",
+    "note/by/christian/the_law_is_not_meant_for_itself.md",
+    "blog/by/developer/back_to_css_after_everything.md",
+    "note/by/developer/computer_network_basic.md",
+    "note/by/developer/network_protocols.md",
+    "note/by/developer/container_network.md",
+    "note/by/developer/anomaly_detection.md",
+    "note/by/developer/email_domain_infrastructure (Conflicted copy Pixel 9 202512071153).md",
+    "Fleeting/2025-12-07.md",
+    "note/by/developer/cryptography_basic.md",
     "Related.base",
     "Home.md",
     "note/by/developer/oauth2.md",
@@ -259,21 +268,11 @@
     "note/by/developer/cpp_string.md",
     "blog/by/christian/what_pickle_taught_me_about_faith.md",
     "note/by/christian/the_water_jar_left_on_ground.md",
-    "note/by/christian/the_law_is_not_meant_for_itself.md",
     "Media/Covers/FearOfDoingNothingCover.svg",
     "blog/by/human-being/fear_of_doing_nothing.md",
-    "blog/by/developer/5_wtf_moments_in_python.md",
     "Media/Covers/MyCatRevealedMyFaithCover.svg",
     "Media/Covers/CompoundPatternCover.svg",
-    "blog/by/christian/drafts/what_i_can_do_with_my_pride.md",
     "Fleeting",
-    "Fleeting/2025-11-18.md",
-    "blog/by/developer/decorator_design_pattern.md",
-    "note/by/developer/character_encoding.md",
-    "note/by/developer/cross_origin_resource_sharing.md",
-    "note/by/developer/cross_site_request_forgery.md",
-    "note/by/developer/drafts/python_meta_programming.md",
-    "note/by/developer/drafts/self_attention_mechanism.md",
     "Bases/Blogs.base",
     "Bases/Notes.base",
     "Media/DecoratorPattern/InheritanceTreeComplexity.svg",

@@ -2,7 +2,7 @@
 title: Network Protocols
 tags: [network]
 created-date: 2025-08-16T00:00:00-04:00
-last-updated-date: 2025-10-19T15:00:03-04:00
+last-updated-date: 2025-12-08T18:01:45-05:00
 ---
 
 ## IP
@@ -70,21 +70,6 @@ last-updated-date: 2025-10-19T15:00:03-04:00
 - **DHCP** stands for "Dynamic Host Configuration Protocol".
 - Once upon a time, we need to setup IP address when getting network access. DHCP is essentially removing the requirement of having a fixed IP address for each device.
 - When client connect to network, client broadcast to request a IP address. DHCP server will respond with a IP address offer. Client again pick a IP address and request for that. Server respond with an ack message.
-
-## DNS
-
-- **DNS** stands for "Domain Name Server".
-- IP addresses are human un-readable, domain name is much more friendly, DNS perform the domain name to IP address(es) translation.
-- Domain is named in a hierarchical way, starting from the end, every segment is a layer, and may or may not have has its own Name Server to resolve address.
-- When configuring DNS Records:
-	- `Type A` is a domain, IP address pair.
-	- `Type NS` specifies the hostname of authoritative name server for this domain.
-	- `CName` is an alias for another domain.
-- DNS Records are stored distributed across global, a DNS lookup will involve multiple Name Servers.
-	- Starting from local DNS server, it point the lookup to root DNS server if no information about the domain is known.
-	- Root Server will point it to top level Name Server, for example the one for `.com`, `.org`.
-	- And then keep doing this until the full domain name got resolved.
-- One domain might be resolved into multiple IP addresses.
 
 ## HTTP
 

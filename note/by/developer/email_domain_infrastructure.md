@@ -2,10 +2,10 @@
 title: Email Domain Infrastructure
 tags: [network]
 created-date: 2025-12-06T07:50:58-05:00
-last-updated-date: 2025-12-07T09:35:00-05:00
+last-updated-date: 2025-12-08T22:25:56-05:00
 ---
 
-There are multiple protocols and [DNS](note/by/developer/network_protocols.md#DNS) setups are involved to hit the an email infrastructure working. And surprisingly, sending and receiving emails for a domain requires different set of infrastructure setup.
+There are multiple protocols and [DNS](note/by/developer/domain_name_server.md) setups are involved to hit the an email infrastructure working. And surprisingly, sending and receiving emails for a domain requires different set of infrastructure setup.
 
 ## DNS
 
@@ -26,11 +26,7 @@ To receive email on a domain, such as `@my-domain.com`, the domain should be aut
 
 ### Tracking Record
 
-A record necessary for tracking opens, clicks, and unsubscribes. Can be:
-
-- **A Record** for IPv4 address.
-- **AAAA Record** for IPv6 address.
-- **CName Record** pointing a canonical name.
+A record necessary for tracking opens, clicks, and unsubscribes. Can be one of these [Record Types](note/by/developer/domain_name_server.md#Record%20Types): `A`, `AAAA`, `CName`.
 
 ### MX
 
@@ -41,7 +37,7 @@ The **MX Record**s route incoming mail to email server(s). Each MX record contai
 This is just for understanding. It is really discouraged to implement and self-host email server, because the deliverability challenges involved.
 
 - Major email providers (like Gmail, Outlook) use sophisticated filters which requires a clean IP reputation residential IP or any IP on public cloud can easily be tagged as spammers.
-- Email sender server require Reverse DNS lookup capability, which is mostly relying on Internet service providers.
+- Email sender server require [Reverse DNS Lookup](note/by/developer/domain_name_server.md#Reverse%20DNS%20Lookup) capability, which is mostly relying on Internet service providers to populate `PTR` record.
 
 Emails are data defined in `.eml` file format. Which is separate standard defined apart from delivering Protocols.
 
