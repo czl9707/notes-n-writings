@@ -1,9 +1,0 @@
----
-title: 
-tags: []
-created-date: 2025-11-18T11:20:13-06:00
-last-updated-date: 2025-11-18T13:25:57-06:00
----
-I'm visiting water wall in Houston and I feel like water becomes a wall separating me from the city. The urban hustle the water when it forms a water wall waterfall. It's actually amazing in terms of it distracts you from everything you can think about within the city within your mind, but at the same time it cannot let you focus on Hennessy so essentially you have to focus on yourself. And then maybe that is how the nature should work. In general there is no ego, and no self. And all these concepts I all derived while the soul and the society is being formed in this concepts are driving people away from how a person should be in natural and I think that's how a white noise is actually working when people hearing about it. People just think about nothing. They can focus more on themselves. They can focus on the environments instead of just focusing on their own. Thoughts fighting against each other.
-
-It has been a while since the last time. I just working somewhere with no purpose. I'm always seeking for something chasing for something running for some dad and I, but I think working somewhere just enjoying the environments and have the feeling of doing nothing. Is really great for setting up the sales off. Self-awareness I think I start to slowly getting the idea of what I'm doing. There's what's the messy looking of my those. Those ideas are messed around like a spaghetti bowl losing my mind and them what I really want to do and what are some of the environment? Are you forcing me to do I start to get that feeling?
