@@ -13,13 +13,13 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "note/by/developer/domain_name_server.md",
+                "file": "note/by/developer/load_balancing.md",
                 "mode": "source",
                 "source": false,
                 "backlinks": false
               },
               "icon": "lucide-file",
-              "title": "domain_name_server"
+              "title": "load_balancing"
             }
           }
         ]
@@ -54,7 +54,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "",
+                "query": "email",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -75,12 +75,11 @@
               "title": "Bookmarks"
             }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "horizontal",
-    "width": 313.5
+    "width": 249.5
   },
   "right": {
     "id": "389f338d0b40b842",
@@ -146,12 +145,13 @@
             "state": {
               "type": "outline",
               "state": {
+                "file": "note/by/developer/load_balancing.md",
                 "followCursor": true,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "Outline"
+              "title": "Outline of load_balancing"
             }
           },
           {
@@ -160,6 +160,7 @@
             "state": {
               "type": "backlink",
               "state": {
+                "file": "note/by/developer/load_balancing.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -169,7 +170,7 @@
                 "unlinkedCollapsed": false
               },
               "icon": "links-coming-in",
-              "title": "Backlinks"
+              "title": "Backlinks for load_balancing"
             }
           },
           {
@@ -178,11 +179,12 @@
             "state": {
               "type": "outgoing-link",
               "state": {
+                "file": "note/by/developer/load_balancing.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               },
               "icon": "links-going-out",
-              "title": "Outgoing links"
+              "title": "Outgoing links from load_balancing"
             }
           },
           {
@@ -220,11 +222,12 @@
               "title": "Related"
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "horizontal",
-    "width": 405.5
+    "width": 313.5
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -238,10 +241,19 @@
       "workspaces:Manage workspace layouts": false
     }
   },
-  "active": "cb48634d2f43bb5a",
+  "active": "cd3d9ecf656475fb",
   "lastOpenFiles": [
-    "note/by/developer/domain_name_server.md",
+    "note/by/developer/drafts/nginx.md",
+    "note/by/developer/load_balancing.md",
+    "note/by/developer/drafts/cpp_compilation_basic.md",
+    "note/by/developer/web_routing.md",
+    "note/by/developer/transformer.md",
     "note/by/developer/email_domain_infrastructure.md",
+    "note/by/developer/drafts/unix_cli_tools.md",
+    "Clippings/Load Balancing  System Design.md",
+    "Clippings",
+    "Related.base",
+    "note/by/developer/domain_name_server.md",
     "blog/by/developer/decorator_design_pattern.md",
     "note/by/christian/the_law_is_not_meant_for_itself.md",
     "blog/by/developer/back_to_css_after_everything.md",
@@ -252,7 +264,6 @@
     "note/by/developer/email_domain_infrastructure (Conflicted copy Pixel 9 202512071153).md",
     "Fleeting/2025-12-07.md",
     "note/by/developer/cryptography_basic.md",
-    "Related.base",
     "Home.md",
     "note/by/developer/oauth2.md",
     "Untitled.md",
@@ -262,14 +273,7 @@
     "Fleeting/2025-11-18 water & do nothing.md",
     "note/by/developer/cpp_constructor.md",
     "note/by/developer/cpp_lvalue_rvalue.md",
-    "note/by/developer/object_oriented_design_patterns.md",
-    "note/by/developer/Inverse_of_control.md",
-    "blog/by/developer/cross_component_styling_with_react_compound_pattern.md",
-    "note/by/developer/cpp_string.md",
-    "blog/by/christian/what_pickle_taught_me_about_faith.md",
-    "note/by/christian/the_water_jar_left_on_ground.md",
     "Media/Covers/FearOfDoingNothingCover.svg",
-    "blog/by/human-being/fear_of_doing_nothing.md",
     "Media/Covers/MyCatRevealedMyFaithCover.svg",
     "Media/Covers/CompoundPatternCover.svg",
     "Fleeting",
@@ -285,7 +289,6 @@
     "Media/ReactCompoundPattern",
     "note/by/christian/drafts",
     "Untitled 1",
-    "note/by/christian",
     "Untitled.canvas"
   ]
 }

@@ -6,5 +6,7 @@
   ],
   "cssTheme": "",
   "baseFontSize": 16,
-  "nativeMenus": false
+  "nativeMenus": false,
+  "showViewHeader": true,
+  "showRibbon": true
 }

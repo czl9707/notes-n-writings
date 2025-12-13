@@ -2,7 +2,7 @@
 title: Email Domain Infrastructure
 tags: [network]
 created-date: 2025-12-06T07:50:58-05:00
-last-updated-date: 2025-12-08T22:25:56-05:00
+last-updated-date: 2025-12-11T20:31:19-05:00
 ---
 
 There are multiple protocols and [DNS](note/by/developer/domain_name_server.md) setups are involved to hit the an email infrastructure working. And surprisingly, sending and receiving emails for a domain requires different set of infrastructure setup.
@@ -61,3 +61,4 @@ Whatever!
 ### IMAP
 
 **IMAP** stands for **Internet Message Access Protocol**. It allows the mail client to access and manage email messages and folders directly on the mail server. Any action taken (marking as read, moving to a folder, deleting) is immediately reflected on the server and synced to all other connected devices.
+

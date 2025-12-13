@@ -2,7 +2,7 @@
 title: Cloud Network Service
 tags: [cloud, network]
 created-date: 2025-08-22T00:00:00-04:00
-last-updated-date: 2025-08-25T00:00:00-04:00
+last-updated-date: 2025-12-11T22:52:30-05:00
 ---
 
 Different cloud providers might have different fancy names for their services, but these basic network feature share the same idea.
@@ -52,7 +52,7 @@ Peering Connection sets up a private connection between two VPCs. One peering co
 
 ## Load Balancing
 
-Same to the [Load Balancing](note/by/developer/linux_network.md#Load%20Balancing) premise world, cloud provides layer 4 and layer 7 two types of load balancing.
+Same to the [Load Balancer](note/by/developer/load_balancing.md) premise world, cloud provides layer 4 and layer 7 two types of load balancing.
 
 Different from the traditional world, load balancing can be divided into Global and Local two types:
 
@@ -71,4 +71,4 @@ Edge deploy refers to deploying the software closer to the user, not necessarily
 
 One example of exception is in [Machine Learning](note/by/developer/machine_learning_basic.md) domain, model is sometime edge deployed to physical devices. For models for self-driving cars, network latency is fatal. So have the model executed on the vehicle is a much better choice.
 
-But in most cases, web application edge deploy refers to utilizing [Content Delivery Network](note/by/developer/content_delivery_network.md) to serve resources to save request time. 
+But in most cases, web application edge deploy refers to utilizing [Content Delivery Network](note/by/developer/content_delivery_network.md) to serve resources to save request time.

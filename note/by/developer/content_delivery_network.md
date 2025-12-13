@@ -42,4 +42,4 @@ One domain can be mapped multiple IP addresses on DNS, CDN can perform load bala
 
 ## Edge Function
 
-Apart from caching, CDN can serve a some functionality closer to user as well. The `middleware` functionality a lot frontend framework provides is actually leveraging this, which is commonly used for request rejection, [redirection](note/by/developer/frontend_routing.md#Redirection), [rewrite](note/by/developer/frontend_routing.md#Rewrite) and etc. These operations are light weight and not really have to happen on the source server.
+Apart from caching, CDN can serve a some functionality closer to user as well. The `middleware` functionality a lot frontend framework provides is actually leveraging this, which is commonly used for request rejection, [redirection](note/by/developer/web_routing.md#Redirection), [rewrite](note/by/developer/web_routing.md#Rewrite) and etc. These operations are light weight and not really have to happen on the source server.

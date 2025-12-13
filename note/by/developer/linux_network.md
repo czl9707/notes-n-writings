@@ -2,7 +2,7 @@
 tags: [linux, network]
 title: Linux Network Basic
 created-date: 2025-08-16T00:00:00-04:00
-last-updated-date: 2025-08-24T00:00:00-04:00
+last-updated-date: 2025-12-11T22:50:23-05:00
 ---
 
 Historically, computer network was highly coupled to physical device. However, as of 2025, Linux and its ecosystem are able to provide every aspect of the network. Within the whole packet processing pipeline of Linux, there are several places it provides hook point for various NAT(Network Address Translation), filtering.
@@ -121,15 +121,7 @@ There are four available tables:
 
 ### Load Balancing
 
-A load balancer serves as the point of entry for a service, and directs traffic to one of N servers that can handle the request.
-
-Load balancing can happen on both [Layer 4](note/by/developer/computer_network_basic.md#Layers%20of%20Computer%20Network) and [Layer 7](note/by/developer/computer_network_basic.md#Layers%20of%20Computer%20Network), which is usually corresponding to TCP/UDP and HTTP layer. While Layer 4 load balancing has a better performance, Layer 7 load balancing has access to application specific information such as HTTP headers, which grants more flexibility.
-
-Two major consideration while performing load balancing, **Server Set** and **Flow Affinity**. Which server should the packet go to in the first place, and following packets should go to the same server. Some popular routing algorithm:
-
-- Source Hash
-- Round Robin
-- Least Connections
+Linux has full capability to act as [load balancer](note/by/developer/load_balancing.md)s.
 
 #### Using `ipvsadm` for Load Balancing
 

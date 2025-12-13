@@ -1,15 +1,15 @@
 ---
-title: Frontend Routing
+title: Web Routing
 tags: [frontend, web-dev]
 created-date: 2025-09-07T11:51:58-04:00
-last-updated-date: 2025-10-19T15:02:17-04:00
+last-updated-date: 2025-12-13T15:30:01-05:00
 ---
 
 ## Redirection
 
 Server can send a [HTTP](note/by/developer/network_protocols.md#HTTP) 302 response to redirect the client browser to visit another site. This is extremely useful when:
 
-- The content got moved to another url, and to prevent the original one become invalid, server can redirect user to new spot
+- The content got moved to another URL, and to prevent the original one become invalid, server can redirect user to new spot
 - Two step authentication, such as [OAuth2](note/by/developer/oauth2.md).
 - Error Handling or directing user to authenticate them self.
 

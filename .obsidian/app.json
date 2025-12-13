@@ -30,5 +30,6 @@
     "editor:unindent-list",
     "editor:configure-toolbar",
     "obsidian-linter:lint-file"
-  ]
+  ],
+  "showInlineTitle": true
 }
