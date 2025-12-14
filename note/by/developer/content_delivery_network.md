@@ -1,10 +1,8 @@
 ---
 title: Content Delivery Network (CDN)
-tags:
-  - cloud
-  - network
+tags: [cloud, network]
 created-date: 2025-08-24T00:00:00-04:00
-last-updated-date: 2025-10-21T23:06:19-04:00
+last-updated-date: 2025-12-13T18:58:13-05:00
 ---
 
 **Content Delivery Network (CDN)** is a geographically distributed network of servers that store cached copies of website content closer to users.
@@ -16,7 +14,7 @@ When user try access internet resource in other countries or even continents, th
 - CDN provider creates network with servers at edge and a lot of peering agreements with network providers.
 - Content provider signs up with CDN provider and specifies Origin Server.
 - Client Requests go to CND servers.
-- CDN server cannot find contents, and contacts origin server and cache the response.
+- CDN server cannot find contents, and contacts origin server and [cache](note/by/developer/caching.md) the response.
 - CDN serve cached content for subsequent accesses.
 
 ## Live Video Streaming

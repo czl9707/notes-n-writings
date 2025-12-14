@@ -2,7 +2,7 @@
 title: Domain Name Server
 tags: [network]
 created-date: 2025-12-08T18:00:58-05:00
-last-updated-date: 2025-12-08T22:35:33-05:00
+last-updated-date: 2025-12-13T18:29:35-05:00
 ---
 
 [IP](note/by/developer/network_protocols.md#IP) addresses are human un-readable, domain name is much more friendly, **DNS(Domain Name Server)** perform the domain name to IP address(es) translation. Domains are named in a hierarchical way, each segment is a layer starting from the end, and queries are processed in the similar structure. For example, to query `zane.dev.com`, the order of queries will be `com`, `dev.com`, `zane.dev.com`.
@@ -25,7 +25,8 @@ From the aspect of DNS client there are two types of query, **recursive** and **
 ### DNS Resolver
 
 **DNS Resolver**s are services standing between DNS client and Nameservers. Any query made by DNS client will hit a **DNS Resolver** first. The resolver will try its best to resolve the requested resource record, and there are several possible actions that an resolver can take:
-- If the record is already part of its cache, it return the result right away.
+
+- If the record is already part of its [cache](note/by/developer/caching.md), it return the result right away.
 - In a recursive query, it send a request to the [Root Nameserver](#Root%20Nameserver), then to a [TLD Nameserver](#TLD%20Nameserver), finally to a [Authoritative Nameserver](#Authoritative%20Nameserver). If everything went well, with the final IP address in hand, it return it to the client.
 - In a iterative query, it return the location of a nameserver closest to the requested resources per its knowledge.
 

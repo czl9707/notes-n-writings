@@ -2,7 +2,7 @@
 title: Load Balancing
 tags: [network]
 created-date: 2025-12-11T22:48:28-05:00
-last-updated-date: 2025-12-13T17:00:32-05:00
+last-updated-date: 2025-12-13T18:30:53-05:00
 ---
 
 A load balancer serves as the point of entry for a service, and directs traffic to one of N servers that can handle the request.
@@ -40,11 +40,11 @@ Extra instances of load balancers can work as backup or work together. If flow a
 
 A load balancer's main job is to distribute the requests to the server instances hiding behind it. However, taking advantage of where it stands, it can do more than just handing requests and response.
 
- - **Healthchecks**: Removing the server from the server pools if determining it is no longer healthy.
+ - **Health Checks**: Removing the server from the server pools if determining it is no longer healthy.
  - **Sticky Session**: Forwarding all requests from the same source address to the same server, if the server is not stateless.
  - **HTTPS Termination**: Decrypting requests and encrypting responses for the real servers behind instead letting them do this.
  - **Compression**: Response compression.
- - **Caching**: Caching static responses.
+ - **Caching**: [Caching](note/by/developer/caching.md) static responses.
  - **Logging & Tracing**: Tracking all requests and response for debugging purpose.
  - **Redirect & Rewrite**: Pushing [routing](note/by/developer/web_routing.md) behavior closer to user.
  - **Error Handling**: Delivering fallback error response.
