@@ -2,7 +2,7 @@
 title: Content Delivery Network (CDN)
 tags: [cloud, network]
 created-date: 2025-08-24T00:00:00-04:00
-last-updated-date: 2025-12-13T18:58:13-05:00
+last-updated-date: 2025-12-17T08:28:59-05:00
 ---
 
 **Content Delivery Network (CDN)** is a geographically distributed network of servers that store cached copies of website content closer to users.
@@ -13,9 +13,17 @@ When user try access internet resource in other countries or even continents, th
 
 - CDN provider creates network with servers at edge and a lot of peering agreements with network providers.
 - Content provider signs up with CDN provider and specifies Origin Server.
-- Client Requests go to CND servers.
-- CDN server cannot find contents, and contacts origin server and [cache](note/by/developer/caching.md) the response.
+- Client Requests go to CDN servers.
+- If CDN server cannot find contents, it forward requests to the origin server.
 - CDN serve cached content for subsequent accesses.
+
+### Push Type & Pull Type CDN
+
+There are two type of CDN in general, and the major difference is then caching strategy.
+
+**Pull Type CDN** works like an application level cache, it caches response from application. While **Push Type CDN** won't cache source server response, instead, resource owner would submit content to CDN.
+
+Therefore, low hit website usually benefits more from push type CDN, since that usually has a longer TTL.
 
 ## Live Video Streaming
 

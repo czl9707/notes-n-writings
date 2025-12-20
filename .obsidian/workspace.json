@@ -28,13 +28,13 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "note/by/developer/caching.md",
+                "file": "blog/by/christian/what_pickle_taught_me_about_faith.md",
                 "mode": "source",
                 "source": false,
                 "backlinks": false
               },
               "icon": "lucide-file",
-              "title": "caching"
+              "title": "what_pickle_taught_me_about_faith"
             }
           }
         ],
@@ -176,7 +176,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "note/by/developer/caching.md",
+                "file": "blog/by/christian/what_pickle_taught_me_about_faith.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -186,7 +186,7 @@
                 "unlinkedCollapsed": false
               },
               "icon": "links-coming-in",
-              "title": "Backlinks for caching"
+              "title": "Backlinks for what_pickle_taught_me_about_faith"
             }
           },
           {
@@ -257,11 +257,16 @@
       "workspaces:Manage workspace layouts": false
     }
   },
-  "active": "e7bae6e6897408bc",
+  "active": "30499b357a2332e7",
   "lastOpenFiles": [
+    "blog/by/christian/drafts/what_i_can_do_with_my_pride.md",
+    "note/by/christian/the_law_is_not_meant_for_itself.md",
+    "note/by/developer/proxy.md",
+    "note/by/developer/caching.md",
+    "Fleeting/2025-12-07.md",
+    "Fleeting",
     "note/by/developer/content_delivery_network.md",
     "note/by/developer/huggingface_basic.md",
-    "note/by/developer/caching.md",
     "note/by/developer/load_balancing.md",
     "note/by/developer/domain_name_server.md",
     "note/by/developer/drafts/nginx.md",
@@ -274,25 +279,20 @@
     "Clippings",
     "Related.base",
     "blog/by/developer/decorator_design_pattern.md",
-    "note/by/christian/the_law_is_not_meant_for_itself.md",
     "blog/by/developer/back_to_css_after_everything.md",
     "note/by/developer/computer_network_basic.md",
     "note/by/developer/network_protocols.md",
     "note/by/developer/container_network.md",
     "note/by/developer/anomaly_detection.md",
     "note/by/developer/email_domain_infrastructure (Conflicted copy Pixel 9 202512071153).md",
-    "Fleeting/2025-12-07.md",
     "note/by/developer/cryptography_basic.md",
     "Home.md",
     "note/by/developer/oauth2.md",
-    "Untitled.md",
     "Media/OAuth2.svg",
     "Media/OAuth2.svg",
-    "note/by/developer/variance_n_bias.md",
     "Media/Covers/FearOfDoingNothingCover.svg",
     "Media/Covers/MyCatRevealedMyFaithCover.svg",
     "Media/Covers/CompoundPatternCover.svg",
-    "Fleeting",
     "Bases/Blogs.base",
     "Bases/Notes.base",
     "Media/DecoratorPattern/InheritanceTreeComplexity.svg",
