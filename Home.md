@@ -62,13 +62,14 @@ views:
     sort:
       - property: featured
         direction: DESC
-      - property: file.name
-        direction: ASC
+      - property: file.ctime
+        direction: DESC
     limit: 4
     image: note.cover
     imageFit: ""
     imageAspectRatio: 0.6
     cardSize: 300
+
 ```
 
 ## Notes Collection
