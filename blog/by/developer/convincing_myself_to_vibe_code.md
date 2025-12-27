@@ -2,12 +2,10 @@
 title: Convincing Myself to "Vibe Code"
 description: To vibe or not to vibe, that's the question. Draw the line between throwaway AI vibe coded prototypes and sustainable software engineering without losing your edge.
 cover: Media/Covers/ConvincingMeVibeCodingCover.svg
-tags:
-  - ai
-  - machine-learning
+tags: [ai, machine-learning]
 featured: true
 created-date: 2025-12-23T12:05:52-05:00
-last-updated-date: 2025-12-26T21:28:52-05:00
+last-updated-date: 2025-12-26T21:56:45-05:00
 ---
 
 For a long time, I held a firm line: **I would never give AI a task I didn't already know how to accomplish myself.** I viewed myself as the final gatekeeper of logic, the one who understood every gear and spring in the machine. If I didn't understand the "how," I couldn't own the "why."
@@ -25,7 +23,6 @@ It was far from perfect, ugly UI and brittle logic. **But it worked.** I used to
 Before this, I found that AI seldom had enough intelligence to help me fix a nuanced bug or upgrade a specific package. Naturally, I thought:
 
 > "If you aren't able to even fix a bug, how can you build an app for me?"
-
 
 This mindset held me back for a long while. After the astonishing moment in my living room, and discovering this a bit, this helped me categorize where AI actually excels.
 
@@ -59,10 +56,9 @@ Vibe-coded projects are doomed to be short-lived, having a destiny of death. The
 
 A big proportion of this group of users are PMs and designers, they get a tool for them to verify ideas in a shorter time frame, which have nothing to do with engineers. To some extent, this reduces the amount of "thrown away" engineer work we have to do.
 
-
 ## Defining Software Engineering
 
-**Software Engineering is more than just kickstarting applications; the vast majority of the job is maintaining them.** This is not something new I learnt, but re-visiting this helped  me regain my confidence. If AI handles the "start," the engineer’s value shifts toward **sustainability.** Engineering is about refactoring the "vibe" into a maintainable form. It’s about designing systems that can survive the second year, not just the first weekend.
+**Software Engineering is more than just kickstarting applications; the vast majority of the job is maintaining them.** This is not something new I learnt, but re-visiting this helped me regain my confidence. If AI handles the "start," the engineer’s value shifts toward **sustainability.** Engineering is about refactoring the "vibe" into a maintainable form. It’s about designing systems that can survive the second year, not just the first weekend.
 
 ## Drawing the Line
 
