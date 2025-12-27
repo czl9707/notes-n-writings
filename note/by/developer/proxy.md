@@ -2,10 +2,10 @@
 title: Proxy
 tags: [network]
 created-date: 2025-12-18T08:23:38-05:00
-last-updated-date: 2025-12-18T08:51:14-05:00
+last-updated-date: 2025-12-18T08:55:36-05:00
 ---
 
-A proxy server is a piece of software sitting between the client and the backend server. It is conceptually very close to [Proxy Pattern](note/by/developer/object_oriented_design_patterns.md#Proxy) in design patterns, if only caring about the job it is doing. 
+A proxy server is a piece of software sitting between the client and the backend server. It is conceptually very close to [Proxy Pattern](note/by/developer/object_oriented_design_patterns.md#Proxy) in design patterns, if only caring about the job it is doing.
 
 Depending who it is servering for, proxy can be classified as:
 
@@ -14,11 +14,13 @@ Depending who it is servering for, proxy can be classified as:
 
 ## Forward Proxy
 
-A forward proxy is a piece of software that sits in front of a zone of client machines. When they make requests to external of the zone, the proxy intercepts those requests and then communicates with web servers on behalf of them. 
+A forward proxy is a piece of software that sits in front of a zone of client machines. When they make requests to external of the zone, the proxy intercepts those requests and then communicates with web servers on behalf of them.
 
-During the process of intercepting, it
+During the process of intercepting, it can block some external resources, keep track of network usage, hide internal IP address and etc.
 
 ## Reverse Proxy
+
+A reverse proxy is a piece of software that sits in front of one or more servers, intercepting requests from clients.
 
 ### Reverse Proxy & Load Balancer
 

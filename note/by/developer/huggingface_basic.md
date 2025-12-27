@@ -2,7 +2,7 @@
 title: Huggingface
 tags: [huggingface, machine-learning]
 created-date: 2025-08-26T00:00:00-04:00
-last-updated-date: 2025-09-28T12:32:43-04:00
+last-updated-date: 2025-12-21T21:59:23-05:00
 ---
 
 [HuggingFace](https://huggingface.co/) is a set of libraries providing high level abstraction on top of libraries like [Pytorch](). Different from Pytorch, Huggingface focuses on [Transformer](note/by/developer/transformer.md) model rather than general purposed machine learning jobs. Same as Transformer, Huggingface is not limited to language tasks, but can also extend to image, audio and even multi-modal tasks.
@@ -30,7 +30,7 @@ Tokenizer interface provides different API for different step of tokenization. T
 
 ## Model
 
-Model class shares a lot from [Tokenizer](#Tokenizer) from the API aspects. It also allows load from remote and local, and `AutoModel` guesses the underneath type of implemention as well.
+Model class shares a lot from [Tokenizer](#Tokenizer) from the API aspects. It also allows load from remote and local, and `AutoModel` guesses the underneath type of implementation as well.
 
 The model API provides something can help Inference Head as well. Taking `BertModel` as an example, there are multiple predefined variance for different types of tasks, such as `BertForSequenceClassification`, `BertForMaskedLM` and etc. These predefined model architecture is built with best practices and also sharable by default.
 
