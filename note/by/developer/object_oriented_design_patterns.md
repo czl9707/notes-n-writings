@@ -1,8 +1,9 @@
 ---
 title: Object Oriented Design Patterns
-tags: [design-pattern]
+tags:
+  - design-pattern
 created-date: 2025-11-10T19:55:51-05:00
-last-updated-date: 2025-11-28T13:08:48-05:00
+last-updated-date: 2025-12-28T20:15:54-05:00
 ---
 
 Note: Design pattern is building block of building applications. The key is identifying common problems, and using standard method to solve them.

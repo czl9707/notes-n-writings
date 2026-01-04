@@ -1,8 +1,11 @@
 ---
 title: Generative Pre-trained Transformer (GPT)
-tags: [machine-learning]
+tags:
+  - machine-learning
 created-date: 2025-09-08T20:49:01-04:00
-last-updated-date: 2025-10-21T23:07:08-04:00
+last-updated-date: 2025-12-28T20:14:29-05:00
+aliases:
+  - GPT
 ---
 
 ## GPT-2

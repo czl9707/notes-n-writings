@@ -3,7 +3,10 @@ title: Natural Language Processing (NLP)
 tags:
   - machine-learning
 created-date: 2025-08-26T00:00:00-04:00
-last-updated-date: 2025-10-21T23:07:47-04:00
+last-updated-date: 2025-12-28T20:15:22-05:00
+aliases:
+  - NLP
+  - Natural Language Processing
 ---
 
 ## Language Tasks

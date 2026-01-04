@@ -1,8 +1,12 @@
 ---
 title: Huggingface
-tags: [huggingface, machine-learning]
+tags:
+  - huggingface
+  - machine-learning
 created-date: 2025-08-26T00:00:00-04:00
-last-updated-date: 2025-12-21T21:59:23-05:00
+last-updated-date: 2025-12-28T20:14:38-05:00
+aliases:
+  - Huggingface
 ---
 
 [HuggingFace](https://huggingface.co/) is a set of libraries providing high level abstraction on top of libraries like [Pytorch](). Different from Pytorch, Huggingface focuses on [Transformer](note/by/developer/transformer.md) model rather than general purposed machine learning jobs. Same as Transformer, Huggingface is not limited to language tasks, but can also extend to image, audio and even multi-modal tasks.

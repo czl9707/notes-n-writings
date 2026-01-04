@@ -1,8 +1,12 @@
 ---
 title: Load Balancing
-tags: [network]
+tags:
+  - network
 created-date: 2025-12-11T22:48:28-05:00
-last-updated-date: 2025-12-13T18:30:53-05:00
+last-updated-date: 2025-12-28T20:15:01-05:00
+aliases:
+  - Load Balancing
+  - LB
 ---
 
 A load balancer serves as the point of entry for a service, and directs traffic to one of N servers that can handle the request.

@@ -1,8 +1,11 @@
 ---
 title: Domain Name Server
-tags: [network]
+tags:
+  - network
 created-date: 2025-12-08T18:00:58-05:00
-last-updated-date: 2025-12-13T18:29:35-05:00
+last-updated-date: 2025-12-28T20:14:09-05:00
+aliases:
+  - DNS
 ---
 
 [IP](note/by/developer/network_protocols.md#IP) addresses are human un-readable, domain name is much more friendly, **DNS(Domain Name Server)** perform the domain name to IP address(es) translation. Domains are named in a hierarchical way, each segment is a layer starting from the end, and queries are processed in the similar structure. For example, to query `zane.dev.com`, the order of queries will be `com`, `dev.com`, `zane.dev.com`.

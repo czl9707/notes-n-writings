@@ -2,7 +2,8 @@
 title: Cross-Origin Resource Sharing (CORS)
 tags: [network, web-dev]
 created-date: 2025-10-19T12:29:43-04:00
-last-updated-date: 2025-11-04T22:38:04-05:00
+last-updated-date: 2025-12-28T20:12:50-05:00
+aliases: [CORS]
 ---
 
 **Cross Origin Resource Sharing (CORS)** is a mechanism browser use to help improve the user's security during [HTTP](note/by/developer/network_protocols.md#HTTP) communication. The majority implementation is on standard browser, while the backend server need to provide several headers.

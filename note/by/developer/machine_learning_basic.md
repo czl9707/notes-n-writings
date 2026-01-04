@@ -1,8 +1,9 @@
 ---
 tags: [machine-learning]
-title: Machine Learning Basic
+title: Machine Learning
 created-date: 2025-08-02T00:00:00-04:00
-last-updated-date: 2025-09-27T12:53:01-04:00
+last-updated-date: 2025-12-28T20:24:12-05:00
+aliases: [ML]
 ---
 
 ## Concepts

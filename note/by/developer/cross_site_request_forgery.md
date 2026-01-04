@@ -2,7 +2,8 @@
 title: Cross-Site Request Forgery (CSRF)
 tags: [network, web-dev]
 created-date: 2025-10-19T14:44:56-04:00
-last-updated-date: 2025-11-03T22:32:43-05:00
+last-updated-date: 2025-12-28T20:12:59-05:00
+aliases: [CSRF]
 ---
 
 Browser persist cookies information in cross-site browsing context. Meaning leaving one site and re-entering, the cookies information is persisted and send with [HTTP](note/by/developer/network_protocols.md#HTTP) request to provide a better user experience, users don't need to re-login.

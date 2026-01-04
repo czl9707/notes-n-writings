@@ -1,8 +1,11 @@
 ---
-tags: [machine-learning]
+tags:
+  - machine-learning
 title: Regression Model
 created-date: 2025-08-03T00:00:00-04:00
-last-updated-date: 2025-09-13T22:00:03-04:00
+last-updated-date: 2025-12-28T20:16:24-05:00
+aliases:
+  - Regression
 ---
 
 ## Linear Regression

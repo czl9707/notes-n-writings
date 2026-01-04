@@ -3,7 +3,9 @@ title: Support Vector Machine (SVM)
 tags:
   - machine-learning
 created-date: 2025-09-17T20:17:58-04:00
-last-updated-date: 2025-10-21T23:06:09-04:00
+last-updated-date: 2025-12-28T20:16:31-05:00
+aliases:
+  - SVM
 ---
 
 **Support Vector Machine (SVM)** is similar to [Logistic Regression](note/by/developer/classifcation_model.md#Logistic%20Regression) to some extents. They both trying to find the decision boundary between two or more groups of training samples. SVM is explicitly looking for a hyper plane in feature space to split training samples.

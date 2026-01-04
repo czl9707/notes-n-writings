@@ -1,8 +1,11 @@
 ---
 title: Principle Component Analysis (PCA)
-tags: [machine-learning]
+tags:
+  - machine-learning
 created-date: 2025-09-21T21:14:52-04:00
-last-updated-date: 2025-09-22T20:56:18-04:00
+last-updated-date: 2025-12-28T20:16:00-05:00
+aliases:
+  - PCA
 ---
 
 **Principle Component Analysis (PCA)** is a technique to reduce feature dimensions, and are commonly applied when it comes to [clustering](note/by/developer/clustering.md) task and models like [SVM](note/by/developer/support_vector_machine.md).

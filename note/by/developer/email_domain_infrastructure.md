@@ -1,8 +1,11 @@
 ---
 title: Email Domain Infrastructure
-tags: [network]
+tags:
+  - network
 created-date: 2025-12-06T07:50:58-05:00
-last-updated-date: 2025-12-11T20:31:19-05:00
+last-updated-date: 2025-12-28T20:14:18-05:00
+aliases:
+  - Email Infrastructure
 ---
 
 There are multiple protocols and [DNS](note/by/developer/domain_name_server.md) setups are involved to hit the an email infrastructure working. And surprisingly, sending and receiving emails for a domain requires different set of infrastructure setup.

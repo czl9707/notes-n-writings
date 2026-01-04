@@ -1,8 +1,11 @@
 ---
 title: BART
-tags: [machine-learning]
+tags:
+  - machine-learning
 created-date: 2025-09-08T23:34:36-04:00
-last-updated-date: 2025-09-09T12:01:35-04:00
+last-updated-date: 2025-12-28T20:10:05-05:00
+aliases:
+  - BART
 ---
 
 ## BART

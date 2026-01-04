@@ -1,8 +1,11 @@
 ---
-tags: [machine-learning]
+tags:
+  - machine-learning
 title: Decision Tree
 created-date: 2025-08-03T00:00:00-04:00
-last-updated-date: 2025-09-16T20:39:56-04:00
+last-updated-date: 2025-12-28T20:13:33-05:00
+aliases:
+  - Decision Tree
 ---
 
 ## Basic Concept

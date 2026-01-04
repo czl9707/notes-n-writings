@@ -2,10 +2,10 @@
 title: Caching
 tags: [system-design]
 created-date: 2025-12-13T18:26:12-05:00
-last-updated-date: 2025-12-13T23:06:11-05:00
+last-updated-date: 2025-12-28T19:24:20-05:00
 ---
 
-Cache is an extremely simple concept, which literally just keep part of data handy for faster retrieval. Therefore, cache usually keep subset of data in a faster storage from the slower storage.
+Cache is an extremely simple concept, which literally just keep part of data handy for faster retrieval. Therefore, cache usually keep subset of data in a faster storage from the slower storage, in context of system design, the lowest level of storage usually refers to [database](note/by/developer/database_basic.md).
 
 Cache is everywhere, a lot of computing infrastructures utilize caching mechanism, such as [CDN](note/by/developer/content_delivery_network.md), [DNS](note/by/developer/domain_name_server.md) and etc. It even exist in hardware, in CPU, RAM and etc.
 

@@ -1,8 +1,9 @@
 ---
-title: Database Basic
+title: Database
 tags: [database]
 created-date: 2025-12-21T22:17:42-05:00
-last-updated-date: 2025-12-24T13:16:35-05:00
+last-updated-date: 2026-01-04T13:11:00-05:00
+aliases: [Database]
 ---
 
 Data can be kept on disk or memory with ease, but accessing data efficiently require data stored is organized. And **DBMS(Database Management System)** are designed to access data stored on disk (or in memory) efficiently, serving as an interface between the underlying data and end-users or programs.
@@ -13,14 +14,12 @@ A **SQL (relational) database** is a collection of data entries with predefined 
 
 **NoSQL database** is a broader concept, which literally means any database not belonging to SQL.
 
-%% TODO description and examples %%
-
-- Relational Database (SQL)
-- Document Database
-- Key-Value Database
-- Column Database
-- Graph Database
-- Vector Database
+- **Relational Database (SQL)**: Organizes data into tables with rows and columns, using SQL for data definition and manipulation. Examples include **MySQL**, **PostgreSQL**, and **SqlServer**.
+- **Document Database**: General-purpose databases that serve a variety of use cases for both transactional and analytical applications. For example, **MongoDB** storing data as JSON documents.
+- **Key-Value Database**: A simple database that stores data as a collection of key-value pairs, where each key is unique and maps to a specific value. Examples include **Redis** and **Amazon DynamoDB**.
+- **Column Database**: Stores data in columns rather than rows, which can be highly efficient for analytical queries and data warehousing. Examples include Apache Cassandra and Google Bigtable.
+- **Graph Database**: Uses graph structures with nodes, edges, and properties to represent and store data, ideal for highly interconnected data. Examples include **Neo4j**.
+- **Vector Database**: Designed to store, manage, and search high-dimensional vector embeddings, often used in AI applications for [semantic search](note/by/developer/natural_language_processing.md#Language%20Tasks) or [RAG](note/by/developer/drafts/retrieval_augmented_generation.md). Examples include **Pinecone** and **Weaviate**.
 
 ## ACID Principle
 

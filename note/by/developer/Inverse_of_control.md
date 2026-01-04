@@ -1,8 +1,11 @@
 ---
 title: Inverse of Control
-tags: [design-pattern]
+tags:
+  - design-pattern
 created-date: 2025-09-11T17:29:35-04:00
-last-updated-date: 2025-11-28T13:08:15-05:00
+last-updated-date: 2025-12-28T20:14:45-05:00
+aliases:
+  - IOC
 ---
 
 **Inverse of Control** is a design principal of managing code dependencies. It stands on the opposite side of traditional control, where the constructor of dependencies are called by developer in code directly. Inverse of Control suggest letting framework or container to manage the lifecycle of dependencies.

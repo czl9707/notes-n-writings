@@ -1,8 +1,11 @@
 ---
 title: BERT
-tags: [machine-learning]
+tags:
+  - machine-learning
 created-date: 2025-09-08T22:05:07-04:00
-last-updated-date: 2025-09-08T23:21:59-04:00
+last-updated-date: 2025-12-28T20:10:13-05:00
+aliases:
+  - BERT
 ---
 
 ## BERT

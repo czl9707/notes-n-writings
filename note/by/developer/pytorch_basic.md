@@ -1,8 +1,9 @@
 ---
-title: Pytorch Basic
-tags: [machine-learning]
+title: Pytorch
+tags:
+  - machine-learning
 created-date: 2025-09-24T17:45:25-04:00
-last-updated-date: 2025-10-11T16:37:24-04:00
+last-updated-date: 2025-12-28T20:21:34-05:00
 ---
 
 ## Tensor
