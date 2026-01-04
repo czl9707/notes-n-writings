@@ -2,7 +2,7 @@
 title: Database Index
 tags: [database]
 created-date: 2025-12-29T08:17:36-05:00
-last-updated-date: 2026-01-04T13:10:29-05:00
+last-updated-date: 2026-01-04T15:38:35-05:00
 aliases: [Index]
 ---
 
@@ -26,8 +26,10 @@ Note for each index created, the index should be kept up-to-date during write op
 
 Modern databases almost always use **B+ Trees**, not the original **B Trees**. The primary difference is where the data (values) is stored:
 
-- **B-Trees:** Store both **keys and values** (data pointers) in every node (root, internal, and leaf). This "wastes" space in the routing nodes, meaning fewer keys fit per page and the tree grows deeper.
+- **B-Trees:** Store both **keys and values** in every node (root, internal, and leaf). This "wastes" space in the routing nodes, meaning fewer keys fit per page and the tree grows deeper.
 - **B+ Trees:** Store values/pointers **only in the leaf nodes**. The internal nodes store only keys and act as "guide posts" to route the search.
+
+![BTree](Media/BTree.svg)
 
 B+ Trees offers several benefits over B Tree:
 
