@@ -1,9 +1,12 @@
 ---
 title: Database
-tags: [database]
+tags:
+  - database
+  - system-design
 created-date: 2025-12-21T22:17:42-05:00
-last-updated-date: 2026-01-04T13:11:00-05:00
-aliases: [Database]
+last-updated-date: 2026-01-05T16:12:41-05:00
+aliases:
+  - Database
 ---
 
 Data can be kept on disk or memory with ease, but accessing data efficiently require data stored is organized. And **DBMS(Database Management System)** are designed to access data stored on disk (or in memory) efficiently, serving as an interface between the underlying data and end-users or programs.
