@@ -1,10 +1,9 @@
 ---
 title: Huggingface
 tags:
-  - huggingface
   - machine-learning
 created-date: 2025-08-26T00:00:00-04:00
-last-updated-date: 2025-12-28T20:14:38-05:00
+last-updated-date: 2026-01-14T18:05:29-05:00
 aliases:
   - Huggingface
 ---
