@@ -2,7 +2,7 @@
 title: Consistent Hashing
 tags: [algorithm, system-design]
 created-date: 2025-08-25T00:00:00-04:00
-last-updated-date: 2025-12-28T20:12:14-05:00
+last-updated-date: 2026-01-15T23:09:45-05:00
 aliases: [Consistent Hashing]
 ---
 
@@ -19,6 +19,7 @@ Note, the type of hashing function we are discussing here means fitting the key 
 
 **Consistent Hashing** see the entire key set as a circular linked list, with the head connected to the tail. The key space is chunked into `n` pieces evenly (in expectation), where `n` is the current number of buckets. Each bucket would be assigned to a node.
 
+%%TODO diagramming%%
 ## Failure Tolerance & Scalability
 
 If the node the bucket belongs to goes down, the bucket merge into its successor on the [Hash Ring](#Hash%20Ring). The mechanism avoids rehashing the entire key space.
