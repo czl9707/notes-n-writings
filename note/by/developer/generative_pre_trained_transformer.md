@@ -1,16 +1,16 @@
 ---
 title: Generative Pre-trained Transformer (GPT)
-tags:
-  - machine-learning
+tags: [machine-learning]
 created-date: 2025-09-08T20:49:01-04:00
-last-updated-date: 2025-12-28T20:14:29-05:00
-aliases:
-  - GPT
+last-updated-date: 2026-01-27T22:46:57-05:00
+aliases: [GPT]
 ---
 
 ## GPT-2
 
-GPT-2 is a decoder-only model, with good capability on text generation tasks.
+GPT-2 is a decoder-only auto-regressive model, with good capability on text generation tasks.
+
+*Note: auto-regressive means the recurrent model use the output as the input of next iteration.*
 
 - GPT-2 uses [BPE](note/by/developer/tokenization.md#Byte%20Pair%20Encoding) to tokenize words into word tokens.
 	- `"playing" => ["play", "ing"]`
@@ -20,7 +20,7 @@ GPT-2 is a decoder-only model, with good capability on text generation tasks.
 - The positional encoding are added, which indicate the position of each token.
 - The embeddings are passed through multiple decoder blocks to derive the final hidden state.
 	- Each decoder block contains:
-		- Masked multi-head [self-attention layer](note/by/developer/drafts/self_attention_mechanism.md) with future token masked
+		- Masked multi-head [self-attention layer](note/by/developer/drafts/attention_mechanism.md) with future token masked
 		- Skip Connection and Sum Layer
 		- Layer Normalization
 		- Feed-Forward Layer

@@ -2,7 +2,7 @@
 title: Network Security
 tags: [network]
 created-date: 2025-08-17T00:00:00-04:00
-last-updated-date: 2025-08-18T00:00:00-04:00
+last-updated-date: 2026-01-18T11:59:19-05:00
 ---
 
 ## Message Integrity
@@ -44,6 +44,12 @@ Taking advantage of both [Symmetric & Asymmetric Encryption](note/by/developer/c
 - Server Hello Done, indicating it is done with TLS handshake.
 - Client Key Exchange, Use the public key sent by server to encrypt the session key, and send that to server.
 - Client Cipher Spec: Exchange the cipher parameters it agreed upon again. All message following will be encrypted using the session key exchanged before.
+
+#### mTLS
+
+There are cases that not only server to be certified, clients are required to be certified as well.
+
+So, **Mutual TLS**, or mTLS, is a method for mutual authentication. mTLS ensures that the parties at each end of a network connection are who they claim to be by verifying that they both have the correct private key.
 
 ### IPsec
 

@@ -18,7 +18,7 @@ aliases:
 	- At the end of encoder, **BERT** pass it to a feed-forward layer for prediction, while **BART** pass that over to decoder.
 - The encoder output then got passed to each decoder block. And similar to [GPT](note/by/developer/generative_pre_trained_transformer.md), the previous sequence are passed to the decoder as input as well.
 	- Each decoder block includes:
-		- Masked multi-head [self-attention layer](note/by/developer/drafts/self_attention_mechanism.md) with future token masked (only previous sequence are passed to)
+		- Masked multi-head [self-attention layer](note/by/developer/drafts/attention_mechanism.md) with future token masked (only previous sequence are passed to)
 		- Skip Connection and Sum Layer
 		- Layer Normalization
 		- Cross-attention layer accept input from both sides.

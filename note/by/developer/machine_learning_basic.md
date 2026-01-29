@@ -2,7 +2,7 @@
 tags: [machine-learning]
 title: Machine Learning
 created-date: 2025-08-02T00:00:00-04:00
-last-updated-date: 2025-12-28T20:24:12-05:00
+last-updated-date: 2026-01-25T10:32:41-05:00
 aliases: [ML]
 ---
 
@@ -42,6 +42,7 @@ Example:
 		- Alternative to Sigmoid
 	- **Relu** $A = \max(0,x)$
 		- Default choice
+	- **Leaky Relu** $A=max(0.01x, x)$
 	- **Softmax**: $A(z_i) = \frac{e^{z_i}}{\sum^{K}_{j=1} e^{z_j}}$
 		- Multi-class Classification
 
@@ -69,6 +70,7 @@ Example:
 - [Transformer](note/by/developer/transformer.md)
 - [Convolutional Neural Network](note/by/developer/convolutional_neural_network.md)
 - [Recurrent Neural Network](note/by/developer/recurrent_neural_network.md)
+- [GAN](note/by/developer/generative_adversarial_networks.md)
 
 ## Unsupervised Learning
 

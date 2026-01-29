@@ -2,7 +2,7 @@
 tags: [machine-learning]
 title: Convolutional Neural Network (CNN)
 created-date: 2025-08-07T00:00:00-04:00
-last-updated-date: 2025-12-28T20:12:40-05:00
+last-updated-date: 2026-01-27T21:54:11-05:00
 aliases: [CNN]
 ---
 
@@ -33,6 +33,14 @@ Convolution Layer with different size $n$ value focus on different aspect, in ge
 ### Transpose Convolution Layer
 
 **Transpose Convolution Layer** behave in an opposite way of how [Convolution Layer](#Convolution%20Layer) works. It take one value from the input and multiply with the filter, and repeat this for every cell, and overlay all them with some overlapping, and getting an output with size bigger than the input.
+
+### Encoder & Decoder
+
+Encoder anr Decoder architecture is not limited to CNN, [transformer](note/by/developer/transformer.md) also have similar structure, but the idea was initially brought up in this domain.
+
+The essential idea is that the model contains Encoder and Decoder. Encoder transform the input into some latent expression, usually much more compressive than raw input. While Decoder transform the latent expression into some type of output.
+
+One special type is called auto endcoder-decoder, which refers that the Decoder's task is reconstructing the original input from the latent expression.
 
 ## Image Tasks
 
@@ -83,6 +91,7 @@ It logically chunks the image into $n$ small segment, but still requires passing
 ### U-Net
 
 **U-Net** is an implementation of **Image Segmentation**. The model has two main parts, then Contracting Path and Expanding Path.
+
 - The Contracting Path repeats blocks of `Convolution → ReLU → Convolution → ReLU → MaxPooling`, each block half the feature size, and double the channel number.
 - The Expanding Path repeats blocks of `Convolution → ReLU → Convolution → ReLU → Transpose Convolution`, each block double the feature size, and half the channel number.
 - The feature size of the nth Contracting Path layer would be the same as the last nth Expanding Path, we add a skip connection between them.
