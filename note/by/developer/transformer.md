@@ -7,7 +7,7 @@ last-updated-date: 2025-09-28T09:49:26-04:00
 
 **Transformer** was introduced as a machine learning architecture back in 2017[^1], with the primary focus on [Translation Task](note/by/developer/natural_language_processing.md#Language%20Tasks). And the architecture turned out to perform really well even in the space out of translation tasks.
 
-One key innovation feature about transformer is [Self-Attention Mechanism](note/by/developer/drafts/attention_mechanism.md), which take the traditional [Attention Layer](note/by/developer/recurrent_neural_network.md#Attention%20Layer) to the next level.
+One key innovation feature about transformer is [Self-Attention Mechanism](note/by/developer/attention_mechanism.md), which take the traditional [Attention Layer](note/by/developer/recurrent_neural_network.md#Attention%20Layer) to the next level.
 
 ## Architecture
 

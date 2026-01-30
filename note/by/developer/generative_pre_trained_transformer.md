@@ -20,7 +20,7 @@ GPT-2 is a decoder-only auto-regressive model, with good capability on text gene
 - The positional encoding are added, which indicate the position of each token.
 - The embeddings are passed through multiple decoder blocks to derive the final hidden state.
 	- Each decoder block contains:
-		- Masked multi-head [self-attention layer](note/by/developer/drafts/attention_mechanism.md) with future token masked
+		- Masked multi-head [self-attention layer](note/by/developer/attention_mechanism.md) with future token masked
 		- Skip Connection and Sum Layer
 		- Layer Normalization
 		- Feed-Forward Layer

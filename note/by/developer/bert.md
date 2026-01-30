@@ -25,7 +25,7 @@ aliases:
 - The input embeddings are passed through multiple encoder layers to output some final hidden states.
 	- The final hidden states will have similar structure as input tokens, one embedding vector mapped to one token.
 	- Each encoder block contains:
-		- Multi-Head [self-attention layer](note/by/developer/drafts/attention_mechanism.md).
+		- Multi-Head [self-attention layer](note/by/developer/attention_mechanism.md).
 		- Skip Connection and Sum Layer
 		- Layer Normalization
 		- Feed-Forward Layer
