@@ -1,13 +1,13 @@
 ---
 title: "Beyond the Buzzwords: Context, Prompts, and Tools"
 description: Stop memorizing new terminology every time a new tool launches. Understand how agents manage context, use prompts, and call tools, and everything else starts making sense.
-cover: Media/Covers/BeyondBuzzWordCover.svg
+cover: media/covers/beyond-buzz-word-cover.svg
 tags:
   - agent
   - ai
 featured: true
 created-date: 2026-01-09T22:03:16-05:00
-last-updated-date: 2026-02-12T19:31:13-05:00
+last-updated-date: 2026-03-15T23:06:32-04:00
 ---
 
 Wake up in 2026, open a coding assistant, and you're jumping into a terminology soup: *Agents, Subagents, Prompts, Contexts, Memory, Modes, Permissions, Tools, Plugins, Skills, Hooks, MCP, LSP, Slash Commands, Workflows, Instructions and etc.*
@@ -45,7 +45,7 @@ Before MCP, each tool implementation added maintenance burden to the developer t
 
 With MCP, the transport layer and tool spec are standardized. MCP server implementations become way more reusable, making the entire ecosystem plug-and-play.
 
-## Prompts
+## Prompts: More than Just Talk
 
 When you talk directly to an LLM, you're giving it a user prompt. System prompts work differently. User prompts tell the agent what you want. System prompts tell the agent how to behave.
 
@@ -53,7 +53,7 @@ There are many fancy terms for system prompts, but they're all about shaping how
 
 ### Base Instructions
 
-Base instructions load when the session starts. These set the ground rules: what tools are available, what constraints exist, what background knowledge applies. Files like `CLAUDE.md` or `Agents.md` typically contain these. They're the foundation that everything else builds on. They can be global or per project.
+Base instructions load when the session starts. These set the ground rules: what tools are available, what constraints exist, what background knowledge applies. Files like `CLAUDE.md` or `AGENTS.md` typically contain these. They're the foundation that everything else builds on. They can be global or per project.
 
 ### Skills
 
@@ -63,7 +63,7 @@ Skills load only when needed. A skill usually contains:
 - Description: a short piece of text used by the LLM to decide when to load the entire content
 - Body: detailed instructions
 
-A debugging skill won't activate until you ask to debug something. A refactoring skill stays dormant until you mention refactoring. This lazy loading matters—it saves context by not loading domain expertise until it's actually needed.
+A debugging skill won't activate until you ask to debug something. A refactoring skill stays dormant until you mention refactoring. This lazy loading matters, it saves context by not loading domain expertise until it's actually needed.
 
 ### Commands
 

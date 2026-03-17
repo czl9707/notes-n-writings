@@ -1,11 +1,11 @@
 ---
 created-date: 2025-08-31T21:53:04-04:00
-last-updated-date: 2025-12-20T15:18:25-05:00
+last-updated-date: 2026-03-15T23:05:21-04:00
 title: What My Cat Taught Me About Faith?
 tags:
   - faith
 description: A reflection drawing parallels between the our relationship our my cat and our relationship with God.
-cover: Media/Covers/MyCatRevealedMyFaithCover.svg
+cover: media/covers/my-cat-revealed-my-faith-cover.svg
 featured: false
 ---
 

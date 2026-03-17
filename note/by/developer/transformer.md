@@ -16,7 +16,7 @@ The initial Transformer model architecture consist of two parts, [Encoder](#Enco
 - **Encoder** takes all raw input tokens at once, and turn them into a vector representation.
 - **Decoder** takes the output of encoder to generate output tokens. The decoder output one token in each passing through, and the token will be added to the input sequence along with output of Encoder, to predict the next output token.
 
-![Transformer](Media/TransformerArchitecture.svg)
+![Transformer](media/transformer-architecture.svg)
 
 To speed up training, the decoder is fed with the entire target sequence, shifted by one position, with a mask on top of it. So the training is not recurrent as in inference, but parallelized across all token positions. Meaning at each token position, the decoder use encoder output along with its own output calculated using previous target token sequence, to predict the next token.
 

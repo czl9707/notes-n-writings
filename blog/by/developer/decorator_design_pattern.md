@@ -1,11 +1,13 @@
 ---
 title: "Code like an Onion: The Decorator Pattern"
 description: An introduction to the Decorator Design Pattern, which helps manage cross-cutting concerns by wrapping your core functionality like an onion🧅.
-cover: Media/Covers/DecoratorPatternCover.svg
-tags: [design-pattern, python]
+cover: media/covers/decorator-pattern-cover.svg
+tags:
+  - design-pattern
+  - python
 featured: false
 created-date: 2025-07-05T00:00:00-04:00
-last-updated-date: 2025-11-10T20:13:42-05:00
+last-updated-date: 2026-03-15T23:07:40-04:00
 ---
 
 When cutting an onion, the knife slices through layer after layer, and finally reaches its core. The [Decorator Pattern](note/by/developer/object_oriented_design_patterns.md#Decorator%20Pattern) provides us a way of writing code just like cutting through an onion, not in the way of tearing 😢.
@@ -14,7 +16,7 @@ When cutting an onion, the knife slices through layer after layer, and finally r
 
 Defining a base class and having child classes implement their own specific behavior is one of the basic ideas we learn when first learning OOP. As we implement more child classes, we tend to extract common pieces into their parent class. This seems elegant at first, but it often evolves into a complex inheritance tree, which requires a steep learning curve to understand and potentially leads to code duplication.
 
-![Inheritance Tree Evolution](Media/DecoratorPattern/InheritanceTreeComplexity.svg)
+![Inheritance Tree Evolution](media/decorator-pattern/inheritance-tree-complexity.svg)
 
 ## What is Decorator Pattern?
 

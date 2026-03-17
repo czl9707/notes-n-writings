@@ -29,7 +29,7 @@ Modern databases almost always use **B+ Trees**, not the original **B Trees**. T
 - **B-Trees:** Store both **keys and values** (data pointers) in every node (root, internal, and leaf). This "wastes" space in the routing nodes, meaning fewer keys fit per page and the tree grows deeper.
 - **B+ Trees:** Store values/pointers **only in the leaf nodes**. The internal nodes store only keys and act as "guide posts" to route the search.
 
-![B+ Tree](Media/BTree.svg)
+![B+ Tree](media/btree.svg)
 
 B+ Trees offers several benefits over B Tree:
 

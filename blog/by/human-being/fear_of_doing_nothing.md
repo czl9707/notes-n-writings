@@ -1,11 +1,12 @@
 ---
 title: Fear of Doing Nothing
 description: Productivity as avoidance. Fear of stillness. An unintentional break revealed my distorted pace of living.
-cover: Media/Covers/FearOfDoingNothingCover.svg
-tags: [life]
+cover: media/covers/fear-of-doing-nothing-cover.svg
+tags:
+  - life
 featured: true
 created-date: 2025-11-19T01:00:00-05:00
-last-updated-date: 2025-11-28T10:48:40-05:00
+last-updated-date: 2026-03-15T23:08:31-04:00
 ---
 
 2025 has been a year where I accomplished quite a few things:

@@ -1,11 +1,14 @@
 ---
 title: "Breaking Down React Components: From Monolithic to Compound Pattern"
 description: Struggling with monolithic React components? Break it into small pieces and embrace the compound pattern to achieve intuitive composition and unlimited customization.
-cover: Media/Covers/CompoundPatternCover.svg
-tags: [design-pattern, react, web-dev]
+cover: media/covers/compound-pattern-cover.svg
+tags:
+  - design-pattern
+  - react
+  - web-dev
 featured: false
 created-date: 2025-04-07T00:00:00-04:00
-last-updated-date: 2025-10-19T15:02:07-04:00
+last-updated-date: 2026-03-15T23:07:52-04:00
 ---
 
 React give us the powerful capability to manage states within component, and encapsulating state is generally considered a best practice. However, in real-world applications, it is more than often that UI features require multiple interconnected pieces to function properly.
@@ -46,7 +49,7 @@ export default function Accordion({ title, children }: {
 }
 ```
 
-![Raw Accordion](Media/ReactCompoundPattern/AccordionRaw.gif)
+![Raw Accordion](media/react-compound-pattern/accordion-raw.gif)
 
 The state management is quite straightforward, just a single `isCollapsed` to control the expand/collapse behavior.
 
@@ -329,7 +332,7 @@ export default function Home() {
 }
 ```
 
-![Accordion Variant](Media/ReactCompoundPattern/AccordionVariant1.gif)
+![Accordion Variant](media/react-compound-pattern/accordion-variant-1.gif)
 
 ```tsx filename=page.tsx
 import * as Accordion from "@/components/accordion-compound-rich";
@@ -357,7 +360,7 @@ export default function Home() {
 }
 ```
 
-![Accordion Variant](Media/ReactCompoundPattern/AccordionVariant2.gif)
+![Accordion Variant](media/react-compound-pattern/accordion-variant-2.gif)
 
 ## Benefits and Challenges of Compound Component
 

@@ -11,7 +11,7 @@ One good metaphor is that, bar are required verify customers' age. One way to do
 
 ## OAuth2 General Flow
 
-![OAuth2 Diagram](Media/OAuth2.svg)
+![OAuth2 Diagram](media/oauth2.svg)
 
 - User Click **Third Party Login** on Client Web App.
 - Client Web App redirect user to Auth Provider Login Page, and user login there.
