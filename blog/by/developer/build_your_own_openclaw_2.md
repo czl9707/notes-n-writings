@@ -5,7 +5,7 @@ cover: media/build-your-own-openclaw/02-skills.svg
 tags: [agent, ai]
 featured: false
 created-date: 2026-03-15T23:08:44-04:00
-last-updated-date: 2026-03-16T20:14:32-04:00
+last-updated-date: 2026-03-16T22:29:51-04:00
 ---
 
 - [1. Every Agent Starts as a Loop](blog/by/developer/build_your_own_openclaw_1.md)
@@ -28,6 +28,8 @@ How to extend its capability & knowledge base without changing its code?
 
 Skills are lazy loaded capabilities at runtime. It isn't something Openclaw invented, but an open standard. Reference the [official document](https://platform.claude.com/docs/en/agents-and-tools/agent-skills/overview) for more info.
 
+![Skills](media/build-your-own-openclaw/02-skills.svg)
+
 The pattern is simple: a `SKILL.md` file with YAML frontmatter for metadata loaded up front and markdown for instructions loaded when needed.
 
 ```python
@@ -46,8 +48,6 @@ def create_skill_tool(skill_loader):
     async def skill_tool(skill_name: str, session) -> str:
         return skill_loader.load_skill(skill_name).content
 ```
-
-![Skills, web, control](media/build-your-own-openclaw/02-skills.svg)
 
 ### Two Approaches to Skills
 
@@ -99,13 +99,19 @@ async def run(self) -> None:
         self.display_agent_response(response)
 ```
 
+![Skills](media/build-your-own-openclaw/04-slash-commands.svg)
+
 ### Slash Commands and Session History
 
 Slash commands may or may not be added to the session history (message log sent to the LLM). This is a design decision — commands are user controls, not conversation content. Either approach is valid depending on your use case.
 
 ## Web Tools: Connect to the World
 
-Your agent lives in a terminal. But the information it needs lives on the web. Two tools bridge this gap:
+Your agent lives in a terminal. But the information it needs lives on the web.
+
+![Web tools](media/build-your-own-openclaw/06-web-tools.svg)
+
+Two tools bridge this gap:
 
 - **websearch**: Search the web and get structured results
 - **webread**: Fetch and extract content from URLs

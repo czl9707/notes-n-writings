@@ -96,6 +96,8 @@ async def post_message(content: str, session) -> str:
     return "Message queued for delivery"
 ```
 
+![Post message back](media/build-your-own-openclaw/14-post-message-back.svg)
+
 This is how agents say "I'm done" or "Something happened" without being prompted.
 
 The `post_message` tool is only available in Cron jobs — agents can't arbitrarily post messages outside scheduled tasks.

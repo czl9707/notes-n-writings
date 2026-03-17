@@ -5,7 +5,7 @@ cover: media/build-your-own-openclaw/07-event-driven.svg
 tags: [agent, ai]
 featured: false
 created-date: 2026-03-15T23:08:44-04:00
-last-updated-date: 2026-03-16T20:55:56-04:00
+last-updated-date: 2026-03-16T22:41:40-04:00
 ---
 
 - [1. Every Agent Starts as a Loop](blog/by/developer/build_your_own_openclaw_1.md)
@@ -66,6 +66,8 @@ Three workers form a pipeline:
 3. **Delivery Worker** — Subscribes to `OutboundEvent`s, routes responses back to the right channel
 
 A channel is an abstraction over a messaging platform. CLI, Telegram, Discord, WebSocket. The channel publishes an `InboundEvent` to the event bus.
+
+![Channels](media/build-your-own-openclaw/09-channels.svg)
 
 ```python
 class Channel(ABC):
@@ -183,6 +185,8 @@ async def websocket_endpoint(websocket: WebSocket):
     await websocket.accept()
     await context.websocket_worker.handle_connection(websocket)
 ```
+
+![WebSocket](media/build-your-own-openclaw/10-websocket.svg)
 
 ## Next Steps
 

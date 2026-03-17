@@ -109,6 +109,8 @@ async def subagent_dispatch(agent_id: str, task: str, session) -> str:
     return json.dumps({"result": response, "session_id": session_id})
 ```
 
+![Agent dispatch](media/build-your-own-openclaw/15-agent-dispatch.svg)
+
 The main agent calls `subagent_dispatch`, which creates a new session for the subagent and waits for its response. The eventbus handles the communication.
 
 ### Alternative Multi-Agent Patterns

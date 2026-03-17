@@ -1,11 +1,11 @@
 ---
-title: "3. Pack the Conversation And Carry On"
-description: "Understand OpenClaw by Building One - Part 3"
-cover: media/build-your-own-openclaw/03-persistence.svg
+title: 3. Pack the Conversation And Carry On
+description: Understand OpenClaw by Building One - Part 3
+cover: media/build-your-own-openclaw/05-compaction.svg
 tags: [agent, ai]
 featured: false
 created-date: 2026-03-15T23:08:44-04:00
-last-updated-date: 2026-03-16T20:34:04-04:00
+last-updated-date: 2026-03-16T22:32:20-04:00
 ---
 
 - [1. Every Agent Starts as a Loop](blog/by/developer/build_your_own_openclaw_1.md)
@@ -74,6 +74,8 @@ async def check_and_compact(self, state: SessionState) -> SessionState:
     # Stage 2: summarize old messages
     return await self._compact_messages(state)
 ```
+
+![Persistence and history](media/build-your-own-openclaw/05-compaction.svg)
 
 ### The Trade-off
 
