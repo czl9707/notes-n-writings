@@ -64,7 +64,7 @@ views:
         direction: DESC
       - property: file.ctime
         direction: DESC
-    limit: 4
+    limit: 6
     image: note.cover
     imageFit: ""
     imageAspectRatio: 0.6
