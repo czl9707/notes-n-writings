@@ -2,3 +2,6 @@
 .venv
 .env.local
 Fleeting/**
+
+# claude
+.claude/**
