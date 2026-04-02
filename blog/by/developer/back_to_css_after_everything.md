@@ -6,9 +6,9 @@ tags:
   - css
   - react
   - web-dev
-featured: true
+featured: false
 created-date: 2025-06-01T00:00:00-04:00
-last-updated-date: 2026-03-15T23:06:16-04:00
+last-updated-date: 2026-04-01T21:43:59-04:00
 ---
 
 **TL;DR:** This is a story of my journey through CSS solutions. Which led to my personal opinion that simpler tools often work better than complex abstractions. CSS-in-JS, zero-runtime CSS-in-JS, and Tailwind all taught me valuable lessons, but they all added build complexity that eventually became more trouble than benefit. And I eventually returned back to CSS Modules for a better maintainability and simplicity.

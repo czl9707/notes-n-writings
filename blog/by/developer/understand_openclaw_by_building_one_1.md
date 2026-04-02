@@ -1,11 +1,14 @@
 ---
-title: "Build a Capable AI Agent from Scratch"
-description: "A comprehensive guide to building an AI agent with tools, skills, and memory - everything you need before going to production"
+title: Understand Openclaw by Building One - Part 1
+description: A comprehensive guide to building an AI agent with tools, skills, and memory - everything you need before going to production
 cover: media/build-your-own-openclaw/01-tools.svg
-tags: [agent, ai, tutorial]
-featured: false
+tags:
+  - agent
+  - ai
+  - tutorial
+featured: true
 created-date: 2026-03-15T23:08:44-04:00
-last-updated-date: 2026-03-20T16:20:19-04:00
+last-updated-date: 2026-04-01T21:44:34-04:00
 ---
 
 All code snippets and working code bases are available at [this repo](https://github.com/czl9707/build-your-own-openclaw).

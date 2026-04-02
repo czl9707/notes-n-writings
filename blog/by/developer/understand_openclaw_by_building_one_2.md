@@ -2,10 +2,13 @@
 title: Understand Openclaw by Building One - Part 2
 description: Event-driven architecture, multi-agent orchestration, scheduling, and memory systems - everything you need to run agents at scale.
 cover: media/build-your-own-openclaw/09-channels.svg
-tags: [agent, ai, infrastructure]
-featured: false
+tags:
+  - agent
+  - ai
+  - infrastructure
+featured: true
 created-date: 2026-03-15T23:08:44-04:00
-last-updated-date: 2026-03-20T20:24:16-04:00
+last-updated-date: 2026-04-01T21:44:51-04:00
 ---
 
 This is Part 2 of the guide. **Start with [Part 1: Build a Capable AI Agent](blog/by/developer/understand_openclaw_by_building_one_1.md)** if you haven't built your agent yet.

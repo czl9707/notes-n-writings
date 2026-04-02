@@ -5,9 +5,9 @@ cover: media/covers/convincing-me-vibe-coding-cover.svg
 tags:
   - ai
   - machine-learning
-featured: true
+featured: false
 created-date: 2025-12-23T12:05:52-05:00
-last-updated-date: 2026-03-15T23:06:52-04:00
+last-updated-date: 2026-04-01T21:44:11-04:00
 ---
 
 For a long time, I held a firm line: **I would never give AI a task I didn't already know how to accomplish myself.** I viewed myself as the final gatekeeper of logic, the one who understood every gear and spring in the machine. If I didn't understand the "how," I couldn't own the "why."
