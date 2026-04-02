@@ -2,10 +2,12 @@
 title: "Learn From Claude Code: Context Compaction"
 description: Learning Claude Code's context compaction harness by inspecting its leaked source code.
 cover: media/covers/learn-from-claude-code-cover.svg
-tags: [agent, ai]
-featured: false
+tags:
+  - agent
+  - ai
+featured: true
 created-date: 2026-04-01T19:21:36-04:00
-last-updated-date: 2026-04-01T20:51:25-04:00
+last-updated-date: 2026-04-01T21:22:47-04:00
 ---
 
 Claude Code's source code leaked. Setting aside the surveillance concerns and the inevitable spaghetti of any real codebase, it's a genuinely well-designed harness.
