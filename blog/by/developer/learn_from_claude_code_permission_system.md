@@ -5,7 +5,7 @@ cover: media/covers/learn-from-claude-code-cover.svg
 tags: [agent, ai]
 featured: true
 created-date: 2026-04-02T00:00:00-04:00
-last-updated-date: 2026-04-03T18:55:44-04:00
+last-updated-date: 2026-04-03T19:02:50-04:00
 ---
 
 Claude Code's source code leaked. Setting aside the surveillance concerns and inevitable spaghetti of any real codebase, it's a genuinely well-designed harness.
@@ -14,7 +14,7 @@ I've been digging through it, picking out patterns worth understanding. This is 
 
 ## The Problem
 
-AI agent will take actions that user don't allow, that's why we need a permission system. Claude Code layers multiple permission checks, with each layer follows a short-circuit design.
+AI agents will take actions that users don't allow, that's why we need a permission system. Claude Code layers multiple permission checks, with each layer following a short-circuit design.
 
 ## Permission Decisions
 
@@ -210,8 +210,8 @@ Even in `bypassPermissions` mode, safety checks for sensitive paths (`.git/`, `.
 
 ## Brief
 
-3 permission results, 6 modes, 14 stages permission checks, Claude code instead has a complex permission system.
+3 permission results, 6 modes, 14 stages permission checks—Claude Code has a complex permission system.
 
-Auto mode is something not released yet, but indeed interesting concept. It solves a real problem, we need something between blindly allowing everything and reviewing everything. At meantime, Auto mode has a strong purpose of serving their "KARIOS" mode (background daemon).
+Auto mode is something not released yet, but indeed an interesting concept. It solves a real problem: we need something between blindly allowing everything and reviewing everything. Meanwhile, Auto mode has a strong purpose of serving their "KARIOS" mode (background daemon).
 
 There is not much to comment. But it is good to have a mental model about the mechanism of the permission system.

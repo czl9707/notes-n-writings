@@ -64,7 +64,7 @@ Focus on key decisions, facts, and user preferences discovered.
 
 Claude Code's is... a bit more thorough:
 
-> **TLDR**: The prompt is a very strong guardrail to guide the model to summarize the context from 9 aspect: Current State, Goals & Intent, Recent Changes, Key Decisions, Active Work, Key Files, Learnings, Important Context, and Optional Next Steps.
+> **TLDR**: The prompt is a very strong guardrail to guide the model to summarize the context from 9 aspects: Current State, Goals & Intent, Recent Changes, Key Decisions, Active Work, Key Files, Learnings, Important Context, and Optional Next Steps.
 
 ```
 Your task is to create a detailed summary of the conversation so far, paying close attention to the user's explicit requests and your previous actions.
