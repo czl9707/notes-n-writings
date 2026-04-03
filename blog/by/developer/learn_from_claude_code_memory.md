@@ -1,16 +1,16 @@
 ---
 title: "Learn From Claude Code: Memory"
-description: Learning Claude Code's cross-session memory system by inspecting its leaked source code.
+description: Learning Claude Code's memory system by inspecting its leaked source code.
 cover: media/covers/learn-from-claude-code-cover.svg
 tags: [agent, ai]
 featured: true
 created-date: 2026-04-02T00:00:00-04:00
-last-updated-date: 2026-04-03T11:06:32-04:00
+last-updated-date: 2026-04-03T12:17:55-04:00
 ---
 
 Claude Code's source code leaked. Setting aside the surveillance concerns and the inevitable spaghetti of any real codebase, it's a genuinely well-designed harness.
 
-I've been digging through it, picking out patterns worth understanding. This is one of them: how it handles cross-session memory.
+I've been digging through it, picking out patterns worth understanding. This is one of them: how it handles memory.
 
 ## The Problem
 
@@ -259,7 +259,7 @@ At the end this produce a concise listing like:
 - [project] merge-freeze.md (2026-03-25T09:15:00Z): Merge freeze begins 2026-03-05
 ```
 
-The selection agent sees this manifest (not full memory content) and picks up to 5 relevant files.
+The selection agent sees this manifest (not full memory content) and picks up to 5 relevant files, and injects them into the system prompt.
 
 ### Memory Drift Caveat
 
