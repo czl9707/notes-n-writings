@@ -5,7 +5,7 @@ cover: media/covers/learn-from-claude-code-cover.svg
 tags: [agent, ai]
 featured: true
 created-date: 2026-04-02T00:00:00-04:00
-last-updated-date: 2026-04-03T12:17:55-04:00
+last-updated-date: 2026-04-03T14:23:33-04:00
 ---
 
 Claude Code's source code leaked. Setting aside the surveillance concerns and the inevitable spaghetti of any real codebase, it's a genuinely well-designed harness.
@@ -188,19 +188,19 @@ Few special cases here, **Mutual Exclusion** with main agent, **Throttling**, **
 
 There are several interesting details in the prompt.
 
-### MEMORY.md 200-Line Truncation
+#### MEMORY.md 200-Line Truncation
 
 ```typescript
 '- `MEMORY.md` is always loaded into your system prompt — lines after 200 will be truncated, so keep the index concise'
 ```
 
-### Strict 5 Turn Budget
+#### Strict 5 Turn Budget
 
 ``` javascript
 `You have a limited turn budget. ${FILE_EDIT_TOOL_NAME} requires a prior ${FILE_READ_TOOL_NAME} of the same file, so the efficient strategy is: turn 1 — issue all ${FILE_READ_TOOL_NAME} calls in parallel for every file you might update; turn 2 — issue all ${FILE_WRITE_TOOL_NAME}/${FILE_EDIT_TOOL_NAME} calls in parallel. Do not interleave reads and writes across multiple turns.`,
 ```
 
-### No Verification Loop
+#### No Verification Loop
 
 ``` javascript
 `You MUST only use content from the last ~${newMessageCount} messages to update your persistent memories. Do not waste any turns attempting to investigate or verify that content further — no grepping source files, no reading code to confirm a pattern exists, no git commands.`
@@ -261,7 +261,7 @@ At the end this produce a concise listing like:
 
 The selection agent sees this manifest (not full memory content) and picks up to 5 relevant files, and injects them into the system prompt.
 
-### Memory Drift Caveat
+#### Memory Drift Caveat
 
 Claude Code acknowledges that memories can become stale.
 
@@ -294,4 +294,4 @@ The code is not that complicated, and so is the file structure. But the harness 
 - **Explicit memory types** — Four types (user, feedback, project, reference) with clear scope and structure
 - **Limited extraction effort** — 5-turn budget, no verification loop, mutual exclusion with main agent
 - **Smart recall** — Selection agent picks up to 5 relevant files based on query, not all memories loaded
-- **Memory drift prevention** — Explicit caveat to verify before acting; current observations trump recalled facts
+- **Memory drift prevention** — Explicit caveat to verify before acting; current observations over recalled facts
