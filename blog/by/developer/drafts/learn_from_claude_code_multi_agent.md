@@ -1,121 +1,144 @@
 ---
 title: "Learn From Claude Code: Multi-Agent"
-description: How Claude Code orchestrates multiple agents - the coordinator pattern, task lifecycle, worker restrictions, and prompt-engineering-as-architecture.
+description: How Claude Code orchestrates multiple agents - prompt engineering as architecture, two-level guardrails, and the coordinator pattern.
 cover: media/covers/learn-from-claude-code-cover.svg
 tags:
   - agent
   - ai
 featured: true
 created-date: 2026-04-02T00:00:00-04:00
-last-updated-date: 2026-04-02T00:00:00-04:00
+last-updated-date: 2026-04-05T00:00:00-04:00
 ---
 
 Claude Code's source code leaked. Setting aside the surveillance concerns and inevitable spaghetti of any real codebase, it's a genuinely well-designed harness.
 
-I've been digging through it, picking out patterns worth understanding. This is one of them: the multi-agent system that lets one coordinator orchestrate many workers.
+I've been digging through it, picking out patterns worth understanding. This is one of them: the multi-agent system where one coordinator orchestrates many workers.
 
 ## The Problem
 
-Single-agent architectures hit a wall with complex tasks. You need to research three files, implement two features, and run tests. Doing this sequentially is slow. Doing it in parallel requires coordination.
+Single-agent architectures hit a wall with complex tasks. Research three files, implement two features, run tests - sequential is slow, parallel requires coordination. But parallel agents in production is terrifying. What if a worker spawns workers? What if they fight over files? What if the coordinator delegates understanding instead of doing it?
 
-Claude Code solves this with a **coordinator pattern**: one agent orchestrates, many workers execute. The coordinator doesn't write code - it directs workers who do. Workers don't coordinate - they report results to the coordinator.
+Claude Code solves this with a **coordinator pattern**: one agent directs, many workers execute. The twist? The architecture is almost entirely defined by **prompts**, not code. And it works because the code-level guardrails make the prompts actually matter.
 
-The architecture is almost entirely defined by **prompts**, not code. The guardrails are in the language, not the logic.
+## Dispatch, Don't Orchestrate
 
-## Activation
+The coordinator and workers see completely different tool sets. Not different permissions - different *tools*.
 
-Coordinator mode is feature-flagged:
-
-```typescript
-function isCoordinatorMode(): boolean {
-  if (feature('COORDINATOR_MODE')) {
-    return isEnvTruthy(process.env.CLAUDE_CODE_COORDINATOR_MODE)
-  }
-  return false
-}
-```
-
-Both a build-time flag and a runtime env var. Sessions persist their mode:
+**Coordinator sees only 3 tools:**
 
 ```typescript
-function matchSessionMode(sessionMode: 'coordinator' | 'normal') {
-  if (sessionIsCoordinator && !currentIsCoordinator) {
-    process.env.CLAUDE_CODE_COORDINATOR_MODE = '1'
-    return 'Entered coordinator mode to match resumed session.'
-  }
-}
+Agent      // Spawn a new worker
+SendMessage // Continue an existing worker
+TaskStop   // Stop a running worker
 ```
 
-Resume a coordinator session, and the mode restores automatically.
+The coordinator can't read files, run commands, or edit code. It can only delegate. My minimal agent's coordinator was simply 😅 - it could do everything, spawn workers, and chaos ensued. The constraint isn't "please don't read files" - it's "you literally cannot."
 
-## The Coordinator Prompt
-
-The coordinator gets a 200+ line system prompt that defines its entire behavior. Here's the structure:
-
-**1. Your Role**
-```
-You are a coordinator. Your job is to:
-- Help the user achieve their goal
-- Direct workers to research, implement and verify code changes
-- Synthesize results and communicate with the user
-- Answer questions directly when possible
-```
-
-**2. Your Tools**
-- `Agent` - Spawn a new worker
-- `SendMessage` - Continue an existing worker
-- `TaskStop` - Stop a running worker
-
-Only three tools. The coordinator doesn't read files or run commands. It delegates everything.
-
-**3. Workers**
-```
-When calling Agent, use subagent_type 'worker'.
-Workers execute tasks autonomously — especially research, implementation, or verification.
-```
-
-**4. Task Workflow**
-
-| Phase | Who | Purpose |
-|-------|-----|---------|
-| Research | Workers (parallel) | Investigate codebase |
-| Synthesis | Coordinator | Understand the problem |
-| Implementation | Workers | Make targeted changes |
-| Verification | Workers | Test changes |
-
-**5. Concurrency**
-```
-Parallelism is your superpower. Workers are async. Launch independent
-workers concurrently — don't serialize work that can run simultaneously.
-```
-
-This is **prompt engineering as architecture**. The behavior emerges from the prompt, not from code logic. The code provides the primitives (Agent, SendMessage, TaskStop). The prompt defines how to use them.
-
-## Worker Restrictions
-
-Workers can't use coordinator tools:
+**Workers get the full toolkit** minus coordination tools:
 
 ```typescript
-const workerTools = isSimpleMode
-  ? [Bash, Read, Edit]
-  : Array.from(ASYNC_AGENT_ALLOWED_TOOLS)
-      .filter(name => !INTERNAL_WORKER_TOOLS.has(name))
+const INTERNAL_WORKER_TOOLS = new Set([
+  'TeamCreate', 'TeamDelete', 'SendMessage', 'SyntheticOutput',
+])
+
+const workerTools = Array.from(ASYNC_AGENT_ALLOWED_TOOLS)
+  .filter(name => !INTERNAL_WORKER_TOOLS.has(name))
 ```
 
-Simple mode: Bash, Read, Edit only.
-Full mode: A defined set, minus internal tools (TeamCreate, TeamDelete, SendMessage, SyntheticOutput).
+Workers can read, write, and execute - but they can't spawn other workers. This prevents recursive spawning. A worker does work and reports back. Period.
 
-This prevents recursive spawning. A worker can't spawn another worker. It can only do work and report back.
+The architecture emerges from what each role *can't* do, not what it can. Code-level constraints, not prompt-level hopes.
 
-The coordinator prompt reinforces this:
+## Why This Prevents Production Fires
+
+Before you think "prompts can define this too" - they can't. I've tried. A coordinator with full tool access will eventually decide it's faster to just do the work itself. A worker with spawn access will eventually think "this subtask should be parallelized" and suddenly you have 47 agents running.
+
+These aren't theoretical concerns. They're what happens when you trust LLMs to follow soft constraints under pressure. The tool restrictions are a hard boundary that makes the pattern safe in production.
+
+### The Failure Modes You're Preventing
+
+**Recursive spawning**: Worker A spawns Worker B to help. Worker B spawns Worker C. Worker C spawns... and your API bill explodes. The `INTERNAL_WORKER_TOOLS` filter stops this cold.
+
+**Coordinator shortcuts**: With full tool access, a coordinator facing a simple task will skip delegation entirely. "I'll just read that file myself" - and suddenly your parallel architecture is sequential again. Removing Read/Bash/Edit from coordinator tools forces delegation even for trivial tasks.
+
+**Context bleeding**: Workers that see the full conversation will pick up on user preferences, previous decisions, and incidental context. Sounds helpful, but it makes worker behavior unpredictable and hard to debug. Workers get clean slates. The coordinator synthesizes what they need.
+
+**File conflicts**: Two workers editing the same file simultaneously. Without coordination, this corrupts state. The scratchpad pattern (discussed later) provides structured sharing, but workers shouldn't independently modify shared state.
+
+Each of these has bitten me in production. The tool restrictions aren't over-engineering - they're scars.
+
+## The 370-Line Behavior Definition
+
+The coordinator's entire behavior lives in a prompt. Code provides primitives (spawn, continue, stop). The prompt defines policy (when to spawn, how to write prompts, what synthesis looks like).
+
+This is prompt engineering as system design. The coordinator doesn't "learn" to coordinate - it's told exactly how, in 370+ lines covering:
+
+**Role definition** - "You are a coordinator. Direct workers. Synthesize results. Answer questions directly when possible."
+
+**Delegation philosophy** - "Never delegate understanding. Don't write 'based on your findings, fix the bug.' Those phrases push synthesis onto the agent instead of doing it yourself."
+
+**Verification standards** - "Verification means proving the code works, not confirming it exists. A verifier that rubber-stamps weak work undermines everything."
+
+The prompt is the architecture. Code provides mechanisms; prompts provide policy.
+
+### What the Prompt Gets Right
+
+The prompt doesn't just say "coordinate workers." It anticipates specific failure modes:
+
+**Shallow delegation** - The prompt explicitly forbids "based on your findings" phrasing. This forces the coordinator to understand results before delegating follow-up work. No passing the buck.
+
+**Premature spawning** - "Answer questions directly when possible" prevents the coordinator from spawning a worker for a simple question it could answer from context.
+
+**Vague prompts** - Worker prompts must be self-contained. The coordinator can't say "continue what we discussed" because workers don't see the conversation. This constraint improves prompt quality automatically.
+
+These aren't rules for rules' sake. Each one addresses a real failure mode I've encountered. The prompt length isn't verbosity - it's accumulated wisdom from production incidents.
+
+## The Two-Level Guardrail Pattern
+
+What makes this work isn't the prompt alone - it's the pairing of code constraints with prompt guidance. Each level catches what the other misses:
+
+**Code constraints prevent**: recursive spawning, coordinator doing work directly, workers coordinating
+**Prompt guidance prevents**: shallow delegation, rubber-stamp verification, forgetting to synthesize
+
+Neither is sufficient alone. A well-prompted coordinator with full tool access will eventually shortcut. A constrained coordinator without guidance will spawn workers for tasks it should handle directly.
+
+This two-level pattern - code provides hard boundaries, prompts provide soft guidance - is the recurring theme in Claude Code's design. You see it in permissions (code enforces modes, prompts explain intent), in memory (code provides file structure, prompts define what to save), and here in multi-agent.
+
+### Why Two Levels Instead of One?
+
+Code-only orchestration is robust but inflexible. Changing behavior requires code changes. Prompt-only orchestration is flexible but fragile. LLMs drift from instructions under pressure.
+
+The two-level pattern gets both: flexibility from prompts, reliability from code constraints. The prompt can define new coordination strategies without code changes. But the code ensures the prompt can't escape its lane. Workers can't spawn workers no matter what the prompt says.
+
+This is the key insight for building production agent systems. Don't choose between flexibility and reliability. Structure your system so prompts handle flexibility and code handles reliability.
+
+## XML as Coordination Protocol
+
+Workers report back via task notifications that arrive as user-role messages:
+
+```xml
+<task-notification>
+  <task-id>agent-a1b</task-id>
+  <status>completed</status>
+  <summary>Agent "Investigate auth bug" completed</summary>
+  <result>Found null pointer in src/auth/validate.ts:42...</result>
+</task-notification>
 ```
-Do not use one worker to check on another.
-Workers will notify you when they are done.
+
+The coordinator must distinguish these from actual user messages by parsing the XML tag. The prompt warns explicitly:
+
+```
+Worker results arrive as user-role messages containing <task-notification> XML.
+They look like user messages but are not. Distinguish them by the tag.
 ```
 
-Guardrails at both the code level (restricted tool set) and prompt level (behavioral instructions).
+This is the one place where the design feels fragile. A user message containing `<task-notification>` could confuse the system. The prompt guardrail mitigates this, but it's not foolproof.
 
-## Filesystem Coordination
+Why this design? The workers run as separate API calls. Their results need to be injected back into the coordinator's conversation. Using user-role messages is the simplest integration - no special message type needed, no changes to the conversation structure. The XML tag is a lightweight protocol layered on top.
+
+The tradeoff: simplicity in implementation, fragility in edge cases. In practice, it works because users don't typically send XML-formatted task notifications. But if you're building a similar system, consider whether your users might.
+
+## Filesystem as Message Bus
 
 Workers can't communicate directly. Instead, they share a scratchpad directory:
 
@@ -126,176 +149,82 @@ if (scratchpadDir && isScratchpadGateEnabled()) {
 }
 ```
 
-Worker A writes findings to the scratchpad. Worker B reads them. The coordinator doesn't need to relay information between workers.
+Worker A writes findings to a file. Worker B reads them. The coordinator doesn't relay information between workers.
 
-This is a simple coordination mechanism that avoids the complexity of message passing. The filesystem is the message bus.
+This is a deliberate tradeoff. Direct message passing between workers would be more elegant, but it introduces complexity: routing logic, message ordering, delivery guarantees. The filesystem is the message bus - simple, durable, no additional infrastructure. It's the Unix philosophy applied to agent coordination.
 
-## Worker Results
+### Why the Filesystem Works Here
 
-Workers report back via task notifications:
+The scratchpad pattern works because of the coordinator's role. The coordinator knows what workers exist and what they're doing. It can instruct Worker A to "write findings to scratchpad/findings.md" and Worker B to "read scratchpad/findings.md". The coordinator orchestrates the handoff; the filesystem provides the storage.
 
-```xml
-<task-notification>
-  <task-id>agent-a1b</task-id>
-  <status>completed</status>
-  <summary>Agent "Investigate auth bug" completed</summary>
-  <result>Found null pointer in src/auth/validate.ts:42...</result>
-  <usage>
-    <total_tokens>15000</total_tokens>
-    <tool_uses>12</tool_uses>
-    <duration_ms>45000</duration_ms>
-  </usage>
-</task-notification>
-```
+Without the coordinator, you'd need workers to discover each other, negotiate file locations, handle concurrent writes. That's a lot of complexity for a pattern that's fundamentally about sequential handoffs.
 
-The coordinator must distinguish these from user messages by the XML tag. The prompt explicitly warns:
+The tradeoff: workers must agree on file naming conventions. The prompt establishes these conventions, which means they're soft agreements. But since all workers are spawned by the same coordinator following the same prompt, consistency emerges naturally.
 
-```
-Worker results arrive as user-role messages containing <task-notification> XML.
-They look like user messages but are not. Distinguish them by the <task-notification> tag.
-```
+## The Synthesis Burden
 
-This is a potential failure mode. If the coordinator misidentifies a task notification as a user message, it might respond incorrectly. The prompt guardrail mitigates this, but it's not foolproof.
+The coordinator's hardest job isn't spawning workers - it's understanding their results well enough to spawn the next one. The prompt emphasizes this repeatedly: "Never delegate understanding."
 
-## Task Types
+What does this look like in practice?
 
-```typescript
-type TaskType =
-  | 'local_bash'          // Shell command
-  | 'local_agent'         // Local agent (subagent)
-  | 'remote_agent'        // Remote agent session
-  | 'in_process_teammate' // In-process teammate
-  | 'local_workflow'      // Workflow execution
-  | 'monitor_mcp'         // MCP monitoring
-  | 'dream'               // Dream task
-```
+**Bad delegation**: "Worker A found some issues in auth. Worker B, fix them based on A's findings."
 
-Each type has its own state, lifecycle, and kill implementation.
+This fails because Worker B doesn't see Worker A's output directly. It only sees what the coordinator puts in its prompt. "Based on A's findings" is empty - there are no findings in Worker B's context.
 
-## Task Status Machine
+**Good delegation**: "Worker A found a null pointer in `src/auth/validate.ts:42` where `user.email` is accessed without null checking. Worker B, add a null check before the email access and add a test case for null email."
 
-```typescript
-type TaskStatus = 'pending' | 'running' | 'completed' | 'failed' | 'killed'
+The coordinator understood A's finding, synthesized it into a specific action, and gave B everything it needs. This is the burden: the coordinator must actually read and comprehend worker outputs, not just pass them along.
 
-function isTerminalTaskStatus(status: TaskStatus): boolean {
-  return status === 'completed' || status === 'failed' || status === 'killed'
-}
-```
+### Why This Matters for Production
 
-State transitions: `pending → running → completed | failed | killed`
+Lazy synthesis produces broken workflows. A coordinator that spawns a "fixer" worker with vague instructions will get vague fixes. The fixer will read the original files, make assumptions about what was wrong, and probably fix the wrong thing.
 
-Terminal states are immutable. Once a task is completed, it stays completed.
-
-## Task State
-
-```typescript
-type TaskStateBase = {
-  id: string
-  type: TaskType
-  status: TaskStatus
-  description: string
-  startTime: number
-  endTime?: number
-  outputFile: string      // Where task output is persisted
-  notified: boolean       // Whether completion was reported
-}
-```
-
-Every task has:
-- **id**: Unique identifier
-- **type**: Determines which implementation handles it
-- **status**: Current state in the lifecycle
-- **outputFile**: Where results are persisted to disk
-- **notified**: Whether the coordinator has been told about completion
-
-## Stopping Tasks
-
-```typescript
-async function stopTask(taskId: string, context) {
-  const task = appState.tasks?.[taskId]
-  if (!task) throw new StopTaskError('not_found')
-  if (task.status !== 'running') throw new StopTaskError('not_running')
-
-  const taskImpl = getTaskByType(task.type)
-  await taskImpl.kill(taskId, setAppState)
-}
-```
-
-Each task type has its own `kill()` implementation. The base validates state, then delegates to the type-specific implementation.
-
-Bash tasks suppress the noisy "exit code 137" notification. Agent tasks don't suppress - they extract partial results from the aborted messages.
-
-## The Coordinator Example
-
-The prompt includes a worked example:
-
-```
-You:
-  Let me start some research on that.
-
-  Agent({ description: "Investigate auth bug", subagent_type: "worker", prompt: "..." })
-  Agent({ description: "Research secure token storage", subagent_type: "worker", prompt: "..." })
-
-  Investigating both issues in parallel — I'll report back with findings.
-
-User:
-  <task-notification>
-  <task-id>agent-a1b</task-id>
-  <status>completed</status>
-  <result>Found null pointer in src/auth/validate.ts:42...</result>
-  </task-notification>
-
-You:
-  Found the bug — null pointer in confirmTokenExists in validate.ts. I'll fix it.
-  Still waiting on the token storage research.
-
-  SendMessage({ to: "agent-a1b", message: "Fix the null pointer..." })
-```
-
-Note the pattern:
-1. **Parallel launch** - Two workers at once
-2. **Brief user update** - Don't fabricate results, just say what's happening
-3. **Continue worker** - Use SendMessage to reuse the worker's context
-4. **Synthesis** - Coordinator reads results, plans next step
+The 370-line prompt is essentially a synthesis guide. It teaches the coordinator how to read worker outputs, extract actionable insights, and package them for the next worker. This isn't optional polish - it's the difference between a working system and a confused one.
 
 ## Caveats
 
-### Prompt Fragility
+Some tradeoffs that are worth understanding, not just working around.
 
-The coordinator behavior is entirely prompt-driven. If the model misinterprets the prompt (ignores XML tags, fabricates results, spawns recursive workers), the system breaks. The code-level guardrails (restricted tools) mitigate some failure modes, but not all.
+### Prompt Fragility Is the Price of Flexibility
 
-### No Direct Communication
+The coordinator behavior is entirely prompt-driven. If the model ignores instructions, the system breaks. Code-level guardrails prevent some failures (recursive spawning, direct work), but not all (fabricated results, confused XML parsing).
 
-Workers can't talk to each other. They use the filesystem scratchpad or go through the coordinator. This limits collaboration patterns but simplifies the coordination model.
+This isn't a bug - it's the tradeoff for flexibility. You can make the coordinator do almost anything by changing the prompt. Research mode, implementation mode, review mode - same code, different prompts. The fragility is the price of that power.
 
-### Feature Flag Complexity
+If you want robustness over flexibility, use code-based orchestration. If you want agents that can adapt to new workflows without code changes, accept the prompt dependency. You can't have both.
 
-Coordinator mode requires: build flag + runtime env var + session persistence. Understanding when coordinator mode is active requires tracing multiple conditions.
+### Context Isolation Requires Coordinator Discipline
 
-### Task Notification Ambiguity
+Workers can't see the coordinator's conversation. This prevents context pollution but requires the coordinator to synthesize findings into self-contained prompts. "Based on your findings" is explicitly forbidden - the coordinator must understand before delegating.
 
-Task notifications arrive as user-role messages. The coordinator must parse XML to distinguish them from actual user input. If the user sends a message that contains `<task-notification>` XML, the coordinator might misinterpret it.
+This is a feature, not a limitation. It forces the coordinator to actually understand what it's coordinating. Lazy coordination becomes impossible - you can't delegate comprehension.
+
+But it means the coordinator prompt must be written with this burden in mind. The 370 lines aren't excessive - they're necessary to make isolation work. A shorter prompt would produce coordinators that delegate understanding because synthesizing is hard.
+
+### Verification Is Only As Good As the Verifier
+
+The coordinator prompt warns: "Verification means proving the code works, not confirming it exists." Workers must test independently, run edge cases, investigate failures - not just re-run what the implementation worker ran.
+
+This is the hardest part to enforce. A lazy verifier that runs `npm test` and reports "tests pass" defeats the purpose. The prompt establishes standards, but actually meeting them requires the model to care about quality.
+
+In practice, this works better with Claude than with less instruction-following models. The system is model-specific in ways that aren't immediately obvious. The prompts assume a model that follows instructions even when shortcuts are available. With a less compliant model, you'd need more code-level enforcement.
+
+## When NOT to Use This Pattern
+
+The coordinator-worker pattern isn't always the answer. It shines for parallelizable work with clear boundaries - research multiple files, implement independent features, run separate test suites. But it's overkill for:
+
+**Simple sequential tasks**: If you're just reading a file and answering a question, spawning workers adds latency and complexity. The coordinator overhead (synthesizing prompts, parsing results) exceeds the parallelism benefit.
+
+**Tightly coupled work**: If Worker B's input depends entirely on Worker A's output, and there's no parallel path, you're better off with a single agent. The coordinator becomes a slow message router.
+
+**Tasks requiring shared context**: Some work benefits from seeing the full conversation history - exploratory debugging, iterative refinement. Workers with isolated contexts can't build on each other's discoveries organistically.
+
+**Cost-sensitive applications**: Each worker is an API call. A coordinator spawning five workers for a task one agent could handle is burning tokens for architectural purity.
+
+The pattern is a tool, not a religion. Use it when the problem demands parallelism and the boundaries are clear. Otherwise, keep it simple.
 
 ## Brief
 
-Multi-agent in Claude Code is a coordinator-worker pattern defined by prompts:
+Multi-agent in Claude Code works because code constraints and prompt guidance each cover what the other misses. The coordinator can't do work - it can only dispatch. Workers can't coordinate - they can only execute. The 370-line prompt tells them how, but the tool restrictions make them actually listen.
 
-- **Coordinator** - Orchestrates workers, synthesizes results, communicates with user
-- **Workers** - Execute tasks autonomously with restricted tools
-- **Three coordinator tools** - Agent, SendMessage, TaskStop
-- **Filesystem coordination** - Scratchpad directory for cross-worker knowledge
-- **Task lifecycle** - pending → running → completed/failed/killed
-- **Worker restrictions** - Can't spawn other workers, limited tool set
-
-What makes it work:
-- **Prompt engineering as architecture** - Behavior defined by prompts, not code
-- **Guardrails at every level** - Code restrictions + prompt instructions
-- **Parallelism** - Independent workers launched concurrently
-- **Async notifications** - Results arrive as XML-tagged messages
-- **Simple coordination** - Filesystem as message bus
-
-The impressive part isn't the code (it's a simple task lifecycle). It's the prompt engineering: 200+ lines of instructions that define how an AI should coordinate multiple workers. The guardrails in the prompt prevent fabrication, recursive spawning, and result confusion.
-
-The code provides primitives. The prompts provide behavior. That's the pattern.
-
-Next blog: Permission System - the 10+ layer security architecture.
+The pattern is: hard boundaries in code, soft guidance in prompts, neither sufficient alone. That's the philosophy. Everything else - the XML protocol, the scratchpad directory, the verification standards - follows from that core design decision.
