@@ -1,6 +1,6 @@
 ---
 title: "Learn From Claude Code: Multi-Agent Coordination"
-description: Multi-agent systems go south easily. Claude Code handles this with two layers of guardrails — code for hard constraints, prompts for soft guidance. Both are necessary. Neither is sufficient alone.
+description: Learning Claude Code's multi-agent coordination by inspecting its leaked source code.
 cover: media/covers/learn-from-claude-code-cover.svg
 tags: [agent, ai]
 featured: true
@@ -12,11 +12,13 @@ Claude Code's source code leaked. Setting aside the surveillance concerns and in
 
 I've been digging through it, picking out patterns worth understanding. This is one of them: how multiple agents coordinate without chaos — and why both code and prompts are needed to pull it off.
 
+Other posts in this series: [App State](blog/by/developer/learn_from_claude_code_app_state_machine.md), [Query Engine](blog/by/developer/learn_from_claude_code_query_engine.md), [Tool System](blog/by/developer/learn_from_claude_code_tool_system.md), [Permission System](blog/by/developer/learn_from_claude_code_permission_system.md), [Memory](blog/by/developer/learn_from_claude_code_memory.md), [Context Compaction](blog/by/developer/learn_from_claude_code_context_compaction.md), [MCP Integration](blog/by/developer/learn_from_claude_code_mcp_integration.md), [Agent Spawning](blog/by/developer/learn_from_claude_code_agent_spawning.md).
+
 ## The Problem
 
 Multi-agent goes south fast. Agents duplicate work. Agents contradict each other. Agents read stale state. Agents just start doing random thing and make wrong decisions.
 
-Claude Code uses a **coordinator pattern**: one coordinator directs, many workers execute. Which is one of those common multi-agent patterns. The pattern alone doesn't prevent chaos. The interesting part is how the harness enforces it through two layers, code for hard constraints, prompts for soft guidance.
+Claude Code uses a **coordinator pattern** — one of the [multi-agent patterns](blog/by/developer/understand_openclaw_by_building_one_2.md#Many%20of%20Them%3A%20Multi-Agent%20Architecture) we explored in OpenClaw. One coordinator directs, many workers execute. The pattern alone doesn't prevent chaos. The interesting part is how the harness enforces it through two layers, code for hard constraints, prompts for soft guidance.
 
 ## Coordinator
 
@@ -39,9 +41,9 @@ export const COORDINATOR_MODE_ALLOWED_TOOLS = new Set([
 ])
 ```
 
-The coordinator cannot read files. Cannot edit code. Cannot run bash. It can only delegate. This isn't a prompt suggestion — it's a code-level restriction. Even if the model hallucinates wanting to edit a file, the tool isn't there.
+The coordinator cannot read files. Cannot edit code. Cannot run bash. This is the [tool system](blog/by/developer/learn_from_claude_code_tool_system.md) enforcing separation at the code level. It can only delegate. This isn't a prompt suggestion — it's a code-level restriction. Even if the model hallucinates wanting to edit a file, the tool isn't there.
 
-Meanwhile, workers get all the execution tools but none for coordination:
+Meanwhile, workers get all the execution tools but none for coordination — the [permission system](blog/by/developer/learn_from_claude_code_permission_system.md) ensures they can't escalate:
 
 ```typescript
 const INTERNAL_WORKER_TOOLS = new Set([

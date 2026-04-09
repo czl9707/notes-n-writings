@@ -1,6 +1,6 @@
 ---
 title: "Learn From Claude Code: Context Compaction"
-description: Learning Claude Code's context compaction harness by inspecting its leaked source code.
+description: Learning Claude Code's context compaction by inspecting its leaked source code.
 cover: media/covers/learn-from-claude-code-cover.svg
 tags:
   - agent
@@ -14,9 +14,11 @@ Claude Code's source code leaked. Setting aside the surveillance concerns and th
 
 I've been digging through it, picking out patterns worth understanding. This is one of them: how it handles context compaction.
 
+Other posts in this series: [App State](blog/by/developer/learn_from_claude_code_app_state_machine.md), [Query Engine](blog/by/developer/learn_from_claude_code_query_engine.md), [Tool System](blog/by/developer/learn_from_claude_code_tool_system.md), [Permission System](blog/by/developer/learn_from_claude_code_permission_system.md), [Memory](blog/by/developer/learn_from_claude_code_memory.md), [MCP Integration](blog/by/developer/learn_from_claude_code_mcp_integration.md), [Multi-Agent](blog/by/developer/learn_from_claude_code_multi_agent.md), [Agent Spawning](blog/by/developer/learn_from_claude_code_agent_spawning.md).
+
 ## The Problem
 
-Every agent hits this wall. Conversation grows, tool outputs pile up, and suddenly you're brushing against the token limit. A [tiered compaction architecture](blog/by/developer/understand_openclaw_by_building_one_1.md) is well-known already. Claude Code does the same thing, but with some nice refinements.
+Every agent hits this wall. Conversation grows, tool outputs pile up, and suddenly you're brushing against the token limit. The limit is unforgiving because [tokenization](note/by/developer/tokenization.md) chops text into subword pieces — a single code block can cost hundreds of tokens before you realize it. A [tiered compaction architecture](blog/by/developer/understand_openclaw_by_building_one_1.md#Compaction%3A%20Pack%20and%20Carry%20On) is well-known already. Claude Code does the same thing, but with some nice refinements.
 
 ## The Three-Tier Hierarchy
 
@@ -35,6 +37,8 @@ Re-assemble key context
 Each tier escalates when the previous one can't handle it. Cheapest first, most expensive last.
 
 ## Tier 1: Session Memory Compaction
+
+This tier leverages the [memory system](blog/by/developer/learn_from_claude_code_memory.md) — a structured markdown document maintained throughout the conversation.
 
 The fastest option. Claude Code maintains a session memory file throughout the conversation - a structured markdown document tracking what happened. When you run `/compact`, it reads this file, finds what's already been summarized, preserves recent messages, and truncates oversized sections.
 
@@ -202,4 +206,4 @@ Never split a `tool_use` from its corresponding `tool_result`. Meaning starting 
 
 ## Brief
 
-Context compaction in Claude Code isn't rocket science. What makes it work is the guardrails and attention to details and edge cases. Instead of sending prompts to LLM, closing eyes and praying, guardrails give more predictable results.
+Context compaction in Claude Code isn't rocket science. The [query engine](blog/by/developer/learn_from_claude_code_query_engine.md) triggers it when context grows too large, and the [App State](blog/by/developer/learn_from_claude_code_app_state_machine.md) tracks the compaction state. What makes it work is the guardrails and attention to details and edge cases. Instead of sending prompts to LLM, closing eyes and praying, guardrails give more predictable results.

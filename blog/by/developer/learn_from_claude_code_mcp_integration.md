@@ -12,6 +12,8 @@ Claude Code's source code leaked. Setting aside the surveillance concerns and in
 
 I've been digging through it, picking out patterns worth understanding. This is one of them: MCP integration - and the experimental feature that signals where Anthropic is heading.
 
+Other posts in this series: [App State](blog/by/developer/learn_from_claude_code_app_state_machine.md), [Query Engine](blog/by/developer/learn_from_claude_code_query_engine.md), [Tool System](blog/by/developer/learn_from_claude_code_tool_system.md), [Permission System](blog/by/developer/learn_from_claude_code_permission_system.md), [Memory](blog/by/developer/learn_from_claude_code_memory.md), [Context Compaction](blog/by/developer/learn_from_claude_code_context_compaction.md), [Multi-Agent](blog/by/developer/learn_from_claude_code_multi_agent.md), [Agent Spawning](blog/by/developer/learn_from_claude_code_agent_spawning.md).
+
 ## The Problem
 
 MCP (Model Context Protocol) was invented by Anthropic about a year ago. It solves the scalability problem of agent tools with a standard way to connect to external services.
@@ -113,7 +115,7 @@ const mcpSkills = context
 // Only MCP skills, not plain MCP prompts
 ```
 
-The model invokes MCP skills the same way as local skills. No special casing.
+The model invokes MCP skills the same way as local skills. No special casing. This is part of the broader [tool system](blog/by/developer/learn_from_claude_code_tool_system.md) — skills are just another tool category.
 
 ## The Boring Part: Standard MCP Integration
 
@@ -166,7 +168,7 @@ One server fails, others keep working.
 
 ## ## Brief - MCP is Dying
 
-The `MCP_SKILLS` feature flag tells the story. Anthropic built MCP. A year later, even the creator is moving away from MCP to skills system.
+The `MCP_SKILLS` feature flag tells the story — echoing the [skills approach](blog/by/developer/understand_openclaw_by_building_one_2.md#Skills%20-%20Dynamic%20Capabilities%20Loading) OpenClaw explored. Anthropic built MCP. A year later, even the creator is moving away from MCP to skills system.
 
 The problem isn't technical. Tools work. The problem is **context economics**:
 

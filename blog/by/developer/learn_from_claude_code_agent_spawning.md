@@ -1,22 +1,24 @@
 ---
 title: "Learn From Claude Code: Agent Spawning"
-description: One tool, four execution modes. The sophistication isn't in spawning agents — it's in what context they inherit, what tools they get, and what gets cleaned up.
+description: Learning Claude Code's agent spawning by inspecting its leaked source code.
 cover: media/covers/learn-from-claude-code-cover.svg
 tags: [agent, ai]
 featured: true
 created-date: 2026-04-07T00:00:00-04:00
-last-updated-date: 2026-04-08T22:14:52-04:00
+last-updated-date: 2026-04-09T07:45:16-04:00
 ---
 
 Claude Code's source code leaked. Setting aside the surveillance concerns and inevitable spaghetti of any real codebase, it's a genuinely well-designed harness.
 
 I've been digging through it, picking out patterns worth understanding. This is one of them: how one agent spawns another — and why the mechanics matter more than the idea.
 
+Other posts in this series: [App State](blog/by/developer/learn_from_claude_code_app_state_machine.md), [Query Engine](blog/by/developer/learn_from_claude_code_query_engine.md), [Tool System](blog/by/developer/learn_from_claude_code_tool_system.md), [Permission System](blog/by/developer/learn_from_claude_code_permission_system.md), [Memory](blog/by/developer/learn_from_claude_code_memory.md), [Context Compaction](blog/by/developer/learn_from_claude_code_context_compaction.md), [MCP Integration](blog/by/developer/learn_from_claude_code_mcp_integration.md), [Multi-Agent](blog/by/developer/learn_from_claude_code_multi_agent.md).
+
 ## The Problem
 
 Context windows are expensive. Every file read, every tool output, every turn bloats the main agent's working memory. The solution is obvious: delegate to subagents. Fresh context, focused task, return a summary.
 
-The hard part isn't the idea. It's the mechanics. What context does the child inherit? What tools does it get? What happens when it crashes? Who cleans up?
+The hard part isn't the idea. It's the mechanics — and the [multi-agent coordination](blog/by/developer/learn_from_claude_code_multi_agent.md) that keeps everything sane. What context does the child inherit? What tools does it get? What happens when it crashes? Who cleans up?
 
 Claude Code answers all of these through a single tool.
 
@@ -66,7 +68,7 @@ The tool level restriction is a code-level guard. Even if the model hallucinates
 
 Read-only agents also get slimmed context, they drop the full CLAUDE.md instructions and the git status snapshot. The main agent has full context and interprets their output anyway.
 
-The harness runs a three-layer filter for construct subagent tool pool.
+The harness runs a three-layer filter to construct the subagent [tool pool](blog/by/developer/learn_from_claude_code_tool_system.md).
 
 1. **Hard blocks** — All agents lose `Agent` (no recursion), `AskUserQuestion` (no blocking prompts), `TaskStop` (no cross-agent control).
 2. **Async restrictions** — Background agents only get ~15 execution tools. No coordination tools.
@@ -248,4 +250,4 @@ understood: include file paths, line numbers, what specifically to change.
 
 One tool, four modes. Built-in agents for specialized work. Fork for context inheritance and cache sharing. Teammates for named coordination in separate panes. Remote ... for remote.
 
-There isn't one perfect of delegating tasks. Claude Code provides a good example of combining different approaches, by putting hard restrictions in code, and well designed guidelines in prompt.
+There isn't one perfect way of delegating tasks — [OpenClaw explored similar ideas](blog/by/developer/understand_openclaw_by_building_one_2.md#Agents%20That%20Grow) around agent growth and delegation. Claude Code provides a good example of combining different approaches, by putting hard restrictions in code, and well designed guidelines in prompt.

@@ -1,6 +1,6 @@
 ---
 title: "Learn From Claude Code: Permission System"
-description: Learning Claude Code's multi-layer permission architecture by inspecting its leaked source code.
+description: Learning Claude Code's permission system by inspecting its leaked source code.
 cover: media/covers/learn-from-claude-code-cover.svg
 tags:
   - agent
@@ -14,9 +14,11 @@ Claude Code's source code leaked. Setting aside the surveillance concerns and in
 
 I've been digging through it, picking out patterns worth understanding. This is one of them: the permission system - multiple layers of guardrails between every tool call and execution.
 
+Other posts in this series: [App State](blog/by/developer/learn_from_claude_code_app_state_machine.md), [Query Engine](blog/by/developer/learn_from_claude_code_query_engine.md), [Tool System](blog/by/developer/learn_from_claude_code_tool_system.md), [Memory](blog/by/developer/learn_from_claude_code_memory.md), [Context Compaction](blog/by/developer/learn_from_claude_code_context_compaction.md), [MCP Integration](blog/by/developer/learn_from_claude_code_mcp_integration.md), [Multi-Agent](blog/by/developer/learn_from_claude_code_multi_agent.md), [Agent Spawning](blog/by/developer/learn_from_claude_code_agent_spawning.md).
+
 ## The Problem
 
-AI agents will take actions that users don't allow, that's why we need a permission system. Claude Code layers multiple permission checks, with each layer following a short-circuit design.
+AI agents will take actions that users don't allow, that's why we need a permission system. Every [tool call](blog/by/developer/learn_from_claude_code_tool_system.md) flows through this pipeline. Claude Code layers multiple permission checks, with each layer following a short-circuit design.
 
 ## Permission Decisions
 

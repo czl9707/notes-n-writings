@@ -8,7 +8,7 @@ tags:
   - tutorial
 featured: true
 created-date: 2026-03-15T23:08:44-04:00
-last-updated-date: 2026-04-03T12:36:39-04:00
+last-updated-date: 2026-04-09T13:20:25-04:00
 ---
 
 All code snippets and working code bases are available at [this repo](https://github.com/czl9707/build-your-own-openclaw).
@@ -24,7 +24,7 @@ while True:
     display(response)
 ```
 
-That's it. No magic. The `session.chat()` method sends messages to the LLM and returns the response. You already know this pattern.
+That's it. No magic. The `session.chat()` method sends messages to the [LLM](note/by/developer/transformer.md) and returns the response. You already know this pattern.
 
 ![Chat loop](media/build-your-own-openclaw/00-chat-loop.svg)
 

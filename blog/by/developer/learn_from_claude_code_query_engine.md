@@ -1,6 +1,6 @@
 ---
 title: "Learn From Claude Code: Query Engine"
-description: The query engine isn't a state machine for academic reasons. It's a recovery coordinator - every continue handles something that went wrong.
+description: Learning Claude Code's query engine by inspecting its leaked source code.
 cover: media/covers/learn-from-claude-code-cover.svg
 tags:
   - agent
@@ -13,6 +13,8 @@ last-updated-date: 2026-04-05T18:03:13-04:00
 Claude Code's source code leaked. Setting aside the surveillance concerns and inevitable spaghetti of any real codebase, it's a genuinely well-designed harness.
 
 I've been digging through it, picking out patterns worth understanding. This is one of them: the Query Engine - and why "state machine" misses the point.
+
+Other posts in this series: [App State](blog/by/developer/learn_from_claude_code_app_state_machine.md), [Tool System](blog/by/developer/learn_from_claude_code_tool_system.md), [Permission System](blog/by/developer/learn_from_claude_code_permission_system.md), [Memory](blog/by/developer/learn_from_claude_code_memory.md), [Context Compaction](blog/by/developer/learn_from_claude_code_context_compaction.md), [MCP Integration](blog/by/developer/learn_from_claude_code_mcp_integration.md), [Multi-Agent](blog/by/developer/learn_from_claude_code_multi_agent.md), [Agent Spawning](blog/by/developer/learn_from_claude_code_agent_spawning.md).
 
 ## The Problem
 
@@ -34,7 +36,7 @@ A hundred lines. The amazing agent loop with some retry logic, done.
 
 Then production shows up. Streaming (don't buffer). Thinking blocks (preserve for trajectory). Context limits (compact or fail). Output limits (escalate or nudge). Rate limits (backoff and retry). Budget tracking (don't exceed).
 
-The simple loop becomes a **recovery coordinator** - not because someone wanted a state machine, but because every production failure mode needs a specific recovery strategy.
+The simple loop becomes a **recovery coordinator** - not because someone wanted a state machine, but because every production failure mode needs a specific recovery strategy. The [App State](blog/by/developer/learn_from_claude_code_app_state_machine.md) stores the recovery counters, and [context compaction](blog/by/developer/learn_from_claude_code_context_compaction.md) handles the actual context reduction.
 
 ## State Machine for Failure Recovery
 
@@ -180,6 +182,6 @@ messagesForQuery = stripSignatureBlocks(messagesForQuery)
 
 ## Brief
 
-The simple agent loop is the happy path only. Real harnesses don't emerge from a simple loop. The agent goes south instantly when errors are not handled properly.
+The [tool system](blog/by/developer/learn_from_claude_code_tool_system.md) provides the tools the loop calls. The simple agent loop is the happy path only. Real harnesses don't emerge from a simple loop. The agent goes south instantly when errors are not handled properly.
 
-By hiding unnecessary detail from the model and whispering guidance through meta messages, the agent is able to keep running in its lane for longer. Not saying Claude Code is perfect, but it does tell a good story of providing resilience through controlled opacity.
+By hiding unnecessary detail from the model and whispering guidance through meta messages, the agent is able to keep running in its lane for longer. Every [agent architecture](blog/by/developer/understand_openclaw_by_building_one_2.md#Every%20Agent%20Starts%20as%20a%20Loop) starts with this loop — Claude Code just adds more recovery handles. Not saying Claude Code is perfect, but it does tell a good story of providing resilience through controlled opacity.

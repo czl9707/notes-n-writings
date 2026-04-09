@@ -1,6 +1,6 @@
 ---
 title: "Learn From Claude Code: App State Machine"
-description: The nervous system that coordinates permissions, tasks, agents, MCP, plugins, and speculation. One store to coordinate the AI harness.
+description: Learning Claude Code's App State by inspecting its leaked source code.
 cover: media/covers/learn-from-claude-code-cover.svg
 tags:
   - agent
@@ -14,22 +14,24 @@ Claude Code's source code leaked. Setting aside the surveillance concerns, it's 
 
 I've been digging through it. This is one of the key patterns: App State - the nervous system that coordinates every subsystem.
 
+Other posts in this series: [Query Engine](blog/by/developer/learn_from_claude_code_query_engine.md), [Tool System](blog/by/developer/learn_from_claude_code_tool_system.md), [Permission System](blog/by/developer/learn_from_claude_code_permission_system.md), [Memory](blog/by/developer/learn_from_claude_code_memory.md), [Context Compaction](blog/by/developer/learn_from_claude_code_context_compaction.md), [MCP Integration](blog/by/developer/learn_from_claude_code_mcp_integration.md), [Multi-Agent](blog/by/developer/learn_from_claude_code_multi_agent.md), [Agent Spawning](blog/by/developer/learn_from_claude_code_agent_spawning.md).
+
 ## The Architecture
 
-If the query engine is the hand that executes, App State is the nervous system that coordinates.
+If the [query engine](blog/by/developer/learn_from_claude_code_query_engine.md) is the hand that executes, App State is the nervous system that coordinates.
 
 The query engine runs the conversation loop: receive message, think, call tools, respond. It's the execution engine. But it doesn't own the state. It reads from and writes to the App State, which coordinates different pieces within the application:
 
-- **Permission system** - What's allowed
-- **Task orchestration** - What's running
-- **Multi-agent coordination** - What agents exist
-- **MCP integration** - What external tools are available
+- **Permission system** - What's allowed ([Permission System](blog/by/developer/learn_from_claude_code_permission_system.md))
+- **Task orchestration** - What's running ([Agent Spawning](blog/by/developer/learn_from_claude_code_agent_spawning.md))
+- **Multi-agent coordination** - What agents exist ([Multi-Agent](blog/by/developer/learn_from_claude_code_multi_agent.md))
+- **MCP integration** - What external tools are available ([MCP Integration](blog/by/developer/learn_from_claude_code_mcp_integration.md))
 - **Plugin sandboxing** - What code is loaded
 - **Bridge/remote sessions** - Cross-process sync
 - **Speculation engine** - Predictive execution
 - And etc.
 
-This separation of concerns is the key insight. The query engine focuses on execution. The App State focuses on coordination. They don't import each other - they connect through callbacks.
+This separation of concerns is the key insight. The query engine focuses on execution. The App State focuses on coordination. They don't import each other — they connect through callbacks, a textbook case of [Inverse of Control](note/by/developer/Inverse_of_control.md).
 
 ## Simple Store
 
@@ -64,13 +66,13 @@ export function createStore<T>(initialState: T, onChange?: OnChange<T>): Store<T
 }
 ```
 
-This simplicity is the feature. Every state change flows through `setState`. Every change triggers `onChange`. Every subscriber gets notified. One path for all state mutations.
+This simplicity is the feature. Every state change flows through `setState`. Every change triggers `onChange`. Every subscriber gets notified. One path for all state mutations. If this looks familiar, it's the [Observer pattern](note/by/developer/object_oriented_design_patterns.md) distilled to its essence — a single subject broadcasting to subscribed listeners.
 
 ## The State Inventory
 
 The store holds 100+ fields. They cluster into specific categories, each solving a specific harness problem.
 
-### Permission System
+### [Permission System](blog/by/developer/learn_from_claude_code_permission_system.md)
 
 ```typescript
 toolPermissionContext: {
@@ -100,7 +102,7 @@ if (prevMode !== newMode) {
 
 Every tool checks this context before executing. The query engine doesn't decide permissions - it reads from the store. This makes permission logic consistent across all execution paths.
 
-### Task Orchestration
+### [Task Orchestration](blog/by/developer/learn_from_claude_code_agent_spawning.md)
 
 ```typescript
 tasks: { [taskId: string]: TaskState }
@@ -111,7 +113,7 @@ agentNameRegistry: Map<string, AgentId>
 
 When an AI spawns background tasks (Agent tool calls, teammates, workflows), this tracks them. The `foregroundedTaskId` determines which task's messages show in the main view. The `viewingAgentTaskId` handles the teammate UI. The `agentNameRegistry` enables `SendMessage` to route by name.
 
-### Multi-Agent Coordination
+### [Multi-Agent Coordination](blog/by/developer/learn_from_claude_code_multi_agent.md)
 
 ```typescript
 teamContext?: {
@@ -146,7 +148,7 @@ pendingSandboxRequest: { requestId, host } | null
 
 Swarm mode (teammates in separate processes) needs this. Each teammate has its own state, but the leader tracks all of them. When a worker needs network access, it requests permission from the leader via `workerSandboxPermissions.queue`. The leader's UI shows the approval dialog. The worker's UI shows `pendingWorkerRequest` while waiting.
 
-### MCP Integration
+### [MCP Integration](blog/by/developer/learn_from_claude_code_mcp_integration.md)
 
 ```typescript
 mcp: {
@@ -205,6 +207,8 @@ App State manages global state. Local states are delegated to other services/com
 ## Brief
 
 The query engine is the hand - it executes. App State is the nervous system - it coordinates.
+
+This is also where the [tool system](blog/by/developer/learn_from_claude_code_tool_system.md) registers its tools and the [memory system](blog/by/developer/learn_from_claude_code_memory.md) stores its state.
 
 To be honest, the app state pattern is not specific to AI agent. This separation of concerns prevents spaghetti architecture, which applies to broader scope of software. Every subsystem connects to App State, not to each other.
 

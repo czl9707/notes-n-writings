@@ -1,28 +1,30 @@
 ---
 title: "Learn From Claude Code: Tool System"
-description: Claude Code has 45+ tools. OpenClaw preached minimal tools. Both work. What does that tell us?
+description: Learning Claude Code's tool system by inspecting its leaked source code.
 cover: media/covers/learn-from-claude-code-cover.svg
 tags:
   - agent
   - ai
 featured: false
 created-date: 2026-04-02T00:00:00-04:00
-last-updated-date: 2026-04-05T21:13:37-04:00
+last-updated-date: 2026-04-08T23:01:16-04:00
 ---
 
 Claude Code's source code leaked. Setting aside the surveillance concerns and the inevitable spaghetti of any real codebase, it's a genuinely well-designed harness.
 
 I've been digging through it, picking out patterns worth understanding. This is one of them: the tool system that makes every capability pluggable.
 
+Other posts in this series: [App State](blog/by/developer/learn_from_claude_code_app_state_machine.md), [Query Engine](blog/by/developer/learn_from_claude_code_query_engine.md), [Permission System](blog/by/developer/learn_from_claude_code_permission_system.md), [Memory](blog/by/developer/learn_from_claude_code_memory.md), [Context Compaction](blog/by/developer/learn_from_claude_code_context_compaction.md), [MCP Integration](blog/by/developer/learn_from_claude_code_mcp_integration.md), [Multi-Agent](blog/by/developer/learn_from_claude_code_multi_agent.md), [Agent Spawning](blog/by/developer/learn_from_claude_code_agent_spawning.md).
+
 ## The Tool Count Paradox
 
-When **OpenClaw** went viral, everyone talked about Pi theory and "minimal tools design" - the idea that autonomous agents should have as few tools as possible to reduce complexity and failure modes.
+When **OpenClaw** went viral ([Understand OpenClaw by Building One](blog/by/developer/understand_openclaw_by_building_one_2.md)), everyone talked about Pi theory and "minimal tools design" - the idea that autonomous agents should have as few tools as possible to reduce complexity and failure modes.
 
 Claude Code ships with **45+ built-in tools**.
 
 And it works. Really well.
 
-This doesn't disprove minimal tools theory. But it complicates the narrative. If OpenClaw's philosophy is correct, Claude Code should be a mess. It isn't. So what's going on?
+This doesn't disprove minimal tools theory. OpenClaw's [minimal tools approach](blog/by/developer/understand_openclaw_by_building_one_1.md) and Claude Code's maximal approach both work. The difference is in the [permission system](blog/by/developer/learn_from_claude_code_permission_system.md) guardrails. But it complicates the narrative. If OpenClaw's philosophy is correct, Claude Code should be a mess. It isn't. So what's going on?
 
 We don't know the true reason for Claude Code's design - we're reading leaked code, not talking to designers. But we can observe what's there.
 
@@ -107,7 +109,7 @@ export function mergeAndFilterTools(
 }
 ```
 
-The real number won't be 45, but still a relatively large number compared to the 4 tools mentioned in OpenClaw and Pi theory.
+The real number won't be 45, but still a relatively large number compared to the 4 tools mentioned in [OpenClaw and Pi theory](blog/by/developer/understand_openclaw_by_building_one_1.md).
 
 ## The Tool Has a Fat Interface
 
@@ -184,7 +186,7 @@ export function buildTool<D extends AnyToolDef>(def: D): BuiltTool<D> {
 }
 ```
 
-### Permission Layers
+### [Permission Layers](blog/by/developer/learn_from_claude_code_permission_system.md)
 
 Tools have permission layers built as part of the interface.
 

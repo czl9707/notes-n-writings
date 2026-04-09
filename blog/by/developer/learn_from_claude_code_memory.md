@@ -12,6 +12,8 @@ Claude Code's source code leaked. Setting aside the surveillance concerns and th
 
 I've been digging through it, picking out patterns worth understanding. This is one of them: how it handles memory.
 
+Other posts in this series: [App State](blog/by/developer/learn_from_claude_code_app_state_machine.md), [Query Engine](blog/by/developer/learn_from_claude_code_query_engine.md), [Tool System](blog/by/developer/learn_from_claude_code_tool_system.md), [Permission System](blog/by/developer/learn_from_claude_code_permission_system.md), [Context Compaction](blog/by/developer/learn_from_claude_code_context_compaction.md), [MCP Integration](blog/by/developer/learn_from_claude_code_mcp_integration.md), [Multi-Agent](blog/by/developer/learn_from_claude_code_multi_agent.md), [Agent Spawning](blog/by/developer/learn_from_claude_code_agent_spawning.md).
+
 ## The Problem
 
 Every agent hits this wall. Every time starting a new session, you need to re-explain preferences, re-discover conventions, re-learn the codebase. Claude Code solves this with a **persistent memory system** that survives across sessions.
@@ -139,7 +141,7 @@ The memory system has two key operations: **extraction**, and **recall**.
 
 ### Extraction
 
-Claude Code automatically extracts memories using a **forked agent pattern**. It is invoked at the end of query loop.
+Claude Code automatically extracts memories using a [forked agent pattern](blog/by/developer/learn_from_claude_code_agent_spawning.md). It is invoked at the end of the [query loop](blog/by/developer/learn_from_claude_code_query_engine.md).
 
 ```typescript
 async function runExtraction({ context }) {
@@ -287,6 +289,8 @@ A memory that names a specific function, file, or flag is a claim that it existe
 ```
 
 ## Brief
+
+Memory is one of those things that every [agent architecture](blog/by/developer/understand_openclaw_by_building_one_2.md) needs to figure out — OpenClaw took a different approach to [long-term knowledge](blog/by/developer/understand_openclaw_by_building_one_2.md#Memory%3A%20Long-Term%20Knowledge), but the problem is universal.
 
 The code is not that complicated, and so is the file structure. But the harness comes with **prompts** that are impressive. Key takeaways:
 
