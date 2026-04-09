@@ -5,9 +5,9 @@ cover: media/covers/learn-from-claude-code-cover.svg
 tags:
   - agent
   - ai
-featured: true
+featured: false
 created-date: 2026-04-01T19:21:36-04:00
-last-updated-date: 2026-04-01T21:22:47-04:00
+last-updated-date: 2026-04-08T22:16:24-04:00
 ---
 
 Claude Code's source code leaked. Setting aside the surveillance concerns and the inevitable spaghetti of any real codebase, it's a genuinely well-designed harness.

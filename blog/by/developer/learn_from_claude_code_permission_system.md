@@ -2,10 +2,12 @@
 title: "Learn From Claude Code: Permission System"
 description: Learning Claude Code's multi-layer permission architecture by inspecting its leaked source code.
 cover: media/covers/learn-from-claude-code-cover.svg
-tags: [agent, ai]
-featured: true
+tags:
+  - agent
+  - ai
+featured: false
 created-date: 2026-04-02T00:00:00-04:00
-last-updated-date: 2026-04-03T19:02:50-04:00
+last-updated-date: 2026-04-08T22:16:18-04:00
 ---
 
 Claude Code's source code leaked. Setting aside the surveillance concerns and inevitable spaghetti of any real codebase, it's a genuinely well-designed harness.

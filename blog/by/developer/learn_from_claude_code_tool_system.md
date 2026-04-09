@@ -7,7 +7,7 @@ tags:
   - ai
 featured: false
 created-date: 2026-04-02T00:00:00-04:00
-last-updated-date: 2026-04-05T21:08:59-04:00
+last-updated-date: 2026-04-05T21:13:37-04:00
 ---
 
 Claude Code's source code leaked. Setting aside the surveillance concerns and the inevitable spaghetti of any real codebase, it's a genuinely well-designed harness.
