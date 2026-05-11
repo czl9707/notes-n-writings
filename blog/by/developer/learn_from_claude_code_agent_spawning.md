@@ -2,10 +2,12 @@
 title: "Learn From Claude Code: Agent Spawning"
 description: Learning Claude Code's agent spawning by inspecting its leaked source code.
 cover: media/covers/learn-from-claude-code-cover.svg
-tags: [agent, ai]
-featured: true
+tags:
+  - agent
+  - ai
+featured: false
 created-date: 2026-04-07T00:00:00-04:00
-last-updated-date: 2026-04-09T07:45:16-04:00
+last-updated-date: 2026-05-11T19:26:07-04:00
 ---
 
 Claude Code's source code leaked. Setting aside the surveillance concerns and inevitable spaghetti of any real codebase, it's a genuinely well-designed harness.

@@ -5,9 +5,9 @@ cover: media/covers/beyond-buzz-word-cover.svg
 tags:
   - agent
   - ai
-featured: true
+featured: false
 created-date: 2026-01-09T22:03:16-05:00
-last-updated-date: 2026-03-15T23:06:32-04:00
+last-updated-date: 2026-05-11T19:26:32-04:00
 ---
 
 Wake up in 2026, open a coding assistant, and you're jumping into a terminology soup: *Agents, Subagents, Prompts, Contexts, Memory, Modes, Permissions, Tools, Plugins, Skills, Hooks, MCP, LSP, Slash Commands, Workflows, Instructions and etc.*
