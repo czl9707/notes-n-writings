@@ -22,7 +22,7 @@ A **SQL (relational) database** is a collection of data entries with predefined 
 - **Key-Value Database**: A simple database that stores data as a collection of key-value pairs, where each key is unique and maps to a specific value. Examples include **Redis** and **Amazon DynamoDB**.
 - **Column Database**: Stores data in columns rather than rows, which can be highly efficient for analytical queries and data warehousing. Examples include Apache Cassandra and Google Bigtable.
 - **Graph Database**: Uses graph structures with nodes, edges, and properties to represent and store data, ideal for highly interconnected data. Examples include **Neo4j**.
-- **Vector Database**: Designed to store, manage, and search high-dimensional vector embeddings, often used in AI applications for [semantic search](note/by/developer/natural_language_processing.md#Language%20Tasks) or [RAG](note/by/developer/drafts/retrieval_augmented_generation.md). Examples include **Pinecone** and **Weaviate**.
+- **Vector Database**: Designed to store, manage, and search high-dimensional vector embeddings, often used in AI applications for [semantic search](note/by/developer/natural_language_processing.md#Language%20Tasks) or [RAG](note/by/developer/retrieval_augmented_generation.md). Examples include **Pinecone** and **Weaviate**.
 
 ## ACID Principle
 
