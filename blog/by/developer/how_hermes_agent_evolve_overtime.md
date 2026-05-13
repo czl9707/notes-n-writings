@@ -1,27 +1,29 @@
 ---
-title: "How Hermes-Agent Evolves Over Time"
+title: How Hermes-Agent Evolves Over Time
 description: Hermes-Agent claims to be "the agent that grows with you". It's not marketing — it's three counters, a background fork, and a 100-line prompt.
-cover: media/covers/learn-from-claude-code-cover.svg
-tags: [agent, ai]
-featured: false
+cover: media/covers/how-hermes-agent-evolve-cover.svg
+tags:
+  - agent
+  - ai
+featured: true
 created-date: 2026-05-13T00:00:00-04:00
-last-updated-date: 2026-05-13T18:43:17-04:00
+last-updated-date: 2026-05-13T19:23:03-04:00
 ---
 
 > [Openclaw](blog/by/developer/understand_openclaw_by_building_one_1.md) proved that agents can do things, Hermes Agent proved that agents can remember and learn.
 > -- Someone from Internet
 
-I heard about this when [Hermes-Agent](https://github.com/NousResearch/hermes-agent) started gaining its momentum, but never looked into that. At the face, Hermes-Agent creates, patches skills as our conversation going.
+I heard about this when [Hermes-Agent](https://github.com/NousResearch/hermes-agent) started gaining its momentum, but never looked into that. On its face, Hermes-Agent creates, patches skills as the conversation goes.
 
-At the last day of my vacation, I decided to open its codebase and take a look how this is achieved.
+On the last day of my vacation, I decided to open its codebase and take a look at how this is achieved.
 
-## Where Skill Are Created?
+## Where Are Skills Created?
 
-This blog assume some knowledge about the basic components of an AI agent. If not, consider reading [my earlier blog](blog/by/developer/understand_openclaw_by_building_one_1.md) and its [corresponding project](https://github.com/czl9707/build-your-own-openclaw) to grab some key aspects about it.
+This blog assumes some knowledge about the basic components of an AI agent. If not, consider reading [my earlier blog](blog/by/developer/understand_openclaw_by_building_one_1.md) and its [corresponding project](https://github.com/czl9707/build-your-own-openclaw) to grab some key aspects about it.
 
-If you even used Hermes-Agent, you will noticed skill got created while chatting with the agent.
+If you've ever used Hermes-Agent, you may have noticed skill got created while chatting with the agent.
 
-My first guess is that there is a tool registered for skill creation, or the skill toolset have some magic system prompt. But turns out, skills are created **as part of chat loop** gated by indicator.
+My first guess is that there is a tool registered for skill creation, or the skill toolset has some magic system prompt. But turns out, skills are created **as part of chat loop** gated by a counter.
 
 ```python
 # run_agent.py
@@ -46,11 +48,11 @@ class AIAgent:
 				pass
 ```
 
-basically it is saying at the end of the chat loop, every N iteration, review the conversation and update skills. And as you might already noticed, **memory update follow the same pattern**.
+basically it is saying at the end of the chat loop, every N iteration, review the conversation and update skills. And as you might already noticed, **memory updates follow the same pattern**.
 
-## How Skill Are Created?
+## How Are Skills Created?
 
-Short answer is [forked agent](blog/by/developer/learn_from_claude_code_agent_spawning.md#Fork%20Mode) similar to what Claude Code have, although I don't who implemented this first.
+Short answer is [forked agent](blog/by/developer/learn_from_claude_code_agent_spawning.md#Fork%20Mode) similar to what Claude Code have, although I don't know who implemented this first.
 
 ``` python
 def _spawn_background_review(
@@ -93,7 +95,7 @@ def _spawn_background_review(
 1. **Restricted toolset.** The review agent can only use `memory` and `skills` tools.
 2. **Provenance tag.** `_memory_write_origin = "background_review"` is a `ContextVar` that flows through every tool call. Which tells the `skill_manage` tool to mark the created skill as agent-owned.
 
-And the prompt is huge, so I will only pick essential pieces out and paste here:
+And the prompt is huge, so I'll only pull out the essential pieces:
 
  ``` markdown
 Review the conversation above and update the skill library. Be ACTIVE — most sessions produce at least one skill update, even if small. A pass that does nothing is a missed learning opportunity, not a neutral outcome.
@@ -115,7 +117,7 @@ Preference order — prefer the earliest action that fits, but do pick one when 
 
 ## Who Created This Skill?
 
-Skill users asked to create is fundamentally different from the skill grow from background review. The provenance system distinguishes that.
+Skills the user asked to create are fundamentally different from skills that grow from background review. The provenance system distinguishes that.
 
 ```python
 # tools/skill_provenance.py
@@ -135,11 +137,11 @@ if is_background_review():
 	mark_agent_created(name)
 ```
 
-Two provenance classes, `background_review` ones are agent owned, other wise user-owned.
+Two provenance classes, `background_review` ones are agent owned, otherwise user-owned.
 
-## What if it is a Bad Skill.
+## What If It's a Bad Skill?
 
-The skill library will bloated within blink, and skills created through background review is not necessarily ones user really need. The **curator** is a separate idle-triggered background task managing this, some what like a garbage collector for skills.
+The skill library will bloat in the blink of an eye, and skills created through background review are not necessarily ones the user really needs. The **curator** is a separate idle-triggered background task managing this, somewhat like a garbage collector for skills.
 
 ```python
 # agent/curator.py
@@ -159,8 +161,8 @@ active → stale (30 days no activity) → archived (90 days)
 
 Hermes-Agent also has a trajectory system. `trajectory_compressor.py` and the `save_trajectories` flag collect conversation traces, compress them within token budgets, and output JSONL files for RL fine-tuning via Tinker-Atropos.
 
-I did not plan to talk about the trajectory system here though, but it worth mention that it is the *other* evolution path. Model improvement through training data. It's orthogonal to the skill system. One happens at the model level, the other at the harness level.
+I did not plan to talk about the trajectory system here though, but it's worth mentioning that it is the *other* evolution path. Model improvement through training data. It's orthogonal to the skill system. One happens at the model level, the other at the harness level.
 
 ## Brief
 
-Every few turn in the chat loop, the agent will fork itself to review past conversion and decide to add or patch any skills as a background job. The skill created at background is marked as "agent owned", and a curator system review managing them at off-peak hour, mark some of them active, stale, or archive them.
+Every few turns in the chat loop, the agent will fork itself to review past conversations and decide to add or patch any skills as a background job. The skill created at background is marked as "agent owned", and a curator system reviews and manages them during off-peak hours, marking some of them active, stale, or archived.

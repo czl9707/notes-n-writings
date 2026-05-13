@@ -2,12 +2,10 @@
 title: Convincing Myself to "Vibe Code"
 description: To vibe or not to vibe, that's the question. Draw the line between throwaway AI vibe coded prototypes and sustainable software engineering without losing your edge.
 cover: media/covers/convincing-me-vibe-coding-cover.svg
-tags:
-  - ai
-  - machine-learning
+tags: [ai, machine-learning]
 featured: false
 created-date: 2025-12-23T12:05:52-05:00
-last-updated-date: 2026-04-01T21:44:11-04:00
+last-updated-date: 2026-05-13T19:24:37-04:00
 ---
 
 For a long time, I held a firm line: **I would never give AI a task I didn't already know how to accomplish myself.** I viewed myself as the final gatekeeper of logic, the one who understood every gear and spring in the machine. If I didn't understand the "how," I couldn't own the "why."
