@@ -34,4 +34,4 @@ views:
       - property: file.name
         direction: ASC
     columnSize:
-      formula.Name: 201
+      formula.Name: 171
