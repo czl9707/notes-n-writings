@@ -7,7 +7,7 @@ tags:
   - ai
 featured: true
 created-date: 2026-05-13T00:00:00-04:00
-last-updated-date: 2026-05-13T19:23:03-04:00
+last-updated-date: 2026-05-13T19:25:02-04:00
 ---
 
 > [Openclaw](blog/by/developer/understand_openclaw_by_building_one_1.md) proved that agents can do things, Hermes Agent proved that agents can remember and learn.
