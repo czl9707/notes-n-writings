@@ -5,7 +5,7 @@ cover: media/covers/learn-from-claude-code-cover.svg
 tags: [agent, ai]
 featured: true
 created-date: 2026-04-02T00:00:00-04:00
-last-updated-date: 2026-04-05T18:50:15-04:00
+last-updated-date: 2026-05-27T21:32:20-04:00
 ---
 
 Claude Code's source code leaked. Setting aside the surveillance concerns and inevitable spaghetti of any real codebase, it's a genuinely well-designed harness.
@@ -166,7 +166,7 @@ type FailedMCPServer = {
 
 One server fails, others keep working.
 
-## ## Brief - MCP is Dying
+## Brief - MCP is Dying
 
 The `MCP_SKILLS` feature flag tells the story — echoing the [skills approach](blog/by/developer/understand_openclaw_by_building_one_2.md#Skills%20-%20Dynamic%20Capabilities%20Loading) OpenClaw explored. Anthropic built MCP. A year later, even the creator is moving away from MCP to skills system.
 
