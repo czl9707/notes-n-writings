@@ -2,14 +2,14 @@
 title: Attention Mechanism
 tags: [machine-learning]
 created-date: 2025-09-09T21:21:05-04:00
-last-updated-date: 2026-01-29T08:32:25-05:00
+last-updated-date: 2026-08-02T15:59:01-04:00
 ---
 
 The attention mechanism is built on a simple principle: using the **dot product** between vectors to measure similarity. In a neural network, this allows the model to "focus" on the most relevant parts of the input sequence when processing data.
 
 ## Self Attention
 
-As the name implies, self-attention involves calculating the relationship between a sequence and itself. It allows each token in a sentence to look at every other token to better understand its own context.
+As the name implies, self-attention uses matrix multiplication of a sequence **against itself** to gather features, each token attends to every other token (including itself) to enrich its own representation with surrounding context.
 
 ### QKV Self Attention
 
